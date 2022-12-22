@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/components/alert_dialog.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/registerview.dart';
 import '../base/widget_base.dart';
@@ -68,63 +69,73 @@ class _rolesPageState extends BaseState<rolesPage> {
                           (MediaQuery.of(context).size.height / 1.5)),
                   itemCount: mafias.length,
                   itemBuilder: (BuildContext ctx, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                        ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          SizedBox(
-                            height: 30,
+                    return GestureDetector(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: ((context) {
+                              return DescribeOfRoles(
+                                  header: mafias[index].GetName, explanation: mafias[index].GetRoleDefiniton);
+                            }));
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Theme.of(context).primaryColor,
                           ),
-                          Text(mafias[index].GetName),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 15,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    mafias[index].decrase();
-                                  });
-                                },
-                                child: Text(
-                                  "-",
-                                  style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Text(mafias[index].GetName),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 15,
                                 ),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text(mafias[index].Getcount.toString()),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    mafias[index].increment();
-                                  });
-                                },
-                                child: Text(
-                                  "+",
-                                  style: TextStyle(
-                                      color: Theme.of(context).primaryColor,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      mafias[index].decrase();
+                                    });
+                                  },
+                                  child: Text(
+                                    "-",
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
-                              )
-                            ],
-                          )
-                        ],
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(mafias[index].Getcount.toString()),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      mafias[index].increment();
+                                    });
+                                  },
+                                  child: Text(
+                                    "+",
+                                    style: TextStyle(
+                                        color: Theme.of(context).primaryColor,
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     );
                   }),

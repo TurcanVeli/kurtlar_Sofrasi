@@ -3,15 +3,13 @@ import 'package:kurtlar/frontend/pages/registerview.dart';
 
 // NAVIGATION SU ANLIK REGISTER SAYFASINI GOSTERIYOR DEGISTIRILECEK
 
-class alertDialog extends StatelessWidget {
-  alertDialog(
+class DescribeOfRoles extends StatelessWidget {
+  DescribeOfRoles(
       {super.key,
       required this.header,
-      required this.explanation,
-      required this.where});
+      required this.explanation});
   String header;
   String explanation;
-  Widget where;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

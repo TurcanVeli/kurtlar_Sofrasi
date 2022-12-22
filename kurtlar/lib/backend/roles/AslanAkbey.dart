@@ -40,4 +40,15 @@ class AslanAkbey extends Role {
   @override
   // TODO: implement Getcount
   int get Getcount => count;
+  void increment() {
+    if (count == 0) {
+      count++;
+    }
+  }
+
+  void decrase() {
+    if (count == 1) {
+      count--;
+    }
+  }
 }
