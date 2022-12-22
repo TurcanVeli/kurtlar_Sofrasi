@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
+import 'package:kurtlar/frontend/pages/roles_view.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
 }
-
+//flutter run --no-sound-null-safety
 class MyApp extends StatelessWidget {
   //MyApp({super.key});
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme:
           ThemeData(primarySwatch: Colors.blue, backgroundColor: Colors.black),
-      home: Home(),
+      home: rolesPage(),
     );
   }
 }

@@ -12,48 +12,72 @@ class _rolesPageState extends State<rolesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Karakter Seçme"),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Row(
+      appBar: AppBar(
+        title: Text("Karakter Seçme"),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              color: Colors.red,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     child: Center(
                       child: Text("DERİN DEVLET"),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/images/bullet2.png',
-                      fit: BoxFit.cover,
-                    ),
-                  )
+                  SizedBox(
+                    width: 150,
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text("ekle"),
+                  ),
                 ],
               ),
-              GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                      maxCrossAxisExtent: 200,
-                      childAspectRatio: 3 / 6,
-                      crossAxisSpacing: 20,
-                      mainAxisSpacing: 20),
+            ),
+            Container(
+              height: 100,
+              child: GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: NeverScrollableScrollPhysics(),
+                  primary: true,
+                  shrinkWrap: true,
+                  addAutomaticKeepAlives: true,
+                  padding: EdgeInsets.all(0),
+                  gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 2,
+                      crossAxisSpacing: 3,
+                      crossAxisCount: 4,
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 1.5)),
                   itemCount: mafias.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return Container(
-                      child: Column(children: [Text(mafias[index].)],),
+                      color: Colors.amber,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 45,
+                          ),
+                          Text(mafias[index].GetName)
+                        ],
+                      ),
                     );
                   }),
-              Container(
-                child: Center(
-                  child: Text("MAFYA"),
-                ),
-              ),
-              GridView.count(crossAxisCount: 3)
-            ],
-          ),
-        ));
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              child: Text("MAFYA"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

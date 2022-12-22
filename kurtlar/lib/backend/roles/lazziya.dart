@@ -9,7 +9,9 @@ class LazZiya extends Role {
   int remainingMission = 1;
   final int countOfVote = 1;
   bool muted = false;
-  LazZiya();
+  LazZiya() {
+    print("oluştu");
+  }
   //ToDo Laz Zİyamızın görevi
 
   @override

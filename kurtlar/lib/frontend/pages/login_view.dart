@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:kurtlar/frontend/pages/registerview.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 
 // kurtlar register ve I am button //
-=======
-import '../pages/resgister_view.dart';
-import '../components/button.dart';
->>>>>>> 8115496a0a7a63e4c4412cbdd6907d4f23f92d8e
 
 void main() {
   runApp(const MyApp());
@@ -74,14 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderSide: BorderSide(color: Colors.white, width: 2.0))),
           ),
           const SizedBox(height: 25),
-<<<<<<< HEAD
           Button(buttonText: 'LOG IN', where: registerPage()),
-=======
-          Button(
-              buttonText: 'LOG IN',
-              where: registerPage()), //where kalakcak buradan
-
->>>>>>> 8115496a0a7a63e4c4412cbdd6907d4f23f92d8e
           const SizedBox(height: 15),
           const Text(
             '-------------- OR --------------',
@@ -89,14 +77,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 15),
 
-<<<<<<< HEAD
           Button(buttonText: 'SIGN UP', where: registerPage())
-=======
-          Button(
-            buttonText: 'SIGN UP',
-            where: registerPage(),
-          )
->>>>>>> 8115496a0a7a63e4c4412cbdd6907d4f23f92d8e
         ]),
       ),
     );

@@ -4,10 +4,8 @@ import 'package:kurtlar/backend/roles/polat.dart';
 
 import '../../backend/roles/BaseRole.dart';
 
-final LazZiya laz = LazZiya();
-
-const List mafias = [
-  nizamettin,LazZiya
-];
-const List goverment = [Polat];
-
+LazZiya laz = LazZiya();
+nizamettin niz = nizamettin();
+Polat polat = Polat();
+List mafias = [laz, niz];
+List goverment = [polat];

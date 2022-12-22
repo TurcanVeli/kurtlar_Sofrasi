@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD:kurtlar/lib/frontend/pages/registerview.dart
 import 'package:kurtlar/frontend/components/button.dart';
-=======
-import '../components/button.dart';
->>>>>>> 8115496a0a7a63e4c4412cbdd6907d4f23f92d8e:kurtlar/lib/frontend/pages/resgister_view.dart
 import 'package:kurtlar/main.dart';
 
 class registerPage extends StatelessWidget {
