@@ -1,10 +1,13 @@
 // basliyor sayfasi
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
+
+class starting extends StatelessWidget {
+  const starting({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -71,39 +74,8 @@ void main() {
                 ),
               ),
             )),
-      ),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required Scaffold home, required Image body})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      home: SettingPageUI(),
-    );
+      );
   }
 }
 
-class SettingPageUI extends StatefulWidget {
-  const SettingPageUI({Key? key}) : super(key: key);
-  @override
-  State<SettingPageUI> createState() => _SettingPageUIState();
-}
 
-class _SettingPageUIState extends State<SettingPageUI> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.arrow_back,
-                ))));
-  }
-}
