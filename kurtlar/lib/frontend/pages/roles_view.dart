@@ -20,11 +20,15 @@ class _rolesPageState extends State<rolesPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
-              color: Colors.red,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
+                    width: 110,
+                    decoration: BoxDecoration(
+                      color: Colors.blue.shade400,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: Center(
                       child: Text("DERİN DEVLET"),
                     ),
@@ -39,11 +43,13 @@ class _rolesPageState extends State<rolesPage> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 40,
+            ),
             Container(
-              height: 100,
+              height: 300,
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
-                  physics: NeverScrollableScrollPhysics(),
                   primary: true,
                   shrinkWrap: true,
                   addAutomaticKeepAlives: true,
@@ -57,13 +63,53 @@ class _rolesPageState extends State<rolesPage> {
                   itemCount: mafias.length,
                   itemBuilder: (BuildContext ctx, index) {
                     return Container(
-                      color: Colors.amber,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        border: Border.all(color: Colors.blueAccent),
+                      ),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           SizedBox(
-                            height: 45,
+                            height: 30,
                           ),
-                          Text(mafias[index].GetName)
+                          Text(mafias[index].GetName),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 15,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  print("sdf");
+                                },
+                                child: Text(
+                                  "-",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text("1"),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Text(
+                                  "+",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          )
                         ],
                       ),
                     );
@@ -73,8 +119,84 @@ class _rolesPageState extends State<rolesPage> {
               height: 20,
             ),
             Container(
-              child: Text("MAFYA"),
+              width: 110,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade400,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Center(child: Text("MAFYA")),
             ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 400,
+              child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  primary: true,
+                  shrinkWrap: true,
+                  addAutomaticKeepAlives: true,
+                  padding: EdgeInsets.all(0),
+                  gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 2,
+                      crossAxisSpacing: 3,
+                      crossAxisCount: 4,
+                      childAspectRatio: MediaQuery.of(context).size.width /
+                          (MediaQuery.of(context).size.height / 1.5)),
+                  itemCount: goverment.length,
+                  itemBuilder: (BuildContext ctx, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blueAccent),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Text(goverment[index].GetName),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: 15,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  
+                                },
+                                child: Text(
+                                  "-",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              Text("1"),
+                              SizedBox(
+                                width: 15,
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: Text(
+                                  "+",
+                                  style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    );
+                  }),
+            )
           ],
         ),
       ),
