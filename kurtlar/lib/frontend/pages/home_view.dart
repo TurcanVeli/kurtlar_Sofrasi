@@ -8,6 +8,17 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              
+            },
+          )
+        ],
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_ios_new_sharp,
