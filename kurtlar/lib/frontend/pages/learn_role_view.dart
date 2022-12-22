@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-class learnRole extends StatefulWidget {
+//Defalarca Retrun edecek, Her birinde Farklı bir kişiyü göstercek
+//Sırası gelen kişiyi gösterecek ve kişi objesi alacak
+
+class PrepareForRole extends StatelessWidget {
   //const learnRole({super.key});
-
-  @override
-  State<learnRole> createState() => _learnRoleState();
-}
-
-class _learnRoleState extends State<learnRole> {
+  //ToDO constructer tanıma ve kişi objesi alsın.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +15,7 @@ class _learnRoleState extends State<learnRole> {
             SizedBox(
               height: 15,
             ),
-            Image.network("sfdsaf"), // Resmi databaseden alacağız.
+            Image.network("sfdsaf"), // Resmi databaseden alacağız. Resim tıklanabilir olacak Tıklandığınd aColumun sonuna yeni bir widget dönecek.
             SizedBox(
               height: 15,
             ),
