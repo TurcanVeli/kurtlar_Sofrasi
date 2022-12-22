@@ -20,10 +20,7 @@ class alertDialog extends StatelessWidget {
       actions: [
         TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => registerPage()),
-              );
+              Navigator.pop(context);
             },
             child: Text(
               'TAMAM',
