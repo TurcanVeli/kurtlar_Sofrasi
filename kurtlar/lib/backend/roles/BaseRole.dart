@@ -9,3 +9,5 @@ abstract class Role {
   String get GetRoleDefiniton;
   bool DoMission(Players player);
 }
+
+
