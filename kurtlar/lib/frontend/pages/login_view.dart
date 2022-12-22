@@ -1,7 +1,6 @@
-iimport 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kurtlar/register.dart';
-import 'Iambutton.dart';
+import 'package:flutter/material.dart';
+import '../pages/resgister_view.dart';
+import '../components/button.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,14 +42,16 @@ class _LoginPageState extends State<LoginPage> {
           const TextField(
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.mail,
-                  color: Colors.white,
-                ),
-                hintText: 'E-mail',
-                hintStyle: TextStyle(color: Colors.white),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2.0))),
+              prefixIcon: Icon(
+                Icons.mail,
+                color: Colors.white,
+              ),
+              hintText: 'Kullanıcı Adı',
+              hintStyle: TextStyle(color: Colors.white),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Colors.white, width: 2.0),
+              ),
+            ),
           ),
           const SizedBox(height: 10),
           const TextField(
@@ -66,7 +67,10 @@ class _LoginPageState extends State<LoginPage> {
                     borderSide: BorderSide(color: Colors.white, width: 2.0))),
           ),
           const SizedBox(height: 25),
-          Button(buttonText: 'LOG IN'),
+          Button(
+              buttonText: 'LOG IN',
+              where: registerPage()), //where kalakcak buradan
+
           const SizedBox(height: 15),
           const Text(
             '-------------- OR --------------',
@@ -74,10 +78,12 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 15),
 
-          Button(buttonText: 'SIGN UP')
+          Button(
+            buttonText: 'SIGN UP',
+            where: registerPage(),
+          )
         ]),
       ),
     );
   }
 }
-

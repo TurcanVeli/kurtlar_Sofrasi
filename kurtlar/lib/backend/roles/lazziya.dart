@@ -7,11 +7,10 @@ class LazZiya extends Role {
   String _Name = "Laz Ziya";
   final String _team = "Mafya";
   int remainingMission = 1;
-  final int countOfVote  = 1;
+  final int countOfVote = 1;
   bool muted = false;
-
+  LazZiya();
   //ToDo Laz Zİyamızın görevi
- 
 
   @override
   String get GetMissionText => _MissionText;
@@ -24,20 +23,14 @@ class LazZiya extends Role {
 
   @override
   String get GetTeam => _team;
-  
 
   //Tüm oyun boyunca sürecek ve sadece bir defa kullanılabilcek
   @override
   bool DoMission(Players player) {
-    if (remainingMission != 0){
+    if (remainingMission != 0) {
       player.SetTempTeam("Mafya");
       return true;
     }
     return false;
-    
   }
-
-
-  
-
 }

@@ -34,9 +34,18 @@ class _rolesPageState extends State<rolesPage> {
                   )
                 ],
               ),
-              GridView.count(crossAxisCount: 3, children: goverment.map((e) => {
-                return Text("data");
-              }).toList()),
+              GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 200,
+                      childAspectRatio: 3 / 6,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20),
+                  itemCount: mafias.length,
+                  itemBuilder: (BuildContext ctx, index) {
+                    return Container(
+                      child: Column(children: [Text(mafias[index].)],),
+                    );
+                  }),
               Container(
                 child: Center(
                   child: Text("MAFYA"),
