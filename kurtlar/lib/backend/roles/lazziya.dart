@@ -7,6 +7,8 @@ class LazZiya extends Role {
   String _Name = "Laz Ziya";
   final String _team = "Mafya";
   int remainingMission = 1;
+  final int countOfVote  = 1;
+  bool muted = false;
 
   //ToDo Laz Zİyamızın görevi
  

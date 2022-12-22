@@ -8,6 +8,8 @@ class Polat extends Role {
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
+  final int countOfVote  = 1;
+  bool muted = false;
 
   @override
   String get GetMissionText => _MissionText;
@@ -25,7 +27,7 @@ class Polat extends Role {
   //Pop-Up çıkacak.
   @override
   bool DoMission(Players player) {
-    if (player.GetTempTeam == "Mafia") {
+    if (player.GetTempTeam == "Mafya") {
       print(player.GetTempTeam);
     } else {
       print(player.GetTeam); //Bu fonsiyon String return edecek

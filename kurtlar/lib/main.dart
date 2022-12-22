@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:provider/provider.dart';
 
@@ -15,12 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kurtlar Sofrası',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        backgroundColor: Colors.black
-      ),
-
-      home: Login(),
+      theme:
+          ThemeData(primarySwatch: Colors.blue, backgroundColor: Colors.black),
+      home: Home(),
     );
   }
 }

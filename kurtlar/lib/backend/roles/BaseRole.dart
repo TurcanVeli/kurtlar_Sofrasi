@@ -7,8 +7,5 @@ abstract class Role {
   String get GetMissionText;
   String get GetTeam;
   String get GetRoleDefiniton;
- 
-
-
   bool DoMission(Players player);
 }
