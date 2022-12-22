@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MyApp());
 }
+
 //flutter run --no-sound-null-safety
 class MyApp extends StatelessWidget {
   //MyApp({super.key});
@@ -17,8 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Kurtlar Sofrası',
       debugShowCheckedModeBanner: false,
-      theme:
-          ThemeData(primarySwatch: Colors.blue, backgroundColor: Colors.black),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        backgroundColor: Colors.black,
+        primaryColor: Colors.indigo.shade900
+      ),
       home: rolesPage(),
     );
   }

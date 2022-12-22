@@ -26,11 +26,14 @@ class _rolesPageState extends State<rolesPage> {
                   Container(
                     width: 110,
                     decoration: BoxDecoration(
-                      color: Colors.blue.shade400,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
-                      child: Text("DERİN DEVLET"),
+                      child: Text(
+                        "DERİN DEVLET",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -64,8 +67,10 @@ class _rolesPageState extends State<rolesPage> {
                   itemBuilder: (BuildContext ctx, index) {
                     return Container(
                       decoration: BoxDecoration(
-                        color: Colors.amber,
-                        border: Border.all(color: Colors.blueAccent),
+                        color: Colors.white,
+                        border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -86,7 +91,7 @@ class _rolesPageState extends State<rolesPage> {
                                 child: Text(
                                   "-",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -94,7 +99,7 @@ class _rolesPageState extends State<rolesPage> {
                               SizedBox(
                                 width: 15,
                               ),
-                              Text("1"),
+                              Text(mafias[index].Getcount.toString()),
                               SizedBox(
                                 width: 15,
                               ),
@@ -103,7 +108,7 @@ class _rolesPageState extends State<rolesPage> {
                                 child: Text(
                                   "+",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -121,10 +126,14 @@ class _rolesPageState extends State<rolesPage> {
             Container(
               width: 110,
               decoration: BoxDecoration(
-                color: Colors.blue.shade400,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Center(child: Text("MAFYA")),
+              child: Center(
+                  child: Text(
+                "MAFYA",
+                style: TextStyle(color: Colors.white),
+              )),
             ),
             SizedBox(
               height: 20,
@@ -147,7 +156,9 @@ class _rolesPageState extends State<rolesPage> {
                   itemBuilder: (BuildContext ctx, index) {
                     return Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.blueAccent),
+                        border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -162,13 +173,11 @@ class _rolesPageState extends State<rolesPage> {
                                 width: 15,
                               ),
                               GestureDetector(
-                                onTap: () {
-                                  
-                                },
+                                onTap: () {},
                                 child: Text(
                                   "-",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),
@@ -176,7 +185,7 @@ class _rolesPageState extends State<rolesPage> {
                               SizedBox(
                                 width: 15,
                               ),
-                              Text("1"),
+                              Text(goverment[index].Getcount.toString()),
                               SizedBox(
                                 width: 15,
                               ),
@@ -185,7 +194,7 @@ class _rolesPageState extends State<rolesPage> {
                                 child: Text(
                                   "+",
                                   style: TextStyle(
-                                      color: Colors.blue,
+                                      color: Theme.of(context).primaryColor,
                                       fontSize: 30,
                                       fontWeight: FontWeight.bold),
                                 ),

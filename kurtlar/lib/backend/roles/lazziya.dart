@@ -8,6 +8,7 @@ class LazZiya extends Role {
   final String _team = "Mafya";
   int remainingMission = 1;
   final int countOfVote = 1;
+  int count = 0;
   bool muted = false;
   LazZiya() {
     print("oluştu");
@@ -35,4 +36,8 @@ class LazZiya extends Role {
     }
     return false;
   }
+
+  @override
+  // TODO: implement Getcount
+  int get Getcount => count;
 }

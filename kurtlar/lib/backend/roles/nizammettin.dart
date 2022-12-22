@@ -7,11 +7,9 @@ class nizamettin extends Role {
   String _Name = "Nizamettin";
   final String _team = "Mafya";
   int remainingMission = 2;
-  final int countOfVote  = 1;
+  final int countOfVote = 1;
   bool muted = false;
-
-
-
+  int count = 0;
 
 //Değişecek
   @override
@@ -35,4 +33,8 @@ class nizamettin extends Role {
 
   @override
   String get GetTeam => _team;
+
+  @override
+  // TODO: implement Getcount
+  int get Getcount => count;
 }
