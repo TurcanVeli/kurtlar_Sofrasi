@@ -1,4 +1,5 @@
 import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:kurtlar/frontend/models/players.dart';
 
 class Polat extends Role {
   final String _MissionText = "Birinin rolünü açığa çıkart";
@@ -7,9 +8,6 @@ class Polat extends Role {
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
-  bool _injail = false;
-  bool _isDead = false;
-  int _vote = 0;
 
   @override
   String get GetMissionText => _MissionText;
@@ -23,35 +21,17 @@ class Polat extends Role {
   @override
   String get GetTeam => _team;
 
-  @override
-  set SetName(String name) {
-    this._Name = name;
-  }
-
-  @override
-  set SetInJail(bool value) {
-    this._injail = value;
-  }
-
-  @override
-  bool get GetinJail => _injail;
-
   //Polat bastığı kişinin hangi takımda olduğunu görecek
+  //Pop-Up çıkacak.
   @override
-  void DoMission(Role someone) {
-    print(someone.GetTeam); //Bu fonsiyon String return edecek
-  }
+  bool DoMission(Players player) {
+    if (player.GetTempTeam == "Mafia") {
+      print(player.GetTempTeam);
+    } else {
+      print(player.GetTeam); //Bu fonsiyon String return edecek
 
-  @override
-  bool get GetDead => _isDead;
+    }
+    return true;
 
-  @override
-  set SetVote(int value) {
-    this._vote = value;
-  }
-
-  @override
-  void incrementVote() {
-    this._vote++;
   }
 }

@@ -1,10 +1,10 @@
-//TODO Oyunun tüm turları burada dönecek. Core
+//TODO
 
+
+
+//İlk olarak seçilmiş roller oyunculara dağıtılacak.
 void Core(){
   while (true){
-    
-
-
 
   }
 }

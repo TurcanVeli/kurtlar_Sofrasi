@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class PrepareForRole extends StatelessWidget {
   //const learnRole({super.key});
-  //ToDO constructer tanıma ve kişi objesi alsın.
+  //TODO constructer tanıma ve kişi objesi alsın.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

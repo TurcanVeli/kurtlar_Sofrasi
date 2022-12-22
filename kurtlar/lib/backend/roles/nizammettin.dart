@@ -1,17 +1,26 @@
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
-class LazZiya extends Role {
+class nizamettin extends Role {
   final String _MissionText = "Birinin rolünü açığa çıkart";
   final String _RoleDefinition = "Sen Mafyanın laz ziyasısın";
-  String _Name = "Laz Ziya";
+  String _Name = "Nizamettin";
   final String _team = "Mafya";
-  int remainingMission = 1;
+  int remainingMission = 2;
 
-  //ToDo Laz Zİyamızın görevi
- 
+
+  
+  @override
+  bool DoMission(Players player) {
+    if (player.Getisdead == true) {
+      print("Do Something");
+      return true;
+    }
+    return false;
+  }
 
   @override
+  // TODO: implement GetMissionText
   String get GetMissionText => _MissionText;
 
   @override
@@ -22,20 +31,4 @@ class LazZiya extends Role {
 
   @override
   String get GetTeam => _team;
-  
-
-  //Tüm oyun boyunca sürecek ve sadece bir defa kullanılabilcek
-  @override
-  bool DoMission(Players player) {
-    if (remainingMission != 0){
-      player.SetTempTeam("Mafya");
-      return true;
-    }
-    return false;
-    
-  }
-
-
-  
-
 }
