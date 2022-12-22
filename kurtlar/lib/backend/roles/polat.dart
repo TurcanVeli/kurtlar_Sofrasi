@@ -8,7 +8,7 @@ class Polat extends Role {
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
-  final int countOfVote  = 1;
+  final int countOfVote = 1;
   bool muted = false;
   int count = 0;
 
@@ -35,10 +35,19 @@ class Polat extends Role {
 
     }
     return true;
-
   }
-  
+
   @override
-  // TODO: implement Getcount
   int get Getcount => count;
+
+  void increment() {
+    if (count == 0) {
+      count++;
+    }
+  }
+  void decrase(){
+    if (count == 1){
+      count--;
+    }
+  }
 }
