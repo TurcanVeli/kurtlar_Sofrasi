@@ -32,7 +32,7 @@ class BenimUyg extends StatelessWidget {
                     width: 200,
                     height: 200,
                     child: Image.asset(
-                      'images/bullet.png',
+                      'assets/images/bullet2.png',
                       fit: BoxFit.cover,
                     ),
                   ),
