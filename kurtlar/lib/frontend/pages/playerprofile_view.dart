@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
-import 'package:kurtlar/frontend/pages/registerview.dart';
+import 'package:kurtlar/frontend/pages/register_view.dart';
 
 // BU SINIF UZERINDE CIRCLE AVATAR UZERINE RESIM EKLEME OZELLIGI GETIRILECEK
 // OYUNCU ISMI NASIL KAYDEDILIR O OGRENILECEK

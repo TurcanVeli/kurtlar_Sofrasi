@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurtlar/frontend/pages/registerview.dart';
+import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 
 // kurtlar register ve I am button //

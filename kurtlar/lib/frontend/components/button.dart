@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurtlar/frontend/pages/registerview.dart';
+import 'package:kurtlar/frontend/pages/register_view.dart';
 
 class Button extends StatefulWidget {
   String buttonText;

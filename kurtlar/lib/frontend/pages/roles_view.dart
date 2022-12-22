@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/components/alert_dialog.dart';
 import 'package:kurtlar/frontend/components/button.dart';
-import 'package:kurtlar/frontend/pages/registerview.dart';
+import 'package:kurtlar/frontend/pages/register_view.dart';
 import '../base/widget_base.dart';
 import '../constant/constant.dart';
 
