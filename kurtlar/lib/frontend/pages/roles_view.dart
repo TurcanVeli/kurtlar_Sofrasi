@@ -86,7 +86,9 @@ class _rolesPageState extends State<rolesPage> {
                               ),
                               GestureDetector(
                                 onTap: () {
-                                  print("sdf");
+                                  setState(() {
+                                    mafias[index].decrase();
+                                  });
                                 },
                                 child: Text(
                                   "-",
@@ -104,7 +106,11 @@ class _rolesPageState extends State<rolesPage> {
                                 width: 15,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    mafias[index].increment();
+                                  });
+                                },
                                 child: Text(
                                   "+",
                                   style: TextStyle(
@@ -173,7 +179,11 @@ class _rolesPageState extends State<rolesPage> {
                                 width: 15,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    goverment[index].decrase();
+                                  });
+                                },
                                 child: Text(
                                   "-",
                                   style: TextStyle(
@@ -190,7 +200,11 @@ class _rolesPageState extends State<rolesPage> {
                                 width: 15,
                               ),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  setState(() {
+                                    goverment[index].increment();
+                                  });
+                                },
                                 child: Text(
                                   "+",
                                   style: TextStyle(
