@@ -1,28 +1,18 @@
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
-class nizamettin extends Role {
+class DoguBey extends Role {
   final String _MissionText = "Birinin rolünü açığa çıkart";
-  final String _RoleDefinition = "Sen Mafyanın avukatısın";
-  String _Name = "Nizamettin";
-  final String _team = "Mafya";
-  int remainingMission = 1;
+  final String _RoleDefinition =
+      "Doğu bey sezgileri güçlü olan bir derin devlet üyesidir";
+
+  String _Name = "Doğu Bey";
+  final String _team = "Derin Devlet";
   final int countOfVote = 1;
   bool muted = false;
   int count = 0;
 
-//Değişecek
   @override
-  bool DoMission(Players player) {
-    if (player.Getisdead == true) {
-      print("Do Something");
-      return true;
-    }
-    return false;
-  }
-
-  @override
-  // TODO: implement GetMissionText
   String get GetMissionText => _MissionText;
 
   @override
@@ -33,6 +23,19 @@ class nizamettin extends Role {
 
   @override
   String get GetTeam => _team;
+
+  //Polat bastığı kişinin hangi takımda olduğunu görecek
+  //Pop-Up çıkacak.
+  @override
+  bool DoMission(Players player) {
+    if (player.GetTempTeam == "Mafya") {
+      print(player.GetTempTeam);
+    } else {
+      print(player.GetTeam); //Bu fonsiyon String return edecek
+
+    }
+    return true;
+  }
 
   @override
   // TODO: implement Getcount

@@ -1,14 +1,13 @@
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
-class Polat extends Role {
-  final String _MissionText = "Birinin rolünü açığa çıkart";
-  final String _RoleDefinition =
-      "Sen polat alemdarsın ve derin devlete bağlısına zamanı geldiğinde mafyaların kim olduğunu bulmak için yeteneklerini kullanacaksın ve devletine yarıdm edeceksin yakalanmamaya dikkat et";
+class Cakir extends Role {
+  final String _MissionText = "Oylamada attığın oy 2 sayılır";
+  final String _RoleDefinition = "Mafyanın asabi ergenisin";
 
-  String _Name = "Polat";
-  final String _team = "Derin Devlet";
-  final int countOfVote = 1;
+  String _Name = "Çakır";
+  final String _team = "Mafya";
+  final int countOfVote = 2;
   bool muted = false;
   int count = 0;
 
