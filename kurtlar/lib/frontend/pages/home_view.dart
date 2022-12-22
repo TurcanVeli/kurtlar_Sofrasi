@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:kurtlar/frontend/pages/playerprofile_view.dart';
+import 'package:kurtlar/frontend/pages/profile_view.dart';
+import 'package:kurtlar/frontend/pages/settings_view.dart';
 
 //TODO ayarlar eklenecek.
 
@@ -15,7 +16,8 @@ class Home extends StatelessWidget {
               color: Colors.white,
             ),
             onPressed: () {
-              
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => SettingPageUI()));
             },
           )
         ],

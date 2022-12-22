@@ -1,7 +1,6 @@
 // settings
 import 'package:flutter/material.dart';
 
-
 class SettingPageUI extends StatefulWidget {
   const SettingPageUI({Key? key}) : super(key: key);
   @override
@@ -20,7 +19,9 @@ class _SettingPageUIState extends State<SettingPageUI> {
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.italic)),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.arrow_back,
             color: Colors.black,
@@ -110,7 +111,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        debugPrint('ElevatedButton Clicked');
+                        Navigator.of(context).pop();
                       },
                       child: Text('TÜRKÇE'),
                       style: ElevatedButton.styleFrom(
@@ -125,7 +126,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        debugPrint('ElevatedButton Clicked');
+                        Navigator.of(context).pop();
                       },
                       child: Text(
                         'İNGİLİZCE',
