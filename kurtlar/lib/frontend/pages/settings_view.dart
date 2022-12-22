@@ -1,6 +1,8 @@
 // settings
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
+
 class SettingPageUI extends StatefulWidget {
   const SettingPageUI({Key? key}) : super(key: key);
   @override
@@ -111,6 +113,8 @@ class _SettingPageUIState extends State<SettingPageUI> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        MyApp.of(context)
+                            ?.setLocale(Locale.fromSubtags(languageCode: 'tr'));
                         Navigator.of(context).pop();
                       },
                       child: Text('TÜRKÇE'),
@@ -126,6 +130,8 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                        MyApp.of(context)
+                            ?.setLocale(Locale.fromSubtags(languageCode: 'en'));
                         Navigator.of(context).pop();
                       },
                       child: Text(
