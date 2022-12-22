@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/registerview.dart';
 
 // BU SINIF UZERINDE CIRCLE AVATAR UZERINE RESIM EKLEME OZELLIGI GETIRILECEK
 // OYUNCU ISMI NASIL KAYDEDILIR O OGRENILECEK
-
-class OyuncuProfili extends StatelessWidget {
-  const OyuncuProfili({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: profile());
-  }
-}
 
 class profile extends StatefulWidget {
   const profile({super.key});
@@ -28,8 +20,8 @@ class _profileState extends State<profile> {
             leading: GestureDetector(
               onTap: () {
                 setState(() {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => registerPage()));
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Home()));
                 });
               },
               child: Icon(
@@ -74,8 +66,8 @@ class _profileState extends State<profile> {
               SizedBox(height: 15),
               TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => registerPage()));
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Home()));
                   },
                   child: Text('Save'))
             ])));

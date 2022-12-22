@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/pages/playerprofile_view.dart';
 
 //TODO ayarlar eklenecek.
 
@@ -91,7 +92,10 @@ class Home extends StatelessWidget {
               ),
               padding: EdgeInsets.all(0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => profile()));
+                },
                 child: Text(
                   "OYUNCU PROFİLİ",
                   style: TextStyle(

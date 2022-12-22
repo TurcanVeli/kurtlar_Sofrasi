@@ -3,6 +3,7 @@ import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
 import 'package:provider/provider.dart';
+import 'dart:convert';
 
 void main() {
   runApp(MyApp());
@@ -19,11 +20,10 @@ class MyApp extends StatelessWidget {
       title: 'Kurtlar Sofrası',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        backgroundColor: Colors.black,
-        primaryColor: Colors.indigo.shade900
-      ),
-      home: rolesPage(),
+          primarySwatch: Colors.blue,
+          backgroundColor: Colors.black,
+          primaryColor: Colors.indigo.shade900),
+      home: Home(),
     );
   }
 }
