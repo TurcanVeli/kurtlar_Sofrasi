@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/components/button.dart';
+import 'package:kurtlar/frontend/pages/registerview.dart';
+import '../base/widget_base.dart';
 import '../constant/constant.dart';
 
 class rolesPage extends StatefulWidget {
@@ -8,7 +11,7 @@ class rolesPage extends StatefulWidget {
   State<rolesPage> createState() => _rolesPageState();
 }
 
-class _rolesPageState extends State<rolesPage> {
+class _rolesPageState extends BaseState<rolesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +27,7 @@ class _rolesPageState extends State<rolesPage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: 110,
+                    width: dynamicWidth(0.3),
                     decoration: BoxDecoration(
                       color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(10),
@@ -47,10 +50,10 @@ class _rolesPageState extends State<rolesPage> {
               ),
             ),
             SizedBox(
-              height: 40,
+              height: dynamicHeight(0.1),
             ),
             Container(
-              height: 300,
+              height: dynamicHeight(0.4),
               child: GridView.builder(
                   scrollDirection: Axis.vertical,
                   primary: true,
@@ -127,10 +130,10 @@ class _rolesPageState extends State<rolesPage> {
                   }),
             ),
             SizedBox(
-              height: 20,
+              height: dynamicHeight(0.1),
             ),
             Container(
-              width: 110,
+              width: dynamicWidth(0.3),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(10),
@@ -142,7 +145,7 @@ class _rolesPageState extends State<rolesPage> {
               )),
             ),
             SizedBox(
-              height: 20,
+              height: dynamicHeight(0.1),
             ),
             Container(
               height: 400,
@@ -214,11 +217,17 @@ class _rolesPageState extends State<rolesPage> {
                                 ),
                               )
                             ],
-                          )
+                          ),
                         ],
                       ),
                     );
                   }),
+            ),
+            Button(
+              buttonText: "Devam Et",
+              where: registerPage(),
+              Height: 45,
+              Width: dynamicWidth(0.8),
             )
           ],
         ),

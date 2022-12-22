@@ -69,7 +69,12 @@ class _LoginPageState extends State<LoginPage> {
                     borderSide: BorderSide(color: Colors.white, width: 2.0))),
           ),
           const SizedBox(height: 25),
-          Button(buttonText: 'LOG IN', where: registerPage()),
+          Button(
+            buttonText: 'LOG IN',
+            where: registerPage(),
+            Height: 40,
+            Width: 375,
+          ),
           const SizedBox(height: 15),
           const Text(
             '-------------- OR --------------',
@@ -77,7 +82,12 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 15),
 
-          Button(buttonText: 'SIGN UP', where: registerPage())
+          Button(
+            buttonText: 'SIGN UP',
+            where: registerPage(),
+            Height: 40,
+            Width: 375,
+          )
         ]),
       ),
     );

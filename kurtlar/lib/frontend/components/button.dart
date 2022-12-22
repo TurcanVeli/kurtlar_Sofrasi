@@ -4,8 +4,10 @@ import 'package:kurtlar/frontend/pages/registerview.dart';
 class Button extends StatefulWidget {
   String buttonText;
   Widget where;
+  double Height;
+  double Width;
 
-  Button({super.key, required this.buttonText, required this.where});
+  Button({super.key, required this.buttonText, required this.where, required this.Height, required this.Width});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -24,8 +26,8 @@ class _ButtonState extends State<Button> {
       // GIRIS SAYFASI OLCUTLERI HEIGHT :40 , WIDTH : 375
 
       child: Container(
-        height: 40,
-        width: 375,
+        height: widget.Height,
+        width: widget.Width,
         decoration: BoxDecoration(
             color: Color.fromARGB(255, 189, 13, 42),
             borderRadius: BorderRadius.circular(12)),

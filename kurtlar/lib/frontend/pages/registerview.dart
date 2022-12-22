@@ -75,6 +75,8 @@ class _RegisterState extends State<Register> {
             Button(
               buttonText: 'SIGN UP',
               where: registerPage(),
+              Height: 45,
+              Width: 375,
             )
           ],
         ),

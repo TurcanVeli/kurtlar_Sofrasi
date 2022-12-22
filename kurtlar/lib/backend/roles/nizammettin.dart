@@ -22,7 +22,6 @@ class nizamettin extends Role {
   }
 
   @override
-  // TODO: implement GetMissionText
   String get GetMissionText => _MissionText;
 
   @override
@@ -35,7 +34,6 @@ class nizamettin extends Role {
   String get GetTeam => _team;
 
   @override
-  // TODO: implement Getcount
   int get Getcount => count;
 
   void increment(){
