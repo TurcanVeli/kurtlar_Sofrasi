@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kurtlar/Iambutton.dart';
+import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/main.dart';
 
 class registerPage extends StatelessWidget {

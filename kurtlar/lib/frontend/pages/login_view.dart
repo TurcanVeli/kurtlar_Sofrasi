@@ -1,7 +1,8 @@
-iimport 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:kurtlar/register.dart';
-import 'Iambutton.dart';
+import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/pages/registerview.dart';
+import 'package:kurtlar/frontend/components/button.dart';
+
+// kurtlar register ve I am button //
 
 void main() {
   runApp(const MyApp());
@@ -66,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderSide: BorderSide(color: Colors.white, width: 2.0))),
           ),
           const SizedBox(height: 25),
-          Button(buttonText: 'LOG IN'),
+          Button(buttonText: 'LOG IN', where: registerPage()),
           const SizedBox(height: 15),
           const Text(
             '-------------- OR --------------',
@@ -74,10 +75,9 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 15),
 
-          Button(buttonText: 'SIGN UP')
+          Button(buttonText: 'SIGN UP', where: registerPage())
         ]),
       ),
     );
   }
 }
-
