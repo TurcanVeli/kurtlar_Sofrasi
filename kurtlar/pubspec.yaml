@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  provider: ^4.3.3
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -40,11 +40,14 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_localizations:
     sdk: flutter
+  intl: ^0.17.0 # Add this line
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   localization: ^2.1.0
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -58,6 +61,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  generate: true
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
@@ -68,7 +72,7 @@ flutter:
   assets:
     - assets/images/
     - assets/datas/
-    - assets/lang/
+   
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

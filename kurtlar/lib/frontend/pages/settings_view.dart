@@ -1,6 +1,7 @@
 // settings
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import '../../main.dart';
 
 class SettingPageUI extends StatefulWidget {
@@ -14,7 +15,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("AYARLAR",
+        title: Text(translate(context).settings,
             style: TextStyle(
                 fontSize: 22,
                 color: Colors.black,
@@ -55,7 +56,8 @@ class _SettingPageUIState extends State<SettingPageUI> {
                 ),
                 Container(
                     margin: EdgeInsets.fromLTRB(30, 10, 10, 10),
-                    child: buildAccountOption(context, "DİLİ DEĞİŞTİR")),
+                    child: buildAccountOption(
+                        context, translate(context).changeLanguage)),
               ],
             ),
             Row(
@@ -74,7 +76,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      'PUANLA',
+                      translate(context).point,
                       style: TextStyle(fontSize: 20),
                     ),
                   ),
@@ -112,12 +114,12 @@ class _SettingPageUIState extends State<SettingPageUI> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     ElevatedButton(
-                      onPressed: () {
-                        MyApp.of(context)
-                            ?.setLocale(Locale.fromSubtags(languageCode: 'tr'));
+                      onPressed: () async {
+                        Locale _locale = await setLocale("tr");
+                        MyApp.setLocale(context, _locale);
                         Navigator.of(context).pop();
                       },
-                      child: Text('TÜRKÇE'),
+                      child: Text(translate(context).tr),
                       style: ElevatedButton.styleFrom(
                           primary: Colors.red,
                           shape: StadiumBorder(),
@@ -129,13 +131,13 @@ class _SettingPageUIState extends State<SettingPageUI> {
                       height: 10,
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        MyApp.of(context)
-                            ?.setLocale(Locale.fromSubtags(languageCode: 'en'));
+                      onPressed: () async {
+                        Locale _locale = await setLocale("en");
+                        MyApp.setLocale(context, _locale);
                         Navigator.of(context).pop();
                       },
                       child: Text(
-                        'İNGİLİZCE',
+                        translate(context).eng,
                       ),
                       style: ElevatedButton.styleFrom(
                           primary: Colors.red,
@@ -151,7 +153,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text("Close"))
+                      child: Text(translate(context).ok))
                 ],
               );
             });

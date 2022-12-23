@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //TODO ayarlar eklenecek.
 
 class Home extends StatelessWidget {
@@ -85,7 +86,7 @@ class Home extends StatelessWidget {
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  "YENİ OYUN",
+                  translate(context).newgame,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -110,7 +111,7 @@ class Home extends StatelessWidget {
                       .push(MaterialPageRoute(builder: (context) => profile()));
                 },
                 child: Text(
-                  "OYUNCU PROFİLİ",
+                  AppLocalizations.of(context)!.profile,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
@@ -132,7 +133,7 @@ class Home extends StatelessWidget {
               child: TextButton(
                 onPressed: () {},
                 child: Text(
-                  "NASIL OYNANIR?",
+                  translate(context).howtoplay,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

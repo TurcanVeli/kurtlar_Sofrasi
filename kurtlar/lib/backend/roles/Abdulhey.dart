@@ -1,8 +1,11 @@
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter/material.dart';
 
 class Abdulhey extends Role {
-  final String _MissionText = "Mermi sık ve birini öldür";
+  final String _MissionText = "Abdulleysin";
   final String _RoleDefinition = "Derin devletin tetikçisisin";
 
   String _Name = "Abdulhey";
