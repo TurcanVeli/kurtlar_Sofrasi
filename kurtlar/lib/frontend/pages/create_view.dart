@@ -1,4 +1,4 @@
-// kur sayfası
+// create page
 import 'package:flutter/material.dart';
 
 void main() {
