@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/components/button.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
+import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
 
 class registerPage extends StatelessWidget {
@@ -30,11 +32,12 @@ class _RegisterState extends State<Register> {
           onTap: () {
             setState(() {
               Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => MyApp()));
+                  .push(MaterialPageRoute(builder: (context) => Home()));
             });
           },
           child: Icon(
             Icons.arrow_back,
+
           ),
         ),
         backgroundColor: Colors.black,
@@ -74,7 +77,7 @@ class _RegisterState extends State<Register> {
             const SizedBox(height: 40),
             Button(
               buttonText: 'SIGN UP',
-              where: registerPage(),
+              where: LoginPage(),
               Height: 45,
               Width: 375,
             )

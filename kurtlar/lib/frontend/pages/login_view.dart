@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 
+import 'home_view.dart';
+
 // kurtlar register ve I am button //
 
 void main() {
@@ -33,13 +35,14 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 10, 40, 20),
+       padding: const EdgeInsets.fromLTRB(40, 10, 40, 20),
         child: Column(children: [
           Image.asset(
-            'images/logo2.png',
+            'assets/images/logo.png',
             height: 200,
             width: 200,
           ),
+          SizedBox(height: 20),
           // ignore: prefer_const_constructors
           const TextField(
             style: TextStyle(color: Colors.white),
@@ -84,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
 
           Button(
             buttonText: 'SIGN UP',
-            where: registerPage(),
+            where: Home(),
             Height: 40,
             Width: 375,
           )
