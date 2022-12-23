@@ -10,6 +10,7 @@ class Cakir extends Role {
   final int countOfVote = 2;
   bool muted = false;
   int count = 0;
+  int remainingMission = 1;
 
   @override
   String get GetMissionText => _MissionText;

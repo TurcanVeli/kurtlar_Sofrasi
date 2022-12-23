@@ -11,6 +11,7 @@ class DoguBey extends Role {
   final int countOfVote = 1;
   bool muted = false;
   int count = 0;
+  int remainingMission = 1;
 
   @override
   String get GetMissionText => _MissionText;

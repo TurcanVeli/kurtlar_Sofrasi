@@ -11,6 +11,7 @@ class nizamettin extends Role {
   bool muted = false;
   int count = 0;
 
+
 //Değişecek
   @override
   bool DoMission(Players player) {
