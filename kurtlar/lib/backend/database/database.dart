@@ -13,8 +13,8 @@ class FireBaseService {
     switch (response.statusCode) {
       case HttpStatus.ok:
         final jsonModel = json.decode(response.body);
-        final userList = jsonModel.map((e){users.fromJson(e);}).toList();
-        return userList;
+        final userList = jsonModel.map((e){users.fromJson(e as Map<String,dynamic>);}).toList();
+        return userList.cast<users>();
 
       default:
         return Future.error(response.statusCode);
