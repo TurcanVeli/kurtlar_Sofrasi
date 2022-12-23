@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1023462917629",
+    "project_id": "kurtlar-122d7",
+    "storage_bucket": "kurtlar-122d7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023462917629:android:ca63beec095e2c44984594",
+        "android_client_info": {
+          "package_name": "com.example.kurtlar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023462917629-93ir9lvd2hsg0kaigtnhtpquu257ld4p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGdzU-4k1Q6MqJ1p1RfapwGA1RFpRqJR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023462917629-93ir9lvd2hsg0kaigtnhtpquu257ld4p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

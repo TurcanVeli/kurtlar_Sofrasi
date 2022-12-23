@@ -25,16 +25,12 @@ class MyAppState extends StatelessWidget {
   }
 
   void ShowAlertDialog(BuildContext context) {
-    /*Widget okBtn = TextButton(
-        onPressed: () {
-          print("ok");
-        },
-        child: Text("OK"));*/
+    
     Widget okBtn = TextButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Text("TAMAM"));
+        child: Text("TAMAM") );
 
     AlertDialog alert = AlertDialog(
       title: Text("Kurtlar Sofrası"),

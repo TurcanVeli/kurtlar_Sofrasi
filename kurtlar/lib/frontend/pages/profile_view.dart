@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 
@@ -29,7 +30,7 @@ class _profileState extends State<profile> {
               ),
             ),
             backgroundColor: Colors.black,
-            title: Text('PLAYER PROFILE'),
+            title: Text(translate(context).profile),
             centerTitle: true),
         body: Padding(
             padding: const EdgeInsets.fromLTRB(50, 70, 50, 20),

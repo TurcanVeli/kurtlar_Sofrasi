@@ -9,8 +9,10 @@ import 'package:localization/localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-//TODO Dil değiştirme yarım kaldı
+import 'backend/database/database.dart';
+
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -26,10 +28,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
+  FireBaseService service;
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    service = FireBaseService();
   }
 
   @override
@@ -52,7 +61,18 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           backgroundColor: Colors.black,
           primaryColor: Colors.indigo.shade900),
-      home: Home(),
+      home: FutureBuilder(builder: ((context, snapshot) {
+        switch (snapshot.connectionState) {
+          case ConnectionState.done:
+            if (snapshot.hasData){
+              return home();
+
+            }else
+
+          default:
+            return Center(child: CircularProgressIndicator(),);
+        }
+      })),
     );
   }
 }
