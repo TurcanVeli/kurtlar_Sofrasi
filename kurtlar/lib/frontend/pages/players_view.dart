@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/pages/roles_view.dart';
 
-
-
-class HomePage extends StatefulWidget {
+class PlayerPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _PlayerPageState createState() => _PlayerPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PlayerPageState extends State<PlayerPage> {
   List<String> _playerCodes = [];
 
   void _addPlayer(String _playerCode) {
@@ -19,19 +19,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.transparent,
-          leading: IconButton(onPressed: () {
-            Navigator.pop(context);
-          },
-              icon: Icon(Icons.keyboard_arrow_left_rounded,color: Colors.black,)),
-          title: Text('OYUNCU EKLE')),
+      appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.keyboard_arrow_left_rounded,
+                color: Colors.black,
+              )),
+          title: Text(translate(context).clickAdd)),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(height: 20),
           // Birden fazla oyuncu girildiğinde bu oyuncuları GridView ile sıralayan widget
-          _playerCodes.length > 0
-              ? Expanded(
+
+          Expanded(
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
@@ -48,24 +53,26 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.yellow[200],
                     ),
                     child: Center(
-                      child: Text(_playerCodes[index],style: TextStyle(color: Colors.white,
-                          fontWeight: FontWeight.w900
-                      )),
+                      child: Text(_playerCodes[index],
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w900)),
                     ),
                   ),
                 );
               },
             ),
-          ):
-
+          ),
           Container(
-            child: ElevatedButton(child: Text('Devam'),
+            child: ElevatedButton(
+              child: Text(translate(context).contiune),
               onPressed: () {
-              },),
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => rolesPage()));
+              },
+            ),
           ),
         ],
-
-
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: FloatingActionButton(
@@ -75,12 +82,9 @@ class _HomePageState extends State<HomePage> {
                 context: context,
                 builder: (context) {
                   return AddPlayerBottomSheet(_addPlayer);
-                }
-            );
+                });
           },
-          child: Text('Add')
-      ),
-
+          child: Text(translate(context).add)),
     );
   }
 }
@@ -129,7 +133,7 @@ class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
                   Navigator.pop(context);
                 }
               },
-              child: Text('Ekle'),
+              child: Text(translate(context).add),
             ),
           ],
         ),

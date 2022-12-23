@@ -26,7 +26,7 @@ void main() {
                         width: 200,
                         height: 200,
                         child: Image.asset(
-                          'images/Desk.png',
+                          'assets/images/Desk.png',
                         )),
                     Container(
                       width: 1000,

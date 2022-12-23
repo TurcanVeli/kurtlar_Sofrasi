@@ -36,7 +36,7 @@ class _profileState extends State<profile> {
             padding: const EdgeInsets.fromLTRB(50, 70, 50, 20),
             child: Column(children: [
               Text(
-                'Edit Profile',
+                translate(context).editprofile,
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 10),
@@ -47,7 +47,7 @@ class _profileState extends State<profile> {
               ),
               SizedBox(height: 10),
               Text(
-                'Game Entry Code',
+                translate(context).gamecode,
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 10),
@@ -58,7 +58,7 @@ class _profileState extends State<profile> {
               TextField(
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    hintText: 'UserName',
+                    hintText: translate(context).username,
                     hintStyle: TextStyle(color: Colors.blue),
                     enabledBorder: UnderlineInputBorder(
                         borderSide:
@@ -70,7 +70,7 @@ class _profileState extends State<profile> {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) => Home()));
                   },
-                  child: Text('Save'))
+                  child: Text(translate(context).save))
             ])));
   }
 }

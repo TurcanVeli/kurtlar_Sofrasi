@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/alert_dialog.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
+import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../base/widget_base.dart';
 import '../constant/constant.dart';
 
@@ -17,7 +19,7 @@ class _rolesPageState extends BaseState<rolesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Karakter Seçme"),
+        title: Text(translate(context).select),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -35,17 +37,13 @@ class _rolesPageState extends BaseState<rolesPage> {
                     ),
                     child: Center(
                       child: Text(
-                        "DERİN DEVLET",
+                        translate(context).govteam,
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),
                   SizedBox(
                     width: 150,
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text("ekle"),
                   ),
                 ],
               ),
@@ -152,7 +150,7 @@ class _rolesPageState extends BaseState<rolesPage> {
               ),
               child: Center(
                   child: Text(
-                "MAFYA",
+                translate(context).mafiateam,
                 style: TextStyle(color: Colors.white),
               )),
             ),
@@ -248,8 +246,8 @@ class _rolesPageState extends BaseState<rolesPage> {
                   }),
             ),
             Button(
-              buttonText: "Devam Et",
-              where: registerPage(),
+              buttonText: translate(context).contiune,
+              where: starting(),
               Height: 45,
               Width: dynamicWidth(0.8),
             )

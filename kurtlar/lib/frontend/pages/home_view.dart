@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -7,6 +8,34 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //TODO ayarlar eklenecek.
 
 class Home extends StatelessWidget {
+  void ShowAlertDialog(BuildContext context) {
+    Widget okBtn = TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text(translate(context).ok));
+
+    AlertDialog alert = AlertDialog(
+      title: Text("Kurtlar Sofrası"),
+      content: Column(
+        children: [
+          Text(translate(context).rule_1),
+          Text(translate(context).rule_2),
+          Text(translate(context).rule_3),
+          Text(translate(context).rule_4),
+          Text(translate(context).rule_5)
+        ],
+      ),
+      actions: <Widget>[okBtn],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext buildercontext) {
+          return alert;
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,7 +114,10 @@ class Home extends StatelessWidget {
               ),
               padding: EdgeInsets.all(0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => PlayerPage()));
+                },
                 child: Text(
                   translate(context).newgame,
                   style: TextStyle(
@@ -132,7 +164,9 @@ class Home extends StatelessWidget {
               ),
               padding: EdgeInsets.all(0),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  ShowAlertDialog(context);
+                },
                 child: Text(
                   translate(context).howtoplay,
                   style: TextStyle(

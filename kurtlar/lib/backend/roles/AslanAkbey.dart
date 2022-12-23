@@ -1,8 +1,15 @@
+
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
+import 'package:flutter/material.dart';
+
+
 
 class AslanAkbey extends Role {
-  final String _MissionText = "Polat Alemdarı gör";
+  final String _MissionText = "You have taken important positions in your state and now you have raised a very important person and you have the ability to keep secrets";
   final String _RoleDefinition =
       "Derin devletin başındaki adamlardan birisisin";
 

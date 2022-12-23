@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> {
             switch (snapshot.connectionState) {
               case ConnectionState.done:
                 if (snapshot.hasData) {
-                  return Home();
+                  return LoginPage();
                 } else {
                   return LoginPage();
                 }
