@@ -28,7 +28,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  FireBaseService service;
+  late FireBaseService service;
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -65,9 +65,11 @@ class _MyAppState extends State<MyApp> {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             if (snapshot.hasData){
-              return home();
+              return Home();
 
-            }else
+            }else{
+              return _notfound();
+            }
 
           default:
             return Center(child: CircularProgressIndicator(),);
@@ -76,3 +78,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+
+Widget _notfound() => Center(child: Text("Not Found"),);
