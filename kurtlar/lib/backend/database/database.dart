@@ -8,12 +8,12 @@ class FireBaseService {
       "https://kurtlar-122d7-default-rtdb.firebaseio.com/";
 
   Future<List<users>> getUsers() async {
-    final response = await http.get(Uri(host: FIREBASEURL));
+    final response = await http.get(Uri(host: "$FIREBASEURL/users.json"));
 
     switch (response.statusCode) {
       case HttpStatus.ok:
         final jsonModel = json.decode(response.body);
-        final userList = jsonModel as List<users>;
+        final userList = jsonModel.map((e){users.fromJson(e);}).toList();
         return userList;
 
       default:

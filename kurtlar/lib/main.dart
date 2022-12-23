@@ -61,22 +61,27 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           backgroundColor: Colors.black,
           primaryColor: Colors.indigo.shade900),
-      home: FutureBuilder(builder: ((context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.done:
-            if (snapshot.hasData){
-              return Home();
+      home: FutureBuilder(
+          future: service.getUsers(),
+          builder: ((context, snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.done:
+                if (snapshot.hasData) {
+                  return Home();
+                } else {
+                  return LoginPage();
+                }
 
-            }else{
-              return _notfound();
+              default:
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
             }
-
-          default:
-            return Center(child: CircularProgressIndicator(),);
-        }
-      })),
+          })),
     );
   }
 }
 
-Widget _notfound() => Center(child: Text("Not Found"),);
+Widget _notfound() => Center(
+      child: Text("Not Found"),
+    );
