@@ -16,16 +16,17 @@ class rolesPage extends StatefulWidget {
 }
 
 class _rolesPageState extends BaseState<rolesPage> {
-  void _rotateDialog(String Header, String Body) {
+  void _scaleDialog(String header, String body) {
     showGeneralDialog(
       context: context,
       pageBuilder: (ctx, a1, a2) {
         return Container();
       },
       transitionBuilder: (ctx, a1, a2, child) {
-        return Transform.rotate(
-          angle: math.radians(a1.value * 360),
-          child: _dialog(ctx, Header, Body),
+        var curve = Curves.easeInOut.transform(a1.value);
+        return Transform.scale(
+          scale: curve,
+          child: _dialog(ctx, header, body),
         );
       },
       transitionDuration: const Duration(milliseconds: 300),
@@ -38,17 +39,21 @@ class _rolesPageState extends BaseState<rolesPage> {
       appBar: AppBar(
         title: Text(translate(context).roles),
         leading: Icon(Icons.arrow_back),
-        elevation: 15,
         backgroundColor: Colors.black,
+        elevation: 5,
       ),
       body: ListView(
         children: [
           SizedBox(
             height: dynamicHeight(0.02),
+            child: const DecoratedBox(
+              decoration: const BoxDecoration(color: Colors.white),
+            ),
           ),
           Container(
             height: dynamicHeight(0.2),
             child: RolesRow(ordinary),
+            color: Colors.white,
           ),
           Container(
             height: dynamicHeight(0.2),
@@ -75,8 +80,12 @@ class _rolesPageState extends BaseState<rolesPage> {
           ),
           SizedBox(
             height: dynamicHeight(0.02),
+            child: const DecoratedBox(
+              decoration: const BoxDecoration(color: Colors.white),
+            ),
           ),
-          BottomButtonContainerContiune(dynamicHeight(0.08), translate(context).contiune),
+          BottomButtonContainerContiune(
+              dynamicHeight(0.08), translate(context).contiune),
         ],
       ),
     );
@@ -108,32 +117,11 @@ class _rolesPageState extends BaseState<rolesPage> {
     return Row(
       children: [
         Expanded(flex: 1, child: SizedBox()),
-        Expanded(
-          flex: 5,
-          child: InkWell(
-              onTap: () {
-                _rotateDialog(roles[0].GetName, roles[0].GetRoleDefiniton);
-              },
-              child: RoleContainer(roles[0])),
-        ),
+        Expanded(flex: 5, child: RoleContainer(roles[0])),
         Expanded(flex: 1, child: SizedBox()),
-        Expanded(
-          flex: 5,
-          child: InkWell(
-              onTap: (() {
-                _rotateDialog(roles[1].GetName, roles[1].GetRoleDefiniton);
-              }),
-              child: RoleContainer(roles[1])),
-        ),
+        Expanded(flex: 5, child: RoleContainer(roles[1])),
         Expanded(flex: 1, child: SizedBox()),
-        Expanded(
-          flex: 5,
-          child: InkWell(
-              onTap: (() {
-                _rotateDialog(roles[2].GetName, roles[2].GetRoleDefiniton);
-              }),
-              child: RoleContainer(roles[2])),
-        ),
+        Expanded(flex: 5, child: RoleContainer(roles[2])),
         Expanded(flex: 1, child: SizedBox()),
       ],
     );
@@ -152,7 +140,9 @@ class _rolesPageState extends BaseState<rolesPage> {
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(
-            color: Colors.black,
+            color: role.Getcount == 0
+                ? Color.fromARGB(255, 230, 229, 229)
+                : Colors.black87,
           ),
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
     );
@@ -161,7 +151,13 @@ class _rolesPageState extends BaseState<rolesPage> {
   Column RoleContainerInsideColumn(Role role) {
     return Column(
       children: [
-        Expanded(flex: 2, child: RoleNameText(role)),
+        Expanded(
+            flex: 2,
+            child: InkWell(
+                onTap: (() {
+                  _scaleDialog(role.GetName, role.GetRoleDefiniton);
+                }),
+                child: Container(color: Colors.white,child: RoleNameText(role)))),
         Expanded(flex: 1, child: SizedBox()),
         Expanded(
           flex: 2,
