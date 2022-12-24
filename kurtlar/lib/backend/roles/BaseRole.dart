@@ -8,4 +8,6 @@ abstract class Role {
   String get GetRoleDefiniton;
   int get Getcount;
   bool DoMission(Players player);
+  void increment();
+  void decrase();
 }

@@ -97,5 +97,6 @@
     "add": "EKLE",
     "editprofile": "PROFİLİ DÜZENLE",
     "gamecode": "Davet Kodu",
-    "save": "Kayıt"
+    "save": "Kayıt",
+    "roles": "Roller"
 }

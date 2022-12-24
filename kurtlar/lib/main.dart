@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
@@ -13,7 +14,10 @@ import 'backend/database/database.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+    .then((_) {
+      runApp(MyApp());
+    });
 }
 
 //flutter run --no-sound-null-safety
@@ -67,9 +71,9 @@ class _MyAppState extends State<MyApp> {
             switch (snapshot.connectionState) {
               case ConnectionState.done:
                 if (snapshot.hasData) {
-                  return LoginPage();
+                  return rolesPage();
                 } else {
-                  return LoginPage();
+                  return rolesPage();
                 }
 
               default:

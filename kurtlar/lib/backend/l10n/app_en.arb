@@ -97,5 +97,6 @@
     "add": "ADD",
     "editprofile": "EDIT PROFILE",
     "gamecode": "Invite Code",
-    "save": "Save"
+    "save": "Save",
+    "roles": "Roles"
 }

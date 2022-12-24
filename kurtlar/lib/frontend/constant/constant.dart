@@ -30,7 +30,9 @@ AslanAkbey Aslan = AslanAkbey();
 Cakir cak = Cakir();
 Abdulhey abu = Abdulhey();
 Karahanli kara = Karahanli();
-DoguBey dogu = DoguBey();
+DoguBey dogubey = DoguBey();
 
-List mafias = [mafiaMen, niz, laz, kara, cak];
-List goverment = [Officer, polat, dogu, abu, Aslan];
+
+List<Role> ordinary = [Officer,mafiaMen,polat];
+List<Role> deepgoverment = [Aslan,dogubey,abu];
+List<Role> mafia = [kara,niz,cak];

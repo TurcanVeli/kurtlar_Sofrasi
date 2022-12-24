@@ -7,7 +7,12 @@ class Button extends StatefulWidget {
   double Height;
   double Width;
 
-  Button({super.key, required this.buttonText, required this.where, required this.Height, required this.Width});
+  Button(
+      {super.key,
+      required this.buttonText,
+      required this.where,
+      required this.Height,
+      required this.Width});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -40,4 +45,20 @@ class _ButtonState extends State<Button> {
       ),
     );
   }
+}
+
+Container BottomButtonContainerContiune(double height, String buttonText) {
+  return Container(
+    height: height,
+    color: Colors.white,
+    child: Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: ElevatedButton(
+          onPressed: (() {}),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+          ),
+          child: Text(buttonText)),
+    ),
+  );
 }
