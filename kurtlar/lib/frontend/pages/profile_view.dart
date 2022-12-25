@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 
@@ -29,13 +30,13 @@ class _profileState extends State<profile> {
               ),
             ),
             backgroundColor: Colors.black,
-            title: Text('PLAYER PROFILE'),
+            title: Text(translate(context).profile),
             centerTitle: true),
         body: Padding(
             padding: const EdgeInsets.fromLTRB(50, 70, 50, 20),
             child: Column(children: [
               Text(
-                'Edit Profile',
+                translate(context).editprofile,
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 10),
@@ -46,7 +47,7 @@ class _profileState extends State<profile> {
               ),
               SizedBox(height: 10),
               Text(
-                'Game Entry Code',
+                translate(context).gamecode,
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 10),
@@ -57,7 +58,7 @@ class _profileState extends State<profile> {
               TextField(
                 style: TextStyle(color: Colors.black),
                 decoration: InputDecoration(
-                    hintText: 'UserName',
+                    hintText: translate(context).username,
                     hintStyle: TextStyle(color: Colors.blue),
                     enabledBorder: UnderlineInputBorder(
                         borderSide:
@@ -69,7 +70,7 @@ class _profileState extends State<profile> {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) => Home()));
                   },
-                  child: Text('Save'))
+                  child: Text(translate(context).save))
             ])));
   }
 }

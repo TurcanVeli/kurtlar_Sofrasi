@@ -6,7 +6,7 @@ class mafiamen extends Role {
   final String _MissionText = "görevin yok";
   final String _RoleDefinition = "Basit bir mafya adamısın";
 
-  String _Name = "Memur";
+  String _Name = "Mafya Adamı";
   final String _team = "Mafya";
   final int countOfVote = 1;
   bool muted = false;
@@ -14,9 +14,15 @@ class mafiamen extends Role {
 
   @override
   bool DoMission(Players player) {
-    // TODO: implement DoMission
-    throw UnimplementedError();
+    if (player.GetTempTeam == "Mafya") {
+      print(player.GetTempTeam);
+    } else {
+      print(player.GetTeam); //Bu fonsiyon String return edecek
+
+    }
+    return true;
   }
+  
 
   @override
   String get GetMissionText => _MissionText;

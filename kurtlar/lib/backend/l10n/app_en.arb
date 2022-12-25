@@ -93,5 +93,10 @@
     "judge_1": "IMPRISONED BY COURT ORDER",
     "judge_2": "THANKS TO NİZAMETTIN, HE WAS RELEASED FROM PRISON",
     "votes_1": "CHOOSE THE PERSON YOU WANT TO KILL",
-    "votes_2": "VOTE THE PERSON TO GO TO COURT"
+    "votes_2": "VOTE THE PERSON TO GO TO COURT",
+    "add": "ADD",
+    "editprofile": "EDIT PROFILE",
+    "gamecode": "Invite Code",
+    "save": "Save",
+    "roles": "Roles"
 }
