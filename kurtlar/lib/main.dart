@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
+import 'package:kurtlar/frontend/pages/players_view.dart';
+import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
 
 import 'dart:convert';
@@ -71,9 +73,9 @@ class _MyAppState extends State<MyApp> {
             switch (snapshot.connectionState) {
               case ConnectionState.done:
                 if (snapshot.hasData) {
-                  return rolesPage();
+                  return PlayerPage();
                 } else {
-                  return rolesPage();
+                  return PlayerPage();
                 }
 
               default:

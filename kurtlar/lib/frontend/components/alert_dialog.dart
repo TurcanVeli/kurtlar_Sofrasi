@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../../backend/lang/language_constant.dart';
+
 
 // NAVIGATION SU ANLIK REGISTER SAYFASINI GOSTERIYOR DEGISTIRILECEK
 
-class DescribeOfRoles extends StatelessWidget {
-  DescribeOfRoles(
-      {super.key,
-      required this.header,
-      required this.explanation});
-  String header;
-  String explanation;
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(header),
-      content: Text(explanation),
-      actions: [
-        TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text(
-              'TAMAM',
-              style: TextStyle(color: Colors.redAccent),
-            ))
-      ],
-    );
-  }
-}
 
+
+
+Widget _dialog(BuildContext context, String header, String Body) {
+  return AlertDialog(
+    title: Text(header),
+    content: Text(Body),
+    actions: <Widget>[
+      TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            translate(context).ok,
+            style: TextStyle(color: Colors.red, fontSize: 17),
+          ))
+    ],
+  );
+}

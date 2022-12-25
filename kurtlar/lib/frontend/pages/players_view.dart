@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
+import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
+
+import '../components/button.dart';
 
 class PlayerPage extends StatefulWidget {
   @override
   _PlayerPageState createState() => _PlayerPageState();
 }
 
-class _PlayerPageState extends State<PlayerPage> {
+class _PlayerPageState extends BaseState<PlayerPage> {
   List<String> _playerCodes = [];
 
   void _addPlayer(String _playerCode) {
@@ -20,14 +24,14 @@ class _PlayerPageState extends State<PlayerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: ColorConstant.instance.black,
           leading: IconButton(
               onPressed: () {
                 Navigator.pop(context);
               },
               icon: Icon(
-                Icons.keyboard_arrow_left_rounded,
-                color: Colors.black,
+                Icons.arrow_back,
+                color: ColorConstant.instance.white,
               )),
           title: Text(translate(context).clickAdd)),
       body: Column(
@@ -63,14 +67,11 @@ class _PlayerPageState extends State<PlayerPage> {
               },
             ),
           ),
-          Container(
-            child: ElevatedButton(
-              child: Text(translate(context).contiune),
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => rolesPage()));
-              },
-            ),
+          BottomButtonContainerContiune(
+            context: context,
+            height: dynamicHeight(0.08),
+            buttonText: translate(context).contiune,
+            where: rolesPage(),
           ),
         ],
       ),

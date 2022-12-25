@@ -5,7 +5,6 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-//TODO ayarlar eklenecek.
 
 class Home extends StatelessWidget {
   void ShowAlertDialog(BuildContext context) {

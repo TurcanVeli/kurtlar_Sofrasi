@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 
 class Button extends StatefulWidget {
@@ -47,16 +49,21 @@ class _ButtonState extends State<Button> {
   }
 }
 
-Container BottomButtonContainerContiune(double height, String buttonText) {
+Container BottomButtonContainerContiune({required BuildContext context,required double height,required String buttonText,required Widget where}) {
+  
   return Container(
     height: height,
     color: Colors.white,
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
-          onPressed: (() {}),
+          onPressed: (() {
+              Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => where));
+
+          }),
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+            backgroundColor: MaterialStateProperty.all<Color>(ColorConstant.instance.red),
           ),
           child: Text(buttonText)),
     ),

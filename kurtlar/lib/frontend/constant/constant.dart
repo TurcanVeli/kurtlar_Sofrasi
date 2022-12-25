@@ -12,15 +12,7 @@ import 'package:kurtlar/backend/roles/officer.dart';
 import 'package:kurtlar/backend/roles/polat.dart';
 
 import '../../backend/roles/BaseRole.dart';
-class constant extends StatelessWidget {
-  const constant({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    
-    return Container();
-  }
-}
 LazZiya laz = LazZiya();
 nizamettin niz = nizamettin();
 Polat polat = Polat();

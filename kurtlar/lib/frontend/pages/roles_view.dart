@@ -4,6 +4,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../../backend/roles/BaseRole.dart';
+import '../base/color_constants.dart';
 import '../base/widget_base.dart';
 import '../constant/constant.dart';
 import 'package:vector_math/vector_math.dart' as math;
@@ -38,26 +39,28 @@ class _rolesPageState extends BaseState<rolesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(translate(context).roles),
-        leading: Icon(Icons.arrow_back),
-        backgroundColor: Colors.black,
+        leading: IconButton(onPressed: () {
+          Navigator.of(context).pop();
+        }, icon: Icon(Icons.arrow_back),),
+        backgroundColor: ColorConstant.instance.black,
         elevation: 5,
       ),
       body: ListView(
         children: [
           SizedBox(
             height: dynamicHeight(0.02),
-            child: const DecoratedBox(
-              decoration: const BoxDecoration(color: Colors.white),
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: ColorConstant.instance.white),
             ),
           ),
           Container(
             height: dynamicHeight(0.2),
             child: RolesRow(ordinary),
-            color: Colors.white,
+            color: ColorConstant.instance.white,
           ),
           Container(
             height: dynamicHeight(0.2),
-            color: Colors.white,
+            color: ColorConstant.instance.white,
             child: Padding(
               padding: const EdgeInsets.only(top: 25),
               child: TeamNameColumn(translate(context).govteam),
@@ -65,27 +68,33 @@ class _rolesPageState extends BaseState<rolesPage> {
           ),
           Container(
             height: dynamicHeight(0.2),
-            color: Colors.white,
+            color: ColorConstant.instance.white,
             child: RolesRow(deepgoverment),
           ),
           Container(
             height: dynamicHeight(0.2),
-            color: Colors.white,
+            color: ColorConstant.instance.white,
             child: TeamNameColumn(translate(context).mafiateam),
           ),
           Container(
             height: dynamicHeight(0.2),
-            color: Colors.white,
+            color: ColorConstant.instance.white,
             child: RolesRow(mafia),
           ),
           SizedBox(
             height: dynamicHeight(0.02),
-            child: const DecoratedBox(
-              decoration: const BoxDecoration(color: Colors.white),
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: ColorConstant.instance.white,
+              ),
             ),
           ),
           BottomButtonContainerContiune(
-              dynamicHeight(0.08), translate(context).contiune),
+            context: context,
+            height: dynamicHeight(0.08),
+            buttonText: translate(context).contiune,
+            where: starting(),
+          ),
         ],
       ),
     );
@@ -138,11 +147,11 @@ class _rolesPageState extends BaseState<rolesPage> {
         ),
       ),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: ColorConstant.instance.white,
           border: Border.all(
             color: role.Getcount == 0
-                ? Color.fromARGB(255, 230, 229, 229)
-                : Colors.black87,
+                ? ColorConstant.instance.Catskill_White
+                : ColorConstant.instance.black,
           ),
           borderRadius: BorderRadius.all(Radius.circular(10.0))),
     );
@@ -157,7 +166,7 @@ class _rolesPageState extends BaseState<rolesPage> {
                 onTap: (() {
                   _scaleDialog(role.GetName, role.GetRoleDefiniton);
                 }),
-                child: Container(color: Colors.white,child: RoleNameText(role)))),
+                child: RoleNameContainer(role))),
         Expanded(flex: 1, child: SizedBox()),
         Expanded(
           flex: 2,
@@ -166,6 +175,9 @@ class _rolesPageState extends BaseState<rolesPage> {
       ],
     );
   }
+
+  Container RoleNameContainer(Role role) =>
+      Container(color: ColorConstant.instance.white, child: RoleNameText(role));
 
   Row CountRow(Role role) {
     return Row(
@@ -195,7 +207,8 @@ class _rolesPageState extends BaseState<rolesPage> {
   Container OperationContainer(String operation) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.redAccent, borderRadius: BorderRadius.circular(90)),
+          color: ColorConstant.instance.red,
+          borderRadius: BorderRadius.circular(90)),
       child: Text(
         operation,
         style: Theme.of(context)
@@ -220,7 +233,7 @@ Widget _dialog(BuildContext context, String header, String Body) {
           },
           child: Text(
             translate(context).ok,
-            style: TextStyle(color: Colors.red, fontSize: 17),
+            style: TextStyle(color: ColorConstant.instance.red, fontSize: 17),
           ))
     ],
   );
