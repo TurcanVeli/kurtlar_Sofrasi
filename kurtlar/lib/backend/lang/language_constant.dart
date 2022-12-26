@@ -32,5 +32,5 @@ Locale _locale(String languageCode) {
 }
 
 AppLocalizations translate(BuildContext context) {
-  return AppLocalizations.of(context)!;
+  return AppLocalizations.of(context);
 }

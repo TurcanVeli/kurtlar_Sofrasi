@@ -6,20 +6,24 @@ import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 import 'dart:convert';
 import 'package:localization/localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'backend/database/database.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-    .then((_) {
-      runApp(MyApp());
-    });
+
+  await Firebase.initializeApp();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(YourAmin());
+  });
 }
 
 //flutter run --no-sound-null-safety
@@ -27,14 +31,14 @@ class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
   static void setLocale(BuildContext context, Locale newLocale) {
-    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    _MyAppState state = context.findAncestorStateOfType<_MyAppState>();
     state?.setLocale(newLocale);
   }
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale? _locale;
-  late FireBaseService service;
+  Locale _locale;
+  FireBaseService service;
   setLocale(Locale locale) {
     setState(() {
       _locale = locale;
@@ -77,6 +81,7 @@ class _MyAppState extends State<MyApp> {
                 } else {
                   return PlayerPage();
                 }
+                break;
 
               default:
                 return Center(
@@ -91,3 +96,49 @@ class _MyAppState extends State<MyApp> {
 Widget _notfound() => Center(
       child: Text("Not Found"),
     );
+
+class YourAmin extends StatefulWidget {
+  @override
+  State<YourAmin> createState() => _YourAminState();
+}
+
+class _YourAminState extends State<YourAmin> {
+  var data = FirebaseFirestore.instance.collection('data');
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: SingleChildScrollView(
+          child: StreamBuilder(
+              stream: data.snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return ListView.builder(
+                    itemCount: snapshot.data.docs.length,
+                    shrinkWrap: true,
+                    primary: true,
+                    itemBuilder: (context, i) {
+                      QueryDocumentSnapshot x = snapshot.data.docs[i];
+                      print('ReturnX: ${x}');
+                      return ListTile(
+                        title: Text('${x["name"]}   ${x.id}    '),
+                        subtitle: Text('${x["lastname"]}'),
+                      );
+                    });
+              }),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Text('Add'),
+          onPressed: () {
+            data.add({'name': 'Veli', 'lastname': 'Baba'});
+            data.doc('adada').delete();
+          },
+        ),
+      ),
+    );
+  }
+}

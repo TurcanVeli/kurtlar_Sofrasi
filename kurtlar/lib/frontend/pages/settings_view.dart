@@ -5,7 +5,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import '../../main.dart';
 
 class SettingPageUI extends StatefulWidget {
-  const SettingPageUI({Key? key}) : super(key: key);
+  const SettingPageUI({Key key}) : super(key: key);
   @override
   State<SettingPageUI> createState() => _SettingPageUIState();
 }

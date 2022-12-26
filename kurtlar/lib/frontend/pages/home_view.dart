@@ -5,7 +5,6 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class Home extends StatelessWidget {
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
@@ -143,7 +142,7 @@ class Home extends StatelessWidget {
                       .push(MaterialPageRoute(builder: (context) => profile()));
                 },
                 child: Text(
-                  AppLocalizations.of(context)!.profile,
+                  AppLocalizations.of(context).profile,
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),

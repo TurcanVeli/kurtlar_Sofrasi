@@ -1,7 +1,7 @@
 class users {
-  String? entryCode;
-  String? password;
-  String? username;
+  String entryCode;
+  String password;
+  String username;
 
   users({this.entryCode, this.password, this.username});
 

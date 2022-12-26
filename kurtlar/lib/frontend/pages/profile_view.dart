@@ -7,8 +7,6 @@ import 'package:kurtlar/frontend/pages/register_view.dart';
 // OYUNCU ISMI NASIL KAYDEDILIR O OGRENILECEK
 
 class profile extends StatefulWidget {
-  const profile({super.key});
-
   @override
   State<profile> createState() => _profileState();
 }

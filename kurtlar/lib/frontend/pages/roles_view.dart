@@ -10,8 +10,6 @@ import '../constant/constant.dart';
 import 'package:vector_math/vector_math.dart' as math;
 
 class rolesPage extends StatefulWidget {
-  const rolesPage({super.key});
-
   @override
   State<rolesPage> createState() => _rolesPageState();
 }
@@ -39,9 +37,12 @@ class _rolesPageState extends BaseState<rolesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(translate(context).roles),
-        leading: IconButton(onPressed: () {
-          Navigator.of(context).pop();
-        }, icon: Icon(Icons.arrow_back),),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
         backgroundColor: ColorConstant.instance.black,
         elevation: 5,
       ),
@@ -213,7 +214,7 @@ class _rolesPageState extends BaseState<rolesPage> {
         operation,
         style: Theme.of(context)
             .textTheme
-            .headline6!
+            .headline6
             .copyWith(fontWeight: FontWeight.bold),
       ),
     );

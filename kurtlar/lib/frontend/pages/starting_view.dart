@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 
 class starting extends StatelessWidget {
-  const starting({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +10,9 @@ class starting extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          onPressed: () {Navigator.of(context).pop();},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           icon: Icon(
             Icons.arrow_back,
             color: Colors.black,

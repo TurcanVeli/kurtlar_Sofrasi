@@ -6,8 +6,6 @@ import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
-
   @override
   State<Register> createState() => _RegisterState();
 }

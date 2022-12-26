@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import '../../backend/roles/BaseRole.dart';
 
 class Players {
-  late String _Name;
-  late Image _playerImage;
-  late Role _role;
-  late int _vote;
-  late String _team = "yok";
-  late String _Tempteam = "Yok"; //Laz Ziya kullanırsa mafya olacak
-  late List<Players> Murders =
+  String _Name;
+  Image _playerImage;
+  Role _role;
+  int _vote;
+  String _team = "yok";
+  String _Tempteam = "Yok"; //Laz Ziya kullanırsa mafya olacak
+  List<Players> Murders =
       []; //Eğer ölrüse listeye bir mafya girecek bir de derin devlet.
 
   Players(this._Name, this._playerImage);

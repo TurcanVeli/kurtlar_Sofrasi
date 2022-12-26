@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 
 class starting extends StatelessWidget {
-  const starting({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

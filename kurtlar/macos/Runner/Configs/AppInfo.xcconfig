@@ -8,7 +8,7 @@
 PRODUCT_NAME = kurtlar
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.example.kurtlar
+PRODUCT_BUNDLE_IDENTIFIER = com.kurtlar.user
 
 // The copyright displayed in application information
 PRODUCT_COPYRIGHT = Copyright © 2022 com.example. All rights reserved.

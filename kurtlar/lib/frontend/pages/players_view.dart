@@ -102,7 +102,7 @@ class AddPlayerBottomSheet extends StatefulWidget {
 
 class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
   final _formKey = GlobalKey<FormState>();
-  late String _playerCode;
+  String _playerCode;
 
   @override
   Widget build(BuildContext context) {
@@ -116,20 +116,20 @@ class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
             TextFormField(
               decoration: InputDecoration(labelText: 'Oyuncu Kodu'),
               validator: (value) {
-                if (value!.isEmpty) {
+                if (value.isEmpty) {
                   return 'Lütfen oyuncunun kodunu girin';
                 }
                 return null;
               },
               onSaved: (value) {
-                _playerCode = value!;
+                _playerCode = value;
               },
             ),
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
+                if (_formKey.currentState.validate()) {
+                  _formKey.currentState.save();
                   widget.onPlayerAdded(_playerCode);
                   Navigator.pop(context);
                 }

@@ -8,8 +8,6 @@ import 'home_view.dart';
 // kurtlar register ve I am button //
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -28,7 +26,6 @@ class _LoginPageState extends State<LoginPage> {
             width: 200,
           ),
           SizedBox(height: 20),
-
           TextField(
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -69,7 +66,6 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           const SizedBox(height: 15),
-
           Button(
             buttonText: translate(context).signup,
             where: Register(),
