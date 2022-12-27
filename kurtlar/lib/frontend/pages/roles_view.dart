@@ -38,6 +38,7 @@ class _rolesPageState extends BaseState<rolesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       appBar: AppBar(
         title: Text(translate(context).roles),
         leading: IconButton(

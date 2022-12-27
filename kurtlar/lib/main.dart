@@ -56,14 +56,15 @@ class _MyAppState extends State<MyApp> {
     getLocale().then((locale) => setLocale(locale));
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
     LocalJsonLocalization.delegate.directories = ['assets/lang/'];
     return MaterialApp(
-       locale: _locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      home: rolesPage()
-    );
+        debugShowCheckedModeBanner: false,
+        locale: _locale,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: rolesPage());
   }
 }
