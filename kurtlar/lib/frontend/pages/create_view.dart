@@ -67,10 +67,13 @@ class _createState extends State<create> {
                 child: Container(
                   width: 300,
                   height: 200,
-                  child: Text("       "
-                      "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
-                      "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
-                      "Her oyuncu rol aldıktan sonra ilk gece başlayacak."),
+                  child: Text(
+                    "       "
+                    "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
+                    "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
+                    "Her oyuncu rol aldıktan sonra ilk gece başlayacak.",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               Container(
