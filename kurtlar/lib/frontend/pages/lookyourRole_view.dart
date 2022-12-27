@@ -34,7 +34,7 @@ class _YourRoleState extends BaseState<YourRole> {
             GestureDetector(
                 onTap: setIspressed,
                 child: Container(
-                  height: dynamicHeight(0.26),
+                  height: dynamicHeight(0.28),
                   
                   child: CircleAvatar(
                     radius: 100,
