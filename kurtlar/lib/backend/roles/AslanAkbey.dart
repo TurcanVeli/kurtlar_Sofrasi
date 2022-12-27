@@ -33,12 +33,7 @@ class AslanAkbey extends Role {
   //Pop-Up çıkacak.
   @override
   bool DoMission(Players player) {
-    if (player.GetTempTeam == "Mafya") {
-      print(player.GetTempTeam);
-    } else {
-      print(player.GetTeam); //Bu fonsiyon String return edecek
-
-    }
+   
     return true;
   }
 

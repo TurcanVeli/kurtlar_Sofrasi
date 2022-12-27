@@ -4,14 +4,13 @@ import '../../backend/roles/BaseRole.dart';
 class Players {
   String _Name;
   Image _playerImage;
-  Role _role;
+  Role _role; //Hangi rollde olduğu
   int _vote;
-  String _team = "yok";
   String _Tempteam = "Yok"; //Laz Ziya kullanırsa mafya olacak
   List<Players> Murders =
       []; //Eğer ölrüse listeye bir mafya girecek bir de derin devlet.
 
-  Players(this._Name, this._playerImage);
+  Players(this._Name);
 
   //Defaul value = FAlse
   bool _isJail = false;
@@ -21,8 +20,7 @@ class Players {
   Image get GetImageOfPLayer => _playerImage;
   Role get GetRole => _role; //rolün ismi dönmez obje döner
   bool get Getisdead => _isDead;
-  int get GetVote => _vote;
-  String get GetTeam => _team;
+  int get GetVote => _vote; //Sahip Olduğu Oy sayısı
   String get GetTempTeam => _Tempteam;
 
   void SetVote(int Value) {
@@ -30,8 +28,8 @@ class Players {
     _vote = Value;
   }
 
-  void SetTeam(String teamName) {
-    _team = teamName;
+  void Setrole(Role role) {
+    _role = role;
   }
 
   void SetTempTeam(String Value) {
