@@ -19,6 +19,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.black,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(40, 10, 40, 20),
+        // Gırıstekı Resım
         child: Column(children: [
           Image.asset(
             'assets/images/logo.png',
@@ -26,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             width: 200,
           ),
           SizedBox(height: 20),
+         // Nıckname alan yer
           TextField(
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -41,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           const SizedBox(height: 10),
+          // Sıfre Alan Yer
           TextField(
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -54,6 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                     borderSide: BorderSide(color: Colors.white, width: 2.0))),
           ),
           const SizedBox(height: 25),
+          // LOGIN BUTTONU HOME SAYFASINA GIDECEK
           Button(
             buttonText: translate(context).login,
             where: Home(),
@@ -66,6 +70,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           const SizedBox(height: 15),
+          // SIGN UP BUTTONU REGISTER SAYFASINA GIDECEK
           Button(
             buttonText: translate(context).signup,
             where: Register(),

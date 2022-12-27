@@ -70,7 +70,7 @@ class Home extends StatelessWidget {
               width: 200,
               height: 200,
               child: Image.asset(
-                'assets/images/bullet2.png',
+                'assets/images/bullet.png',
                 fit: BoxFit.cover,
               ),
             ),
