@@ -12,12 +12,11 @@ class create extends StatefulWidget {
 }
 
 class _createState extends State<create> {
-  List<Players> Users = [Players("Veli"),Players("Ahmet"),Players("Emre")];
+  List<Players> Users = [Players("Veli"), Players("Ahmet"), Players("Emre")];
   //List<Role> roles = [polat];
-  @override 
+  @override
   void initState() {
-  
-    for (int i= 0; i< Users.length; i++){
+    for (int i = 0; i < Users.length; i++) {
       //var randomItem = (roles..shuffle()).first;
       //roles.removeAt(0);
       //Users[i].Setrole(randomItem);
@@ -25,6 +24,7 @@ class _createState extends State<create> {
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,12 +49,12 @@ class _createState extends State<create> {
                   width: 200,
                   height: 200,
                   child: Image.asset(
-                    'images/wolf_logo.png',
+                    'assets/images/Desk.png',
                   )),
               Container(
                 width: 1000,
                 height: 40,
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.center,
                 child: Text(
                   "Kur",
                   style: TextStyle(fontSize: 30),
@@ -67,10 +67,13 @@ class _createState extends State<create> {
                 child: Container(
                   width: 300,
                   height: 200,
-                  child: Text("       "
-                      "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
-                      "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
-                      "Her oyuncu rol aldıktan sonra ilk gece başlayacak."),
+                  child: Text(
+                    "       "
+                    "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
+                    "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
+                    "Her oyuncu rol aldıktan sonra ilk gece başlayacak.",
+                    textAlign: TextAlign.center,
+                  ),
                 ),
               ),
               Container(
@@ -78,8 +81,8 @@ class _createState extends State<create> {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                     Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => YourRole(Users)));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => YourRole(Users)));
                   },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(
