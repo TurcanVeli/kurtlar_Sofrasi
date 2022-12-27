@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
+import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../../backend/roles/BaseRole.dart';
 import '../base/color_constants.dart';
@@ -9,6 +10,8 @@ import '../base/widget_base.dart';
 import '../constant/constant.dart';
 import 'package:vector_math/vector_math.dart' as math;
 
+
+//User Listin sayısını geçmeyecek eklenen kartar
 class rolesPage extends StatefulWidget {
   @override
   State<rolesPage> createState() => _rolesPageState();

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
+import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
@@ -18,7 +19,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
@@ -104,41 +104,32 @@ class YourAmin extends StatefulWidget {
 
 class _YourAminState extends State<YourAmin> {
   var data = FirebaseFirestore.instance.collection('data');
+  Locale _locale;
+  FireBaseService service;
+  setLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    service = FireBaseService();
+  }
+
+  @override
+  void didChangeDependencies() {
+    getLocale().then((locale) => setLocale(locale));
+    super.didChangeDependencies();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: StreamBuilder(
-              stream: data.snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-                return ListView.builder(
-                    itemCount: snapshot.data.docs.length,
-                    shrinkWrap: true,
-                    primary: true,
-                    itemBuilder: (context, i) {
-                      QueryDocumentSnapshot x = snapshot.data.docs[i];
-                      print('ReturnX: ${x}');
-                      return ListTile(
-                        title: Text('${x["name"]}   ${x.id}    '),
-                        subtitle: Text('${x["lastname"]}'),
-                      );
-                    });
-              }),
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: Text('Add'),
-          onPressed: () {
-            data.add({'name': 'Veli', 'lastname': 'Baba'});
-            data.doc('adada').delete();
-          },
-        ),
-      ),
+       locale: _locale,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: rolesPage()
     );
   }
 }

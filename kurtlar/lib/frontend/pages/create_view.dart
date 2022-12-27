@@ -1,7 +1,30 @@
 // create sayfasi
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/models/users.dart';
+import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:kurtlar/frontend/constant/constant.dart';
+import 'package:kurtlar/frontend/models/players.dart';
+import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 
-class starting extends StatelessWidget {
+class create extends StatefulWidget {
+  @override
+  State<create> createState() => _createState();
+}
+
+class _createState extends State<create> {
+  List<Players> Users = [Players("Veli"),Players("Ahmet"),Players("Emre")];
+  //List<Role> roles = [polat];
+  @override 
+  void initState() {
+  
+    for (int i= 0; i< Users.length; i++){
+      //var randomItem = (roles..shuffle()).first;
+      //roles.removeAt(0);
+      //Users[i].Setrole(randomItem);
+    }
+
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +77,10 @@ class starting extends StatelessWidget {
                 width: 100,
                 height: 40,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => YourRole(Users)));
+                  },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,

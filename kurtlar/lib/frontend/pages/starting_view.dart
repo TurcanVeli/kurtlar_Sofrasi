@@ -1,6 +1,9 @@
 // basliyor sayfasi
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/pages/create_view.dart';
+
+import '../components/button.dart';
 
 class starting extends StatelessWidget {
   @override
@@ -56,7 +59,10 @@ class starting extends StatelessWidget {
                 width: 100,
                 height: 40,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                     Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => create()));
+                  },
                   child: Text(translate(context).contiune),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
