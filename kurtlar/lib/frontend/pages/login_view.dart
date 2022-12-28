@@ -16,18 +16,19 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.black,
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 10, 40, 20),
+        padding: const EdgeInsets.fromLTRB(40, 90, 40, 20),
         // Gırıstekı Resım
         child: Column(children: [
           Image.asset(
             'assets/images/logo.png',
-            height: 200,
-            width: 200,
+            height: 250,
+            width: 250,
           ),
-          SizedBox(height: 20),
-         // Nıckname alan yer
+          SizedBox(height: 5),
+          // Nıckname alan yer
           TextField(
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
@@ -45,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(height: 10),
           // Sıfre Alan Yer
           TextField(
+            obscureText: true,
             style: TextStyle(color: Colors.white),
             decoration: InputDecoration(
                 prefixIcon: Icon(
@@ -63,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
             where: Home(),
             Height: 40,
             Width: 375,
+            fontSize: 25,
           ),
           const SizedBox(height: 15),
           Text(
@@ -76,6 +79,7 @@ class _LoginPageState extends State<LoginPage> {
             where: Register(),
             Height: 40,
             Width: 375,
+            fontSize: 25,
           )
         ]),
       ),

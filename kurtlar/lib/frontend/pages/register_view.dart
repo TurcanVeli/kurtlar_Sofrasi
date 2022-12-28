@@ -14,8 +14,8 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
-      
         /* Logın sayfasına donmek ıcın ıcon koyuldu */
         leading: GestureDetector(
           onTap: () {
@@ -32,16 +32,15 @@ class _RegisterState extends State<Register> {
         title: Text(translate(context).signup),
         centerTitle: true,
       ),
-    
-    /* Sayfa govdesınde 2 adet textFıeld 1 adet button var */
+
+      /* Sayfa govdesınde 2 adet textFıeld 1 adet button var */
       body: Padding(
         padding: const EdgeInsets.fromLTRB(50, 50, 50, 20),
         child: Column(
           children: [
-            
             /* Nıckname'ı alan textFıeld */
             TextField(
-              style: TextStyle(color: Colors.red),
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.mail,
@@ -53,11 +52,11 @@ class _RegisterState extends State<Register> {
                       borderSide: BorderSide(color: Colors.black, width: 2.0))),
             ),
             const SizedBox(height: 10),
-           
-           /* Sıfreyı alan textFıeld */
+
+            /* Sıfreyı alan textFıeld */
             TextField(
-              obscureText: false,
-              style: TextStyle(color: Colors.red),
+              obscureText: true,
+              style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.lock_person_outlined,
@@ -69,7 +68,7 @@ class _RegisterState extends State<Register> {
                       borderSide: BorderSide(color: Colors.black, width: 2.0))),
             ),
             const SizedBox(height: 40),
-            
+
             /* Uyelık olusturulduktan sonra Logın sayfasına gerı donulecek */
             Button(
               buttonText: translate(context).signup,

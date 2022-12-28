@@ -8,8 +8,9 @@ class Button extends StatefulWidget {
   Widget where;
   double Height;
   double Width;
+  double fontSize;
 
-  Button({this.buttonText, this.where, this.Height, this.Width});
+  Button({this.buttonText, this.where, this.Height, this.Width, this.fontSize});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -32,12 +33,14 @@ class _ButtonState extends State<Button> {
         width: widget.Width,
         decoration: BoxDecoration(
             color: Color.fromARGB(255, 189, 13, 42),
-            borderRadius: BorderRadius.circular(12)),
+            borderRadius: BorderRadius.circular(20)),
         child: Center(
             child: Text(
           widget.buttonText,
-          style: const TextStyle(
-              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: widget.fontSize),
         )),
       ),
     );

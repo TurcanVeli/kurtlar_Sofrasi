@@ -15,19 +15,20 @@ class _SettingPageUIState extends State<SettingPageUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(translate(context).settings,
             style: TextStyle(
-                fontSize: 22,
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic)),
+              fontSize: 22,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            )),
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
       ),
@@ -35,18 +36,6 @@ class _SettingPageUIState extends State<SettingPageUI> {
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: [
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Icon(
-                  Icons.settings,
-                  color: Colors.black,
-                ),
-                SizedBox(width: 20),
-              ],
-            ),
-            Divider(height: 12, thickness: 1),
-            SizedBox(height: 10),
             Row(
               children: [
                 Icon(

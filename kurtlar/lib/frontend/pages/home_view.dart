@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/components/button.dart';
+import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
@@ -55,7 +57,12 @@ class Home extends StatelessWidget {
             Icons.arrow_back_ios_new_sharp,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginPage()),
+            );
+          },
         ),
         backgroundColor: Colors.black,
       ),
@@ -82,8 +89,9 @@ class Home extends StatelessWidget {
                 "KURTLAR SOFRASI",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2),
               ),
             ),
             Container(
@@ -98,59 +106,28 @@ class Home extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
-            Container(
-              width: 200,
-              height: 50,
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: EdgeInsets.all(0),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => PlayerPage()));
-                },
-                child: Text(
-                  translate(context).newgame,
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            SizedBox(
+            // YENI OYUN BUTTONU
+            Button(
+                buttonText: translate(context).newgame,
+                Height: 50,
+                where: PlayerPage(),
+                Width: 200),
+            const SizedBox(
               height: 15,
             ),
-            Container(
-              width: 200,
-              height: 50,
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              padding: EdgeInsets.all(0),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => profile()));
-                },
-                child: Text(
-                  AppLocalizations.of(context).profile,
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-            SizedBox(
+            // Profıl edıt buttonu
+            Button(
+                buttonText: translate(context).profile,
+                Height: 50,
+                where: profile(),
+                Width: 200),
+            const SizedBox(
               height: 15,
             ),
+            // Nasıl oynanır butonu
             Container(
               width: 200,
               height: 50,
