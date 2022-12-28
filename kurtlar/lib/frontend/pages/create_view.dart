@@ -12,19 +12,9 @@ class create extends StatefulWidget {
 }
 
 class _createState extends State<create> {
-  List<Players> Users = [Players("Veli"), Players("Ahmet"), Players("Emre")];
+
   //List<Role> roles = [polat];
-  @override
-  void initState() {
-    for (int i = 0; i < Users.length; i++) {
-      //var randomItem = (roles..shuffle()).first;
-      //roles.removeAt(0);
-      //Users[i].Setrole(randomItem);
-    }
-
-    super.initState();
-  }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,8 +71,8 @@ class _createState extends State<create> {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => YourRole(Users)));
+                     Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => YourRole()));
                   },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(

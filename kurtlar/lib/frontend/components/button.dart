@@ -48,7 +48,8 @@ class _ButtonState extends State<Button> {
 }
 
 Container BottomButtonContainerContiune(
-    {BuildContext context, double height, String buttonText, Widget where}) {
+    {BuildContext context, double height, String buttonText, Widget where, VoidCallback function}) {
+      
   return Container(
     height: height,
     color: Colors.white,
@@ -56,8 +57,13 @@ Container BottomButtonContainerContiune(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(
           onPressed: (() {
+            if(where != null){
+
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (context) => where));
+            }else{
+                function;
+            }
           }),
           style: ButtonStyle(
             backgroundColor:
