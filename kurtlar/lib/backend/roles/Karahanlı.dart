@@ -9,7 +9,7 @@ class Karahanli extends Role {
   String _Name = "Karahanlı";
   final String _team = "Mafya";
   final int countOfVote = 1;
-  bool muted = false;
+
   int count = 0;
   int remainingMission = 1;
 

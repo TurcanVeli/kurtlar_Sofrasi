@@ -26,13 +26,16 @@ void main() async {
   });
 }
 
-
-class YourAmin extends StatefulWidget {
+class MyApp extends StatefulWidget {
   @override
-  State<YourAmin> createState() => _YourAminState();
+  State<MyApp> createState() => _MyAppState();
+  static void setLocale(BuildContext context, Locale newLocale) {
+    _MyAppState state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(newLocale);
+  }
 }
 
-class _YourAminState extends State<YourAmin> {
+class _MyAppState extends State<MyApp> {
   var data = FirebaseFirestore.instance.collection('users');
   Locale _locale;
   setLocale(Locale locale) {
@@ -41,14 +44,15 @@ class _YourAminState extends State<YourAmin> {
     });
   }
 
- 
   @override
   void didChangeDependencies() {
     getLocale().then((locale) => setLocale(locale));
     super.didChangeDependencies();
   }
+
   @override
   Widget build(BuildContext context) {
+    LocalJsonLocalization.delegate.directories = ['assets/lang/'];
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: _locale,

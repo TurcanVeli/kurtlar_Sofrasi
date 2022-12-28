@@ -105,7 +105,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     ElevatedButton(
                       onPressed: () async {
                         Locale _locale = await setLocale("tr");
-                        YourAmin.setLocale(context, _locale);
+                        MyApp.setLocale(context, _locale);
                         Navigator.of(context).pop();
                       },
                       child: Text(translate(context).tr),
@@ -122,7 +122,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     ElevatedButton(
                       onPressed: () async {
                         Locale _locale = await setLocale("en");
-                        YourAmin.setLocale(context, _locale);
+                        MyApp.setLocale(context, _locale);
                         Navigator.of(context).pop();
                       },
                       child: Text(

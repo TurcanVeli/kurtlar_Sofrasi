@@ -8,8 +8,8 @@ class officer extends Role {
   String _Name = "Memur";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-  bool muted = false;
-  int count = 0;
+
+  int count = 4;
 
   @override
   bool DoMission(Players player) {
@@ -30,6 +30,10 @@ class officer extends Role {
   String get GetTeam => _team;
   @override
   int get Getcount => count;
+
+  void SetCount(int value) {
+    count = value;
+  }
 
   void increment() {
     if (count != 4) count++;

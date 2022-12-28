@@ -9,7 +9,7 @@ class Polat extends Role {
   String _Name = "Polat";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-  bool muted = false;
+
   int count = 0;
 
   @override

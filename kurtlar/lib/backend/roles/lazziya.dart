@@ -9,7 +9,7 @@ class LazZiya extends Role {
   int remainingMission = 1;
   final int countOfVote = 1;
   int count = 0;
-  bool muted = false;
+
   LazZiya() {
     print("oluştu");
   }

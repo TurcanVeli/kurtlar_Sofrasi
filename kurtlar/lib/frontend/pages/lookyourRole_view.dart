@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kurtlar/backend/models/users.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/models/users.dart';
@@ -15,6 +14,14 @@ class YourRole extends StatefulWidget {
 class _YourRoleState extends BaseState<YourRole> {
   bool ispressed = false;
   bool showrole = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+
   void setIspressed() { 
     setState(() {
       ispressed = !ispressed;

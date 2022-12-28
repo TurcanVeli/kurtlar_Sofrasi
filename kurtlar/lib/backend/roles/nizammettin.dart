@@ -8,7 +8,7 @@ class nizamettin extends Role {
   final String _team = "Mafya";
   int remainingMission = 1;
   final int countOfVote = 1;
-  bool muted = false;
+ 
   int count = 0;
 
 

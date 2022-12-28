@@ -1,8 +1,7 @@
 // create sayfasi
 import 'package:flutter/material.dart';
-import 'package:kurtlar/backend/models/users.dart';
 import 'package:kurtlar/backend/roles/BaseRole.dart';
-import 'package:kurtlar/frontend/constant/constant.dart';
+import 'package:kurtlar/frontend/models/roles.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 

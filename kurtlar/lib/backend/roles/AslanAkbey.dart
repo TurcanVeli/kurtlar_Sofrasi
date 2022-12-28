@@ -14,7 +14,7 @@ class AslanAkbey extends Role {
   String _Name = "Aslan Akbey";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-  bool muted = false;
+
   int count = 0;
 
   @override

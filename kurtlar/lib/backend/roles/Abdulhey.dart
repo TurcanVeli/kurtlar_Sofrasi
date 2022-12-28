@@ -11,9 +11,8 @@ class Abdulhey extends Role {
   String _Name = "Abdulhey";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-  bool muted = false;
   int count = 0;
- int remainingMission = 1;
+  int remainingMission = 1;
 
   @override
   String get GetMissionText => _MissionText;
@@ -30,10 +29,8 @@ class Abdulhey extends Role {
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
 
-  
   @override
   bool DoMission(Players player) {
-    
     return true;
   }
 

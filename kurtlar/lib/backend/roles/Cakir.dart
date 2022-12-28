@@ -8,7 +8,7 @@ class Cakir extends Role {
   String _Name = "Çakır";
   final String _team = "Mafya";
   final int countOfVote = 2;
-  bool muted = false;
+
   int count = 0;
   int remainingMission = 1;
 

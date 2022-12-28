@@ -7,17 +7,52 @@ import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../../backend/roles/BaseRole.dart';
 import '../base/color_constants.dart';
 import '../base/widget_base.dart';
-import '../constant/constant.dart';
+import '../models/roles.dart';
 import 'package:vector_math/vector_math.dart' as math;
+
+import '../models/users.dart';
 
 
 //User Listin sayısını geçmeyecek eklenen kartar
+
+//
 class rolesPage extends StatefulWidget {
   @override
   State<rolesPage> createState() => _rolesPageState();
 }
 
 class _rolesPageState extends BaseState<rolesPage> {
+  
+  int UsersCount      = USERS.length;
+  int addedRoleCount  = USERS.length;
+  int addedmafiacount = 0;//it cannot be zero. 
+  List<Role> addedRoles = [];
+  //TODO TEXTLER DÜZELECEK. TRANSLATEDEN GELCEK
+
+  void roleCountIncrement(Role role){
+    setState(() {
+      if(UsersCount < addedRoleCount){
+        role.increment();
+        if (role.GetTeam == "Mafya"){
+          addedmafiacount++;
+        }
+        addedRoles.add(role);
+        addedRoleCount++;
+        }
+    });
+  }
+
+  void roleCountDecrement(Role role){
+    setState(() {
+      role.decrase();
+       if (role.GetTeam == "Mafya"){
+          addedmafiacount--;
+        }
+        addedRoles.remove(role);
+      addedRoleCount--;
+    });
+  }
+
   void _scaleDialog(String header, String body) {
     showGeneralDialog(
       context: context,
@@ -37,6 +72,7 @@ class _rolesPageState extends BaseState<rolesPage> {
 
   @override
   Widget build(BuildContext context) {
+    Off.SetCount(UsersCount);
     return Scaffold(
       
       appBar: AppBar(
@@ -96,9 +132,11 @@ class _rolesPageState extends BaseState<rolesPage> {
           ),
           BottomButtonContainerContiune(
             context: context,
+            color: addedmafiacount == 0? Colors.grey: null ,
             height: dynamicHeight(0.08),
-            buttonText: translate(context).contiune,
-            where: starting(),
+            //Translate edilecek
+            buttonText: addedmafiacount == 0? "En az 1 mafya ekleyin": translate(context).contiune,
+            where:addedmafiacount == 0? null :starting(),//Where ve function null olursa hiç bir şey çalışmaz bu buttonda
           ),
         ],
       ),
@@ -191,18 +229,19 @@ class _rolesPageState extends BaseState<rolesPage> {
         InkWell(
             onTap: () {
               setState(() {
-                role.decrase();
+                roleCountDecrement(role);
               });
             },
-            child: OperationContainer(" - ")),
+            child: role.GetName=="Memur" || role.Getcount == 0? SizedBox():OperationContainer(" - ")),
         RoleCountText(role),
         InkWell(
             onTap: () {
               setState(() {
-                role.increment();
+                roleCountIncrement(role);
               });
             },
-            child: OperationContainer(" + ")),
+            //ToDo Textler düzelecek
+            child: role.GetName=="Memur" || role.Getcount == 1 && role.GetName != "Mafya Adamı"? SizedBox():OperationContainer(" + ")),
       ],
     );
   }

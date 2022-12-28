@@ -9,7 +9,7 @@ class DoguBey extends Role {
   String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-  bool muted = false;
+
   int count = 0;
   int remainingMission = 1;
 

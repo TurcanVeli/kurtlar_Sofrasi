@@ -17,14 +17,13 @@ LazZiya laz = LazZiya();
 nizamettin niz = nizamettin();
 Polat polat = Polat();
 mafiamen mafiaMen = mafiamen();
-officer Officer = officer();
+officer Off = officer();
 AslanAkbey Aslan = AslanAkbey();
 Cakir cak = Cakir();
 Abdulhey abu = Abdulhey();
 Karahanli kara = Karahanli();
 DoguBey dogubey = DoguBey();
 
-
-List<Role> ordinary = [Officer,mafiaMen,polat];
-List<Role> deepgoverment = [Aslan,dogubey,abu];
-List<Role> mafia = [kara,niz,cak];
+List<Role> ordinary = [Off, mafiaMen, polat];
+List<Role> deepgoverment = [Aslan, dogubey, abu];
+List<Role> mafia = [kara, niz, cak];
