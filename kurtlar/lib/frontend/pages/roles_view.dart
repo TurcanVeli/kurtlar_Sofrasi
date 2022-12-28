@@ -27,11 +27,12 @@ class _rolesPageState extends BaseState<rolesPage> {
   int addedRoleCount  = USERS.length;
   int addedmafiacount = 0;//it cannot be zero. 
   List<Role> addedRoles = [];
+
   //TODO TEXTLER DÜZELECEK. TRANSLATEDEN GELCEK
 
   void roleCountIncrement(Role role){
     setState(() {
-      if(UsersCount < addedRoleCount){
+      if(UsersCount != addedRoleCount){
         role.increment();
         if (role.GetTeam == "Mafya"){
           addedmafiacount++;
@@ -74,7 +75,7 @@ class _rolesPageState extends BaseState<rolesPage> {
   Widget build(BuildContext context) {
     Off.SetCount(UsersCount);
     return Scaffold(
-      
+       
       appBar: AppBar(
         title: Text(translate(context).roles),
         leading: IconButton(

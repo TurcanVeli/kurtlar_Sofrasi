@@ -36,7 +36,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var data = FirebaseFirestore.instance.collection('users');
   Locale _locale;
   setLocale(Locale locale) {
     setState(() {

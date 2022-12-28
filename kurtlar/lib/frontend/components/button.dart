@@ -5,12 +5,13 @@ import 'package:kurtlar/frontend/pages/register_view.dart';
 
 class Button extends StatefulWidget {
   String buttonText;
+  VoidCallback kaydet;
   Widget where;
   double Height;
   double Width;
   double fontSize;
 
-  Button({this.buttonText, this.where, this.Height, this.Width, this.fontSize});
+  Button({this.buttonText, this.where, this.Height, this.Width, this.fontSize,this.kaydet});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -22,8 +23,11 @@ class _ButtonState extends State<Button> {
     return GestureDetector(
       onTap: (() {
         setState(() {
+         
+          
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => widget.where));
+
         });
       }),
       // GIRIS SAYFASI OLCUTLERI HEIGHT :40 , WIDTH : 375
@@ -52,7 +56,7 @@ Container BottomButtonContainerContiune(
     double height,
     String buttonText,
     Widget where,
-    VoidCallback function,
+    Function function,
     Color color}) {
   if (color == null) {
     color = ColorConstant.instance.red;

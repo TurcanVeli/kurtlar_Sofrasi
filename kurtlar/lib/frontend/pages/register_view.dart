@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
@@ -11,6 +12,33 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  var username = TextEditingController();
+  var password = TextEditingController();
+  var data = FirebaseFirestore.instance.collection('users');
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void kaydet(var data, String username, String password, int money, int point,
+      String inviteCode) {
+        //while 
+          //var x = generateCode();
+          
+    
+    setState(() {
+      print("geldi");
+      data.add({
+        "username": username,
+        "password": password,
+        "invitecode": inviteCode,
+        "money": money,
+        "point": point
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,6 +68,7 @@ class _RegisterState extends State<Register> {
           children: [
             /* Nıckname'ı alan textFıeld */
             TextField(
+              controller: username,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
@@ -55,6 +84,7 @@ class _RegisterState extends State<Register> {
 
             /* Sıfreyı alan textFıeld */
             TextField(
+              controller: password,
               obscureText: true,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
@@ -70,12 +100,12 @@ class _RegisterState extends State<Register> {
             const SizedBox(height: 40),
 
             /* Uyelık olusturulduktan sonra Logın sayfasına gerı donulecek */
-            Button(
-              buttonText: translate(context).signup,
-              where: LoginPage(),
-              Height: 45,
-              Width: 375,
-            )
+
+            TextButton(
+                onPressed: (() {
+                  kaydet(data, username.text, password.text, 0, 0, "BCD32");
+                }),
+                child: Text("Kaydet"))
           ],
         ),
       ),
