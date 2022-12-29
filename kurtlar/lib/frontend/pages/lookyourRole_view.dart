@@ -4,6 +4,7 @@ import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/models/users.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
+import 'package:kurtlar/frontend/pages/night_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
 
 import '../components/alert_dialog.dart';
@@ -105,7 +106,7 @@ class _YourRoleState extends BaseState<YourRole> {
                       height: dynamicHeight(0.07),
                       buttonText: "TAMAM",
                       where:
-                          i < USERS.length ? YourRole(USERS[i], i) : LoginPage())
+                          i < USERS.length ? YourRole(USERS[i], i) : nightPage())
                 ],
               )
             : rolegostermek(context),
