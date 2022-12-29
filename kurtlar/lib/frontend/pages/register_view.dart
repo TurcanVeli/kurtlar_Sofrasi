@@ -39,10 +39,8 @@ class _RegisterState extends State<Register> {
   // Users collectionda bizim verileri tuttugumuz yer var. Bu tuttugumuz yer bır degıskenın ıcıne atıldı.
   var data = FirebaseFirestore.instance.collection('users');
 
-  @override
-  void initState() {
-    super.initState();
-  }
+    bool _validate = false;
+
 
   /* Kaydet adlı fonksıyon, kullanıcı adı ve sıfrede yazılan bılgılerı bu fonksıyon ıcerısıne alır ve 
   Sayfanın sonundakı kaydet butonuna bastıgımız zaman bu fonksıyon ıcerısıne gonderdıgımız bılgılerı database'e gonderır. */
@@ -70,10 +68,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     /* Bu textler regıster sayfasında textFıeldların ıcını doldurmadan gırmeyı onlemek ıcın yaratıldı*/
-    String passwordText, usernameText;
-    passwordText = password.text;
-    usernameText = username.text;
-    bool _validate = false;
+
 
     /* Sayfanın ana sablonu burada olusturuldu */
     return Scaffold(
@@ -142,10 +137,11 @@ class _RegisterState extends State<Register> {
             TextButton(
                 onPressed: (() {
                   setState(() {
-                    if (passwordText == '' && usernameText == '') {
+                    if (password.text == '' || username.text == '') {
                       print('Veri Geldi');
                     } else {
                       kaydet(data, username.text, password.text, 0, 0, "BCD32");
+                      print("Veri yüklendi");
                       Navigator.pop(context);
                     }
                   });
