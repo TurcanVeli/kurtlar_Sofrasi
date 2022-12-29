@@ -17,6 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends BaseState<LoginPage> {
   var data = FirebaseFirestore.instance.collection('users');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

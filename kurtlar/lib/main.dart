@@ -6,6 +6,7 @@ import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
+import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'dart:convert';
@@ -18,7 +19,7 @@ import 'backend/database/database.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
- /* Fırebase burada asenkron bir şekilde gomuldu */
+  /* Fırebase burada asenkron bir şekilde gomuldu */
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])

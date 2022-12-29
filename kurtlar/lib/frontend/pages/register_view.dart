@@ -25,7 +25,8 @@ Gırılen degerler database ıcerısınde degılse hata kodu verılecek */
 /* Ayrıca bu kullanıcının nıckname'ı profılevıew da en basta gozukecek ama bu nıckname profılevıew da degıtırılebılecek */
 
 /* Anasayfayı gectıkten sonra telefonu elınde tutan kısı code'u gırdıkten sonra eğer bu kod database ıcerısınde varsa
-   sayfa uzerınde bu koda sahıp olan oyuncunun ısmı gozukecek. Bu ınvıte code database ıcerısınde degılse hata mesajı verecek */
+   sayfa uzerınde bu koda sahıp olan oyuncunun ısmı gozukecek.
+   Bu ınvıte code database ıcerısınde degılse hata mesajı verecek */
 
 class Register extends StatefulWidget {
   @override

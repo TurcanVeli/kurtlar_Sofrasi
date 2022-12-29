@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
