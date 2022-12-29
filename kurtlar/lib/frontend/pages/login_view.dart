@@ -67,7 +67,7 @@ class _LoginPageState extends BaseState<LoginPage> {
           // LOGIN BUTTONU HOME SAYFASINA GIDECEK
           Button(
             buttonText: translate(context).login,
-            where: Home(),
+            where:  Home(),
             Height: 40,
             Width: 375,
             fontSize: 25,
