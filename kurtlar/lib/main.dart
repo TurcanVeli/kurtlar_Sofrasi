@@ -18,6 +18,7 @@ import 'backend/database/database.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
+ /* Fırebase burada asenkron bir şekilde gomuldu */
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])

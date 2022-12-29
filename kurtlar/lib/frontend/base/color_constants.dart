@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 
-
+/* Bu kod sayfalar ıcerısınde kullanılacak ana temaları belırleyecek */
 class ColorConstant{
   static ColorConstant instance = ColorConstant._init();
   ColorConstant._init();
