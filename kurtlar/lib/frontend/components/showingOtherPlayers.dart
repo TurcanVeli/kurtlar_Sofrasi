@@ -5,7 +5,6 @@ import '../models/players.dart';
 Container OtherMafiasShowingContainer(double height, List<Players> mafias) {
   return Container(
       height: height,
-      color: Colors.amber,
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 150,
