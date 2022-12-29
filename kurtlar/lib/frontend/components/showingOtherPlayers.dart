@@ -2,25 +2,27 @@ import 'package:flutter/material.dart';
 
 import '../models/players.dart';
 
-Container OtherMafiasShowingContainer(double height, List<Players> mafias) {
+Container UsersShowingContainer(double height, List<Players> Users) {
+
+
   return Container(
       height: height,
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 150,
-              childAspectRatio: 3 / 6,
-              crossAxisSpacing: 30,
+              maxCrossAxisExtent: 100,
+              childAspectRatio: 4 / 6,
+              crossAxisSpacing: 20,
               mainAxisSpacing: 34),
-          itemCount: mafias.length,
+          itemCount: Users.length,
           itemBuilder: (BuildContext ctx, index) {
             return Container(
               child: Column(
                 children: [
                   CircleAvatar(
-                    radius: 60,
+                    radius: 40,
                     child: Image.asset('assets/images/deafultAvatar.png'),
                   ),
-                  Text(mafias[index].GetName),
+                  Text(Users[index].GetName),
                 ],
               ),
             );

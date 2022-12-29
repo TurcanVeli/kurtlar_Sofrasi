@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/models/users.dart';
+import 'package:kurtlar/frontend/pages/areuready_view.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/night_view.dart';
@@ -9,6 +10,7 @@ import 'package:kurtlar/frontend/pages/roles_view.dart';
 
 import '../components/alert_dialog.dart';
 import '../components/button.dart';
+import '../components/ready.dart';
 import '../components/showingOtherPlayers.dart';
 
 class YourRole extends StatefulWidget {
@@ -95,7 +97,7 @@ class _YourRoleState extends BaseState<YourRole> {
                   //Mafya ya da aslan akbey ise kullanıcılar gözükecek.
                   if (_user.GetRole.GetTeam == "Mafya")
                       
-                     OtherMafiasShowingContainer(dynamicHeight(0.4),MafiasUser)//değiştir
+                     UsersShowingContainer(dynamicHeight(0.4),MafiasUser)//değiştir
                   else 
                       SizedBox(
                       height: dynamicHeight(0.484),
@@ -106,76 +108,13 @@ class _YourRoleState extends BaseState<YourRole> {
                       height: dynamicHeight(0.07),
                       buttonText: "TAMAM",
                       where:
-                          i < USERS.length ? YourRole(USERS[i], i) : nightPage())
+                          i < USERS.length ? YourRole(USERS[i], i) : areUready(_user,USERS))
                 ],
               )
-            : rolegostermek(context),
-      ),
-    );
-  }
-
-  Center rolegostermek(BuildContext context) {
-    return Center(
-      child: ListView(
-        children: <Widget>[
-          SizedBox(
-            height: dynamicHeight(0.16),
-          ),
-          GestureDetector(
-            onTap: setIspressed,
-            child: Container(
-              height: dynamicHeight(0.26),
-              child: CircleAvatar(
-                radius: 100,
-                backgroundColor: ispressed == true ? Colors.red : Colors.white,
-                child: CircleAvatar(
-                  child: Image.asset("assets/images/deafultAvatar.png"),
-                  maxRadius: 100,
-                ),
-              ),
-            ),
-          ),
-          Container(
-              height: dynamicHeight(0.2),
-              child: Center(
-                  child: Padding(
-                padding: EdgeInsets.only(bottom: 90),
-                child: Text(_user.GetName),
-              ))),
-          Container(
-              height: dynamicHeight(0.2),
-              child: Center(
-                  child: Padding(
-                padding: EdgeInsets.only(bottom: 90),
-                child: Text("Rolü görmek için tıkla"),
-              ))),
-          SizedBox(
-            height: dynamicHeight(0.07),
-          ),
-          if (ispressed)
-            Container(
-                height: dynamicHeight(0.07),
-                color: Colors.red,
-                child: ElevatedButton(
-                    onPressed: setShowrole, child: Text("Rol Göster")))
-          else
-            SizedBox(
-              height: 0.07,
-            )
-        ],
+            :ReadyComponent(context,_user,dynamicHeight,setIspressed,ispressed,setShowrole,"Rolünü Görmek için tıkla")
+,
       ),
     );
   }
 }
 
-
-//where: i < USERS.length ? YourRole(USERS[i], i) : LoginPage(),
-
-
-/*
-BottomButtonContainerContiune(
-                context: context,
-                height: dynamicHeight(0.07),
-                buttonText: "ROLÜ GÖSTER",
-                function: setShowrole)
-*/
