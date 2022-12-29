@@ -56,8 +56,8 @@ Container BottomButtonContainerContiune(
     double height,
     String buttonText,
     Widget where,
-    Function function,
-    Color color}) {
+    VoidCallback function,
+    Color color,}) {
   if (color == null) {
     color = ColorConstant.instance.red;
   }
@@ -69,10 +69,12 @@ Container BottomButtonContainerContiune(
       child: ElevatedButton(
           onPressed: (() {
             if (where != null) {
+              
               Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => where));
             } else {
               if (function != null) {
+                print("object");
                 function;
               } else {
                 print("Debug");

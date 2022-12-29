@@ -52,18 +52,7 @@ class Home extends StatelessWidget {
             },
           )
         ],
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios_new_sharp,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LoginPage()),
-            );
-          },
-        ),
+       
         backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,

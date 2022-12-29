@@ -24,16 +24,27 @@ class rolesPage extends StatefulWidget {
 class _rolesPageState extends BaseState<rolesPage> {
   
   int UsersCount      = USERS.length;
-  int addedRoleCount  = USERS.length;
+  int addedRoleCount  = 0;
   int addedmafiacount = 0;//it cannot be zero. 
-  List<Role> addedRoles = [];
 
   //TODO TEXTLER DÜZELECEK. TRANSLATEDEN GELCEK
 
+  @override
+  void initState() {
+    
+    Off.SetCount(UsersCount);
+    for (int i = 0; i<UsersCount; i++){
+      addedRoles.add(Off);
+    }
+    super.initState();
+  }
+
   void roleCountIncrement(Role role){
     setState(() {
-      if(UsersCount != addedRoleCount){
+      if(Off.Getcount > 0){
         role.increment();
+        Off.count--;
+        addedRoles.remove(Off);
         if (role.GetTeam == "Mafya"){
           addedmafiacount++;
         }
@@ -46,6 +57,8 @@ class _rolesPageState extends BaseState<rolesPage> {
   void roleCountDecrement(Role role){
     setState(() {
       role.decrase();
+      Off.count++;
+      addedRoles.add(Off);
        if (role.GetTeam == "Mafya"){
           addedmafiacount--;
         }
@@ -73,9 +86,7 @@ class _rolesPageState extends BaseState<rolesPage> {
 
   @override
   Widget build(BuildContext context) {
-    Off.SetCount(UsersCount);
     return Scaffold(
-       
       appBar: AppBar(
         title: Text(translate(context).roles),
         leading: IconButton(
