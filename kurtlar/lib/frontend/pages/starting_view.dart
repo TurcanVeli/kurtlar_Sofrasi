@@ -60,8 +60,9 @@ class starting extends StatelessWidget {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                     Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => create()));
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => create()));
                   },
                   child: Text(translate(context).contiune),
                   style: TextButton.styleFrom(

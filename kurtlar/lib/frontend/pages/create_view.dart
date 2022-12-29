@@ -5,15 +5,36 @@ import 'package:kurtlar/frontend/models/roles.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 
+import '../models/users.dart';
+
 class create extends StatefulWidget {
   @override
   State<create> createState() => _createState();
 }
 
 class _createState extends State<create> {
+  int i =0;
+  @override
 
-  //List<Role> roles = [polat];
- 
+  //initleri muhteşem kullanıyorum uygulama patlatabiilir mi acaba bilmiyorum
+  void initState() {
+    Role randomRole;
+    print( addedRoles.toString()
+    );
+    for (int l = 0; l<USERS.length; l++){
+    
+      randomRole = (addedRoles..shuffle()).first;
+      USERS[l].Setrole(randomRole);
+      if(randomRole.GetTeam == "Mafya") MafiasUser.add(USERS[l]);
+      addedRoles.removeAt(0);
+    }
+
+    
+    super.initState();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +91,9 @@ class _createState extends State<create> {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                     Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => YourRole()));
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => YourRole(USERS[0],i)));
                   },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(
