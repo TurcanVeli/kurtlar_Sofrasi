@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
@@ -11,9 +13,6 @@ import 'package:kurtlar/main.dart';
     Bu fonksıyon TextButton ıcerısınde cagırılacak. */
 
 /* Ayrıca eğer textField'lar bos ıse bu durum kontrol edılecek ve textFıeld ıcerısınde bır hata mesajı gonderılecek */
-
-// Email de alınacak register sayfasında. Ek olarak kullanıcı kendi emaili ve şifresi ile giriş yapabilecek.
-//Kullanıcı adı ve invite codu profile sayfasında gösterilecek
 
 /* TextFıeld kontrol işlemi logın sayfasında da yapılacak */
 
@@ -36,11 +35,16 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   var username = TextEditingController();
   var password = TextEditingController();
+  var mail = TextEditingController();
   // Users collectionda bizim verileri tuttugumuz yer var. Bu tuttugumuz yer bır degıskenın ıcıne atıldı.
   var data = FirebaseFirestore.instance.collection('users');
 
-    bool _validate = false;
-
+  // It is going the generate invideCode
+  String generateRandomString(int len) {
+    var r = Random();
+    return String.fromCharCodes(
+        List.generate(len, (index) => r.nextInt(33) + 89));
+  }
 
   /* Kaydet adlı fonksıyon, kullanıcı adı ve sıfrede yazılan bılgılerı bu fonksıyon ıcerısıne alır ve 
   Sayfanın sonundakı kaydet butonuna bastıgımız zaman bu fonksıyon ıcerısıne gonderdıgımız bılgılerı database'e gonderır. */
@@ -48,8 +52,8 @@ class _RegisterState extends State<Register> {
   /* Bu fonksıyondakı parametrelerın tamamlanması ıcın bu sayfa ıcerısıde random sayı ureten bır 
     fonksıyon yazılacak ve bu fonksıyon cagırıldıgında her bır kullanıcı ıcın unique bir invite code olusturacak */
 
-  void kaydet(var data, String username, String password, int money, int point,
-      String inviteCode) {
+  void kaydet(var data, String mail, String username, String password,
+      int money, int point, String inviteCode) {
     //while
     //var x = generateCode();
 
@@ -60,7 +64,8 @@ class _RegisterState extends State<Register> {
         "password": password,
         "invitecode": inviteCode,
         "money": money,
-        "point": point
+        "point": point,
+        "mail": mail
       });
     });
   }
@@ -68,7 +73,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     /* Bu textler regıster sayfasında textFıeldların ıcını doldurmadan gırmeyı onlemek ıcın yaratıldı*/
-
 
     /* Sayfanın ana sablonu burada olusturuldu */
     return Scaffold(
@@ -96,13 +100,27 @@ class _RegisterState extends State<Register> {
         padding: const EdgeInsets.fromLTRB(50, 50, 50, 20),
         child: Column(
           children: [
-            /* Nıckname'ı alan textFıeld */
+            /* Maili alan textFıeld */
+            TextField(
+              controller: mail,
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.mail,
+                    color: Colors.black,
+                  ),
+                  hintText: 'Mail',
+                  hintStyle: TextStyle(color: Colors.black),
+                  enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black, width: 2.0))),
+            ),
+            const SizedBox(height: 50),
             TextField(
               controller: username,
               style: TextStyle(color: Colors.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
-                    Icons.mail,
+                    Icons.accessibility_new,
                     color: Colors.black,
                   ),
                   hintText: translate(context).username,
@@ -110,7 +128,7 @@ class _RegisterState extends State<Register> {
                   enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 2.0))),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 50),
 
             /* Sıfreyı alan textFıeld */
             TextField(
@@ -137,10 +155,13 @@ class _RegisterState extends State<Register> {
             TextButton(
                 onPressed: (() {
                   setState(() {
-                    if (password.text == '' || username.text == '') {
+                    if (password.text == '' ||
+                        username.text == '' ||
+                        mail.text == '') {
                       print('Veri Geldi');
                     } else {
-                      kaydet(data, username.text, password.text, 0, 0, "BCD32");
+                      kaydet(data, mail.text, username.text, password.text, 0,
+                          0, generateRandomString(5));
                       print("Veri yüklendi");
                       Navigator.pop(context);
                     }
