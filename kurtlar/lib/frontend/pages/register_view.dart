@@ -40,10 +40,21 @@ class _RegisterState extends State<Register> {
   var data = FirebaseFirestore.instance.collection('users');
 
   // It is going the generate invideCode
-  String generateRandomString(int len) {
-    var r = Random();
-    return String.fromCharCodes(
-        List.generate(len, (index) => r.nextInt(33) + 89));
+
+
+  String generateCode() {
+    var rng = new Random();
+    var code = "";
+    for (int i = 0; i < 5; i++) {
+      if (i < 2) {
+      // Generate a random letter
+        code += new String.fromCharCode(rng.nextInt(26) + 65);
+      } else {
+        // Generate a random number
+        code += rng.nextInt(10).toString();
+      }
+    }
+    return code;
   }
 
   /* Kaydet adlı fonksıyon, kullanıcı adı ve sıfrede yazılan bılgılerı bu fonksıyon ıcerısıne alır ve 
@@ -58,7 +69,6 @@ class _RegisterState extends State<Register> {
     //var x = generateCode();
 
     setState(() {
-      print("geldi");
       data.add({
         "username": username,
         "password": password,
@@ -161,7 +171,7 @@ class _RegisterState extends State<Register> {
                       print('Veri Geldi');
                     } else {
                       kaydet(data, mail.text, username.text, password.text, 0,
-                          0, generateRandomString(5));
+                          0, generateCode());
                       print("Veri yüklendi");
                       Navigator.pop(context);
                     }
