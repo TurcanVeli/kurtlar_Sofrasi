@@ -25,26 +25,4 @@ Widget _dialog(BuildContext context, String header, String Body) {
   );
 }
 
-Future<bool> OnWillPop(BuildContext context, Widget where) async {
-    return (await showDialog(
-      context: context,
-      builder: (context) => new AlertDialog(
-        title: new Text('Are you sure?'),
-        content: new Text('Oyunu bitirmek istiyor musun'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: new Text('No'),
-          ),
-          TextButton(
-            onPressed: () => {
-               Navigator.pop(context,true),
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => where),)
-            },
-            child: new Text('Yes'),
-          ),
-        ],
-      ),
-    )) ?? false;
-  }
 

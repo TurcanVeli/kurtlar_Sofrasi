@@ -12,6 +12,9 @@ import 'package:kurtlar/main.dart';
 
 /* Ayrıca eğer textField'lar bos ıse bu durum kontrol edılecek ve textFıeld ıcerısınde bır hata mesajı gonderılecek */
 
+// Email de alınacak register sayfasında. Ek olarak kullanıcı kendi emaili ve şifresi ile giriş yapabilecek.
+//Kullanıcı adı ve invite codu profile sayfasında gösterilecek
+
 /* TextFıeld kontrol işlemi logın sayfasında da yapılacak */
 
 /* Logın sayfasında gırılen e-mail ve password eger database ıcerısınde varsa homePage'e gırecek. 
