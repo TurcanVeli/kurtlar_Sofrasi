@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/pages/areuready_view.dart';
 import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
 
-class nightPage extends StatefulWidget {
-  @override
-  State<nightPage> createState() => _nightPageState();
-}
-
-class _nightPageState extends State<nightPage> {
+class nightstartPage extends StatelessWidget {
+  int i = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +42,7 @@ class _nightPageState extends State<nightPage> {
               ),
               Button(
                 buttonText: translate(context).start,
-                where: nightPage(),
+                where: areUready(i),
                 Height: 40,
                 Width: 375,
                 fontSize: 25,

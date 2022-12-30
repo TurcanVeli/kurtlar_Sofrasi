@@ -5,7 +5,7 @@ class Players {
   String _Name;
   Image _playerImage;
   Role _role; //Hangi rollde olduğu
-  int _vote;
+  int _vote = 0;
   String _Tempteam = "Yok"; //Laz Ziya kullanırsa mafya olacak
   List<Players> Murders =
       []; //Eğer ölrüse listeye bir mafya girecek bir de derin devlet.
@@ -39,7 +39,9 @@ class Players {
   void incrementVote() {
     _vote++;
   }
-
+  void decrementvote(){
+    _vote--;
+  }
   //void AddMurders() {
   //Lise alacak parametre olarak ve random 2 takımdan birer tane oyuncu seçilecek
   //Oyundan 2 kişi seçilecek.

@@ -26,6 +26,7 @@ class _createState extends State<create> {
       randomRole = (addedRoles..shuffle()).first;
       USERS[l].Setrole(randomRole);
       if(randomRole.GetTeam == "Mafya") MafiasUser.add(USERS[l]);
+      else GovermentUser.add(USERS[l]);
       addedRoles.removeAt(0);
     }
 

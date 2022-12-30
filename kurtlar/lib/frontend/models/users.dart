@@ -7,3 +7,4 @@ List<Players> USERS = [Players("Veli"),Players("Ahmet"),Players("Emre"),Players(
 
 List<Role> addedRoles = [];
 List<Players> MafiasUser = [];
+List<Players> GovermentUser = [];

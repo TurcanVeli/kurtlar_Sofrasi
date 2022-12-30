@@ -5,7 +5,7 @@ import 'package:kurtlar/frontend/models/users.dart';
 import 'package:kurtlar/frontend/pages/areuready_view.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
-import 'package:kurtlar/frontend/pages/night_view.dart';
+import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
 
 import '../components/alert_dialog.dart';
@@ -27,6 +27,7 @@ class _YourRoleState extends BaseState<YourRole> {
   _YourRoleState(this._user, this.i);
   bool ispressed = false;
   bool showrole = false;
+
 
   Future<bool> _onWillPop() async {
     return (await showDialog(
@@ -97,7 +98,7 @@ class _YourRoleState extends BaseState<YourRole> {
                   //Mafya ya da aslan akbey ise kullanıcılar gözükecek.
                   if (_user.GetRole.GetTeam == "Mafya")
                       
-                     UsersShowingContainer(dynamicHeight(0.4),MafiasUser)//değiştir
+                     UserShowing(dynamicHeight(0.4),MafiasUser,false,true,false)//değiştir
                   else 
                       SizedBox(
                       height: dynamicHeight(0.484),
@@ -108,10 +109,10 @@ class _YourRoleState extends BaseState<YourRole> {
                       height: dynamicHeight(0.07),
                       buttonText: "TAMAM",
                       where:
-                          i < USERS.length ? YourRole(USERS[i], i) : areUready(_user,USERS))
+                          i < USERS.length ? YourRole(USERS[i], i) : nightstartPage())
                 ],
               )
-            :ReadyComponent(context,_user,dynamicHeight,setIspressed,ispressed,setShowrole,"Rolünü Görmek için tıkla")
+            :ReadyComponent(context,_user,dynamicHeight,setIspressed,ispressed,setShowrole,"Rolünü Görmek için tıkla",false)
 ,
       ),
     );
