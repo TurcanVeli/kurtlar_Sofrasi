@@ -9,7 +9,7 @@ class Karahanli extends Role {
   String _Name = "Karahanlı";
   final String _team = "Mafya";
   final int countOfVote = 1;
-
+  Players chosenUser;
   int count = 0;
   int remainingMission = 1;
 
@@ -27,10 +27,14 @@ class Karahanli extends Role {
 
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
-  @override
-  bool DoMission(Players player) {
-    
-    return true;
+   @override
+  String DoMission() {
+    if(remainingMission >0){
+      remainingMission--;
+      chosenUser.setMuted(false);
+      return "Susturuldu";
+    }
+    return "Yoruldun";
   }
 
   @override
@@ -46,4 +50,17 @@ class Karahanli extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => chosenUser;
+  
+  @override
+  void setChosenUser(Players user) {
+    chosenUser = user;
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

@@ -2,6 +2,9 @@ import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class Polat extends Role {
+  static Polat instance = Polat._init();
+  Polat._init();
+
   final String _MissionText = "Birinin rolünü açığa çıkart";
   final String _RoleDefinition =
       "Sen polat alemdarsın ve derin devlete bağlısına zamanı geldiğinde mafyaların kim olduğunu bulmak için yeteneklerini kullanacaksın ve devletine yarıdm edeceksin yakalanmamaya dikkat et";
@@ -11,6 +14,7 @@ class Polat extends Role {
   final int countOfVote = 1;
 
   int count = 0;
+  Players chosenUser;
 
   @override
   String get GetMissionText => _MissionText;
@@ -27,9 +31,13 @@ class Polat extends Role {
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
   @override
-  bool DoMission(Players player) {
-    return true;
-    }
+  String DoMission() {
+    if (chosenUser.GetTempTeam != "None"){
+        return chosenUser.GetTempTeam;
+     }else{
+      return chosenUser.GetRole.GetTeam;
+     }
+  }
 
   @override
   int get Getcount => count;
@@ -44,4 +52,17 @@ class Polat extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => chosenUser;//Oficerda kullanılırsa hata döner
+  
+  @override
+  void setChosenUser(Players user) {
+    chosenUser = user;
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

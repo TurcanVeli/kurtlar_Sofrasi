@@ -11,12 +11,10 @@ class officer extends Role {
 
   int count = 4;
 
-  @override
-  bool DoMission(Players player) {
-    // TODO: implement DoMission
-    throw UnimplementedError();
+   @override
+  String DoMission() {
+    return "Görevin Yok";
   }
-
   @override
   String get GetMissionText => _MissionText;
 
@@ -44,4 +42,17 @@ class officer extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => throw UnimplementedError();
+  
+  @override
+  void setChosenUser(Players user) {
+   print("Nothing");
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

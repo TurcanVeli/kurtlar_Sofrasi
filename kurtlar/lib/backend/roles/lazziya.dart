@@ -9,10 +9,8 @@ class LazZiya extends Role {
   int remainingMission = 1;
   final int countOfVote = 1;
   int count = 0;
+  Players chosenUser;
 
-  LazZiya() {
-    print("oluştu");
-  }
   //ToDo Laz Zİyamızın görevi
 
   @override
@@ -28,15 +26,15 @@ class LazZiya extends Role {
   String get GetTeam => _team;
 
   //Tüm oyun boyunca sürecek ve sadece bir defa kullanılabilcek
-  @override
-  bool DoMission(Players player) {
-    if (remainingMission != 0) {
-      player.SetTempTeam("Mafya");
-      return true;
+   @override
+  String DoMission() {
+    if(remainingMission == 1){
+      remainingMission--;
+      chosenUser.SetTempTeam("Mafya");
+      return "İftira atıldı";
     }
-    return false;
+    return "Yoruldun be ziya";
   }
-
   @override
   int get Getcount => count;
   
@@ -50,4 +48,17 @@ class LazZiya extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => chosenUser;
+  
+  @override
+  void setChosenUser(Players user) {
+    chosenUser = user;
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

@@ -12,12 +12,10 @@ class mafiamen extends Role {
 
   int count = 0;
 
-  @override
-  bool DoMission(Players player) {
-    
-    return true;
+   @override
+  String DoMission() {
+    return "Görevin yok";
   }
-  
 
   @override
   String get GetMissionText => _MissionText;
@@ -42,4 +40,17 @@ class mafiamen extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => throw UnimplementedError();
+  
+  @override
+  void setChosenUser(Players user) {
+    print("Nothing");
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

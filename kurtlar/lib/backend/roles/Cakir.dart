@@ -8,7 +8,6 @@ class Cakir extends Role {
   String _Name = "Çakır";
   final String _team = "Mafya";
   final int countOfVote = 2;
-
   int count = 0;
   int remainingMission = 1;
 
@@ -24,13 +23,13 @@ class Cakir extends Role {
   @override
   String get GetTeam => _team;
 
-  //Polat bastığı kişinin hangi takımda olduğunu görecek
+ 
+    @override
+    String DoMission() {
+      return "büyüksün abi";
+    }
   //Pop-Up çıkacak.
-  @override
-  bool DoMission(Players player) {
-    
-    return true;
-  }
+  
 
   @override
   int get Getcount => count;
@@ -44,4 +43,18 @@ class Cakir extends Role {
       count--;
     }
   }
+  
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => throw UnimplementedError();
+  
+  @override
+  void setChosenUser(Players user) {
+   print("Nothing");
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
+  
 }

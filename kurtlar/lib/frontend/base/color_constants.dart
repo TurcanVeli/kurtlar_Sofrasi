@@ -11,3 +11,4 @@ class ColorConstant{
   final white = Color.fromARGB(255, 255, 255, 255);
   final Catskill_White = Color.fromARGB(255, 230, 229, 229);
 }
+

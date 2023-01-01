@@ -8,18 +8,19 @@ class nizamettin extends Role {
   final String _team = "Mafya";
   int remainingMission = 1;
   final int countOfVote = 1;
- 
+  Players chosenUser;
   int count = 0;
-
 
 //Değişecek
   @override
-  bool DoMission(Players player) {
-    if (player.Getisdead == true) {
-      print("Do Something");
-      return true;
+  String DoMission() {
+    if (remainingMission ==1){
+      remainingMission--;
+      //Kurtar
+      chosenUser.setSaving(true);
+      return "Kurtarıldı";
     }
-    return false;
+    return "Kurtaramadın";
   }
 
   @override
@@ -37,14 +38,28 @@ class nizamettin extends Role {
   @override
   int get Getcount => count;
 
-  void increment(){
-    if (count == 0){
+  void increment() {
+    if (count == 0) {
       count++;
     }
   }
-  void decrase(){
-    if (count == 1){
+
+  void decrase() {
+    if (count == 1) {
       count--;
     }
   }
+
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => chosenUser;
+
+  @override
+  void setChosenUser(Players user) {
+    chosenUser = user;
+  }
+  
+  @override
+  // TODO: implement getRemainmissioncount
+  int get getRemainmissioncount => throw UnimplementedError();
 }

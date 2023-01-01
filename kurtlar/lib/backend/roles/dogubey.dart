@@ -9,9 +9,9 @@ class DoguBey extends Role {
   String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
-
   int count = 0;
   int remainingMission = 1;
+  Players chosenUser;
 
   @override
   String get GetMissionText => _MissionText;
@@ -25,12 +25,16 @@ class DoguBey extends Role {
   @override
   String get GetTeam => _team;
 
-  //Polat bastığı kişinin hangi takımda olduğunu görecek
-  //Pop-Up çıkacak.
-  @override
-  bool DoMission(Players player) {
-   
-    return true;
+
+   @override
+  String DoMission() {
+    if(remainingMission ==1){
+      remainingMission--;
+
+      //TODO
+      return "istihbarat sağlandı";
+
+    }
   }
 
   @override
@@ -44,6 +48,17 @@ class DoguBey extends Role {
   void decrase() {
     if (count == 1) {
       count--;
+    }
+  }
+  int get getRemainmissioncount => remainingMission;
+  @override
+  // TODO: implement ChosenUser
+  Players get ChosenUser => chosenUser;
+  
+  @override
+  void setChosenUser(Players user) {
+    if(remainingMission == 1){
+      chosenUser = user;
     }
   }
 }

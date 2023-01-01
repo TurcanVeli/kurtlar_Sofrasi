@@ -25,4 +25,20 @@ Widget _dialog(BuildContext context, String header, String Body) {
   );
 }
 
+Widget _(BuildContext context, String header, String Body) {
+  return AlertDialog(
+    title: Text(header),
+    content: Text(Body),
+    actions: <Widget>[
+      TextButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(
+            translate(context).ok,
+            style: TextStyle(color: Colors.red, fontSize: 17),
+          ))
+    ],
+  );
+}
 

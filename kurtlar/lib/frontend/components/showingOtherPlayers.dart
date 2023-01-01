@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/models/users.dart';
 
 import '../models/players.dart';
 
 class UserShowing extends StatefulWidget {
   double height;
+  Players _user;
   List<Players> Users;
   bool isNight;
   bool inshowingRolePage;
   bool isMission; //Görev değilse oylama;
-  UserShowing(this.height, this.Users, this.isNight, this.inshowingRolePage, this.isMission);
+  UserShowing(this.height, this.Users, this.isNight, this.inshowingRolePage, this.isMission, this._user);
 
   @override
   State<UserShowing> createState() => _UserShowingState();
@@ -21,6 +23,7 @@ class _UserShowingState extends State<UserShowing> {
 
   @override
   void dispose() {
+    //Mafya Oylaması için
     if (!widget.isMission){
       widget.Users[selectedUser].incrementVote();
     }
@@ -46,7 +49,7 @@ class _UserShowingState extends State<UserShowing> {
                       if (!didMission && widget.isMission){
                           selectedUser = index;
                           didMission = true;
-
+                          widget._user.GetRole.setChosenUser(widget.Users[selectedUser]);
                       }else if(!widget.isMission){
                             selectedUser = index;
                       }
@@ -90,15 +93,13 @@ class _UserShowingState extends State<UserShowing> {
                         else
                           Text(
                               selectedUser == index
-                                  ? widget.Users[index].GetRole.GetTeam
+                                  ? widget._user.GetRole.DoMission()
                                   :"",
                               style: TextStyle(
                                   color: widget.isNight
                                       ? Colors.white
                                       : Colors.black)),
-
-                        
-                          
+               
                     ],
                   ),
                 ),

@@ -13,20 +13,25 @@ class create extends StatefulWidget {
 }
 
 class _createState extends State<create> {
-  int i =0;
+
   @override
 
   //initleri muhteşem kullanıyorum uygulama patlatabiilir mi acaba bilmiyorum
   void initState() {
     Role randomRole;
-    print( addedRoles.toString()
-    );
+   
     for (int l = 0; l<USERS.length; l++){
     
       randomRole = (addedRoles..shuffle()).first;
       USERS[l].Setrole(randomRole);
       if(randomRole.GetTeam == "Mafya") MafiasUser.add(USERS[l]);
-      else GovermentUser.add(USERS[l]);
+      else{
+        if (randomRole.GetName == "Polat"){
+          PolatUser = USERS[l]; 
+        }
+
+          GovermentUser.add(USERS[l]);
+      } 
       addedRoles.removeAt(0);
     }
 
@@ -94,7 +99,7 @@ class _createState extends State<create> {
                   onPressed: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => YourRole(USERS[0],i)));
+                        builder: (context) => YourRole(USERS[0],0)));
                   },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 Center ReadyComponent(
@@ -58,9 +59,16 @@ Center ReadyComponent(
         ),
         if (ispressed)
           Container(
-              height: dynamicHeight(0.07),
-              color: Colors.red,
-              child: ElevatedButton(onPressed: go, child: Text("Hazır")))
+            height: dynamicHeight(0.07),
+            color: Colors.red,
+            child: ElevatedButton(
+              onPressed: go,
+              child: Text("Hazır"),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(ColorConstant.instance.red),
+              ),
+            ),
+          )
         else
           SizedBox(
             height: 0.07,

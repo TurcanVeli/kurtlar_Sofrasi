@@ -15,7 +15,7 @@ import '../../backend/roles/BaseRole.dart';
 
 LazZiya laz = LazZiya();
 nizamettin niz = nizamettin();
-Polat polat = Polat();
+
 mafiamen mafiaMen = mafiamen();
 officer Off = officer();
 AslanAkbey Aslan = AslanAkbey();
@@ -24,6 +24,6 @@ Abdulhey abu = Abdulhey();
 Karahanli kara = Karahanli();
 DoguBey dogubey = DoguBey();
 
-List<Role> ordinary = [Off, mafiaMen, polat];
+List<Role> ordinary = [Off, mafiaMen, Polat.instance];
 List<Role> deepgoverment = [Aslan, dogubey, abu];
-List<Role> mafia = [kara, niz, cak];
+List<Role> mafia = [kara, niz, laz];

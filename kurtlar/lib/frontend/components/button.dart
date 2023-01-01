@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
@@ -12,7 +11,13 @@ class Button extends StatefulWidget {
   double Width;
   double fontSize;
 
-  Button({this.buttonText, this.where, this.Height, this.Width, this.fontSize,this.kaydet});
+  Button(
+      {this.buttonText,
+      this.where,
+      this.Height,
+      this.Width,
+      this.fontSize,
+      this.kaydet});
 
   @override
   State<Button> createState() => _ButtonState();
@@ -24,11 +29,8 @@ class _ButtonState extends State<Button> {
     return GestureDetector(
       onTap: (() {
         setState(() {
-         
-          
           Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => widget.where));
-
         });
       }),
       // GIRIS SAYFASI OLCUTLERI HEIGHT :40 , WIDTH : 375
@@ -58,13 +60,17 @@ Container BottomButtonContainerContiune(
     String buttonText,
     Widget where,
     VoidCallback function,
-    Color color,}) {
+    Color color,
+    Color ContainerColor}) {
   if (color == null) {
     color = ColorConstant.instance.red;
   }
+  if (ContainerColor == null) {
+    ContainerColor = ColorConstant.instance.white;
+  }
   return Container(
     height: height,
-    color: Colors.white,
+    color: ContainerColor,
     child: Padding(
       padding: const EdgeInsets.all(8.0),
       child: ElevatedButton(

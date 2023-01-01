@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/models/users.dart';
-import 'package:kurtlar/frontend/pages/areuready_view.dart';
+import 'package:kurtlar/frontend/pages/night_view.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
@@ -57,7 +57,7 @@ class _YourRoleState extends BaseState<YourRole> {
 
   @override
   void initState() {
-    i++;
+    i = i+1;
     super.initState();
   }
 
@@ -98,10 +98,10 @@ class _YourRoleState extends BaseState<YourRole> {
                   //Mafya ya da aslan akbey ise kullanıcılar gözükecek.
                   if (_user.GetRole.GetTeam == "Mafya")
                       
-                     UserShowing(dynamicHeight(0.4),MafiasUser,false,true,false)//değiştir
+                     UserShowing(dynamicHeight(0.4),MafiasUser,false,true,false,_user)//değiştir
                   else 
                       SizedBox(
-                      height: dynamicHeight(0.484),
+                      height: dynamicHeight(0.4),
                       ),
                   
                   BottomButtonContainerContiune(
