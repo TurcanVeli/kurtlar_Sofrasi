@@ -64,8 +64,8 @@ class _UserShowingState extends State<UserShowing> {
                         backgroundColor: selectedUser == index
                             ? Colors.red
                             : widget.isNight
-                                ? Colors.black
-                                : Colors.white,
+                                ? Colors.transparent
+                                : Colors.transparent,
                         child: CircleAvatar(
                           radius: 40,
                           child: Image.asset('assets/images/deafultAvatar.png'),
@@ -82,10 +82,10 @@ class _UserShowingState extends State<UserShowing> {
                       //Sadece polatın görevi için tasarlandı
                       else
                         if(!widget.isMission)
-                          Text(
+                          Text(widget.isNight?
                             selectedUser == index
                                 ? (widget.Users[index].GetVote + 1).toString()
-                                : widget.Users[index].GetVote.toString(),
+                                : widget.Users[index].GetVote.toString():"",
                             style: TextStyle(
                                 color: widget.isNight
                                     ? Colors.white
@@ -93,7 +93,7 @@ class _UserShowingState extends State<UserShowing> {
                         else
                           Text(
                               selectedUser == index
-                                  ? widget._user.GetRole.DoMission()
+                                  ?!widget._user.GetMuted? widget._user.GetRole.DoMission():"Susturuldun"
                                   :"",
                               style: TextStyle(
                                   color: widget.isNight

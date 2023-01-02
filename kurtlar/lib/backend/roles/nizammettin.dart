@@ -2,7 +2,7 @@ import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class nizamettin extends Role {
-  final String _MissionText = "Birinin rolünü açığa çıkart";
+  final String _MissionText = "Sabahki duruşmada birini koru";
   final String _RoleDefinition = "Sen Mafyanın avukatısın";
   String _Name = "Nizamettin";
   final String _team = "Mafya";

@@ -27,3 +27,5 @@ DoguBey dogubey = DoguBey();
 List<Role> ordinary = [Off, mafiaMen, Polat.instance];
 List<Role> deepgoverment = [Aslan, dogubey, abu];
 List<Role> mafia = [kara, niz, laz];
+
+

@@ -26,6 +26,7 @@ class Players {
   String get GetTempTeam => _Tempteam;
   bool get GetSaving => isSaving;
   bool get GetHitBullet => _hitWithBullet;
+  bool get GetMuted => muted;
   void setSaving(bool value){
     isSaving = value;
   }
@@ -48,7 +49,7 @@ class Players {
     _vote = Value;
   }
 
-  void Setrole(Role role) {
+  void SetRole(Role role) {
     _role = role;
   }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/roles/Karahanl%C4%B1.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/Daystart_view.dart';
 import 'package:kurtlar/frontend/pages/daylight_view.dart';
 
@@ -27,12 +29,16 @@ class _NightreportPageState extends State<NightreportPage> {
       if (CloningUser[i].GetHitBullet) {
         AbdulsdeadIndex = i;
       }
+      if(CloningUser[i].GetRole.GetName == "Karahanli" && CloningUser[i].GetRole.remainingMission == 0){
+        CloningUser[i].ChosenUser.SetMuted(true);
+
+      }
+      CloningUser[i].SetVote(0);
     }
     if (max != 0 && MafiasdeadIndex == AbdulsdeadIndex) {
       CloningUser[AbdulsdeadIndex].setDead();
       DeadUsers.add(USERS[AbdulsdeadIndex]);
       USERS.removeAt(AbdulsdeadIndex);
-
     } else if (max != 0 && MafiasdeadIndex != AbdulsdeadIndex) {
       CloningUser[MafiasdeadIndex].setDead();
       DeadUsers.add(CloningUser[MafiasdeadIndex]);
@@ -43,65 +49,83 @@ class _NightreportPageState extends State<NightreportPage> {
         USERS.remove(CloningUser[AbdulsdeadIndex]);
       }
     }
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      children: [
-        SizedBox(
-          height: 25,
-        ),
-        Text(
-          "Gece Olanlar",
-          style: TextStyle(fontSize: 30),
-        ),
-        SizedBox(
-          height: 150,
-        ),
-        Container(
-          height: 500,
-          child: ListView.builder(
-            itemCount: DeadUsers.length,
-            itemBuilder: ((context, index) {
-              return Container(
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 40,
-                          child: Image.asset("assets/images/deafultAvatar.png"),
-                        ),
-                        Text(DeadUsers[index].GetName)
-                      ],
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(DeadUsers[index].GetHitBullet
-                        ? "Gecele karanlığında uzun"
-                          "saçlı bir adam tarafından vuruldu."
-
-                        : "Mafya tarafından öldürüldü")
-                  ],
-                ),
-              );
-            }),
+    return Stack(
+        // <-- STACK AS THE SCAFFOLD PARENT
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    "assets/images/night.jpg"), // <-- BACKGROUND IMAGE
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        ),
-        BottomButtonContainerContiune(
-            height: 50,
-            buttonText: "Devam",
-            ContainerColor: Colors.white,
-            where: DayStartPage()),
-      ],
-    ));
+          Scaffold(
+              backgroundColor:
+                  Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+              body: Column(
+                children: [
+                  SizedBox(
+                    height: 55,
+                  ),
+                  Text(
+                    "Gece Olanlar",
+                    style: TextStyle(fontSize: 30,color: ColorConstant.instance.white),
+                  ),
+                  SizedBox(
+                    height: 150,
+                  ),
+                  Container(
+                    height: 500,
+                    child: ListView.builder(
+                      itemCount: DeadUsers.length,
+                      itemBuilder: ((context, index) {
+                        return Container(
+                          child: Row(
+                            children: [
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Column(
+                                children: [
+                                  Text(DeadUsers[index].GetName,style: TextStyle(color: ColorConstant.instance.white,fontSize: 15)),
+                                 
+                                  CircleAvatar(
+                                    radius: 40,
+                                    child: Image.asset(
+                                        "assets/images/deafultAvatar.png"),
+                                  ),
+                                  SizedBox(height: 10,),
+                                  
+                                ],
+                              ),
+                              SizedBox(
+                                width: 20,
+                              ),
+                              Text(DeadUsers[index].GetHitBullet
+                                  ? "Uzun saçlı bir adam tarafından vuruldu."
+                                                                            
+                                  : "Mafya tarafından öldürüldü", style: TextStyle(color: ColorConstant.instance.white),)
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
+                  ),
+                  BottomButtonContainerContiune(
+                    context: context,
+                      height: 50,
+                      buttonText: "Devam",
+                      ContainerColor: Colors.transparent,
+                      where: DayStartPage()),
+                ],
+              ))
+        ]);
   }
 }

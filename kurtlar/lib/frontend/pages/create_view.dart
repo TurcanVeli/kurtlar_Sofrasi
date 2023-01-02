@@ -4,6 +4,7 @@ import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/roles.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
+import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
 import '../models/users.dart';
 
@@ -23,7 +24,7 @@ class _createState extends State<create> {
     for (int l = 0; l<USERS.length; l++){
     
       randomRole = (addedRoles..shuffle()).first;
-      USERS[l].Setrole(randomRole);
+      USERS[l].SetRole(randomRole);
       if(randomRole.GetTeam == "Mafya") MafiasUser.add(USERS[l]);
       else{
         if (randomRole.GetName == "Polat"){
@@ -99,7 +100,7 @@ class _createState extends State<create> {
                   onPressed: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => YourRole(USERS[0],0)));
+                        builder: (context) => nightstartPage()));
                   },
                   child: Text("HAZIR"),
                   style: TextButton.styleFrom(

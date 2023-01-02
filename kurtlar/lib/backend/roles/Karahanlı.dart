@@ -3,7 +3,7 @@ import 'package:kurtlar/frontend/models/players.dart';
 
 class Karahanli extends Role {
   final String _MissionText =
-      "Gündüz oyunculardan birisine susturma atabilirsin yani susturma attığın kişi gece özellik kullanamaz";
+      "Birinin rolünü sustur";
   final String _RoleDefinition = "Mafyanın başındaki adamsın";
 
   String _Name = "Karahanlı";
@@ -31,7 +31,6 @@ class Karahanli extends Role {
   String DoMission() {
     if(remainingMission >0){
       remainingMission--;
-      chosenUser.setMuted(false);
       return "Susturuldu";
     }
     return "Yoruldun";

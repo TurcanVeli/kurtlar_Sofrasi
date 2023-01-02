@@ -81,7 +81,7 @@ Container BottomButtonContainerContiune(
                   .push(MaterialPageRoute(builder: (context) => where));
             } else {
               if (function != null) {
-                print("object");
+         
                 function;
               } else {
                 print("Debug");

@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class Abdulhey extends Role {
-  final String _MissionText = "Abdulleysin";
+  final String _MissionText = "Sadece 1 mermin var dikkatli kullan";
   final String _RoleDefinition = "Derin devletin tetikçisisin";
 
   String _Name = "Abdulhey";

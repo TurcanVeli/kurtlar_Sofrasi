@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/components/showingOtherPlayers.dart';
-import 'package:kurtlar/frontend/pages/NightReport_view.dart';
+import 'package:kurtlar/frontend/pages/nightreport_view.dart';
 
 import '../components/button.dart';
 import '../components/ready.dart';
@@ -37,7 +37,7 @@ class _areUreadyState extends BaseState<areUready> {
       ispressed = !ispressed;
     });
   }
-  
+
   void setReady() {
     setState(() {
       ready = true;
@@ -47,47 +47,116 @@ class _areUreadyState extends BaseState<areUready> {
   //Mafya ise oylayacak. devlet ise göre yapacak.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.black,
-        body: ready != false
-            ? ListView(children: [
-                SizedBox(
-                  height: dynamicHeight(0.1),
-                ),
-                Container(
-                    height: dynamicHeight(0.11),
-                    child: Center(
+    return Stack(
+        // <-- STACK AS THE SCAFFOLD PARENT
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(
+                    "assets/images/night.jpg"), // <-- BACKGROUND IMAGE
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Scaffold(
+            backgroundColor:
+                Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+            body: ready != false
+                ? ListView(children: [
+                    SizedBox(
+                      height: dynamicHeight(0.05),
+                    ),
+                    Container(
+                      height: dynamicHeight(0.11),
+                      child: Center(
                         child: Text(
-                      USERS[_i].GetRole.GetTeam == "Mafya"?"Kimi Öldürmek İstiyorsun"
-                      :USERS[_i].GetRole.GetName == "Aslan Akbey"?"Polat => ${PolatUser.GetName}":USERS[_i].GetRole.GetMissionText,
-                      style: TextStyle(color: ColorConstant.instance.red, fontSize: 34),
-                    ))),
-                if (USERS[_i].GetRole.GetTeam == "Mafya")      
-                  UserShowing(dynamicHeight(0.6), GovermentUser, true, false, false,USERS[_i])
-                
-                
-                else
-                  if(USERS[_i].GetRole.GetMissionText != "Görevin Yok"&& USERS[_i].GetRole.GetName != "Aslan Akbey")
-                    if (USERS[_i].GetRole.GetName == "Dogu Bey" && USERS[_i].GetRole.getRemainmissioncount == 0)
+                          USERS[_i].GetRole.GetName,
+                          style: TextStyle(
+                              color: ColorConstant.instance.white,
+                              fontSize: 34),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: dynamicHeight(0.11),
+                      child: Center(
+                        child: Text(
+                          USERS[_i].GetRole.GetTeam == "Mafya"
+                              ? "Kimi Öldürmek İstiyorsun"
+                              : USERS[_i].GetRole.GetName == "Aslan Akbey"
+                                  ? "Polat => ${PolatUser.GetName}"
+                                  : USERS[_i].GetRole.GetMissionText,
+                          style: TextStyle(
+                              color: ColorConstant.instance.white,
+                              fontSize: 34),
+                        ),
+                      ),
+                    ),
+                    //Salak saçma bir kod ama düzeltecem
+                    if (USERS[_i].GetRole.GetTeam == "Mafya")
+                      Column(children: [
+                         UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                          false, false, USERS[_i]),
+                          SizedBox(height: dynamicHeight(0.001),),
+                          Text( USERS[_i].GetRole.GetMissionText, style: TextStyle(
+                              color: ColorConstant.instance.white,
+                              fontSize: 34),),
+                           UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                          false, true, USERS[_i])
+                      ],)
+                     
+
+                    
+                      
+                     
+                    else if (USERS[_i].GetRole.GetMissionText !=
+                            "Görevin Yok" &&
+                        USERS[_i].GetRole.GetName != "Aslan Akbey")
+                      if (USERS[_i].GetRole.GetName == "Dogu Bey" &&
+                          USERS[_i].GetRole.getRemainmissioncount == 0)
                         Container(
                           height: dynamicHeight(0.6),
-                          child: Text(USERS[_i].GetRole.ChosenUser.Getisdead && !USERS[_i].GetRole.ChosenUser.GetHitBullet ? "Şüpheliler: ${USERS[_i].GetRole.ChosenUser}"
-                          :USERS[_i].GetRole.ChosenUser.Getisdead && USERS[_i].GetRole.ChosenUser.GetHitBullet?"${USERS[_i].GetRole.ChosenUser.GetName} kafasına bir mermi yemiş": "${USERS[_i].GetRole.ChosenUser.GetName} hala yaşıyor"
-                          , style: TextStyle(color: ColorConstant.instance.red),),
+                          child: Text(
+                            USERS[_i].GetRole.ChosenUser.Getisdead &&
+                                    !USERS[_i].GetRole.ChosenUser.GetHitBullet
+                                ? "Şüpheliler: ${USERS[_i].GetRole.ChosenUser}"
+                                : USERS[_i].GetRole.ChosenUser.Getisdead &&
+                                        USERS[_i]
+                                            .GetRole
+                                            .ChosenUser
+                                            .GetHitBullet
+                                    ? "${USERS[_i].GetRole.ChosenUser.GetName} kafasına bir mermi yemiş"
+                                    : "${USERS[_i].GetRole.ChosenUser.GetName} hala yaşıyor",
+                            style: TextStyle(color: ColorConstant.instance.red),
+                          ),
                         )
-
+                      else
+                        UserShowing(dynamicHeight(0.6), USERS, true, false,
+                            true, USERS[_i])
                     else
-                      UserShowing(dynamicHeight(0.6), USERS, true, false, true,USERS[_i])
-                  else
-                    SizedBox(height: dynamicHeight(0.6),),
-                BottomButtonContainerContiune(
-                    context: context,
-                    height: dynamicHeight(0.07),
-                    buttonText: "TAMAM",
-                    where: _i < USERS.length-1 ? areUready(_i) : NightreportPage(),
-                    ContainerColor: Colors.black)
-              ])
-            : ReadyComponent(context, USERS[_i], dynamicHeight, setIspressed,
-                ispressed, setReady, "Görevini Yapmak İçin Hazıra Tıkla", true));
+                      SizedBox(
+                        height: dynamicHeight(0.6),
+                      ),
+                    BottomButtonContainerContiune(
+                        context: context,
+                        height: dynamicHeight(0.07),
+                        buttonText: "TAMAM",
+                        where: _i < USERS.length - 1
+                            ? areUready(_i)
+                            : NightreportPage(),
+                        ContainerColor: Colors.transparent)
+                  ])
+                : ReadyComponent(
+                    context,
+                    USERS[_i],
+                    dynamicHeight,
+                    setIspressed,
+                    ispressed,
+                    setReady,
+                    "Görevini Yapmak İçin Hazıra Tıkla",
+                    true),
+          )
+        ]);
   }
 }
