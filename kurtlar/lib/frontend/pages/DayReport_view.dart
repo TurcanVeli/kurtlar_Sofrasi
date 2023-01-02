@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
 import '../base/color_constants.dart';
@@ -55,9 +56,17 @@ class _DayLightreportState extends State<DayLightreport> {
                   backgroundColor:
                       Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
                   body: Container(
+                    color: Colors.transparent,
                     child: Center(
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: 150,
+                          ),
+                          Text(translate(context).judge_1,
+                              style: TextStyle(
+                                  color: ColorConstant.instance.white,
+                                  fontSize: 15)),
                           SizedBox(
                             height: 150,
                           ),
@@ -67,14 +76,15 @@ class _DayLightreportState extends State<DayLightreport> {
                                   fontSize: 15)),
                           CircleAvatar(
                             radius: 40,
-                            child: Image.asset("assets/images/deafultAvatar.png"),
+                            child:
+                                Image.asset("assets/images/deafultAvatar.png"),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 60,
                           ),
                           BottomButtonContainerContiune(
                               context: context,
-                              buttonText: "DEVAM",
+                              buttonText: translate(context).contiune,
                               color: ColorConstant.instance.red,
                               ContainerColor: Colors.transparent,
                               where: nightstartPage()),
@@ -91,10 +101,19 @@ class _DayLightreportState extends State<DayLightreport> {
                   height: 100,
                 ),
                 Text(
-                  "Kimse Hapise girmedi",
+                 " ${translate(context).votes} ve ${translate(context).nojail} ",
                   style: TextStyle(
                       fontSize: 30, color: ColorConstant.instance.black),
                 ),
+                 SizedBox(
+                  height: 100,
+                ),
+                BottomButtonContainerContiune(
+                              context: context,
+                              buttonText: translate(context).contiune,
+                              color: ColorConstant.instance.red,
+                              ContainerColor: Colors.transparent,
+                              where: nightstartPage()),
               ],
             ),
           );

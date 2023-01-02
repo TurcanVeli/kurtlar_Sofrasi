@@ -98,5 +98,20 @@
     "editprofile": "PROFİLİ DÜZENLE",
     "gamecode": "Davet Kodu",
     "save": "Kayıt",
-    "roles": "Roller"
+    "roles": "Roller",
+    "mafiawin": "mafya kazandı ve mafya üyeleri 50 altın ve 30 puan kazandı.",
+    "govwin": "Derin Devlet kazandı ve Derin Devlet üyeleri 50 gold ve 30 puan kazandı.",
+    "readyformission": "Görevini Yapmak İçin Hazıra Tıkla",
+    "discussstart": "Tartışmaya başlayabilirsiniz",
+    "enddiscuss": "Tartışmayı Bitir",
+    "nojail": "Kimse Hapise girmedi",
+    "killsomeone": "Kimi Öldürmek İstiyorsun",
+    "suspects": "Şüpheliler",
+    "bullet": "kafasına bir mermi yemiş",
+    "alive": "hala yaşıyor",
+    "backhomepage": "AnaSayfaya Dön",
+    "abdushot": "Uzun saçlı bir adam tarafından vuruldu.",
+    "mafiashot": "Mafya tarafından öldürüldü",
+    "entercode": "Lütfen oyuncunun kodunu girin",
+    "noduty": "Görevin Yok"
 }

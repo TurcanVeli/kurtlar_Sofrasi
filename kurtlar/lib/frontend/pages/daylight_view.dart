@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/pages/DayReport_view.dart';
 
@@ -20,6 +21,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
   @override
   void initState() {
     widget.index = widget.index + 1;
+    print(USERS.length);
     super.initState();
   }
 
@@ -63,7 +65,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                       setIspressed,
                       ispressed,
                       setReady,
-                      "Görevini Yapmak İçin Hazıra Tıkla",
+                     translate(context).readyformission,
                       true)
                   : ListView(
                       children: [
@@ -81,17 +83,31 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                             ),
                           ),
                         ),
+                         SizedBox(
+                          height: dynamicHeight(0.01),
+                        ),
+                        Container(
+                          height: dynamicHeight(0.11),
+                          child: Center(
+                            child: Text(
+                              translate(context).votes_2,
+                              style: TextStyle(
+                                  color: ColorConstant.instance.white,
+                                  fontSize: 34),
+                            ),
+                          ),
+                        ),
                         SizedBox(
                           height: dynamicHeight(0.1),
                         ),
-                         UserShowing(dynamicHeight(0.6), GovermentUser, true,
+                         UserShowing(dynamicHeight(0.6), USERS, false,
                           false, false, USERS[widget.index]),
                           
 
                         BottomButtonContainerContiune(
                         context: context,
                         height: dynamicHeight(0.07),
-                        buttonText: "TAMAM",
+                        buttonText: translate(context).ok,
                         where: widget.index < USERS.length - 1
                             ? DaylightPage(widget.index)
                             : DayLightreport(),

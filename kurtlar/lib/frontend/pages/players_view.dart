@@ -114,10 +114,10 @@ class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             TextFormField(
-              decoration: InputDecoration(labelText: 'Oyuncu Kodu'),
+              decoration: InputDecoration(labelText: translate(context).gamecode),
               validator: (value) {
                 if (value.isEmpty) {
-                  return 'Lütfen oyuncunun kodunu girin';
+                  return translate(context).entercode;
                 }
                 return null;
               },

@@ -178,7 +178,7 @@ class _RegisterState extends State<Register> {
                     }
                   });
                 }),
-                child: Text("Kaydet"))
+                child: Text(translate(context).save))
           ],
         ),
       ),

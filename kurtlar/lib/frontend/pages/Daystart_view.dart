@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 
 import '../components/button.dart';
+import '../components/gameoverComponent.dart';
 import '../models/users.dart';
 import 'daylight_view.dart';
 
@@ -22,6 +24,7 @@ class _DayStartPageState extends State<DayStartPage> {
   void initState() {
     int remainingMafia = 0;
     int remainingGov = 0;
+    print(USERS.length);
     for (int i= 0; i < USERS.length; i++){
       if (USERS[i].GetRole.GetTeam == "Mafya") remainingMafia++;
       else remainingGov++;
@@ -58,7 +61,7 @@ class _DayStartPageState extends State<DayStartPage> {
           backgroundColor:
               Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
           body: !isGameOver?  DiscussContainer(context)
-                : isMafiaWin? Text("mafya kazandı"): Text("Devlet kazandı"),//Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
+                : gameOver(isMafiaWin),//Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
         ),
       ],
     );
@@ -71,9 +74,9 @@ class _DayStartPageState extends State<DayStartPage> {
             child: Column(
               children: [
                 SizedBox(height: 100),
-                Text("SABAH OLDU", style: TextStyle(fontSize: 30,color: ColorConstant.instance.white,fontWeight: FontWeight.bold)),
+                Text("GÜNEŞ DOĞDU", style: TextStyle(fontSize: 30,color: ColorConstant.instance.white,fontWeight: FontWeight.bold)),
                 Text(
-                  "Tartışmaya başlayabilirsiniz",
+                 translate(context).discussstart,
                   style: TextStyle(fontSize: 30,color: ColorConstant.instance.white,fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
@@ -81,7 +84,7 @@ class _DayStartPageState extends State<DayStartPage> {
                 ),
                 BottomButtonContainerContiune(
                   context: context,
-                    buttonText: "Tartışmayı Bitir",
+                    buttonText: translate(context).enddiscuss,
                     color: ColorConstant.instance.red,
                     ContainerColor: Colors.transparent,
                     where: DaylightPage(0)),

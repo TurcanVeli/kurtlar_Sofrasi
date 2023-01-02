@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/roles/Karahanl%C4%B1.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/Daystart_view.dart';
@@ -15,13 +16,16 @@ class NightreportPage extends StatefulWidget {
 
 class _NightreportPageState extends State<NightreportPage> {
   List<Players> DeadUsers = [];
-
+  //Like a Soup
   @override
   void initState() {
     int max = USERS[0].GetVote;
     int MafiasdeadIndex = 0;
     int AbdulsdeadIndex = -1;
     for (int i = 0; i < USERS.length; i++) {
+      if (CloningUser[i].GetMuted) {
+        CloningUser[i].SetMuted(false);
+      }
       if (CloningUser[i].GetVote >= max) {
         max = CloningUser[i].GetVote;
         MafiasdeadIndex = i;
@@ -29,24 +33,40 @@ class _NightreportPageState extends State<NightreportPage> {
       if (CloningUser[i].GetHitBullet) {
         AbdulsdeadIndex = i;
       }
-      if(CloningUser[i].GetRole.GetName == "Karahanli" && CloningUser[i].GetRole.remainingMission == 0){
+      if (CloningUser[i].GetRole.GetName == "Karahanli" &&
+          CloningUser[i].GetRole.remainingMission == 0) {
         CloningUser[i].ChosenUser.SetMuted(true);
-
       }
+
       CloningUser[i].SetVote(0);
     }
     if (max != 0 && MafiasdeadIndex == AbdulsdeadIndex) {
       CloningUser[AbdulsdeadIndex].setDead();
       DeadUsers.add(USERS[AbdulsdeadIndex]);
       USERS.removeAt(AbdulsdeadIndex);
+      GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
+      MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
     } else if (max != 0 && MafiasdeadIndex != AbdulsdeadIndex) {
       CloningUser[MafiasdeadIndex].setDead();
       DeadUsers.add(CloningUser[MafiasdeadIndex]);
       USERS.remove(CloningUser[MafiasdeadIndex]);
+      GovermentUser.remove(CloningUser[MafiasdeadIndex]);
+      MafiasUser.remove(CloningUser[MafiasdeadIndex]);
+
       if (AbdulsdeadIndex != -1) {
         CloningUser[AbdulsdeadIndex].setDead();
         DeadUsers.add(CloningUser[AbdulsdeadIndex]);
         USERS.remove(CloningUser[AbdulsdeadIndex]);
+        GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
+        MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
+      }
+    } else {
+      if (AbdulsdeadIndex != -1) {
+        CloningUser[AbdulsdeadIndex].setDead();
+        DeadUsers.add(CloningUser[AbdulsdeadIndex]);
+        USERS.remove(CloningUser[AbdulsdeadIndex]);
+        GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
+        MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
       }
     }
     super.initState();
@@ -75,8 +95,9 @@ class _NightreportPageState extends State<NightreportPage> {
                     height: 55,
                   ),
                   Text(
-                    "Gece Olanlar",
-                    style: TextStyle(fontSize: 30,color: ColorConstant.instance.white),
+                   "${translate(context).night} ${translate(context).report}",
+                    style: TextStyle(
+                        fontSize: 30, color: ColorConstant.instance.white),
                   ),
                   SizedBox(
                     height: 150,
@@ -94,24 +115,30 @@ class _NightreportPageState extends State<NightreportPage> {
                               ),
                               Column(
                                 children: [
-                                  Text(DeadUsers[index].GetName,style: TextStyle(color: ColorConstant.instance.white,fontSize: 15)),
-                                 
+                                  Text(DeadUsers[index].GetName,
+                                      style: TextStyle(
+                                          color: ColorConstant.instance.white,
+                                          fontSize: 15)),
                                   CircleAvatar(
                                     radius: 40,
                                     child: Image.asset(
                                         "assets/images/deafultAvatar.png"),
                                   ),
-                                  SizedBox(height: 10,),
-                                  
+                                  SizedBox(
+                                    height: 10,
+                                  ),
                                 ],
                               ),
                               SizedBox(
                                 width: 20,
                               ),
-                              Text(DeadUsers[index].GetHitBullet
-                                  ? "Uzun saçlı bir adam tarafından vuruldu."
-                                                                            
-                                  : "Mafya tarafından öldürüldü", style: TextStyle(color: ColorConstant.instance.white),)
+                              Text(
+                                DeadUsers[index].GetHitBullet
+                                    ? translate(context).abdushot
+                                    : translate(context).mafiashot,
+                                style: TextStyle(
+                                    color: ColorConstant.instance.white),
+                              )
                             ],
                           ),
                         );
@@ -119,9 +146,9 @@ class _NightreportPageState extends State<NightreportPage> {
                     ),
                   ),
                   BottomButtonContainerContiune(
-                    context: context,
+                      context: context,
                       height: 50,
-                      buttonText: "Devam",
+                      buttonText:translate(context).contiune,
                       ContainerColor: Colors.transparent,
                       where: DayStartPage()),
                 ],

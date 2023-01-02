@@ -14,80 +14,105 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-
 class _LoginPageState extends BaseState<LoginPage> {
-  var data = FirebaseFirestore.instance.collection('users');
+  var data;
+  var mail = TextEditingController();
+  var password = TextEditingController();
+  @override
+  void initState() {
+    data = FirebaseFirestore.instance.collection('users');
+    super.initState();
+  }
+
+  bool checkUserisValid(String mail, String password) {
+    setState(() {
+      for (int i = 0; i < data.docs.length; i++) {}
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.black,
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(40, 90, 40, 20),
-        // Gırıstekı Resım
-        child: Column(children: [
-          Image.asset(
-            'assets/images/logo.png',
-            height: 250,
-            width: 250,
-          ),
-          SizedBox(height: 5),
-          // Nıckname alan yer
-          TextField(
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              prefixIcon: Icon(
-                Icons.mail,
-                color: Colors.white,
-              ),
-              hintText: translate(context).username,
-              hintStyle: TextStyle(color: Colors.white),
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(color: Colors.white, width: 2.0),
-              ),
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.black,
+        body: StreamBuilder(
+            stream: data.snapshots(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return LoginPage(context);
+            }));
+  }
+
+  Padding LoginPage(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(40, 90, 40, 20),
+      // Gırıstekı Resım
+      child: Column(children: [
+        Image.asset(
+          'assets/images/logo.png',
+          height: 250,
+          width: 250,
+        ),
+        SizedBox(height: 5),
+        // Nıckname alan yer
+        TextField(
+          controller: mail,
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            prefixIcon: Icon(
+              Icons.mail,
+              color: Colors.white,
+            ),
+            hintText: "mail",
+            hintStyle: TextStyle(color: Colors.white),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.white, width: 2.0),
             ),
           ),
-          const SizedBox(height: 10),
-          // Sıfre Alan Yer
-          TextField(
-            obscureText: true,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.lock_person_outlined,
-                  color: Colors.white,
-                ),
-                hintText: translate(context).password,
-                hintStyle: TextStyle(color: Colors.white),
-                enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.white, width: 2.0))),
-          ),
-          const SizedBox(height: 25),
-          // LOGIN BUTTONU HOME SAYFASINA GIDECEK
-          Button(
-            buttonText: translate(context).login,
-            where:  Home(),
-            Height: 40,
-            Width: 375,
-            fontSize: 25,
-          ),
-          const SizedBox(height: 15),
-          Text(
-            '-------------- ${translate(context).or} --------------',
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
-          const SizedBox(height: 15),
-          // SIGN UP BUTTONU REGISTER SAYFASINA GIDECEK
-          Button(
-            buttonText: translate(context).signup,
-            where: Register(),
-            Height: 40,
-            Width: 375,
-            fontSize: 25,
-          )
-        ]),
-      ),
+        ),
+        const SizedBox(height: 10),
+        // Sıfre Alan Yer
+        TextField(
+          obscureText: true,
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+              prefixIcon: Icon(
+                Icons.lock_person_outlined,
+                color: Colors.white,
+              ),
+              hintText: translate(context).password,
+              hintStyle: TextStyle(color: Colors.white),
+              enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white, width: 2.0))),
+        ),
+        const SizedBox(height: 25),
+        // LOGIN BUTTONU HOME SAYFASINA GIDECEK
+        Button(
+          buttonText: translate(context).login,
+          where: Home(),
+          Height: 40,
+          Width: 375,
+          fontSize: 25,
+        ),
+        const SizedBox(height: 15),
+        Text(
+          '-------------- ${translate(context).or} --------------',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+        const SizedBox(height: 15),
+        // SIGN UP BUTTONU REGISTER SAYFASINA GIDECEK
+        Button(
+          buttonText: translate(context).signup,
+          where: Register(),
+          Height: 40,
+          Width: 375,
+          fontSize: 25,
+        )
+      ]),
     );
   }
 }

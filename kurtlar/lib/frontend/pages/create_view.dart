@@ -1,9 +1,7 @@
 // create sayfasi
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/roles/BaseRole.dart';
-import 'package:kurtlar/frontend/models/roles.dart';
-import 'package:kurtlar/frontend/models/players.dart';
-import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
 import '../models/users.dart';
@@ -85,10 +83,7 @@ class _createState extends State<create> {
                   width: 300,
                   height: 200,
                   child: Text(
-                    "       "
-                    "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
-                    "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
-                    "Her oyuncu rol aldıktan sonra ilk gece başlayacak.",
+                   translate(context).story_1,
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -102,7 +97,7 @@ class _createState extends State<create> {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => nightstartPage()));
                   },
-                  child: Text("HAZIR"),
+                  child: Text(translate(context).ready),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
                     primary: Colors.black,

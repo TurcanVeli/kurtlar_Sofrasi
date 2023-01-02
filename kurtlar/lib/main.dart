@@ -1,25 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
-import 'package:kurtlar/frontend/pages/home_view.dart';
+
 import 'package:kurtlar/frontend/pages/login_view.dart';
-import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
-import 'package:kurtlar/frontend/pages/nightstart_view.dart';
-import 'package:kurtlar/frontend/pages/players_view.dart';
-import 'package:kurtlar/frontend/pages/profile_view.dart';
-import 'package:kurtlar/frontend/pages/register_view.dart';
-import 'package:kurtlar/frontend/pages/roles_view.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'dart:convert';
+
+
 import 'package:localization/localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'backend/database/database.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'frontend/pages/Daystart_view.dart';
 
 void main() async {
   /* Fırebase burada asenkron bir şekilde gomuldu */

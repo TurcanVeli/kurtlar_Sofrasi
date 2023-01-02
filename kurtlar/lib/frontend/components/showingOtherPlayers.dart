@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/models/users.dart';
 
 import '../models/players.dart';
@@ -73,9 +74,7 @@ class _UserShowingState extends State<UserShowing> {
                       ),
                       Text(widget.Users[index].GetName,
                           style: TextStyle(
-                              color: widget.isNight
-                                  ? Colors.white
-                                  : Colors.black)),
+                              color:ColorConstant.instance.white,fontWeight: FontWeight.bold)),
                       if (widget.inshowingRolePage)
                         SizedBox()
                       
@@ -87,9 +86,9 @@ class _UserShowingState extends State<UserShowing> {
                                 ? (widget.Users[index].GetVote + 1).toString()
                                 : widget.Users[index].GetVote.toString():"",
                             style: TextStyle(
-                                color: widget.isNight
-                                    ? Colors.white
-                                    : Colors.black))
+                                color:ColorConstant.instance.white
+                                    
+                                    ))
                         else
                           Text(
                               selectedUser == index
@@ -107,3 +106,5 @@ class _UserShowingState extends State<UserShowing> {
             }));
   }
 }
+
+

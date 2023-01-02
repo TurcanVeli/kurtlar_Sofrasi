@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
-import 'package:kurtlar/frontend/pages/lookyourRole_view.dart';
 import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../../backend/roles/BaseRole.dart';
 import '../base/color_constants.dart';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/night_view.dart';
 import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
@@ -51,12 +53,47 @@ class _nightstartPageState extends State<nightstartPage> {
           Scaffold(
               backgroundColor:
                   Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
-              body: !isGameOver
-                  ? NightStartBody(context)
-                  : isMafiaWin
-                      ? Text("mafya kazandı")
-                      : Text("Devlet kazandı"))
+              body:
+                  !isGameOver ? NightStartBody(context) : gameOver(isMafiaWin))
         ]);
+  }
+
+  Column gameOver(bool isMafiaWin) {
+    return Column(
+      children: [
+        Expanded(flex: 1, child: SizedBox()),
+        if (isMafiaWin)
+          Expanded(
+            flex: 10,
+            child: Container(
+                child: Center(
+                    child: Text(
+                        translate(context).mafiawin,
+                        style: TextStyle(
+                            color: ColorConstant.instance.white,
+                            fontSize: 40)))),
+          )
+        else
+          Expanded(
+            flex: 10,
+            child: Container(
+                child: Center(
+                    child: Text(
+                        translate(context).govwin,
+                        style: TextStyle(
+                            color: ColorConstant.instance.white,
+                            fontSize: 40)))),
+          ),
+        Expanded(flex: 1, child: SizedBox(height: 50)),
+        Expanded(
+            flex: 1,
+            child: BottomButtonContainerContiune(
+                where: Home(),
+                ContainerColor: Colors.transparent,
+                color: ColorConstant.instance.red,
+                buttonText: translate(context).backhomepage))
+      ],
+    );
   }
 
   SafeArea NightStartBody(BuildContext context) {
@@ -71,25 +108,12 @@ class _nightstartPageState extends State<nightstartPage> {
               height: 40,
               alignment: Alignment.center,
               child: Text(
-                "GECE BAŞLIYOR",
+                translate(context).nightStart,
                 style: TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),
             SizedBox(
               height: 20,
-            ),
-            SingleChildScrollView(
-              child: Container(
-                width: 300,
-                height: 200,
-                child: Text(
-                  "Bütün oyuncular bir birine bakacak şekilde büyük bir çember halinde oturmalıdır. Cihaz oyuncular arasında paslanacak."
-                  "Her oyuncu derin devlete veya mafyaya ait bir rol alacak. bu rolü kimseye söyleme."
-                  "Her oyuncu rol aldıktan sonra ilk gece başlayacak.",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
             ),
             Button(
               buttonText: translate(context).start,

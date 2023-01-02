@@ -98,5 +98,20 @@
     "editprofile": "EDIT PROFILE",
     "gamecode": "Invite Code",
     "save": "Save",
-    "roles": "Roles"
+    "roles": "Roles",
+    "mafiawin": "Mafia won and each player of Mafia earn 50 gold and 50 point",
+    "govwin": "Deep State won and each player of Deep State earn 50 gold and 50 point",
+    "readyformission": "Tap to Do Your Mission",
+    "discussstart": "You Can Discuss",
+    "enddiscuss": "Stop Discuss",
+    "nojail": "Nobody Goes to Jail",
+    "killsomeone": "Who Do You Want To Kill",
+    "suspects": "Suspects",
+    "bullet": "took a bullet in the head",
+    "alive": "$is still alive",
+    "backhomepage": "Go Back to homepage",
+    "abdushot": "He was shot by a long-haired man.",
+    "mafiashot": "Killed by the mafia",
+    "entercode": "Please enter the player's code",
+    "noduty": "No Mission"
 }

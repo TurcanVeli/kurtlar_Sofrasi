@@ -4,9 +4,9 @@ import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/components/showingOtherPlayers.dart';
 import 'package:kurtlar/frontend/pages/nightreport_view.dart';
 
+import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
 import '../components/ready.dart';
-import '../models/players.dart';
 import '../models/users.dart';
 
 //Gece oylama kısmdında hazır mısın ve gündüz hazırmısın sayfası bu olacak.
@@ -83,7 +83,7 @@ class _areUreadyState extends BaseState<areUready> {
                       child: Center(
                         child: Text(
                           USERS[_i].GetRole.GetTeam == "Mafya"
-                              ? "Kimi Öldürmek İstiyorsun"
+                              ? translate(context).killsomeone
                               : USERS[_i].GetRole.GetName == "Aslan Akbey"
                                   ? "Polat => ${PolatUser.GetName}"
                                   : USERS[_i].GetRole.GetMissionText,
@@ -102,8 +102,11 @@ class _areUreadyState extends BaseState<areUready> {
                           Text( USERS[_i].GetRole.GetMissionText, style: TextStyle(
                               color: ColorConstant.instance.white,
                               fontSize: 34),),
-                           UserShowing(dynamicHeight(0.3), GovermentUser, true,
-                          false, true, USERS[_i])
+                           if(USERS[_i].GetRole == "Mafya Adamı")
+                            UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                            false, true, USERS[_i])
+                          else
+                          SizedBox(height: dynamicHeight(0.3),)
                       ],)
                      
 
@@ -111,7 +114,7 @@ class _areUreadyState extends BaseState<areUready> {
                       
                      
                     else if (USERS[_i].GetRole.GetMissionText !=
-                            "Görevin Yok" &&
+                            translate(context).noduty &&
                         USERS[_i].GetRole.GetName != "Aslan Akbey")
                       if (USERS[_i].GetRole.GetName == "Dogu Bey" &&
                           USERS[_i].GetRole.getRemainmissioncount == 0)
@@ -120,14 +123,14 @@ class _areUreadyState extends BaseState<areUready> {
                           child: Text(
                             USERS[_i].GetRole.ChosenUser.Getisdead &&
                                     !USERS[_i].GetRole.ChosenUser.GetHitBullet
-                                ? "Şüpheliler: ${USERS[_i].GetRole.ChosenUser}"
+                                ? "${translate(context).suspects}: ${USERS[_i].GetRole.ChosenUser}"
                                 : USERS[_i].GetRole.ChosenUser.Getisdead &&
                                         USERS[_i]
                                             .GetRole
                                             .ChosenUser
                                             .GetHitBullet
-                                    ? "${USERS[_i].GetRole.ChosenUser.GetName} kafasına bir mermi yemiş"
-                                    : "${USERS[_i].GetRole.ChosenUser.GetName} hala yaşıyor",
+                                    ? "${USERS[_i].GetRole.ChosenUser.GetName} ${translate(context).bullet}"
+                                    : "${USERS[_i].GetRole.ChosenUser.GetName} ${translate(context).alive}",
                             style: TextStyle(color: ColorConstant.instance.red),
                           ),
                         )
@@ -141,7 +144,7 @@ class _areUreadyState extends BaseState<areUready> {
                     BottomButtonContainerContiune(
                         context: context,
                         height: dynamicHeight(0.07),
-                        buttonText: "TAMAM",
+                        buttonText:translate(context).ok,
                         where: _i < USERS.length - 1
                             ? areUready(_i)
                             : NightreportPage(),
@@ -154,7 +157,7 @@ class _areUreadyState extends BaseState<areUready> {
                     setIspressed,
                     ispressed,
                     setReady,
-                    "Görevini Yapmak İçin Hazıra Tıkla",
+                    translate(context).readyformission,
                     true),
           )
         ]);
