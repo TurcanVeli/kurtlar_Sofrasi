@@ -27,8 +27,6 @@ class _UserShowingState extends State<UserShowing> {
     if (!widget.isMission) {
       widget.Users[selectedUser].incrementVote();
     }
- 
-
     super.dispose();
   }
 
@@ -47,8 +45,15 @@ class _UserShowingState extends State<UserShowing> {
               return GestureDetector(
                 onTap: () {
                   setState(() {
-                    selectedUser = index;
-                     widget._user.GetRole.SetchosenUser(widget.Users[selectedUser]);
+                    if (index == selectedUser) {
+                      widget._user.GetRole.SetchosenUser(null);
+                      selectedUser = -1;
+                    }
+                    {
+                      selectedUser = index;
+                      widget._user.GetRole
+                          .SetchosenUser(widget.Users[selectedUser]);
+                    }
                   });
                 },
                 child: Container(

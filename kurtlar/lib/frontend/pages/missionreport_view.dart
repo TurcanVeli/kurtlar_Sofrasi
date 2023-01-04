@@ -66,6 +66,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
                   SizedBox(
                     width: 20,
                   ),
+                  //TODO Dogu beyin görevi yanlış. Mafya görevleri kontrol edilmedi. Kontrol et yarım
                   user.GetRole.GetName == "Aslan Akbey"
                       ? PolatText()
                       : MissionText != "Bugünlük iş yok"

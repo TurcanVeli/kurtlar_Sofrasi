@@ -31,12 +31,9 @@ class Abdulhey extends Role {
   @override
   String get GetTeam => _team;
 
-  //Polat bastığı kişinin hangi takımda olduğunu görecek
-  //Pop-Up çıkacak.
-
   @override
   String DoMission() {
-    if (remainingMission == 1 || _chosenUser != null) {
+    if (remainingMission == 1 && this.chosenUser != null) {
       remainingMission--;
       chosenUser.setHitBullet();
       return "Vuruldu";

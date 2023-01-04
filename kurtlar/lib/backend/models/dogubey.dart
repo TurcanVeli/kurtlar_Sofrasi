@@ -35,7 +35,7 @@ class DoguBey extends Role {
 
    @override
   String DoMission() {
-    if(remainingMission ==1|| chosenUser != null){
+    if(remainingMission ==1 && chosenUser != null){
       remainingMission--;
       //TODO
       return "istihbarat sağlandı";

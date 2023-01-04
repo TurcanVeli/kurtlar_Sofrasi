@@ -36,7 +36,7 @@ class Karahanli extends Role {
   //Pop-Up çıkacak.
   @override
   String DoMission() {
-    if (remainingMission > 0 || chosenUser != null) {
+    if (remainingMission > 0 && chosenUser != null) {
       remainingMission--;
       return "Susturuldu";
     }

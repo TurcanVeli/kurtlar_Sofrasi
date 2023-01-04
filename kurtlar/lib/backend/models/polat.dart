@@ -39,7 +39,7 @@ class Polat extends Role {
   //Pop-Up çıkacak.
   @override
   String DoMission() {
-    if (chosenUser != null) return "Bugünlük iş yok";
+    if (chosenUser == null) return "Bugünlük iş yok";
     if (chosenUser.GetTempTeam != "None") {
       return chosenUser.GetTempTeam;
     } else {

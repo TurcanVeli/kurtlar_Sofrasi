@@ -22,7 +22,7 @@ class nizamettin extends Role {
 //Değişecek
   @override
   String DoMission() {
-    if (remainingMission == 1 || chosenUser != null) {
+    if (remainingMission == 1 && chosenUser != null) {
       remainingMission--;
       //Kurtar
       chosenUser.setSaving(true);

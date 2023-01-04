@@ -33,7 +33,7 @@ class LazZiya extends Role {
   //Tüm oyun boyunca sürecek ve sadece bir defa kullanılabilcek
   @override
   String DoMission() {
-    if (remainingMission == 1 || chosenUser != null) {
+    if (remainingMission == 1 && chosenUser != null) {
       remainingMission--;
       chosenUser.SetTempTeam("Mafya");
       return "İftira atıldı";
