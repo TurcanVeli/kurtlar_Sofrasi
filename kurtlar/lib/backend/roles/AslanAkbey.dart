@@ -15,7 +15,13 @@ class AslanAkbey extends Role {
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
   int count = 0;
-  Players chosenUser;
+  Players _chosenUser = null;
+
+  Players get chosenUser => _chosenUser;
+
+  set SetchosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
 
   @override
   String get GetMissionText => _MissionText;
@@ -32,11 +38,10 @@ class AslanAkbey extends Role {
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
   @override
-   @override
+  @override
   String DoMission() {
     return "";
   }
-
 
   @override
   // TODO: implement Getcount
@@ -52,16 +57,7 @@ class AslanAkbey extends Role {
       count--;
     }
   }
-  
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser;
-  
-  @override
-  void setChosenUser(Players user) {
-    chosenUser = user;//Gelen user always be Polat
-  }
-  
+
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();

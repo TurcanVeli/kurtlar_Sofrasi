@@ -48,7 +48,7 @@ class _UserShowingState extends State<UserShowing> {
                 onTap: () {
                   setState(() {
                     selectedUser = index;
-                     widget._user.GetRole.setChosenUser(widget.Users[selectedUser]);
+                     widget._user.GetRole.SetchosenUser(widget.Users[selectedUser]);
                   });
                 },
                 child: Container(

@@ -8,13 +8,20 @@ class nizamettin extends Role {
   final String _team = "Mafya";
   int remainingMission = 1;
   final int countOfVote = 1;
-  Players chosenUser= null;
+  Players _chosenUser = null;
+
+  Players get chosenUser => _chosenUser;
+
+  set SetchosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
+
   int count = 0;
 
 //Değişecek
   @override
   String DoMission() {
-    if (remainingMission ==1|| chosenUser != null){
+    if (remainingMission == 1 || chosenUser != null) {
       remainingMission--;
       //Kurtar
       chosenUser.setSaving(true);
@@ -50,15 +57,6 @@ class nizamettin extends Role {
     }
   }
 
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser;
-
-  @override
-  void setChosenUser(Players user) {
-    chosenUser = user;
-  }
-  
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();

@@ -8,6 +8,13 @@ class officer extends Role {
   String _Name = "Memur";
   final String _team = "Derin Devlet";
   final int countOfVote = 1;
+  Players _chosenUser = null;
+
+  Players get chosenUser => _chosenUser;
+
+  set SetchosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
 
   int count = 4;
 
@@ -45,18 +52,6 @@ class officer extends Role {
   }
 
   @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => throw UnimplementedError();
-
-  @override
-  void setChosenUser(Players user) {
-    print("Nothing");
-  }
-
-  @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
-
-  @override
-  Players chosenUser;
 }

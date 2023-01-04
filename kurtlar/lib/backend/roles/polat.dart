@@ -14,7 +14,13 @@ class Polat extends Role {
   final int countOfVote = 1;
 
   int count = 0;
-  Players chosenUser= null;
+  Players _chosenUser = null;
+
+  Players get chosenUser => _chosenUser;
+
+  set SetchosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
 
   @override
   String get GetMissionText => _MissionText;
@@ -53,15 +59,6 @@ class Polat extends Role {
     if (count == 1) {
       count--;
     }
-  }
-
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser; //Oficerda kullanılırsa hata döner
-
-  @override
-  void setChosenUser(Players user) {
-    chosenUser = user;
   }
 
   @override

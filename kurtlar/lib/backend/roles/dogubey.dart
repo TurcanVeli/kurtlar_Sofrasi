@@ -11,7 +11,13 @@ class DoguBey extends Role {
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;
-  Players chosenUser= null;
+  Players _chosenUser= null;
+
+  Players get chosenUser => _chosenUser;
+
+  set SetchosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
 
   @override
   String get GetMissionText => _MissionText;
@@ -50,14 +56,6 @@ class DoguBey extends Role {
     }
   }
   int get getRemainmissioncount => remainingMission;
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser;
   
-  @override
-  void setChosenUser(Players user) {
-    if(remainingMission == 1){
-      chosenUser = user;
-    }
-  }
+
 }

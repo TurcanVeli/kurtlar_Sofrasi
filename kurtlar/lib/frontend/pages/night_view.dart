@@ -119,6 +119,7 @@ class _NightState extends BaseState<Night> {
                     else if (USERS[_i].GetRole.GetMissionText !=
                             translate(context).noduty &&
                         USERS[_i].GetRole.GetName != "Aslan Akbey")
+
                         UserShowing(
                             dynamicHeight(0.6), USERS, true, true, USERS[_i])
                     else

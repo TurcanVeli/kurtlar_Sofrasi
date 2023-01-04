@@ -9,10 +9,10 @@ abstract class Role {
   int get Getcount;
   Players get chosenUser;
   int get getRemainmissioncount;
-  void setChosenUser(Players user);
   void increment();
   void decrase();
   String DoMission();
+  set SetchosenUser(Players chosenUser);
 
-  set chosenUser(Players chosenUser);
+
 }

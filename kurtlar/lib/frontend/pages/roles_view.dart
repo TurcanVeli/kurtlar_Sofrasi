@@ -25,7 +25,7 @@ class _rolesPageState extends BaseState<rolesPage> {
   int addedRoleCount  = 0;
   int addedmafiacount = 0;//it cannot be zero. 
 
-  //TODO TEXTLER DÜZELECEK. TRANSLATEDEN GELCEK
+  
 
   @override
   void initState() {

@@ -1,11 +1,8 @@
-import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter/material.dart';
 
 class Abdulhey extends Role {
-  final String _MissionText = "Sadece 1 mermin var dikkatli kullan";
+  final String _MissionText = "You have just one shot";
   final String _RoleDefinition = "Derin devletin tetikçisisin";
 
   String _Name = "Abdulhey";
@@ -17,7 +14,7 @@ class Abdulhey extends Role {
 
   Players get chosenUser => _chosenUser;
 
-  set chosenUser(Players chosenUser) {
+  set SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
 
@@ -38,10 +35,9 @@ class Abdulhey extends Role {
 
   @override
   String DoMission() {
-    if(remainingMission ==1 || chosenUser != null){
-      
+    if (remainingMission == 1 || _chosenUser != null) {
       remainingMission--;
-      ChosenUser.setHitBullet();
+      chosenUser.setHitBullet();
       return "Vuruldu";
     }
     return "Bugünlük iş yok";
@@ -60,16 +56,7 @@ class Abdulhey extends Role {
       count--;
     }
   }
-  
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser;
-  
-  @override
-  void setChosenUser(Players user) {
-    chosenUser = user;
-  }
-  
+
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => remainingMission;

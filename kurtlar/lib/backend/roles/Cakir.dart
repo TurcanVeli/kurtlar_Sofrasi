@@ -43,21 +43,23 @@ class Cakir extends Role {
       count--;
     }
   }
+
   
-  @override
-  // TODO: implement ChosenUser
-  Players get ChosenUser => throw UnimplementedError();
-  
-  @override
-  void setChosenUser(Players user) {
-   print("Nothing");
-  }
+ 
   
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
   
   @override
-  Players chosenUser;
+  set SetchosenUser(Players chosenUser) {
+    // TODO: implement SetchosenUser
+  }
+  
+  @override
+  // TODO: implement chosenUser
+  Players get chosenUser => throw UnimplementedError();
+  
+
   
 }
