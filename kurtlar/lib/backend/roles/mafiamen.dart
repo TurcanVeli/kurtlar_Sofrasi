@@ -53,4 +53,7 @@ class mafiamen extends Role {
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
+  
+  @override
+  Players chosenUser;
 }

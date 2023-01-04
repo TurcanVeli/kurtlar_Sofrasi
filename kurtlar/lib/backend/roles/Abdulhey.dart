@@ -13,7 +13,13 @@ class Abdulhey extends Role {
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;
-  Players chosenUser;
+  Players _chosenUser = null;
+
+  Players get chosenUser => _chosenUser;
+
+  set chosenUser(Players chosenUser) {
+    _chosenUser = chosenUser;
+  }
 
   @override
   String get GetMissionText => _MissionText;
@@ -32,12 +38,13 @@ class Abdulhey extends Role {
 
   @override
   String DoMission() {
-    if(remainingMission ==1){
+    if(remainingMission ==1 || chosenUser != null){
+      
       remainingMission--;
       ChosenUser.setHitBullet();
       return "Vuruldu";
     }
-    return "Memrmin bitti";
+    return "Bugünlük iş yok";
   }
 
   @override
@@ -65,5 +72,5 @@ class Abdulhey extends Role {
   
   @override
   // TODO: implement getRemainmissioncount
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => remainingMission;
 }

@@ -57,4 +57,7 @@ class Cakir extends Role {
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
   
+  @override
+  Players chosenUser;
+  
 }

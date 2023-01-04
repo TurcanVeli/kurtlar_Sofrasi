@@ -14,7 +14,7 @@ class Polat extends Role {
   final int countOfVote = 1;
 
   int count = 0;
-  Players chosenUser;
+  Players chosenUser= null;
 
   @override
   String get GetMissionText => _MissionText;
@@ -32,11 +32,12 @@ class Polat extends Role {
   //Pop-Up çıkacak.
   @override
   String DoMission() {
-    if (chosenUser.GetTempTeam != "None"){
-        return chosenUser.GetTempTeam;
-     }else{
+    if (chosenUser != null) return "Bugünlük iş yok";
+    if (chosenUser.GetTempTeam != "None") {
+      return chosenUser.GetTempTeam;
+    } else {
       return chosenUser.GetRole.GetTeam;
-     }
+    }
   }
 
   @override
@@ -47,21 +48,22 @@ class Polat extends Role {
       count++;
     }
   }
-  void decrase(){
-    if (count == 1){
+
+  void decrase() {
+    if (count == 1) {
       count--;
     }
   }
-  
+
   @override
   // TODO: implement ChosenUser
-  Players get ChosenUser => chosenUser;//Oficerda kullanılırsa hata döner
-  
+  Players get ChosenUser => chosenUser; //Oficerda kullanılırsa hata döner
+
   @override
   void setChosenUser(Players user) {
     chosenUser = user;
   }
-  
+
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();

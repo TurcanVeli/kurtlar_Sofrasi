@@ -101,7 +101,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                           height: dynamicHeight(0.1),
                         ),
                          UserShowing(dynamicHeight(0.6), USERS, false,
-                          false, false, USERS[widget.index]),
+                          false, USERS[widget.index]),
                           
 
                         BottomButtonContainerContiune(

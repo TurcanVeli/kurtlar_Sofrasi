@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/components/showingOtherPlayers.dart';
+import 'package:kurtlar/frontend/pages/missionreport_view.dart';
 import 'package:kurtlar/frontend/pages/nightreport_view.dart';
 
 import '../../backend/lang/language_constant.dart';
@@ -11,17 +12,17 @@ import '../models/users.dart';
 
 //Gece oylama kısmdında hazır mısın ve gündüz hazırmısın sayfası bu olacak.
 
-class areUready extends StatefulWidget {
+class Night extends StatefulWidget {
   int j;
-  areUready(this.j);
+  Night(this.j);
 
   @override
-  State<areUready> createState() => _areUreadyState(j);
+  State<Night> createState() => _NightState(j);
 }
 
-class _areUreadyState extends BaseState<areUready> {
+class _NightState extends BaseState<Night> {
   int _i;
-  _areUreadyState(this._i);
+  _NightState(this._i);
 
   @override
   void initState() {
@@ -84,9 +85,7 @@ class _areUreadyState extends BaseState<areUready> {
                         child: Text(
                           USERS[_i].GetRole.GetTeam == "Mafya"
                               ? translate(context).killsomeone
-                              : USERS[_i].GetRole.GetName == "Aslan Akbey"
-                                  ? "Polat => ${PolatUser.GetName}"
-                                  : USERS[_i].GetRole.GetMissionText,
+                              : USERS[_i].GetRole.GetMissionText,
                           style: TextStyle(
                               color: ColorConstant.instance.white,
                               fontSize: 34),
@@ -95,48 +94,33 @@ class _areUreadyState extends BaseState<areUready> {
                     ),
                     //Salak saçma bir kod ama düzeltecem
                     if (USERS[_i].GetRole.GetTeam == "Mafya")
-                      Column(children: [
-                         UserShowing(dynamicHeight(0.3), GovermentUser, true,
-                          false, false, USERS[_i]),
-                          SizedBox(height: dynamicHeight(0.001),),
-                          Text( USERS[_i].GetRole.GetMissionText, style: TextStyle(
-                              color: ColorConstant.instance.white,
-                              fontSize: 34),),
-                           if(USERS[_i].GetRole == "Mafya Adamı")
+                      Column(
+                        children: [
+                          UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                              false, USERS[_i]),
+                          SizedBox(
+                            height: dynamicHeight(0.001),
+                          ),
+                          Text(
+                            USERS[_i].GetRole.GetMissionText,
+                            style: TextStyle(
+                                color: ColorConstant.instance.white,
+                                fontSize: 34),
+                          ),
+                          if (USERS[_i].GetRole.GetName != "Mafya Adamı")
                             UserShowing(dynamicHeight(0.3), GovermentUser, true,
-                            false, true, USERS[_i])
+                                false, USERS[_i])
                           else
-                          SizedBox(height: dynamicHeight(0.3),)
-                      ],)
-                     
-
-                    
-                      
-                     
+                            SizedBox(
+                              height: dynamicHeight(0.3),
+                            )
+                        ],
+                      )
                     else if (USERS[_i].GetRole.GetMissionText !=
                             translate(context).noduty &&
                         USERS[_i].GetRole.GetName != "Aslan Akbey")
-                      if (USERS[_i].GetRole.GetName == "Dogu Bey" &&
-                          USERS[_i].GetRole.getRemainmissioncount == 0)
-                        Container(
-                          height: dynamicHeight(0.6),
-                          child: Text(
-                            USERS[_i].GetRole.ChosenUser.Getisdead &&
-                                    !USERS[_i].GetRole.ChosenUser.GetHitBullet
-                                ? "${translate(context).suspects}: ${USERS[_i].GetRole.ChosenUser}"
-                                : USERS[_i].GetRole.ChosenUser.Getisdead &&
-                                        USERS[_i]
-                                            .GetRole
-                                            .ChosenUser
-                                            .GetHitBullet
-                                    ? "${USERS[_i].GetRole.ChosenUser.GetName} ${translate(context).bullet}"
-                                    : "${USERS[_i].GetRole.ChosenUser.GetName} ${translate(context).alive}",
-                            style: TextStyle(color: ColorConstant.instance.red),
-                          ),
-                        )
-                      else
-                        UserShowing(dynamicHeight(0.6), USERS, true, false,
-                            true, USERS[_i])
+                        UserShowing(
+                            dynamicHeight(0.6), USERS, true, true, USERS[_i])
                     else
                       SizedBox(
                         height: dynamicHeight(0.6),
@@ -144,10 +128,13 @@ class _areUreadyState extends BaseState<areUready> {
                     BottomButtonContainerContiune(
                         context: context,
                         height: dynamicHeight(0.07),
-                        buttonText:translate(context).ok,
-                        where: _i < USERS.length - 1
-                            ? areUready(_i)
-                            : NightreportPage(),
+                        buttonText: translate(context).ok,
+                        where: USERS[_i].GetRole.GetName == "Memur" ||
+                                USERS[_i].GetRole.GetName == "Mafya Adamı"
+                            ? _i < USERS.length - 1
+                                ? Night(_i)
+                                : NightreportPage()
+                            : missionreportPage(_i),
                         ContainerColor: Colors.transparent)
                   ])
                 : ReadyComponent(

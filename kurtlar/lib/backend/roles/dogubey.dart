@@ -11,7 +11,7 @@ class DoguBey extends Role {
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;
-  Players chosenUser;
+  Players chosenUser= null;
 
   @override
   String get GetMissionText => _MissionText;
@@ -28,13 +28,12 @@ class DoguBey extends Role {
 
    @override
   String DoMission() {
-    if(remainingMission ==1){
+    if(remainingMission ==1|| chosenUser != null){
       remainingMission--;
-
       //TODO
       return "istihbarat sağlandı";
-
     }
+    return "Bugünlük iş yok";
   }
 
   @override

@@ -8,19 +8,19 @@ class nizamettin extends Role {
   final String _team = "Mafya";
   int remainingMission = 1;
   final int countOfVote = 1;
-  Players chosenUser;
+  Players chosenUser= null;
   int count = 0;
 
 //Değişecek
   @override
   String DoMission() {
-    if (remainingMission ==1){
+    if (remainingMission ==1|| chosenUser != null){
       remainingMission--;
       //Kurtar
       chosenUser.setSaving(true);
       return "Kurtarıldı";
     }
-    return "Kurtaramadın";
+    return "Bugünlük iş yok";
   }
 
   @override

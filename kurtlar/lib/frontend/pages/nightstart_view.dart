@@ -117,7 +117,7 @@ class _nightstartPageState extends State<nightstartPage> {
             ),
             Button(
               buttonText: translate(context).start,
-              where: areUready(-1),
+              where: Night(-1),
               Height: 40,
               Width: 375,
               fontSize: 25,

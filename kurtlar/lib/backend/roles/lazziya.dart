@@ -9,7 +9,7 @@ class LazZiya extends Role {
   int remainingMission = 1;
   final int countOfVote = 1;
   int count = 0;
-  Players chosenUser;
+  Players chosenUser= null;
 
   //ToDo Laz Zİyamızın görevi
 
@@ -28,12 +28,12 @@ class LazZiya extends Role {
   //Tüm oyun boyunca sürecek ve sadece bir defa kullanılabilcek
    @override
   String DoMission() {
-    if(remainingMission == 1){
+    if(remainingMission == 1|| chosenUser != null){
       remainingMission--;
       chosenUser.SetTempTeam("Mafya");
       return "İftira atıldı";
     }
-    return "Yoruldun be ziya";
+    return "Bugünlük iş yok";
   }
   @override
   int get Getcount => count;

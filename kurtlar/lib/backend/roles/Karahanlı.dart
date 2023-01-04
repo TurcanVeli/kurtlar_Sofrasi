@@ -9,7 +9,7 @@ class Karahanli extends Role {
   String _Name = "Karahanlı";
   final String _team = "Mafya";
   final int countOfVote = 1;
-  Players chosenUser;
+  Players chosenUser= null;
   int count = 0;
   int remainingMission = 1;
 
@@ -29,11 +29,11 @@ class Karahanli extends Role {
   //Pop-Up çıkacak.
    @override
   String DoMission() {
-    if(remainingMission >0){
+    if(remainingMission >0 || chosenUser != null){
       remainingMission--;
       return "Susturuldu";
     }
-    return "Yoruldun";
+    return "Bugünlük iş yok";
   }
 
   @override

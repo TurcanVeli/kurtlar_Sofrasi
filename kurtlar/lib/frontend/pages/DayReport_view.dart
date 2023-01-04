@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
 import '../base/color_constants.dart';
@@ -15,23 +16,26 @@ class DayLightreport extends StatefulWidget {
 class _DayLightreportState extends State<DayLightreport> {
   bool iJail = false;
   int deadindex = -1;
+  Players jailed;
   //berabere oy durumununda kimse hapise girmeyecek.Sonra yazılacak bu durum
   @override
-  void initState() {
+  void initState () {
     int index = 0;
     int max = USERS[index].GetVote;
     for (int i = 0; i < USERS.length; i++) {
-      if (CloningUser[i].GetVote >= max) {
-        max = CloningUser[i].GetVote;
-        index = i;
+      if (USERS[i].GetVote >= max) {
+        max = USERS[i].GetVote;
+        index  = i;
       }
-      CloningUser[i].SetVote(0);
+      USERS[i].SetVote(0);
     }
     if (max != 0) {
-      CloningUser[index].setJail();
-      USERS.removeAt(index);
+      jailed = USERS[index];
+      USERS.remove(jailed);
+      //Burada ve nightreportta ölenin hangi takımda oluğ olmadığı kontrol edilmeli ve ona göre listelerden çıkartılmalı
+      GovermentUser.remove(jailed);
+      MafiasUser.remove(jailed);
       iJail = true;
-      deadindex = index;
     }
 
     super.initState();
@@ -70,7 +74,7 @@ class _DayLightreportState extends State<DayLightreport> {
                           SizedBox(
                             height: 150,
                           ),
-                          Text(CloningUser[deadindex].GetName,
+                          Text(jailed.GetName,
                               style: TextStyle(
                                   color: ColorConstant.instance.white,
                                   fontSize: 15)),
