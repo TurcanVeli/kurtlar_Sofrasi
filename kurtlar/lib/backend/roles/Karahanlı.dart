@@ -2,20 +2,21 @@ import 'package:kurtlar/backend/roles/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class Karahanli extends Role {
-  final String _MissionText =
-      "Birinin rolünü sustur";
+  final String _MissionText = "Birinin rolünü sustur";
   final String _RoleDefinition = "Mafyanın başındaki adamsın";
 
   String _Name = "Karahanlı";
   final String _team = "Mafya";
+  final String _imagepath = "";
   final int countOfVote = 1;
-  Players _chosenUser= null;
+  Players _chosenUser = null;
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
+
   int count = 0;
   int remainingMission = 1;
 
@@ -33,9 +34,9 @@ class Karahanli extends Role {
 
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
-   @override
+  @override
   String DoMission() {
-    if(remainingMission >0 || chosenUser != null){
+    if (remainingMission > 0 || chosenUser != null) {
       remainingMission--;
       return "Susturuldu";
     }
@@ -55,10 +56,12 @@ class Karahanli extends Role {
       count--;
     }
   }
-  
 
-  
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
+
+  @override
+  // TODO: implement imagePath
+  String get imagePath => _imagepath;
 }

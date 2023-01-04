@@ -6,13 +6,14 @@ class nizamettin extends Role {
   final String _RoleDefinition = "Sen Mafyanın avukatısın";
   String _Name = "Nizamettin";
   final String _team = "Mafya";
+  final String _imagepath = "";
   int remainingMission = 1;
   final int countOfVote = 1;
   Players _chosenUser = null;
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
 
@@ -60,4 +61,8 @@ class nizamettin extends Role {
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
+
+  @override
+  // TODO: implement imagePath
+  String get imagePath => _imagepath;
 }

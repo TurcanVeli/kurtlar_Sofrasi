@@ -7,12 +7,13 @@ class officer extends Role {
   final String _RoleDefinition = "Sıradan bir istirbahat elemeanısın";
   String _Name = "Memur";
   final String _team = "Derin Devlet";
+  final String _imagepath = "";
   final int countOfVote = 1;
   Players _chosenUser = null;
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
 
@@ -54,4 +55,8 @@ class officer extends Role {
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
+
+  @override
+  // TODO: implement imagePath
+  String get imagePath => _imagepath;
 }

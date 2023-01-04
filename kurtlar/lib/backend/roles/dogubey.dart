@@ -8,6 +8,7 @@ class DoguBey extends Role {
 
   String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
+  final String _imagepath = "";
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;
@@ -15,7 +16,7 @@ class DoguBey extends Role {
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
 
@@ -56,6 +57,10 @@ class DoguBey extends Role {
     }
   }
   int get getRemainmissioncount => remainingMission;
+  
+  @override
+  // TODO: implement imagePath
+  String get imagePath => _imagepath;
   
 
 }

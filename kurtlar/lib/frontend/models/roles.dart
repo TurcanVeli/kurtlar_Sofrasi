@@ -2,7 +2,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:kurtlar/backend/roles/Abdulhey.dart';
 import 'package:kurtlar/backend/roles/AslanAkbey.dart';
-import 'package:kurtlar/backend/roles/Cakir.dart';
 import 'package:kurtlar/backend/roles/Karahanl%C4%B1.dart';
 import 'package:kurtlar/backend/roles/dogubey.dart';
 import 'package:kurtlar/backend/roles/lazziya.dart';
@@ -19,7 +18,6 @@ nizamettin niz = nizamettin();
 mafiamen mafiaMen = mafiamen();
 officer Off = officer();
 AslanAkbey Aslan = AslanAkbey();
-Cakir cak = Cakir();
 Abdulhey abu = Abdulhey();
 Karahanli kara = Karahanli();
 DoguBey dogubey = DoguBey();
@@ -27,5 +25,3 @@ DoguBey dogubey = DoguBey();
 List<Role> ordinary = [Off, mafiaMen, Polat.instance];
 List<Role> deepgoverment = [Aslan, dogubey, abu];
 List<Role> mafia = [kara, niz, laz];
-
-

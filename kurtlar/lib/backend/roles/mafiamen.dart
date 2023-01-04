@@ -5,20 +5,21 @@ import 'BaseRole.dart';
 class mafiamen extends Role {
   final String _MissionText = "görevin yok";
   final String _RoleDefinition = "Basit bir mafya adamısın";
-
   String _Name = "Mafya Adamı";
   final String _team = "Mafya";
+  final String _imagepath = "";
   final int countOfVote = 1;
   Players _chosenUser = null;
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
+
   int count = 0;
 
-   @override
+  @override
   String DoMission() {
     return "Görevin yok";
   }
@@ -46,10 +47,12 @@ class mafiamen extends Role {
       count--;
     }
   }
-  
- 
+
   @override
   // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
- 
+
+  @override
+  // TODO: implement imagePath
+  String get imagePath => _imagepath;
 }

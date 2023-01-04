@@ -2,6 +2,8 @@ import 'package:kurtlar/frontend/models/players.dart';
 
 //Tüm DoMissionlar değişecek.
 abstract class Role {
+  String get imagePath;
+
   String get GetName;
   String get GetMissionText;
   String get GetTeam;
@@ -12,7 +14,7 @@ abstract class Role {
   void increment();
   void decrase();
   String DoMission();
-  set SetchosenUser(Players chosenUser);
+  void SetchosenUser(Players chosenUser);
 
 
 }

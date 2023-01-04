@@ -11,6 +11,7 @@ class Polat extends Role {
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
+  final String _imagepath = "";
   final int countOfVote = 1;
 
   int count = 0;
@@ -18,7 +19,7 @@ class Polat extends Role {
 
   Players get chosenUser => _chosenUser;
 
-  set SetchosenUser(Players chosenUser) {
+  void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
 
@@ -62,6 +63,8 @@ class Polat extends Role {
   }
 
   @override
-  // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
+
+  @override
+  String get imagePath => _imagepath;
 }
