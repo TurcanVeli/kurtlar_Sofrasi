@@ -1,21 +1,14 @@
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:kurtlar/backend/lang/language_constant.dart';
-import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
-import 'package:flutter/material.dart';
 
-class AslanAkbey extends Role {
-  final String _MissionText =
-      "You have taken important positions in your state and now you have raised a very important person and you have the ability to keep secrets";
-  final String _RoleDefinition =
-      "Derin devletin başındaki adamlardan birisisin";
+class Karahanli extends Role {
+  final String _MissionText = "Birinin rolünü sustur";
+  final String _RoleDefinition = "Mafyanın başındaki adamsın";
 
-  String _Name = "Aslan Akbey";
-  final String _team = "Derin Devlet";
+  String _Name = "Karahanlı";
+  final String _team = "Mafya";
   final String _imagepath = "";
   final int countOfVote = 1;
-  int count = 0;
   Players _chosenUser = null;
 
   Players get chosenUser => _chosenUser;
@@ -23,6 +16,9 @@ class AslanAkbey extends Role {
   void SetchosenUser(Players chosenUser) {
     _chosenUser = chosenUser;
   }
+
+  int count = 0;
+  int remainingMission = 1;
 
   @override
   String get GetMissionText => _MissionText;
@@ -39,13 +35,15 @@ class AslanAkbey extends Role {
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
   @override
-  @override
   String DoMission() {
-    return "";
+    if (remainingMission > 0 || chosenUser != null) {
+      remainingMission--;
+      return "Susturuldu";
+    }
+    return "Bugünlük iş yok";
   }
 
   @override
-  // TODO: implement Getcount
   int get Getcount => count;
   void increment() {
     if (count == 0) {

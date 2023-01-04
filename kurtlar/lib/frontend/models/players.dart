@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../backend/roles/BaseRole.dart';
+import '../../backend/models/BaseRole.dart';
 
 class Players {
   String _Name;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
-import 'package:kurtlar/backend/roles/Karahanl%C4%B1.dart';
+import 'package:kurtlar/backend/models/Karahanl%C4%B1.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/Daystart_view.dart';
 import 'package:kurtlar/frontend/pages/daylight_view.dart';

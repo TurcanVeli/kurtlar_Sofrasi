@@ -1,4 +1,4 @@
-import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class LazZiya extends Role {

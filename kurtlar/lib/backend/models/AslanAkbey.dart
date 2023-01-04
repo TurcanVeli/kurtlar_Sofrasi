@@ -1,19 +1,20 @@
-import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
+import 'package:flutter/material.dart';
 
-class Polat extends Role {
-  static Polat instance = Polat._init();
-  Polat._init();
-
-  final String _MissionText = "Birinin rolünü açığa çıkart";
+class AslanAkbey extends Role {
+  final String _MissionText =
+      "You have taken important positions in your state and now you have raised a very important person and you have the ability to keep secrets";
   final String _RoleDefinition =
-      "Sen polat alemdarsın ve derin devlete bağlısına zamanı geldiğinde mafyaların kim olduğunu bulmak için yeteneklerini kullanacaksın ve devletine yarıdm edeceksin yakalanmamaya dikkat et";
+      "Derin devletin başındaki adamlardan birisisin";
 
-  String _Name = "Polat";
+  String _Name = "Aslan Akbey";
   final String _team = "Derin Devlet";
   final String _imagepath = "";
   final int countOfVote = 1;
-
   int count = 0;
   Players _chosenUser = null;
 
@@ -38,18 +39,14 @@ class Polat extends Role {
   //Polat bastığı kişinin hangi takımda olduğunu görecek
   //Pop-Up çıkacak.
   @override
+  @override
   String DoMission() {
-    if (chosenUser != null) return "Bugünlük iş yok";
-    if (chosenUser.GetTempTeam != "None") {
-      return chosenUser.GetTempTeam;
-    } else {
-      return chosenUser.GetRole.GetTeam;
-    }
+    return "";
   }
 
   @override
+  // TODO: implement Getcount
   int get Getcount => count;
-
   void increment() {
     if (count == 0) {
       count++;
@@ -63,8 +60,10 @@ class Polat extends Role {
   }
 
   @override
+  // TODO: implement getRemainmissioncount
   int get getRemainmissioncount => throw UnimplementedError();
 
   @override
+  // TODO: implement imagePath
   String get imagePath => _imagepath;
 }

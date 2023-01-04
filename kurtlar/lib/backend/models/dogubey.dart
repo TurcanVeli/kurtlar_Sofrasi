@@ -1,17 +1,18 @@
-import 'package:kurtlar/backend/roles/BaseRole.dart';
+import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
-class Abdulhey extends Role {
-  final String _MissionText = "You have just one shot";
-  final String _RoleDefinition = "Derin devletin tetikçisisin";
+class DoguBey extends Role {
+  final String _MissionText = "İstihbarat Sağla";
+  final String _RoleDefinition =
+      "Doğu bey sezgileri güçlü olan bir derin devlet üyesidir";
 
-  String _Name = "Abdulhey";
+  String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
   final String _imagepath = "";
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;
-  Players _chosenUser = null;
+  Players _chosenUser= null;
 
   Players get chosenUser => _chosenUser;
 
@@ -31,15 +32,13 @@ class Abdulhey extends Role {
   @override
   String get GetTeam => _team;
 
-  //Polat bastığı kişinin hangi takımda olduğunu görecek
-  //Pop-Up çıkacak.
 
-  @override
+   @override
   String DoMission() {
-    if (remainingMission == 1 || _chosenUser != null) {
+    if(remainingMission ==1|| chosenUser != null){
       remainingMission--;
-      chosenUser.setHitBullet();
-      return "Vuruldu";
+      //TODO
+      return "istihbarat sağlandı";
     }
     return "Bugünlük iş yok";
   }
@@ -57,10 +56,11 @@ class Abdulhey extends Role {
       count--;
     }
   }
-
-  @override
   int get getRemainmissioncount => remainingMission;
-
+  
   @override
+  // TODO: implement imagePath
   String get imagePath => _imagepath;
+  
+
 }
