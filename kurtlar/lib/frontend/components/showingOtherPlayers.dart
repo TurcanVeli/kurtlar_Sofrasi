@@ -48,7 +48,7 @@ class _UserShowingState extends State<UserShowing> {
                     if (index == selectedUser) {
                       widget._user.GetRole.SetchosenUser(null);
                       selectedUser = -1;
-                    }
+                    }else
                     {
                       selectedUser = index;
                       widget._user.GetRole

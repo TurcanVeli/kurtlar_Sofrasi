@@ -19,19 +19,10 @@ class _nightstartPageState extends State<nightstartPage> {
 
   @override
   void initState() {
-    int remainingMafia = 0;
-    int remainingGov = 0;
-    for (int i = 0; i < USERS.length; i++) {
-      if (USERS[i].GetRole.GetTeam == "Mafya")
-        remainingMafia++;
-      else
-        remainingGov++;
-    }
-
-    if (remainingMafia >= remainingGov) {
+    if (MafiasUser.length >= GovermentUser.length) {
       isGameOver = true;
       isMafiaWin = true;
-    } else if (remainingMafia == 0) isGameOver = true;
+    } else if (MafiasUser.length == 0) isGameOver = true;
 
     super.initState();
   }
@@ -67,8 +58,7 @@ class _nightstartPageState extends State<nightstartPage> {
             flex: 10,
             child: Container(
                 child: Center(
-                    child: Text(
-                        translate(context).mafiawin,
+                    child: Text(translate(context).mafiawin,
                         style: TextStyle(
                             color: ColorConstant.instance.white,
                             fontSize: 40)))),
@@ -78,8 +68,7 @@ class _nightstartPageState extends State<nightstartPage> {
             flex: 10,
             child: Container(
                 child: Center(
-                    child: Text(
-                        translate(context).govwin,
+                    child: Text(translate(context).govwin,
                         style: TextStyle(
                             color: ColorConstant.instance.white,
                             fontSize: 40)))),

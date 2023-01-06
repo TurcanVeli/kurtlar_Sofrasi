@@ -16,58 +16,52 @@ class NightreportPage extends StatefulWidget {
 
 class _NightreportPageState extends State<NightreportPage> {
   List<Players> DeadUsers = [];
-  //Like a Soup
+
   @override
   void initState() {
     int max = USERS[0].GetVote;
-    int MafiasdeadIndex = 0;
-    int AbdulsdeadIndex = -1;
+    Players Mafiasdead = null;
+    Players Abduldead = null;
+    Players dogu = null;
+
     for (int i = 0; i < USERS.length; i++) {
-      if (CloningUser[i].GetMuted) {
-        CloningUser[i].SetMuted(false);
+      if (USERS[i].GetName == "Doğu Bey"){
+        dogu = USERS[i];
       }
-      if (CloningUser[i].GetVote >= max) {
-        max = CloningUser[i].GetVote;
-        MafiasdeadIndex = i;
+      if (USERS[i].GetMuted) {
+        USERS[i].setMuted(false);
       }
-      if (CloningUser[i].GetHitBullet) {
-        AbdulsdeadIndex = i;
+      if (USERS[i].GetVote >= max) {
+        max = USERS[i].GetVote;
+        if (max != 0){
+          Mafiasdead = USERS[i];
+        }
       }
-      if (CloningUser[i].GetRole.GetName == "Karahanli" &&
-          CloningUser[i].GetRole.remainingMission == 0) {
-        CloningUser[i].ChosenUser.SetMuted(true);
+      if (USERS[i].GetHitBullet) {
+        Abduldead = USERS[i];
+      }
+      if (USERS[i].GetRole.GetName == "Karahanli" &&
+          USERS[i].GetRole.getRemainmissioncount == 0) {
+        USERS[i].GetRole.chosenUser.setMuted(true);
       }
 
-      CloningUser[i].SetVote(0);
+      USERS[i].SetVote(0);
     }
-    if (max != 0 && MafiasdeadIndex == AbdulsdeadIndex) {
-      CloningUser[AbdulsdeadIndex].setDead();
-      DeadUsers.add(USERS[AbdulsdeadIndex]);
-      USERS.removeAt(AbdulsdeadIndex);
-      GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
-      MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
-    } else if (max != 0 && MafiasdeadIndex != AbdulsdeadIndex) {
-      CloningUser[MafiasdeadIndex].setDead();
-      DeadUsers.add(CloningUser[MafiasdeadIndex]);
-      USERS.remove(CloningUser[MafiasdeadIndex]);
-      GovermentUser.remove(CloningUser[MafiasdeadIndex]);
-      MafiasUser.remove(CloningUser[MafiasdeadIndex]);
-
-      if (AbdulsdeadIndex != -1) {
-        CloningUser[AbdulsdeadIndex].setDead();
-        DeadUsers.add(CloningUser[AbdulsdeadIndex]);
-        USERS.remove(CloningUser[AbdulsdeadIndex]);
-        GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
-        MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
-      }
-    } else {
-      if (AbdulsdeadIndex != -1) {
-        CloningUser[AbdulsdeadIndex].setDead();
-        DeadUsers.add(CloningUser[AbdulsdeadIndex]);
-        USERS.remove(CloningUser[AbdulsdeadIndex]);
-        GovermentUser.remove(CloningUser[AbdulsdeadIndex]);
-        MafiasUser.remove(CloningUser[AbdulsdeadIndex]);
-      }
+   
+    
+    if (Abduldead != null){
+      DeadUsers.add(Abduldead);
+      Abduldead.setDead();
+      USERS.remove(Abduldead);
+      GovermentUser.remove(Abduldead);
+      MafiasUser.remove(Abduldead);
+    }
+    if(Mafiasdead != null){
+      if (Abduldead != Mafiasdead) DeadUsers.add(Mafiasdead);
+      Mafiasdead.setDead();
+      USERS.remove(Mafiasdead);
+      GovermentUser.remove(Mafiasdead);
+      MafiasUser.remove(Mafiasdead);
     }
     super.initState();
   }
@@ -95,7 +89,7 @@ class _NightreportPageState extends State<NightreportPage> {
                     height: 55,
                   ),
                   Text(
-                   "${translate(context).night} ${translate(context).report}",
+                    "${translate(context).night} ${translate(context).report}",
                     style: TextStyle(
                         fontSize: 30, color: ColorConstant.instance.white),
                   ),
@@ -148,7 +142,7 @@ class _NightreportPageState extends State<NightreportPage> {
                   BottomButtonContainerContiune(
                       context: context,
                       height: 50,
-                      buttonText:translate(context).contiune,
+                      buttonText: translate(context).contiune,
                       ContainerColor: Colors.transparent,
                       where: DayStartPage()),
                 ],

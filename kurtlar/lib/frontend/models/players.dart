@@ -6,10 +6,7 @@ class Players {
   Image _playerImage;
   Role _role; //Hangi rollde olduğu
   int _vote = 0;
-  String _Tempteam = "None"; //Laz Ziya kullanırsa mafya olacak
-  List<Players> Murders =
-      [];
-       //Eğer ölrüse listeye bir mafya girecek bir de derin devlet.
+  String _Tempteam = "None";
   Players(this._Name);
   bool muted = false;
   bool isSaving = false;
@@ -17,7 +14,9 @@ class Players {
   bool _isJail = false;
   bool _isDead = false;
   bool _hitWithBullet = false;
+  bool _didyougetInfos = false; //Dogu görevi için
 
+  bool get GetDidYougetInfos => _didyougetInfos;
   String get GetName => _Name;
   Image get GetImageOfPLayer => _playerImage;
   Role get GetRole => _role; //rolün ismi dönmez obje döner
@@ -27,20 +26,27 @@ class Players {
   bool get GetSaving => isSaving;
   bool get GetHitBullet => _hitWithBullet;
   bool get GetMuted => muted;
-  void setSaving(bool value){
+  void setDidYouGetInfos() {
+    _didyougetInfos = true;
+  }
+
+  void setSaving(bool value) {
     isSaving = value;
   }
-  void setHitBullet(){
+
+  void setHitBullet() {
     _hitWithBullet = true;
   }
-  void setJail(){
+
+  void setJail() {
     _isJail = true;
   }
-  void setDead(){
+
+  void setDead() {
     _isDead = true;
   }
 
-  void setMuted(bool muted){
+  void setMuted(bool muted) {
     this.muted = muted;
   }
 
@@ -60,14 +66,8 @@ class Players {
   void incrementVote() {
     _vote++;
   }
-  void decrementvote(){
+
+  void decrementvote() {
     _vote--;
   }
-  
-  
-  //void AddMurders() {
-  //Lise alacak parametre olarak ve random 2 takımdan birer tane oyuncu seçilecek
-  //Oyundan 2 kişi seçilecek.
-  //TODO this.Murders.add()
-  //}
 }

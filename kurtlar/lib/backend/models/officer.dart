@@ -3,7 +3,7 @@ import 'package:kurtlar/frontend/models/players.dart';
 import 'BaseRole.dart';
 
 class officer extends Role {
-  final String _MissionText = "Görevin Yok";
+  final String _MissionText = "No Mission";
   final String _RoleDefinition = "Sıradan bir istirbahat elemeanısın";
   String _Name = "Memur";
   final String _team = "Derin Devlet";
@@ -54,7 +54,7 @@ class officer extends Role {
 
   @override
   // TODO: implement getRemainmissioncount
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => 1;
 
   @override
   // TODO: implement imagePath

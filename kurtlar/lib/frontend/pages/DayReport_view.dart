@@ -16,7 +16,7 @@ class DayLightreport extends StatefulWidget {
 class _DayLightreportState extends State<DayLightreport> {
   bool iJail = false;
   int deadindex = -1;
-  Players jailed;
+  Players jailed = null;
   //berabere oy durumununda kimse hapise girmeyecek.Sonra yazılacak bu durum
   @override
   void initState () {
@@ -25,18 +25,21 @@ class _DayLightreportState extends State<DayLightreport> {
     for (int i = 0; i < USERS.length; i++) {
       if (USERS[i].GetVote >= max) {
         max = USERS[i].GetVote;
-        index  = i;
+        if (max != 0){
+        jailed  = USERS[i];
+        }
       }
       USERS[i].SetVote(0);
     }
-    if (max != 0) {
-      jailed = USERS[index];
+    if (jailed != null){
+      jailed.setDead();
       USERS.remove(jailed);
       //Burada ve nightreportta ölenin hangi takımda oluğ olmadığı kontrol edilmeli ve ona göre listelerden çıkartılmalı
       GovermentUser.remove(jailed);
       MafiasUser.remove(jailed);
       iJail = true;
-    }
+      }
+    
 
     super.initState();
   }

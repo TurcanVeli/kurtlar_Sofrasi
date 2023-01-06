@@ -63,7 +63,7 @@ class Polat extends Role {
   }
 
   @override
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => 1;
 
   @override
   String get imagePath => _imagepath;

@@ -12,33 +12,30 @@ class create extends StatefulWidget {
 }
 
 class _createState extends State<create> {
-
   @override
 
   //initleri muhteşem kullanıyorum uygulama patlatabiilir mi acaba bilmiyorum
   void initState() {
     Role randomRole;
-   
-    for (int l = 0; l<USERS.length; l++){
-    
+
+    for (int l = 0; l < USERS.length; l++) {
       randomRole = (addedRoles..shuffle()).first;
       USERS[l].SetRole(randomRole);
-      if(randomRole.GetTeam == "Mafya") MafiasUser.add(USERS[l]);
-      else{
-        if (randomRole.GetName == "Polat"){
-          PolatUser = USERS[l]; 
+      if (randomRole.GetTeam == "Mafya")
+        MafiasUser.add(USERS[l]);
+      else {
+        if (randomRole.GetName == "Polat") {
+          PolatUser = USERS[l];
         }
 
-          GovermentUser.add(USERS[l]);
-      } 
+        GovermentUser.add(USERS[l]);
+      }
       addedRoles.removeAt(0);
     }
+   
 
-    
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +80,7 @@ class _createState extends State<create> {
                   width: 300,
                   height: 200,
                   child: Text(
-                   translate(context).story_1,
+                    translate(context).story_1,
                     textAlign: TextAlign.center,
                   ),
                 ),

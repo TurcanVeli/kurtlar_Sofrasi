@@ -88,7 +88,7 @@ class _NightState extends BaseState<Night> {
                               : USERS[_i].GetRole.GetMissionText,
                           style: TextStyle(
                               color: ColorConstant.instance.white,
-                              fontSize: 34),
+                              fontSize: 24),
                         ),
                       ),
                     ),
@@ -107,7 +107,8 @@ class _NightState extends BaseState<Night> {
                                 color: ColorConstant.instance.white,
                                 fontSize: 34),
                           ),
-                          if (USERS[_i].GetRole.GetName != "Mafya Adamı")
+                          if (USERS[_i].GetRole.GetName != "Mafya Adamı" &&
+                              USERS[_i].GetRole.getRemainmissioncount != 0)
                             UserShowing(dynamicHeight(0.3), GovermentUser, true,
                                 false, USERS[_i])
                           else
@@ -118,10 +119,10 @@ class _NightState extends BaseState<Night> {
                       )
                     else if (USERS[_i].GetRole.GetMissionText !=
                             translate(context).noduty &&
-                        USERS[_i].GetRole.GetName != "Aslan Akbey")
-
-                        UserShowing(
-                            dynamicHeight(0.6), USERS, true, true, USERS[_i])
+                        USERS[_i].GetRole.GetName != "Aslan Akbey" &&
+                        USERS[_i].GetRole.getRemainmissioncount != 0)
+                      UserShowing(
+                          dynamicHeight(0.6), USERS, true, true, USERS[_i])
                     else
                       SizedBox(
                         height: dynamicHeight(0.6),

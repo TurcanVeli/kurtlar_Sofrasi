@@ -3,7 +3,7 @@ import 'package:kurtlar/frontend/models/players.dart';
 import 'BaseRole.dart';
 
 class mafiamen extends Role {
-  final String _MissionText = "görevin yok";
+  final String _MissionText = "No Mission";
   final String _RoleDefinition = "Basit bir mafya adamısın";
   String _Name = "Mafya Adamı";
   final String _team = "Mafya";
@@ -50,7 +50,7 @@ class mafiamen extends Role {
 
   @override
   // TODO: implement getRemainmissioncount
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => 1;
 
   @override
   // TODO: implement imagePath

@@ -13,7 +13,6 @@ class DoguBey extends Role {
   int count = 0;
   int remainingMission = 1;
   Players _chosenUser= null;
-
   Players get chosenUser => _chosenUser;
 
   void SetchosenUser(Players chosenUser) {
@@ -37,7 +36,6 @@ class DoguBey extends Role {
   String DoMission() {
     if(remainingMission ==1 && chosenUser != null){
       remainingMission--;
-      //TODO
       return "istihbarat sağlandı";
     }
     return "Bugünlük iş yok";

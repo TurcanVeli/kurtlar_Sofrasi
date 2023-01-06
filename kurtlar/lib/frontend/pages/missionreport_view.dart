@@ -8,10 +8,11 @@ import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
 import '../models/users.dart';
 
-//User Alacak ve chosen userı gösterim görevi yapacak.
+//TODO Dogunun görevi sorunlu ve gece kimse ölnediğinde gece kimse ölmedi yazacak.
 class missionreportPage extends StatefulWidget {
-  int index;
   missionreportPage(this.index);
+
+  int index;
 
   @override
   State<missionreportPage> createState() => _missionreportPageState();
@@ -20,21 +21,90 @@ class missionreportPage extends StatefulWidget {
 class _missionreportPageState extends BaseState<missionreportPage> {
   String MissionText;
   Players user;
+  List<Players> mixedInformation = [];
+
   @override
   void initState() {
-    MissionText = USERS[widget.index].GetRole.DoMission();
     user = USERS[widget.index];
+    if (!user.GetMuted) {
+      MissionText = user.GetRole.DoMission();
+    } else {
+      MissionText = "Bugünlük iş yok";
+    }
+    if (user.GetRole.GetName == "Doğu Bey") {
+      mixedInformation = [
+        (MafiasUser..shuffle())[0],
+        (GovermentUser..shuffle())[0]
+      ];
+      mixedInformation..shuffle();
+      user.setDidYouGetInfos();
+    }
+
     super.initState();
   }
 
-  List<Players> getInformation() {
-    List<Players> mixedInformation = [
-      (MafiasUser..shuffle()).first,
-      (GovermentUser..shuffle()).first
-    ];
-    mixedInformation..shuffle();
-    return mixedInformation;
+  CircleAvatar ChosenUserAvatar() {
+    return CircleAvatar(
+      radius: dynamicHeight(0.05),
+      child: Image.asset('assets/images/deafultAvatar.png'),
+    );
   }
+
+  Container Dogureport() => Container(
+        height: dynamicHeight(0.1),
+        width: dynamicWidth(0.8),
+        child: !user.GetDidYougetInfos
+            ? user.GetRole.chosenUser.Getisdead
+                ? user.GetRole.chosenUser.GetHitBullet
+                    ? Text("Abdulley Vurmuş",
+                        style: TextStyle(
+                            fontSize: 30, color: ColorConstant.instance.white))
+                    : Text(
+                        "${user.GetRole.chosenUser.GetName}: Şu iki kişiden biri öldürmüş => ${mixedInformation[0].GetName} or ${mixedInformation[1].GetName}",
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: ColorConstant.instance
+                                .white)) //İki kişi gelcek ve biri kesin mafya olcak
+                : Text("Hedefin hala yaşıyor",
+                    style: TextStyle(
+                        fontSize: 30, color: ColorConstant.instance.white))
+            : Text("Bugünlük İş yok",
+                style: TextStyle(
+                    fontSize: 30, color: ColorConstant.instance.white)),
+      );
+
+  Container notcompleted() => Container(
+        height: dynamicHeight(0.1),
+        child: Text(MissionText,
+            style:
+                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
+      );
+
+  Container completed() {
+    return Container(
+      height: dynamicHeight(0.1),
+      child: Column(
+        children: [
+          Text("${USERS[widget.index].GetRole.chosenUser.GetName}",
+              style:
+                  TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
+          SizedBox(
+            height: dynamicHeight(0.01),
+          ),
+          Text(MissionText,
+              style:
+                  TextStyle(fontSize: 30, color: ColorConstant.instance.white))
+        ],
+      ),
+    );
+  }
+
+  Container PolatText() => Container(
+        height: dynamicHeight(0.1),
+        child: Text("POLAT => ${PolatUser.GetName}",
+            style:
+                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -54,25 +124,25 @@ class _missionreportPageState extends BaseState<missionreportPage> {
           body: Column(
             children: [
               SizedBox(
-                height: 200,
+                height: dynamicHeight(0.4),
               ),
               Row(
                 children: <Widget>[
                   MissionText != "Bugünlük iş yok"
                       ? ChosenUserAvatar()
                       : SizedBox(
-                          height: 20,
+                          height: dynamicHeight(0.3),
                         ),
                   SizedBox(
-                    width: 20,
+                    width: dynamicHeight(0.01),
                   ),
-                  //TODO Dogu beyin görevi yanlış. Mafya görevleri kontrol edilmedi. Kontrol et yarım
                   user.GetRole.GetName == "Aslan Akbey"
                       ? PolatText()
-                      : MissionText != "Bugünlük iş yok"
-                          ? completed()
-                          : user.GetRole.GetName == "Dogu Bey"
-                              ? Dogureport
+                      : user.GetRole.GetName == "Doğu Bey" &&
+                              MissionText == "Bugünlük iş yok"
+                          ? Dogureport()
+                          : MissionText != "Bugünlük iş yok"
+                              ? completed()
                               : notcompleted()
                 ],
               ),
@@ -91,39 +161,4 @@ class _missionreportPageState extends BaseState<missionreportPage> {
           ))
     ]);
   }
-
-  CircleAvatar ChosenUserAvatar() {
-    return CircleAvatar(
-      radius: 40,
-      child: Image.asset('assets/images/deafultAvatar.png'),
-    );
-  }
-
-  Container Dogureport() => Container(
-      child: user.GetRole.chosenUser.Getisdead
-          ? user.GetRole.chosenUser.GetHitBullet
-              ? Text("Abdulley Vurmuş")
-              : Text(
-                  "Şu iki kişiden biri öldürmüş => ${getInformation()[0].GetName} or ${getInformation()[1].GetName}") //İki kişi gelcek ve biri kesin mafya olcak
-          : Text("Hedefin hala yaşıyor"));
-
-  Container notcompleted() => Container(
-        child: Text(MissionText,
-            style:
-                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
-      );
-
-  Container completed() {
-    return Container(
-      child: Text(
-          "${USERS[widget.index].GetRole.chosenUser.GetName} => ${MissionText}",
-          style: TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
-    );
-  }
-
-  Container PolatText() => Container(
-        child: Text("POLAT => ${PolatUser.GetName}",
-            style:
-                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
-      );
 }
