@@ -4,6 +4,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/components/button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'home_view.dart';
 
@@ -15,12 +16,18 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BaseState<LoginPage> {
+    
+
+  // Dogrulama ıcın olusturuldu.
+  FirebaseAuth auth = FirebaseAuth.instance;
+
   var data;
   var mail = TextEditingController();
   var password = TextEditingController();
   @override
   void initState() {
     data = FirebaseFirestore.instance.collection('users');
+
     super.initState();
   }
 
@@ -91,6 +98,31 @@ class _LoginPageState extends BaseState<LoginPage> {
         ),
         const SizedBox(height: 25),
         // LOGIN BUTTONU HOME SAYFASINA GIDECEK
+
+       
+       // Elevated Button ıle degerı aldıgım zaman ıcındekı textı okumuyor
+        /*
+        ElevatedButton(
+          onPressed: () async {
+            try {
+              final user = await auth.signInWithEmailAndPassword(
+                  email: mail.text, password: password.text);
+              if (user != null) {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home()),
+                );
+              }
+            } catch (e) {
+              print(e);
+            }
+          },
+          child: const Text('Login'),
+        ),
+
+      */
+        /*
+        
         Button(
           buttonText: translate(context).login,
           where: Home(),
@@ -98,7 +130,10 @@ class _LoginPageState extends BaseState<LoginPage> {
           Width: 375,
           fontSize: 25,
         ),
+        */
+
         const SizedBox(height: 15),
+
         Text(
           '-------------- ${translate(context).or} --------------',
           style: TextStyle(color: Colors.white, fontSize: 20),

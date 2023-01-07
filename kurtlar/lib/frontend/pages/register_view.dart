@@ -7,12 +7,7 @@ import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
-/* Uygulamada degıstırılecek seyler */
 
-/* Bu sayfada 5 haneli random kod ureten bır fonksıyon yazılacak. 
-    Bu fonksıyon TextButton ıcerısınde cagırılacak. */
-
-/* Ayrıca eğer textField'lar bos ıse bu durum kontrol edılecek ve textFıeld ıcerısınde bır hata mesajı gonderılecek */
 
 /* TextFıeld kontrol işlemi logın sayfasında da yapılacak */
 
