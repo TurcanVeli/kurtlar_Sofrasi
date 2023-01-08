@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/service/auth.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
 import 'package:kurtlar/frontend/pages/roles_view.dart';
@@ -12,13 +14,35 @@ class PlayerPage extends StatefulWidget {
 }
 
 class _PlayerPageState extends BaseState<PlayerPage> {
-  List<String> _playerCodes = [];
+  List<DocumentSnapshot> _players = [];
 
-  void _addPlayer(String _playerCode) {
+  void _addPlayer(DocumentSnapshot player) {
     setState(() {
-      _playerCodes.add(_playerCode);
+      _players.add(player);
     });
   }
+  void ShowAlertDialog(BuildContext context) {
+    Widget okBtn = TextButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text(translate(context).ok));
+
+    AlertDialog alert = AlertDialog(
+      title: const Text("Alert"),
+      content: const Text('There is no user who has this code'),
+      actions: <Widget>[okBtn],
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext buildercontext) {
+          return alert;
+        });
+  }
+   void checkCodeValid(){
+      
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -42,26 +66,21 @@ class _PlayerPageState extends BaseState<PlayerPage> {
 
           Expanded(
             child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3,
-              ),
-              itemCount: _playerCodes.length,
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 100,
+                childAspectRatio: 4 / 6,
+                crossAxisSpacing: 34,
+                mainAxisSpacing: 34),
+              itemCount: _players.length,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.yellow[200],
-                    ),
-                    child: Center(
-                      child: Text(_playerCodes[index],
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w900)),
-                    ),
+                return Container(
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 45,
+                        child: Image.asset("assets/images/deafultAvatar.png")),
+                      Text(_players[index]['userName'])
+                    ],
                   ),
                 );
               },
@@ -81,8 +100,9 @@ class _PlayerPageState extends BaseState<PlayerPage> {
           onPressed: () {
             showModalBottomSheet(
                 context: context,
+                isScrollControlled: true,
                 builder: (context) {
-                  return AddPlayerBottomSheet(_addPlayer);
+                  return AddPlayerBottomSheet(_addPlayer,ShowAlertDialog);
                 });
           },
           child: Text(translate(context).add)),
@@ -92,22 +112,24 @@ class _PlayerPageState extends BaseState<PlayerPage> {
 
 // BottomSheet widget'ı
 class AddPlayerBottomSheet extends StatefulWidget {
-  final Function(String) onPlayerAdded;
-
-  AddPlayerBottomSheet(this.onPlayerAdded);
+  final Function(DocumentSnapshot) onPlayerAdded;
+  final Function(BuildContext) alert;
+  AddPlayerBottomSheet(this.onPlayerAdded, this.alert);
 
   @override
   _AddPlayerBottomSheetState createState() => _AddPlayerBottomSheetState();
 }
 
 class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
+  AuthService _fetch = AuthService();
   final _formKey = GlobalKey<FormState>();
   String _playerCode;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.only(
+                        bottom: MediaQuery.of(context).viewInsets.bottom),
       child: Form(
         key: _formKey,
         child: Column(
@@ -127,11 +149,9 @@ class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (_formKey.currentState.validate()) {
-                  _formKey.currentState.save();
-                  widget.onPlayerAdded(_playerCode);
-                  Navigator.pop(context);
+                 
                 }
               },
               child: Text(translate(context).add),
@@ -142,3 +162,5 @@ class _AddPlayerBottomSheetState extends State<AddPlayerBottomSheet> {
     );
   }
 }
+
+
