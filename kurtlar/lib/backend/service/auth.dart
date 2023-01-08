@@ -20,26 +20,34 @@ class AuthService {
   //kayıt ol fonksiyonu
   Future<User> createPerson(
       String name, String email, String password, String invitecode) async {
-
     var user = await _auth.createUserWithEmailAndPassword(
         email: email, password: password);
-
+    String defaultImageUrl =
+        "https://firebasestorage.googleapis.com/v0/b/kurtlarsofrasi-1b36c.appspot.com/o/deafultAvatar.png?alt=media&token=02779a75-228e-412f-b524-befbe8bec3c8";
     await _firestore.collection("Users").doc(user.user.uid).set({
       'userName': name,
       'email': email,
       "invitecode": invitecode,
       "coin": 0,
       "point": 0,
-      "image": "No Image",
+      "image": "defaultImageUrl",
       "id": user.user.uid.toString()
     });
 
     return user.user;
   }
-  Future<Stream<QuerySnapshot<Map<String, dynamic>>>> fetchUserByUsingCode () async {
-        var ref = await _firestore.collection("Users").snapshots();
-        
-        
-        return ref;
+
+  Future<Stream<QuerySnapshot<Map<String, dynamic>>>>
+      fetchUserByUsingCode() async {
+    var ref = await _firestore.collection("Users").snapshots();
+
+    return ref;
+  }
+
+  Future<bool> SetUserImage(String UserID, String imgeUrl) async {
+    Map<String, dynamic> updatedField = {"image": imgeUrl};
+    var ref =
+        await _firestore.collection('Users').doc(UserID).update(updatedField);
+    return true;
   }
 }
