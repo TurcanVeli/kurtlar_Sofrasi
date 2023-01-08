@@ -3,11 +3,11 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/service/auth.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
-
 
 /* TextFıeld kontrol işlemi logın sayfasında da yapılacak */
 
@@ -33,17 +33,16 @@ class _RegisterState extends State<Register> {
   var password = TextEditingController();
   var mail = TextEditingController();
   // Users collectionda bizim verileri tuttugumuz yer var. Bu tuttugumuz yer bır degıskenın ıcıne atıldı.
-  var data = FirebaseFirestore.instance.collection('users');
+  AuthService _authService = AuthService();
 
   // It is going the generate invideCode
-
 
   String generateCode() {
     var rng = new Random();
     var code = "";
     for (int i = 0; i < 5; i++) {
       if (i < 2) {
-      // Generate a random letter
+        // Generate a random letter
         code += new String.fromCharCode(rng.nextInt(26) + 65);
       } else {
         // Generate a random number
@@ -59,22 +58,7 @@ class _RegisterState extends State<Register> {
   /* Bu fonksıyondakı parametrelerın tamamlanması ıcın bu sayfa ıcerısıde random sayı ureten bır 
     fonksıyon yazılacak ve bu fonksıyon cagırıldıgında her bır kullanıcı ıcın unique bir invite code olusturacak */
 
-  void kaydet(var data, String mail, String username, String password,
-      int money, int point, String inviteCode) {
-    //while
-    //var x = generateCode();
 
-    setState(() {
-      data.add({
-        "username": username,
-        "password": password,
-        "invitecode": inviteCode,
-        "money": money,
-        "point": point,
-        "mail": mail
-      });
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -161,16 +145,14 @@ class _RegisterState extends State<Register> {
             TextButton(
                 onPressed: (() {
                   setState(() {
-                    if (password.text == '' ||
-                        username.text == '' ||
-                        mail.text == '') {
-                      print('Veri Geldi');
-                    } else {
-                      kaydet(data, mail.text, username.text, password.text, 0,
-                          0, generateCode());
-                      print("Veri yüklendi");
-                      Navigator.pop(context);
-                    }
+                    _authService
+                        .createPerson(username.text, mail.text, password.text,
+                            generateCode())
+                        .then((value) {
+                          
+                      return Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    });
                   });
                 }),
                 child: Text(translate(context).save))

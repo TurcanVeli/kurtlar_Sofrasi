@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "1023462917629",
-    "firebase_url": "https://kurtlar-122d7-default-rtdb.firebaseio.com",
-    "project_id": "kurtlar-122d7",
-    "storage_bucket": "kurtlar-122d7.appspot.com"
+    "project_number": "976447648684",
+    "project_id": "kurtlarsofrasi-1b36c",
+    "storage_bucket": "kurtlarsofrasi-1b36c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1023462917629:android:8395be77f10b2531984594",
+        "mobilesdk_app_id": "1:976447648684:android:fd76b9bfa7c0bdb92b8009",
         "android_client_info": {
           "package_name": "com.kurtlar.user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1023462917629-93ir9lvd2hsg0kaigtnhtpquu257ld4p.apps.googleusercontent.com",
+          "client_id": "976447648684-54t1gn2q9u191i95ptdp7nb021h246kq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBGdzU-4k1Q6MqJ1p1RfapwGA1RFpRqJR0"
+          "current_key": "AIzaSyC2w8dUBbohf5WklNL0b8BkObPD_JZ2E9I"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1023462917629-93ir9lvd2hsg0kaigtnhtpquu257ld4p.apps.googleusercontent.com",
+              "client_id": "976447648684-54t1gn2q9u191i95ptdp7nb021h246kq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
