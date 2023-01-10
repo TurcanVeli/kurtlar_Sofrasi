@@ -20,4 +20,18 @@ class firestoreService {
         await _firestore.collection('Users').doc(UserID).update(updatedField);
     return true;
   }
+
+  Future<bool> IncementUserCoin(String UserID, int currentpoint) async {
+    Map<String, dynamic> updatedField = {"point": currentpoint + 50};
+    var ref =
+        await _firestore.collection('Users').doc(UserID).update(updatedField);
+    return true;
+  }
+
+  Future<bool> IncrementUserPoint(String UserID, int currentCoin) async {
+    Map<String, dynamic> updatedField = {"coin": currentCoin + 50};
+    var ref =
+        await _firestore.collection('Users').doc(UserID).update(updatedField);
+    return true;
+  }
 }

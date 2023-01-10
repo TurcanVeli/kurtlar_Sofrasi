@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/service/firestoreService.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 
 import '../components/button.dart';
@@ -20,28 +21,28 @@ class _DayStartPageState extends State<DayStartPage> {
   bool isGameOver = false;
   bool isMafiaWin = false;
 
+  
   @override
   void initState() {
     int remainingMafia = 0;
     int remainingGov = 0;
     print(USERS.length);
-    for (int i= 0; i < USERS.length; i++){
-      if (USERS[i].GetRole.GetTeam == "Mafya") remainingMafia++;
-      else remainingGov++;
+    for (int i = 0; i < USERS.length; i++) {
+      if (USERS[i].GetRole.GetTeam == "Mafya")
+        remainingMafia++;
+      else
+        remainingGov++;
     }
 
     if (remainingMafia >= remainingGov) {
-        isGameOver = true; 
-        isMafiaWin = true;
-
+      isGameOver = true;
+      isMafiaWin = true;
+    } else if (remainingMafia == 0) {
+      isGameOver = true;
     }
-    
-    else if(remainingMafia == 0) isGameOver = true;
 
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,37 +61,50 @@ class _DayStartPageState extends State<DayStartPage> {
         Scaffold(
           backgroundColor:
               Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
-          body: !isGameOver?  DiscussContainer(context)
-                : gameOver(isMafiaWin),//Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
-        ),
+          body: !isGameOver
+              ? DiscussContainer(context)
+              : FutureBuilder(future: updateUsers(isMafiaWin),builder:((context, snapshot) {
+                if(!snapshot.hasData){
+                  return LinearProgressIndicator();
+                }
+                return gameOver(isMafiaWin);
+              }) //Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
+        ),)
       ],
     );
   }
 
   Container DiscussContainer(BuildContext context) {
     return Container(
-          color:Colors.transparent,
-          child: Center(
-            child: Column(
-              children: [
-                SizedBox(height: 100),
-                Text("GÜNEŞ DOĞDU", style: TextStyle(fontSize: 30,color: ColorConstant.instance.white,fontWeight: FontWeight.bold)),
-                Text(
-                 translate(context).discussstart,
-                  style: TextStyle(fontSize: 30,color: ColorConstant.instance.white,fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 500,
-                ),
-                BottomButtonContainerContiune(
-                  context: context,
-                    buttonText: translate(context).enddiscuss,
-                    color: ColorConstant.instance.red,
-                    ContainerColor: Colors.transparent,
-                    where: DaylightPage(0)),
-              ],
+      color: Colors.transparent,
+      child: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 100),
+            Text("GÜNEŞ DOĞDU",
+                style: TextStyle(
+                    fontSize: 30,
+                    color: ColorConstant.instance.white,
+                    fontWeight: FontWeight.bold)),
+            Text(
+              translate(context).discussstart,
+              style: TextStyle(
+                  fontSize: 30,
+                  color: ColorConstant.instance.white,
+                  fontWeight: FontWeight.bold),
             ),
-          ),
-        );
+            SizedBox(
+              height: 500,
+            ),
+            BottomButtonContainerContiune(
+                context: context,
+                buttonText: translate(context).enddiscuss,
+                color: ColorConstant.instance.red,
+                ContainerColor: Colors.transparent,
+                where: DaylightPage(0)),
+          ],
+        ),
+      ),
+    );
   }
 }

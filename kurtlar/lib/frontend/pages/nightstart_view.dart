@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
+import 'package:kurtlar/frontend/components/gameoverComponent.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/night_view.dart';
 import '../../backend/lang/language_constant.dart';
@@ -42,10 +43,20 @@ class _nightstartPageState extends State<nightstartPage> {
             ),
           ),
           Scaffold(
-              backgroundColor:
-                  Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
-              body:
-                  !isGameOver ? NightStartBody(context) : gameOver(isMafiaWin))
+            backgroundColor:
+                Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+            body: !isGameOver
+                ? NightStartBody(context)
+                : FutureBuilder(
+                    future: updateUsers(isMafiaWin),
+                    builder: ((context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return LinearProgressIndicator();
+                      }
+                      return gameOver(isMafiaWin);
+                    }) //Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
+                    ),
+          )
         ]);
   }
 
