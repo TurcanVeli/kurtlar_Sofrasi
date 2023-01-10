@@ -11,12 +11,11 @@ class ImageService with CacheID {
   Future<XFile> UpdateImageOfuser() async {
     XFile image = await ImagePicker().pickImage(source: ImageSource.gallery);
     File imagefile = File(image.path);
-    print("Uploading");
+
     //Resim yüklendi
     var _url = await _storage.uploadImage(imagefile);
-    print("İmageUrl ");
+
     var UserID = await GetID();
     bool status = await _set.SetUserImage(UserID, _url);
-    print("Status  " + status.toString());
   }
 }

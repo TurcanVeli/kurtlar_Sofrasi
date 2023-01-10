@@ -4,7 +4,6 @@ mixin CacheID {
   Future<bool> SetID(String ID) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setString(CachemanagerID.ID.toString(), ID);
-    print("id Set edildi");
     return true;
   }
 

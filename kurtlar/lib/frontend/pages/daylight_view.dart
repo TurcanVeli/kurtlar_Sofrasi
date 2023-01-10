@@ -19,9 +19,8 @@ class DaylightPage extends StatefulWidget {
 
 class _DaylightPageState extends BaseState<DaylightPage> {
   @override
-  void initState() {
+  void initState()  {
     widget.index = widget.index + 1;
-    print(USERS.length);
     super.initState();
   }
 
@@ -65,7 +64,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                       setIspressed,
                       ispressed,
                       setReady,
-                     translate(context).readyformission,
+                      translate(context).readyformission,
                       true)
                   : ListView(
                       children: [
@@ -83,7 +82,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                             ),
                           ),
                         ),
-                         SizedBox(
+                        SizedBox(
                           height: dynamicHeight(0.01),
                         ),
                         Container(
@@ -100,19 +99,16 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                         SizedBox(
                           height: dynamicHeight(0.1),
                         ),
-                         UserShowing(dynamicHeight(0.6), USERS, false,
-                          false, USERS[widget.index]),
-                          
-
+                        UserShowing(dynamicHeight(0.6), USERS, false, false,
+                            USERS[widget.index]),
                         BottomButtonContainerContiune(
-                        context: context,
-                        height: dynamicHeight(0.07),
-                        buttonText: translate(context).ok,
-                        where: widget.index < USERS.length - 1
-                            ? DaylightPage(widget.index)
-                            : DayLightreport(),
-                        ContainerColor: Colors.transparent)
-
+                            context: context,
+                            height: dynamicHeight(0.07),
+                            buttonText: translate(context).ok,
+                            where: widget.index < USERS.length - 1
+                                ? DaylightPage(widget.index)
+                                : DayLightreport(),
+                            ContainerColor: Colors.transparent)
                       ],
                     ))
         ]);

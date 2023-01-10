@@ -85,12 +85,19 @@ class _profileState extends State<profile> with CacheID {
                     await _image.UpdateImageOfuser();
                   });
                 }),
-                child: CircleAvatar(
-                  backgroundImage: NetworkImage(data['image']),
+                child: Stack(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(data['image']),
 
-                  backgroundColor: Colors.transparent,
-                  radius: 50,
-                  //Text
+                      backgroundColor: Colors.transparent,
+                      radius: 50,
+                      //Text
+                    ),
+                    Text("+",
+                        style: TextStyle(
+                            color: ColorConstant.instance.red, fontSize: 30)),
+                  ],
                 ),
               ),
               SizedBox(height: 40),

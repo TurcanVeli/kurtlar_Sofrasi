@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:kurtlar/backend/cache/cache_id.dart';
 
-class AuthService {
+class AuthService with CacheID {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -14,6 +15,7 @@ class AuthService {
   }
 
   signOut() async {
+    SetID(null);
     return await _auth.signOut();
   }
 
@@ -24,13 +26,14 @@ class AuthService {
         email: email, password: password);
     String defaultImageUrl =
         "https://firebasestorage.googleapis.com/v0/b/kurtlarsofrasi-1b36c.appspot.com/o/deafultAvatar.png?alt=media&token=02779a75-228e-412f-b524-befbe8bec3c8";
+
     await _firestore.collection("Users").doc(user.user.uid).set({
       'userName': name,
       'email': email,
       "invitecode": invitecode,
       "coin": 0,
       "point": 0,
-      "image": "defaultImageUrl",
+      "image": defaultImageUrl,
       "id": user.user.uid.toString()
     });
 
@@ -40,7 +43,7 @@ class AuthService {
   Future<Stream<QuerySnapshot<Map<String, dynamic>>>>
       fetchUserByUsingCode() async {
     var ref = await _firestore.collection("Users").snapshots();
-
+  
     return ref;
   }
 
