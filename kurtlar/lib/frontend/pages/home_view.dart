@@ -8,6 +8,8 @@ import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatelessWidget {
+ 
+ // Oyun kurallarını gosteren buton
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
         onPressed: () {
