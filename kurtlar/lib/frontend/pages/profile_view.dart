@@ -16,6 +16,7 @@ class profile extends StatefulWidget {
 class _profileState extends State<profile> with CacheID {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final ImageService _image = ImageService();
+  
   Future FetchUser() async {
     var userId = await GetID();
     var ref = _firestore.collection("Users").doc(userId);
@@ -23,7 +24,6 @@ class _profileState extends State<profile> with CacheID {
     var data = ref.get().then(
       (DocumentSnapshot doc) {
         final data = doc.data() as Map<String, dynamic>;
-        print(data.toString());
         return data;
       },
       onError: (e) {

@@ -42,7 +42,18 @@ class AuthService with CacheID {
     return user.user;
   }
 
-  /* This function is used in profile_view page in order to change image of player */
+  Future<void> getAllData() async {
+    CollectionReference _collectionRef =
+        FirebaseFirestore.instance.collection('Users');
+    // Get docs from collection reference
+    QuerySnapshot querySnapshot = await _collectionRef.get();
+
+    // Get data from docs and convert map to List
+    final allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+
+    return allData;
+  }
+
   Future<bool> SetUserImage(String UserID, String imgeUrl) async {
     Map<String, dynamic> updatedField = {"image": imgeUrl};
     var ref =
