@@ -3,6 +3,7 @@ import '../../backend/models/BaseRole.dart';
 
 class Players {
   String _Name;
+  
   Image _playerImage;
   Role _role; //Hangi rollde olduğu
   int _vote = 0;

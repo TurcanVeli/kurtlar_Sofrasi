@@ -37,7 +37,6 @@ class _missionreportPageState extends BaseState<missionreportPage> {
         (GovermentUser..shuffle())[0]
       ];
       mixedInformation..shuffle();
-      user.setDidYouGetInfos();
     }
 
     super.initState();
