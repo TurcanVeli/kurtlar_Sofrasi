@@ -26,7 +26,7 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
 
   Map<String, dynamic> findUserByUsingInviteCode(List data, String code) {
     for (int i = 0; i < data.length; i++) {
-      if (data[i]['invitecode'] == code) {
+      if (data[i]['invitcode'] == code) {
         return data[i];
       }
     }
