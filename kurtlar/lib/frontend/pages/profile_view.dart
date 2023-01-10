@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:kurtlar/backend/service/ImageSevice.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 
@@ -14,7 +15,7 @@ class profile extends StatefulWidget {
 
 class _profileState extends State<profile> with CacheID {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-
+  final ImageService _image = ImageService();
   Future FetchUser() async {
     var userId = await GetID();
     var ref = _firestore.collection("Users").doc(userId);
@@ -78,27 +79,44 @@ class _profileState extends State<profile> with CacheID {
               ),
               SizedBox(height: 40),
               //Resim değiştirirelecek.
-              CircleAvatar(
-                child: data['image'] == "No Image"?Image.asset("assets/images/deafultAvatar.png"):"",
-                backgroundColor: Colors.grey,
-                radius: 50,
-                //Text
+              InkWell(
+                onTap: (() {
+                  setState(() async {
+                    await _image.UpdateImageOfuser();
+                  });
+                }),
+                child: Stack(
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: NetworkImage(data['image']),
+
+                      backgroundColor: Colors.transparent,
+                      radius: 50,
+                      //Text
+                    ),
+                    Text("+",
+                        style: TextStyle(
+                            color: ColorConstant.instance.red, fontSize: 30)),
+                  ],
+                ),
               ),
               SizedBox(height: 40),
               Text(
                 translate(context).gamecode,
                 style: TextStyle(fontSize: 20),
               ),
-           
+
               Text(
                 data['invitecode'],
                 style: TextStyle(fontSize: 20),
               ),
-              Text("username " + data['userName'], style: TextStyle(fontSize: 20)),
-              Text("Para: " + data['coin'].toString(), style: TextStyle(fontSize: 20)),
-              Text("Puan: " + data['point'].toString(), style: TextStyle(fontSize: 20)),
+              Text("username " + data['userName'],
+                  style: TextStyle(fontSize: 20)),
+              Text("Para: " + data['coin'].toString(),
+                  style: TextStyle(fontSize: 20)),
+              Text("Puan: " + data['point'].toString(),
+                  style: TextStyle(fontSize: 20)),
               SizedBox(height: 45),
-             
             ]),
           ),
         ));

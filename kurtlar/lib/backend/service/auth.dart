@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:kurtlar/backend/cache/cache_id.dart';
 
-class AuthService {
+class AuthService with CacheID {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -14,15 +15,17 @@ class AuthService {
   }
 
   signOut() async {
+    SetID(null);
     return await _auth.signOut();
   }
 
   //kayıt ol fonksiyonu
   Future<User> createPerson(
       String name, String email, String password, String invitecode) async {
-    print(email);
     var user = await _auth.createUserWithEmailAndPassword(
         email: email, password: password);
+    String defaultImageUrl =
+        "https://firebasestorage.googleapis.com/v0/b/kurtlarsofrasi-1b36c.appspot.com/o/deafultAvatar.png?alt=media&token=02779a75-228e-412f-b524-befbe8bec3c8";
 
     await _firestore.collection("Users").doc(user.user.uid).set({
       'userName': name,
@@ -30,10 +33,22 @@ class AuthService {
       "invitecode": invitecode,
       "coin": 0,
       "point": 0,
-      "image": "No Image",
+      "image": defaultImageUrl,
       "id": user.user.uid.toString()
     });
 
     return user.user;
+  }
+
+  Future<CollectionReference<Map<String, dynamic>>>
+      fetchUserByUsingCode() async {
+    var ref = await _firestore.collection("Users").doc(GetID().toString()).snapshots();
+  }
+
+  Future<bool> SetUserImage(String UserID, String imgeUrl) async {
+    Map<String, dynamic> updatedField = {"image": imgeUrl};
+    var ref =
+        await _firestore.collection('Users').doc(UserID).update(updatedField);
+    return true;
   }
 }

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/pages/home_view.dart';
 
 import 'package:kurtlar/frontend/pages/login_view.dart';
-
 
 import 'package:localization/localization.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-
 
 void main() async {
   /* Fırebase burada asenkron bir şekilde gomuldu */
@@ -31,7 +31,7 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<MyApp> with CacheID {
   Locale _locale;
   setLocale(Locale locale) {
     setState(() {
@@ -53,6 +53,6 @@ class _MyAppState extends State<MyApp> {
         locale: _locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: LoginPage());
+        home: GetID() != null ? Home() : LoginPage());
   }
 }

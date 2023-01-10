@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
@@ -7,9 +8,13 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+<<<<<<< HEAD
 class Home extends StatelessWidget {
  
  // Oyun kurallarını gosteren buton
+=======
+class Home extends StatelessWidget with CacheID {
+>>>>>>> 2623c4f9c7f2890c1ebca47de3d1489fb9f12e83
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
         onPressed: () {
@@ -43,6 +48,14 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          IconButton(onPressed: (() {
+            SetID(null);
+            Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => LoginPage()));
+          }), icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.white,
+            ),),
           IconButton(
             icon: Icon(
               Icons.settings,
