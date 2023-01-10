@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
@@ -7,7 +8,7 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatelessWidget with CacheID {
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
         onPressed: () {
@@ -41,6 +42,14 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
+          IconButton(onPressed: (() {
+            SetID(null);
+            Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => LoginPage()));
+          }), icon: Icon(
+              Icons.exit_to_app,
+              color: Colors.white,
+            ),),
           IconButton(
             icon: Icon(
               Icons.settings,

@@ -40,11 +40,9 @@ class AuthService with CacheID {
     return user.user;
   }
 
-  Future<Stream<QuerySnapshot<Map<String, dynamic>>>>
+  Future<CollectionReference<Map<String, dynamic>>>
       fetchUserByUsingCode() async {
-    var ref = await _firestore.collection("Users").snapshots();
-  
-    return ref;
+    var ref = await _firestore.collection("Users").doc(GetID().toString()).snapshots();
   }
 
   Future<bool> SetUserImage(String UserID, String imgeUrl) async {
