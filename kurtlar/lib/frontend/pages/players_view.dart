@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/service/auth.dart';
 
+/* We are going to use invite code in order to call person in this page */ 
+/* Firstly, we are going to check invite code in database. 
+ * If there is a invite code that we search in database, 
+ * we are going the fetch the information of the person who have this invite code   
+ * Finally, this information will be displayed in this page */ 
+
 class PlayerPage extends StatefulWidget {
   const PlayerPage({Key key}) : super(key: key);
 

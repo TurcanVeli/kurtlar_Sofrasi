@@ -3,6 +3,8 @@ import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 
+
+/* This button component will be used in different pages */
 class Button extends StatefulWidget {
   String buttonText;
   VoidCallback kaydet;
@@ -33,7 +35,7 @@ class _ButtonState extends State<Button> {
               .push(MaterialPageRoute(builder: (context) => widget.where));
         });
       }),
-      // GIRIS SAYFASI OLCUTLERI HEIGHT :40 , WIDTH : 375
+      
 
       child: Container(
         height: widget.Height,

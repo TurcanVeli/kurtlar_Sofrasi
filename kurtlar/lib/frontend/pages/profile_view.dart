@@ -6,7 +6,9 @@ import 'package:kurtlar/backend/service/ImageSevice.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 
-//Edit profile ui değişikliği yapılacak
+/* In this page, the person who have account in the game  can change the name 
+ * and update the photograph of user avatar. Also, players is going to learn 
+ * their invite codes in this page */
 
 class profile extends StatefulWidget {
   @override
@@ -16,7 +18,7 @@ class profile extends StatefulWidget {
 class _profileState extends State<profile> with CacheID {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final ImageService _image = ImageService();
-  
+
   Future FetchUser() async {
     var userId = await GetID();
     var ref = _firestore.collection("Users").doc(userId);

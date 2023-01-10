@@ -10,7 +10,7 @@ import 'package:kurtlar/frontend/components/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'home_view.dart';
 
-// kurtlar register ve I am button //
+/* This is the first page of our application */
 
 class LoginPage extends StatefulWidget {
   @override
@@ -18,8 +18,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BaseState<LoginPage> with CacheID {
-  // Dogrulama ıcın olusturuldu.
-
+  
   var mail = TextEditingController();
   var password = TextEditingController();
   @override
@@ -27,6 +26,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
     super.initState();
   }
 
+  /* Authentication service is going to used in this page*/
   AuthService _authService = AuthService();
 
   @override
@@ -40,7 +40,6 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
   Padding LoginPage(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 90, 40, 20),
-      // Gırıstekı Resım
       child: Column(children: [
         Image.asset(
           'assets/images/logo.png',
@@ -48,7 +47,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
           width: 250,
         ),
         SizedBox(height: 5),
-        // Nıckname alan yer
+
         TextField(
           controller: mail,
           style: TextStyle(color: Colors.white),
@@ -57,7 +56,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
               Icons.mail,
               color: Colors.white,
             ),
-            hintText: "mail",
+            hintText: "Mail",
             hintStyle: TextStyle(color: Colors.white),
             enabledBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.white, width: 2.0),
@@ -81,10 +80,11 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
                   borderSide: BorderSide(color: Colors.white, width: 2.0))),
         ),
         const SizedBox(height: 25),
-        // LOGIN BUTTONU HOME SAYFASINA GIDECEK
 
-        ElevatedButton(
-          onPressed: () async {
+        /* This button is going to check if our information is in database */
+        /* If it is, home page will be displayed */
+        GestureDetector(
+          onTap: (() async {
             _authService.signIn(mail.text, password.text).then((value) {
               if (value != null) {
                 print(value.uid);
@@ -95,18 +95,24 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
                 MaterialPageRoute(
                   builder: (context) => Home(),
                 ),
-              ); //Home value alacak
+              );
             });
-          },
-          child: const Text('Login'),
-        ),
-
-        Button(
-          buttonText: translate(context).login,
-          where: Home(),
-          Height: 40,
-          Width: 375,
-          fontSize: 25,
+          }),
+          child: Container(
+            height: 40,
+            width: 375,
+            decoration: BoxDecoration(
+                color: Color.fromARGB(255, 189, 13, 42),
+                borderRadius: BorderRadius.circular(20)),
+            child: Center(
+                child: Text(
+              'LOGIN',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                  fontSize: 25),
+            )),
+          ),
         ),
 
         const SizedBox(height: 15),
@@ -116,7 +122,8 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
         const SizedBox(height: 15),
-        // SIGN UP BUTTONU REGISTER SAYFASINA GIDECEK
+        
+        /* This is the button send you to register page */
         Button(
           buttonText: translate(context).signup,
           where: Register(),

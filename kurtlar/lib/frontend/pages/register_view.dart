@@ -9,20 +9,8 @@ import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
 
-/* TextFıeld kontrol işlemi logın sayfasında da yapılacak */
 
-/* Logın sayfasında gırılen e-mail ve password eger database ıcerısınde varsa homePage'e gırecek. 
-Gırılen degerler database ıcerısınde degılse hata kodu verılecek */
-
-/* Anasayfaya geldıkten sonra telefonu kullanan kısının dataBase'indeki invite code bilgisi cekılıp 
-   profile_view dartt dosyasındakı ınviteCode text ıcerısınde kullanılacak */
-
-/* Ayrıca bu kullanıcının nıckname'ı profılevıew da en basta gozukecek ama bu nıckname profılevıew da degıtırılebılecek */
-
-/* Anasayfayı gectıkten sonra telefonu elınde tutan kısı code'u gırdıkten sonra eğer bu kod database ıcerısınde varsa
-   sayfa uzerınde bu koda sahıp olan oyuncunun ısmı gozukecek.
-   Bu ınvıte code database ıcerısınde degılse hata mesajı verecek */
-
+/* This is the page to create your account for the game */
 class Register extends StatefulWidget {
   @override
   State<Register> createState() => _RegisterState();
@@ -32,11 +20,12 @@ class _RegisterState extends State<Register> {
   var username = TextEditingController();
   var password = TextEditingController();
   var mail = TextEditingController();
-  // Users collectionda bizim verileri tuttugumuz yer var. Bu tuttugumuz yer bır degıskenın ıcıne atıldı.
+ 
+  /* Authentication service was initialized */
   AuthService _authService = AuthService();
 
-  // It is going the generate invideCode
-
+/* This function generate a code for every user that entered the game. 
+ * The person who creates the game  is going to use code in order to call the game */
   String generateCode() {
     var rng = new Random();
     var code = "";
@@ -52,23 +41,11 @@ class _RegisterState extends State<Register> {
     return code;
   }
 
-  /* Kaydet adlı fonksıyon, kullanıcı adı ve sıfrede yazılan bılgılerı bu fonksıyon ıcerısıne alır ve 
-  Sayfanın sonundakı kaydet butonuna bastıgımız zaman bu fonksıyon ıcerısıne gonderdıgımız bılgılerı database'e gonderır. */
-
-  /* Bu fonksıyondakı parametrelerın tamamlanması ıcın bu sayfa ıcerısıde random sayı ureten bır 
-    fonksıyon yazılacak ve bu fonksıyon cagırıldıgında her bır kullanıcı ıcın unique bir invite code olusturacak */
-
-
-
   @override
   Widget build(BuildContext context) {
-    /* Bu textler regıster sayfasında textFıeldların ıcını doldurmadan gırmeyı onlemek ıcın yaratıldı*/
-
-    /* Sayfanın ana sablonu burada olusturuldu */
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        /* Logın sayfasına donmek ıcın ıcon koyuldu */
         leading: GestureDetector(
           onTap: () {
             setState(() {
@@ -84,13 +61,10 @@ class _RegisterState extends State<Register> {
         title: Text(translate(context).signup),
         centerTitle: true,
       ),
-
-      /* Sayfa govdesınde 2 adet textFıeld 1 adet button var */
       body: Padding(
         padding: const EdgeInsets.fromLTRB(50, 50, 50, 20),
         child: Column(
           children: [
-            /* Maili alan textFıeld */
             TextField(
               controller: mail,
               style: TextStyle(color: Colors.black),
@@ -119,8 +93,6 @@ class _RegisterState extends State<Register> {
                       borderSide: BorderSide(color: Colors.black, width: 2.0))),
             ),
             const SizedBox(height: 50),
-
-            /* Sıfreyı alan textFıeld */
             TextField(
               controller: password,
               obscureText: true,
@@ -131,17 +103,13 @@ class _RegisterState extends State<Register> {
                     color: Colors.black,
                   ),
                   hintText: translate(context).password,
-                  // errorText: 'Sımdı Sıctın AQ',
                   hintStyle: TextStyle(color: Colors.black),
                   enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black, width: 2.0))),
             ),
             const SizedBox(height: 40),
-
-            /* Uyelık olusturulduktan sonra Logın sayfasına gerı donulecek */
-
-            /* Text Button yerıne farklı bizim components'da yarattıgımız button cekılebılır. 
-           Textler eger bossa textFıeld ıcerısınde hata mesajı gonderılebılır. */
+           
+           /* createPerson is the function of authService and authService was cretead in service folder */
             TextButton(
                 onPressed: (() {
                   setState(() {
@@ -149,7 +117,6 @@ class _RegisterState extends State<Register> {
                         .createPerson(username.text, mail.text, password.text,
                             generateCode())
                         .then((value) {
-                          
                       return Navigator.push(context,
                           MaterialPageRoute(builder: (context) => LoginPage()));
                     });

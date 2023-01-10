@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../base/color_constants.dart';
 import '../pages/home_view.dart';
 import 'button.dart';
+/* This widget is going to drawn according to result of the game. */
 Column gameOver(bool isMafiaWin) {
     return Column(
                     children: [

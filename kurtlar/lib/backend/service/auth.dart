@@ -53,7 +53,7 @@ class AuthService with CacheID {
 
     return allData;
   }
-
+  /* This function set the image in profile_view.dart file */
   Future<bool> SetUserImage(String UserID, String imgeUrl) async {
     Map<String, dynamic> updatedField = {"image": imgeUrl};
     var ref =

@@ -20,6 +20,7 @@ class _DayStartPageState extends State<DayStartPage> {
   bool isGameOver = false;
   bool isMafiaWin = false;
 
+  /* Oyunun bitme şartı kontrol ediliyor */
   @override
   void initState() {
     int remainingMafia = 0;

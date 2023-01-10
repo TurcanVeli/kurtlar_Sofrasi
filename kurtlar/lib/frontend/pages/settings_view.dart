@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import '../../main.dart';
 
+/* This page will be drawn after the setting button was pressed */ 
 class SettingPageUI extends StatefulWidget {
   const SettingPageUI({Key key}) : super(key: key);
   @override
@@ -83,6 +84,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
     );
   }
 
+  /* This code shows us alert dialog to choose language */
   GestureDetector buildAccountOption(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
@@ -102,6 +104,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                   /* This button is going to make  the language from english to turkish */
                     ElevatedButton(
                       onPressed: () async {
                         Locale _locale = await setLocale("tr");
@@ -119,6 +122,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
                     SizedBox(
                       height: 10,
                     ),
+                    /* This button is going to make the language from turkish to english */
                     ElevatedButton(
                       onPressed: () async {
                         Locale _locale = await setLocale("en");

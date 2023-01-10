@@ -11,9 +11,8 @@ import 'package:vector_math/vector_math.dart' as math;
 import '../models/users.dart';
 
 
-//User Listin sayısını geçmeyecek eklenen kartar
+/* People are going to choose which roles are going to include in the game */
 
-//
 class rolesPage extends StatefulWidget {
   @override
   State<rolesPage> createState() => _rolesPageState();
@@ -21,9 +20,11 @@ class rolesPage extends StatefulWidget {
 
 class _rolesPageState extends BaseState<rolesPage> {
   
+ /* We are going to use count of player with USER service file */
   int UsersCount      = USERS.length;
   int addedRoleCount  = 0;
-  int addedmafiacount = 0;//it cannot be zero. 
+ /* count of mafia can not be 0. All game have to contain at least 1 mafia player. */
+  int addedmafiacount = 0;
 
   
 
