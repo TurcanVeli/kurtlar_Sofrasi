@@ -8,13 +8,7 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-<<<<<<< HEAD
-class Home extends StatelessWidget {
- 
- // Oyun kurallarını gosteren buton
-=======
 class Home extends StatelessWidget with CacheID {
->>>>>>> 2623c4f9c7f2890c1ebca47de3d1489fb9f12e83
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
         onPressed: () {
@@ -48,14 +42,17 @@ class Home extends StatelessWidget with CacheID {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: (() {
-            SetID(null);
-            Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => LoginPage()));
-          }), icon: Icon(
+          IconButton(
+            onPressed: (() {
+              SetID(null);
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
+            }),
+            icon: Icon(
               Icons.exit_to_app,
               color: Colors.white,
-            ),),
+            ),
+          ),
           IconButton(
             icon: Icon(
               Icons.settings,
@@ -67,7 +64,6 @@ class Home extends StatelessWidget with CacheID {
             },
           )
         ],
-       
         backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
@@ -113,7 +109,6 @@ class Home extends StatelessWidget with CacheID {
             const SizedBox(
               height: 25,
             ),
-            // YENI OYUN BUTTONU
             Button(
                 buttonText: translate(context).newgame,
                 Height: 50,
@@ -122,7 +117,6 @@ class Home extends StatelessWidget with CacheID {
             const SizedBox(
               height: 15,
             ),
-            // Profıl edıt buttonu
             Button(
                 buttonText: translate(context).profile,
                 Height: 50,
@@ -131,7 +125,6 @@ class Home extends StatelessWidget with CacheID {
             const SizedBox(
               height: 15,
             ),
-            // Nasıl oynanır butonu
             Container(
               width: 200,
               height: 50,

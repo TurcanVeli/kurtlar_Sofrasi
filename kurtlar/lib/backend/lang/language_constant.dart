@@ -7,18 +7,20 @@ const String LAGUAGE_CODE = 'languageCode';
 const String ENGLISH = "en";
 const String TURKISH = "tr";
 
+/* The pre-selected language is saved with this code */
 Future<Locale> setLocale(String languageCode) async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
   await _prefs.setString(LAGUAGE_CODE, languageCode);
   return _locale(languageCode);
 }
 
+/* The pre-selected language is getting with this method*/
 Future<Locale> getLocale() async {
   SharedPreferences _prefs = await SharedPreferences.getInstance();
   String languageCode = _prefs.getString(LAGUAGE_CODE) ?? ENGLISH;
   return _locale(languageCode);
 }
-
+/* This method returns the language what you chosen */
 Locale _locale(String languageCode) {
   switch (languageCode) {
     case ENGLISH:

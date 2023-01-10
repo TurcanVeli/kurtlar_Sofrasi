@@ -4,22 +4,24 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 
 class AuthService with CacheID {
+  /* Authentication and firestore were created with these codes */
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  //giriş yap fonksiyonu
+  /* This is signIn function of firebase */
   Future<User> signIn(String email, String password) async {
     var user = await _auth.signInWithEmailAndPassword(
         email: email, password: password);
     return user.user;
   }
 
+  /* This is the sıngOut function of firebase */
   signOut() async {
     SetID(null);
     return await _auth.signOut();
   }
 
-  //kayıt ol fonksiyonu
+  /* This function is used for the create a person in firestore and authentication page */
   Future<User> createPerson(
       String name, String email, String password, String invitecode) async {
     var user = await _auth.createUserWithEmailAndPassword(
@@ -40,11 +42,7 @@ class AuthService with CacheID {
     return user.user;
   }
 
-  Future<CollectionReference<Map<String, dynamic>>>
-      fetchUserByUsingCode() async {
-    var ref = await _firestore.collection("Users").doc(GetID().toString()).snapshots();
-  }
-
+  /* This function is used in profile_view page in order to change image of player */
   Future<bool> SetUserImage(String UserID, String imgeUrl) async {
     Map<String, dynamic> updatedField = {"image": imgeUrl};
     var ref =
