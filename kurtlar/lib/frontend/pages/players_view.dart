@@ -13,9 +13,15 @@ class PlayerPage extends StatefulWidget {
 class _PlayerPageState extends State<PlayerPage> with CacheID {
   AuthService _auth = AuthService();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  var inviteCode  = TextEditingController();
 
   
-    
+  Map<String,dynamic> findUserByUsingInviteCode(List data, String code){
+      for (int i = 0; i< data.length; i++){
+              print(data[i]);
+              print("smfdlsdöf");
+            }
+  }
     
 
   @override
@@ -29,10 +35,15 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
         future: _auth.getAllData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            var a  =snapshot.data;
-            print(a);
+            var data  =snapshot.data;
+           
             return Column(
-
+              children: [
+                TextField(
+                  controller: inviteCode ,
+                  
+                )
+              ],
 
             );
           } else {
