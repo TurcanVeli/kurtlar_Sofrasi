@@ -14,6 +14,10 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
   AuthService _auth = AuthService();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
+  
+    
+    
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +29,12 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
         future: _auth.getAllData(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Scaffold();
+            var a  =snapshot.data;
+            print(a);
+            return Column(
+
+
+            );
           } else {
             return LinearProgressIndicator();
           }
