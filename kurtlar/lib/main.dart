@@ -54,6 +54,8 @@ class _MyAppState extends State<MyApp> with CacheID {
         locale: _locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: rolesPage());
+        /* We are going to check the if some account sign in the app 
+         * If someone enter, ıt returns home page or login page */ 
+        home: GetID() != null ? Home() : LoginPage());
   }
 }

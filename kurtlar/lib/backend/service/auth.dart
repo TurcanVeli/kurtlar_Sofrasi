@@ -23,7 +23,7 @@ class AuthService with CacheID {
     return await _auth.signOut();
   }
 
-  /* This function is used for the create a person in firestore and authentication page */
+  /* This function is used for creating a person in firestore and authentication page */
   Future<User> createPerson(
       String name, String email, String password, String invitecode) async {
     var user = await _auth.createUserWithEmailAndPassword(
@@ -55,7 +55,8 @@ class AuthService with CacheID {
 
     return allData;
   }
-
+ 
+ /* This function set the image in profile_view.dart file */
   Future<bool> SetUserImage(String UserID, String imgeUrl) async {
     Map<String, dynamic> updatedField = {"image": imgeUrl};
     var ref =
@@ -63,6 +64,6 @@ class AuthService with CacheID {
     return true;
   }
 
-  /* This function set the image in profile_view.dart file */
+ 
 
 }

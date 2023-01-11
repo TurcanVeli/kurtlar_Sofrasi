@@ -18,12 +18,11 @@ class profile extends StatefulWidget {
 }
 
 class _profileState extends State<profile> with CacheID {
+  /* Firestore and ImageService is initialized in here */
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final ImageService _image = ImageService();
   var newusername = TextEditingController();
   firestoreService _store = firestoreService();
-
-
 
   Future FetchUser() async {
     var userId = await GetID();
@@ -62,6 +61,7 @@ class _profileState extends State<profile> with CacheID {
             backgroundColor: Colors.black,
             title: Text(translate(context).profile),
             centerTitle: true),
+        /* We are controlling the data in database if there is a person */
         body: FutureBuilder(
           future: FetchUser(),
           builder: ((context, snapshot) {
@@ -92,7 +92,7 @@ class _profileState extends State<profile> with CacheID {
                 style: TextStyle(fontSize: 20),
               ),
               SizedBox(height: 40),
-              //Resim değiştirirelecek.
+              /* Image is going to upload according to chosen picture */ 
               InkWell(
                 onTap: (() {
                   setState(() async {
@@ -120,10 +120,6 @@ class _profileState extends State<profile> with CacheID {
                 margin: EdgeInsets.all(5),
                 width: 200,
                 height: 30,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 189, 13, 42),
-                  borderRadius: BorderRadius.circular(25),
-                ),
                 child: Text(
                   "${translate(context).gamecode} : ${data['invitecode']}",
                   textAlign: TextAlign.center,
@@ -138,10 +134,6 @@ class _profileState extends State<profile> with CacheID {
                 margin: EdgeInsets.all(5),
                 width: 200,
                 height: 30,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 189, 13, 42),
-                  borderRadius: BorderRadius.circular(25),
-                ),
                 child: Text("Username: " + data['userName'],
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -153,11 +145,7 @@ class _profileState extends State<profile> with CacheID {
                 margin: EdgeInsets.all(5),
                 width: 200,
                 height: 30,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 189, 13, 42),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Text("Para: " + data['coin'].toString(),
+                child: Text("Money: " + data['coin'].toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
@@ -168,11 +156,7 @@ class _profileState extends State<profile> with CacheID {
                 margin: EdgeInsets.all(5),
                 width: 200,
                 height: 30,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 189, 13, 42),
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Text("Puan: " + data['point'].toString(),
+                child: Text("Point: " + data['point'].toString(),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
@@ -186,10 +170,6 @@ class _profileState extends State<profile> with CacheID {
                 height: 50,
                 alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
                 padding: EdgeInsets.all(0),
                 child: TextButton(
                   onPressed: () {
@@ -246,7 +226,7 @@ class _profileState extends State<profile> with CacheID {
                                           icon: Icon(Icons.forward,
                                               color: ColorConstant
                                                   .instance.Venetian_Red),
-                                          labelText: 'UserName',
+                                          labelText: 'Username',
                                           labelStyle: TextStyle(
                                               color: ColorConstant
                                                   .instance.Venetian_Red),
@@ -270,7 +250,7 @@ class _profileState extends State<profile> with CacheID {
                     "Change Username",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.redAccent,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
