@@ -12,6 +12,8 @@ import 'package:kurtlar/backend/models/polat.dart';
 
 import '../../backend/models/BaseRole.dart';
 
+/* Objects of roles is created in there */ 
+
 LazZiya laz = LazZiya();
 nizamettin niz = nizamettin();
 

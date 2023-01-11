@@ -14,7 +14,8 @@ class create extends StatefulWidget {
 class _createState extends State<create> {
   @override
 
-  //initleri muhteşem kullanıyorum uygulama patlatabiilir mi acaba bilmiyorum
+  /* Roles will be distributed in here */ 
+ /* And these roles will be distributed according to how many person enter the game */
   void initState() {
     Role randomRole;
 
@@ -37,6 +38,7 @@ class _createState extends State<create> {
     super.initState();
   }
 
+ /* This widget drawns the create page */
   @override
   Widget build(BuildContext context) {
     return Scaffold(

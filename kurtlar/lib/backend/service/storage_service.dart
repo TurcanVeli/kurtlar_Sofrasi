@@ -1,10 +1,13 @@
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 
-//TODO edit profildeki resim değiştirmek için kullanulacak. Storagye resim yüklemek için kullanılan class
+/* This is the class upload new image in profile_view.dart file */
+
 class StorageService {
+  /* FirebaseStorage was created in there */
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 
+/* This function uplod the image */
   Future<String> uploadImage(File file) async {
     var uploadTask = _firebaseStorage
         .ref()
@@ -16,7 +19,7 @@ class StorageService {
 
     var storageRef = await uploadTask;
 
-    return await storageRef.ref
-        .getDownloadURL(); //Yükleme yaptıktan sonra url dönecek
+    /* This returns the URL of image after the upload of image */
+    return await storageRef.ref.getDownloadURL();
   }
 }

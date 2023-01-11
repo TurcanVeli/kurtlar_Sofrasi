@@ -23,7 +23,8 @@ class _UserShowingState extends State<UserShowing> {
 
   @override
   void dispose() {
-    //Mafya Oylaması için
+    /* This function is for voting of mafia */
+
     if (!widget.isMission) {
       widget.Users[selectedUser].incrementVote();
     }
@@ -76,7 +77,7 @@ class _UserShowingState extends State<UserShowing> {
                               color: ColorConstant.instance.white,
                               fontWeight: FontWeight.bold)),
 
-                      //Sadece polatın görevi için tasarlandı
+                      /* This is designed for only mission of polat */
                       if (!widget.isMission)
                         Text(
                             widget.isNight

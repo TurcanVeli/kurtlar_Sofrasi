@@ -19,7 +19,7 @@ class Players {
 
   bool muted = false;
   bool isSaving = false;
-//Defaul value = FAlse
+
   bool _isJail = false;
   bool _isDead = false;
   bool _hitWithBullet = false;
@@ -36,7 +36,7 @@ class Players {
   String get GetName => _Name;
   Role get GetRole => _role; //rolün ismi dönmez obje döner
   bool get Getisdead => _isDead;
-  int get GetVote => _vote; //Sahip Olduğu Oy sayısı
+  int get GetVote => _vote;
   String get GetTempTeam => _Tempteam;
   bool get GetSaving => isSaving;
   bool get GetHitBullet => _hitWithBullet;
@@ -49,14 +49,17 @@ class Players {
     isSaving = value;
   }
 
+  /* This function checks if Abdulhey hits other roles */
   void setHitBullet() {
     _hitWithBullet = true;
   }
 
+  /* This function checks if some roles has gone the jail */
   void setJail() {
     _isJail = true;
   }
 
+  /* This function checks if some roles are killed */
   void setDead() {
     _isDead = true;
   }
@@ -67,27 +70,32 @@ class Players {
     passednight++;
   }
 
+  /* This function checks if some roles is muted by KARAHANLI */
   void setMuted(bool muted) {
     this.muted = muted;
   }
 
+  /* This function is used for vote someone. Value is gonna be made 0 after the vote */
   void SetVote(int Value) {
-    // Value always should be 0. Her oylama sonund ahapise gitmemiş ise oylar sıfırlanacak
     _vote = Value;
   }
 
+  /* This function set the role of someone */
   void SetRole(Role role) {
     _role = role;
   }
 
+  /* This function set the team of roles */
   void SetTempTeam(String Value) {
     _Tempteam = Value;
   }
 
+  /* This function increases the vote */
   void incrementVote() {
     _vote++;
   }
 
+  /* This function decreases the vote */
   void decrementvote() {
     _vote--;
   }

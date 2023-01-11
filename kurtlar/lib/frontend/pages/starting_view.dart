@@ -5,6 +5,7 @@ import 'package:kurtlar/frontend/pages/create_view.dart';
 
 import '../components/button.dart';
 
+/* This is the page before enter the game */ 
 class starting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
-/* Bu kod sayfalar ıcerısınde kullanılacak ana temaları belırleyecek */
+/* This class is going to specify which theme is going to use in pages */
+
 class ColorConstant {
   static ColorConstant instance = ColorConstant._init();
   ColorConstant._init();

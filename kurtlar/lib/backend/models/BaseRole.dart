@@ -1,6 +1,6 @@
 import 'package:kurtlar/frontend/models/players.dart';
 
-/* These are the properties of roles. Other models is going to inherit this class. */ 
+/* These are the properties of roles. Other model files is going to inherit this class. */ 
 abstract class Role {
   String get imagePath;
 

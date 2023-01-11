@@ -8,7 +8,9 @@ import 'package:kurtlar/backend/service/firestoreService.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 
-//Edit profile ui değişikliği yapılacak
+/* In this page, the person who have account in the game  can change the name 
+ * and update the photograph of user avatar. Also, players is going to learn 
+ * their invite codes in this page */
 
 class profile extends StatefulWidget {
   @override

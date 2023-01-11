@@ -56,18 +56,18 @@ class _HomeState extends State<Home> with CacheID{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: (() {
-              SetID(null);
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => LoginPage()));
-            }),
-            icon: Icon(
-              Icons.exit_to_app,
-              color: Colors.white,
-            ),
+        leading: IconButton(
+          onPressed: (() {
+            SetID(null);
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => LoginPage()));
+          }),
+          icon: Icon(
+            Icons.exit_to_app,
+            color: Colors.white,
           ),
+        ),
+        actions: [
           IconButton(
             icon: Icon(
               Icons.settings,
@@ -116,8 +116,8 @@ class _HomeState extends State<Home> with CacheID{
               child: Text(
                 "Kurtlukta Düşeni Yemek Kanundur",
                 style: TextStyle(
-                  color: Colors.white38,
-                  fontWeight: FontWeight.w700,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
                 ),
               ),
             ),
@@ -130,7 +130,7 @@ class _HomeState extends State<Home> with CacheID{
                 where: PlayerPage(),
                 Width: 200),
             const SizedBox(
-              height: 15,
+              height: 25,
             ),
             Button(
                 buttonText: translate(context).profile,
@@ -138,7 +138,7 @@ class _HomeState extends State<Home> with CacheID{
                 where: profile(),
                 Width: 200),
             const SizedBox(
-              height: 15,
+              height: 20,
             ),
             Container(
               width: 200,
@@ -146,7 +146,7 @@ class _HomeState extends State<Home> with CacheID{
               alignment: Alignment.bottomCenter,
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 189, 13, 42),
                 borderRadius: BorderRadius.circular(20),
               ),
               padding: EdgeInsets.all(0),
@@ -157,7 +157,7 @@ class _HomeState extends State<Home> with CacheID{
                 child: Text(
                   translate(context).howtoplay,
                   style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
+                      color: Colors.white, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
