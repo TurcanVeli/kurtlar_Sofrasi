@@ -7,7 +7,7 @@ class mafiamen extends Role {
   final String _RoleDefinition = "Basit bir mafya adamısın";
   String _Name = "Mafya Adamı";
   final String _team = "Mafya";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/deafultAvatar.png";
   final int countOfVote = 1;
   Players _chosenUser = null;
 

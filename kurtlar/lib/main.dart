@@ -5,6 +5,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 
 import 'package:kurtlar/frontend/pages/login_view.dart';
+import 'package:kurtlar/frontend/pages/roles_view.dart';
 
 import 'package:localization/localization.dart';
 
@@ -53,6 +54,6 @@ class _MyAppState extends State<MyApp> with CacheID {
         locale: _locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        home: GetID() != null ? Home() : LoginPage());
+        home: rolesPage());
   }
 }

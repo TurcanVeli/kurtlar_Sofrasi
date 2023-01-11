@@ -6,7 +6,7 @@ class LazZiya extends Role {
   final String _RoleDefinition = "Sen Mafyanın laz ziyasısın";
   String _Name = "Laz Ziya";
   final String _team = "Mafya";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/laziya.png";
   int remainingMission = 1;
   final int countOfVote = 1;
   int count = 0;

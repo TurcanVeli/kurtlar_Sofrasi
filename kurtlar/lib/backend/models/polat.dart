@@ -11,7 +11,7 @@ class Polat extends Role {
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/polat.png";
   final int countOfVote = 1;
 
   int count = 0;

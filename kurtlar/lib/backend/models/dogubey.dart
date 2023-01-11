@@ -8,7 +8,7 @@ class DoguBey extends Role {
 
   String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/doguu.png";
   final int countOfVote = 1;
   int count = 0;
   int remainingMission = 1;

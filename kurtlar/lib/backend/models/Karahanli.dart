@@ -7,7 +7,7 @@ class Karahanli extends Role {
 
   String _Name = "Karahanli";
   final String _team = "Mafya";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/karahanli.png";
   final int countOfVote = 1;
   Players _chosenUser = null;
 

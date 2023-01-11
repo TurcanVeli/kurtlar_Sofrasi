@@ -13,7 +13,7 @@ class AslanAkbey extends Role {
 
   String _Name = "Aslan Akbey";
   final String _team = "Derin Devlet";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/aslan.png";
   final int countOfVote = 1;
   int count = 0;
   Players _chosenUser = null;

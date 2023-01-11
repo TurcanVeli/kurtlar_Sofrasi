@@ -214,8 +214,9 @@ class _rolesPageState extends BaseState<rolesPage> {
   Column RoleContainerInsideColumn(Role role) {
     return Column(
       children: [
+        Expanded(flex:4,child: Image.asset(role.imagePath)),
         Expanded(
-            flex: 2,
+            flex: 3,
             child: InkWell(
                 onTap: (() {
                   _scaleDialog(role.GetName, role.GetRoleDefiniton);
@@ -223,7 +224,7 @@ class _rolesPageState extends BaseState<rolesPage> {
                 child: RoleNameContainer(role))),
         Expanded(flex: 1, child: SizedBox()),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: CountRow(role),
         ),
       ],
@@ -274,7 +275,7 @@ class _rolesPageState extends BaseState<rolesPage> {
     );
   }
 
-  Text RoleNameText(Role role) => Text(role.GetName);
+  Text RoleNameText(Role role) => Text(role.GetName,style: TextStyle(fontWeight: FontWeight.bold),);
 }
 
 Widget _dialog(BuildContext context, String header, String Body) {

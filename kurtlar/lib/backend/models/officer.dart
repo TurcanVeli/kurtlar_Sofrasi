@@ -7,7 +7,7 @@ class officer extends Role {
   final String _RoleDefinition = "Sıradan bir istirbahat elemeanısın";
   String _Name = "Memur";
   final String _team = "Derin Devlet";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/deafultAvatar.png";
   final int countOfVote = 1;
   Players _chosenUser = null;
 

@@ -6,7 +6,7 @@ class nizamettin extends Role {
   final String _RoleDefinition = "Sen Mafyanın avukatısın";
   String _Name = "Nizamettin";
   final String _team = "Mafya";
-  final String _imagepath = "";
+  final String _imagepath = "assets/images/nizamettin.png";
   int remainingMission = 1;
   final int countOfVote = 1;
   Players _chosenUser = null;
