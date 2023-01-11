@@ -3,8 +3,11 @@ import '../../backend/models/BaseRole.dart';
 
 class Players {
   String _Name;
-  Image _playerImage;
-  Role _role;
+  int _coin;
+  int _point;
+  String _userId;
+  String _playerImage;
+  Role _role; //Hangi rollde olduğu
   int _vote = 0;
   String _Tempteam = "None";
   Players(this._Name);
@@ -14,12 +17,14 @@ class Players {
   bool _isJail = false;
   bool _isDead = false;
   bool _hitWithBullet = false;
-  bool _didyougetInfos = false;
-
+  bool _didyougetInfos = false; //Dogu görevi için
+  String get GetuserID => _userId;
+  int get getCoin => _coin;
+  int get getPoint => _point;
+  String get GetImageUrl => _playerImage;
   bool get GetDidYougetInfos => _didyougetInfos;
   String get GetName => _Name;
-  Image get GetImageOfPLayer => _playerImage;
-  Role get GetRole => _role;
+  Role get GetRole => _role; //rolün ismi dönmez obje döner
   bool get Getisdead => _isDead;
   int get GetVote => _vote;
   String get GetTempTeam => _Tempteam;

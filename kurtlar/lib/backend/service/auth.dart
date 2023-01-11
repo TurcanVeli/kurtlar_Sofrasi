@@ -10,6 +10,8 @@ class AuthService with CacheID {
 
   /* This is signIn function of firebase */
   Future<User> signIn(String email, String password) async {
+    print(email);
+    print(password);
     var user = await _auth.signInWithEmailAndPassword(
         email: email, password: password);
     return user.user;
@@ -42,11 +44,7 @@ class AuthService with CacheID {
     return user.user;
   }
 
-  Future<void> getAllData() async {
-    CollectionReference _collectionRef =
-        FirebaseFirestore.instance.collection('Users');
-    // Get docs from collection reference
-    QuerySnapshot querySnapshot = await _collectionRef.get();
+  
 
     // Get data from docs and convert map to List
     final allData = querySnapshot.docs.map((doc) => doc.data()).toList();

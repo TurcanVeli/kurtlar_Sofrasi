@@ -3,11 +3,12 @@ import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/service/auth.dart';
 import 'package:kurtlar/backend/service/storage_service.dart';
 import 'dart:io';
+import 'package:kurtlar/backend/service/firestoreService.dart';
 
 class ImageService with CacheID {
   /* Storage service and authentication service was created in there */
   StorageService _storage = StorageService();
-  AuthService _set = AuthService();
+  firestoreService _store = firestoreService();
   
   /* This function updates the image of user */
   Future<XFile> UpdateImageOfuser() async {
@@ -16,6 +17,6 @@ class ImageService with CacheID {
     //Resim yüklendi
     var _url = await _storage.uploadImage(imagefile);
     var UserID = await GetID();
-    bool status = await _set.SetUserImage(UserID, _url);
+    bool status = await _store.SetUserImage(UserID, _url);
   }
 }
