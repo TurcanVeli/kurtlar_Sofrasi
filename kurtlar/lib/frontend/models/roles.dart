@@ -2,7 +2,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:kurtlar/backend/models/Abdulhey.dart';
 import 'package:kurtlar/backend/models/AslanAkbey.dart';
-import 'package:kurtlar/backend/models/Karahanl%C4%B1.dart';
+import 'package:kurtlar/backend/models/Karahanli.dart';
 import 'package:kurtlar/backend/models/dogubey.dart';
 import 'package:kurtlar/backend/models/lazziya.dart';
 import 'package:kurtlar/backend/models/mafiamen.dart';

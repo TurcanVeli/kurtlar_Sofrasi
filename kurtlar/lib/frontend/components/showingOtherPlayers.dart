@@ -48,11 +48,12 @@ class _UserShowingState extends State<UserShowing> {
                     if (index == selectedUser) {
                       widget._user.GetRole.SetchosenUser(null);
                       selectedUser = -1;
-                    }else
-                    {
+                      widget._user.setDidYouGetInfos(false);
+                    } else {
                       selectedUser = index;
                       widget._user.GetRole
                           .SetchosenUser(widget.Users[selectedUser]);
+                      widget._user.setDidYouGetInfos(true);
                     }
                   });
                 },
@@ -62,11 +63,12 @@ class _UserShowingState extends State<UserShowing> {
                       CircleAvatar(
                         radius: 45,
                         backgroundColor: selectedUser == index
-                            ? Colors.red
+                            ? ColorConstant.instance.red
                             : Colors.transparent,
                         child: CircleAvatar(
                           radius: 40,
-                          child: Image.asset('assets/images/deafultAvatar.png'),
+                          backgroundImage:
+                              NetworkImage(widget.Users[index].GetImageUrl),
                         ),
                       ),
                       Text(widget.Users[index].GetName,

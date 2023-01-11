@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
-import 'package:kurtlar/backend/models/Karahanl%C4%B1.dart';
+import 'package:kurtlar/backend/models/Karahanli.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/pages/Daystart_view.dart';
 import 'package:kurtlar/frontend/pages/daylight_view.dart';
@@ -25,15 +25,17 @@ class _NightreportPageState extends State<NightreportPage> {
     Players dogu = null;
 
     for (int i = 0; i < USERS.length; i++) {
-      if (USERS[i].GetName == "Doğu Bey"){
+      USERS[i].incrementPassedNight();
+      if (USERS[i].GetName == "Doğu Bey") {
         dogu = USERS[i];
       }
-      if (USERS[i].GetMuted) {
+      if(USERS[i].GetMuted && USERS[i].GetPassedNight == USERS[i].getUnMutedNight){
+        USERS[i].setUnMutedNight(-1);
         USERS[i].setMuted(false);
       }
       if (USERS[i].GetVote >= max) {
         max = USERS[i].GetVote;
-        if (max != 0){
+        if (max != 0) {
           Mafiasdead = USERS[i];
         }
       }
@@ -41,27 +43,28 @@ class _NightreportPageState extends State<NightreportPage> {
         Abduldead = USERS[i];
       }
       if (USERS[i].GetRole.GetName == "Karahanli" &&
-          USERS[i].GetRole.getRemainmissioncount == 0) {
+          USERS[i].GetRole.chosenUser != null) {
+    
         USERS[i].GetRole.chosenUser.setMuted(true);
+        USERS[i].GetRole.chosenUser.setUnMutedNight(USERS[i].GetPassedNight+1);
       }
 
       USERS[i].SetVote(0);
     }
-   
-    
-    if (Abduldead != null){
+
+    if (Abduldead != null) {
       DeadUsers.add(Abduldead);
       Abduldead.setDead();
       USERS.remove(Abduldead);
-      GovermentUser.remove(Abduldead);
-      MafiasUser.remove(Abduldead);
+      GovermentUsers.remove(Abduldead);
+      MafiasUsers.remove(Abduldead);
     }
-    if(Mafiasdead != null){
+    if (Mafiasdead != null) {
       if (Abduldead != Mafiasdead) DeadUsers.add(Mafiasdead);
       Mafiasdead.setDead();
       USERS.remove(Mafiasdead);
-      GovermentUser.remove(Mafiasdead);
-      MafiasUser.remove(Mafiasdead);
+      GovermentUsers.remove(Mafiasdead);
+      MafiasUsers.remove(Mafiasdead);
     }
     super.initState();
   }
@@ -115,8 +118,8 @@ class _NightreportPageState extends State<NightreportPage> {
                                           fontSize: 15)),
                                   CircleAvatar(
                                     radius: 40,
-                                    child: Image.asset(
-                                        "assets/images/deafultAvatar.png"),
+                                    backgroundImage: NetworkImage(
+                                        DeadUsers[index].GetImageUrl),
                                   ),
                                   SizedBox(
                                     height: 10,

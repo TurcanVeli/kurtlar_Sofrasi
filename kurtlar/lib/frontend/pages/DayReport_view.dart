@@ -35,8 +35,8 @@ class _DayLightreportState extends State<DayLightreport> {
       jailed.setDead();
       USERS.remove(jailed);
       //Burada ve nightreportta ölenin hangi takımda oluğ olmadığı kontrol edilmeli ve ona göre listelerden çıkartılmalı
-      GovermentUser.remove(jailed);
-      MafiasUser.remove(jailed);
+      GovermentUsers.remove(jailed);
+      MafiasUsers.remove(jailed);
       iJail = true;
       }
     

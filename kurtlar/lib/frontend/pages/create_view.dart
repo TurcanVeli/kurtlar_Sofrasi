@@ -22,13 +22,13 @@ class _createState extends State<create> {
       randomRole = (addedRoles..shuffle()).first;
       USERS[l].SetRole(randomRole);
       if (randomRole.GetTeam == "Mafya")
-        MafiasUser.add(USERS[l]);
+        MafiasUsers.add(USERS[l]);
       else {
         if (randomRole.GetName == "Polat") {
           PolatUser = USERS[l];
         }
 
-        GovermentUser.add(USERS[l]);
+        GovermentUsers.add(USERS[l]);
       }
       addedRoles.removeAt(0);
     }

@@ -34,4 +34,12 @@ class firestoreService {
         await _firestore.collection('Users').doc(UserID).update(updatedField);
     return true;
   }
+
+  Future<bool> SetUserName(String UserID, String userName) async {
+    Map<String, dynamic> updatedField = {"userName": userName};
+    var ref =
+        await _firestore.collection('Users').doc(UserID).update(updatedField);
+
+    return true;
+  }
 }

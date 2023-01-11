@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
+import 'package:kurtlar/frontend/models/users.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Home extends StatelessWidget with CacheID {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with CacheID{
+
+  @override
+  void initState() {
+    USERS.clear();
+    GovermentUsers.clear();
+    MafiasUsers.clear();
+    super.initState();
+  }
   // Oyun kurallarını gosteren buton
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(

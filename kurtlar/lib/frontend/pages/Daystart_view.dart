@@ -67,7 +67,7 @@ class _DayStartPageState extends State<DayStartPage> {
                 if(!snapshot.hasData){
                   return LinearProgressIndicator();
                 }
-                return gameOver(isMafiaWin);
+                return gameOver(isMafiaWin, context);
               }) //Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
         ),)
       ],
@@ -101,7 +101,7 @@ class _DayStartPageState extends State<DayStartPage> {
                 buttonText: translate(context).enddiscuss,
                 color: ColorConstant.instance.red,
                 ContainerColor: Colors.transparent,
-                where: DaylightPage(0)),
+                where: DaylightPage(-1)),
           ],
         ),
       ),

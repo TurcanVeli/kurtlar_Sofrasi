@@ -5,7 +5,7 @@ class Karahanli extends Role {
   final String _MissionText = "Birinin rolünü sustur";
   final String _RoleDefinition = "Mafyanın başındaki adamsın";
 
-  String _Name = "Karahanlı";
+  String _Name = "Karahanli";
   final String _team = "Mafya";
   final String _imagepath = "";
   final int countOfVote = 1;
@@ -59,7 +59,7 @@ class Karahanli extends Role {
 
   @override
   // TODO: implement getRemainmissioncount
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => remainingMission;
 
   @override
   // TODO: implement imagePath

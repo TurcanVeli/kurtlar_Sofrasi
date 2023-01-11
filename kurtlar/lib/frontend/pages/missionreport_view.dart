@@ -22,7 +22,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
   String MissionText;
   Players user;
   List<Players> mixedInformation = [];
-
+  
   @override
   void initState() {
     user = USERS[widget.index];
@@ -33,19 +33,27 @@ class _missionreportPageState extends BaseState<missionreportPage> {
     }
     if (user.GetRole.GetName == "Doğu Bey") {
       mixedInformation = [
-        (MafiasUser..shuffle())[0],
-        (GovermentUser..shuffle())[0]
+        (MafiasUsers..shuffle())[0],
+        (GovermentUsers..shuffle())[0]
       ];
       mixedInformation..shuffle();
     }
 
     super.initState();
   }
+  @override
+  void dispose() {
+    if(user.GetRole.GetName == "Doğu Bey")user.setDidYouGetInfos(true);
+    super.dispose();
+  }
+  
 
   CircleAvatar ChosenUserAvatar() {
     return CircleAvatar(
       radius: dynamicHeight(0.05),
-      child: Image.asset('assets/images/deafultAvatar.png'),
+      backgroundImage: user.GetRole.GetName == "Aslan Akbey"
+          ? NetworkImage(PolatUser.GetImageUrl)
+          : NetworkImage(user.GetRole.chosenUser.GetImageUrl),
     );
   }
 

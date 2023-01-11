@@ -25,8 +25,10 @@ Center ReadyComponent(
               radius: 100,
               backgroundColor: ispressed ? Colors.red : Colors.white,
               child: CircleAvatar(
-                child: Image.asset("assets/images/deafultAvatar.png"),
-                maxRadius: 100,
+                maxRadius: 95,
+                minRadius: 70,
+                backgroundImage: NetworkImage(user.GetImageUrl),
+                
               ),
             ),
           ),
@@ -65,7 +67,8 @@ Center ReadyComponent(
               onPressed: go,
               child: Text("Hazır"),
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(ColorConstant.instance.red),
+                backgroundColor:
+                    MaterialStateProperty.all(ColorConstant.instance.red),
               ),
             ),
           )

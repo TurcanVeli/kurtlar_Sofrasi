@@ -96,7 +96,7 @@ class _NightState extends BaseState<Night> {
                     if (USERS[_i].GetRole.GetTeam == "Mafya")
                       Column(
                         children: [
-                          UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                          UserShowing(dynamicHeight(0.3), GovermentUsers, true,
                               false, USERS[_i]),
                           SizedBox(
                             height: dynamicHeight(0.001),
@@ -109,20 +109,34 @@ class _NightState extends BaseState<Night> {
                           ),
                           if (USERS[_i].GetRole.GetName != "Mafya Adamı" &&
                               USERS[_i].GetRole.getRemainmissioncount != 0)
-                            UserShowing(dynamicHeight(0.3), GovermentUser, true,
+                            UserShowing(dynamicHeight(0.3), USERS, true,
                                 false, USERS[_i])
+                          else if (USERS[_i].GetRole.GetName != "Mafya Adamı" &&
+                              USERS[_i].GetRole.getRemainmissioncount == 0)
+                            Text("görev hakkın bitti",style: TextStyle(
+                                color: ColorConstant.instance.Catskill_White,
+                                fontSize: 34))
                           else
                             SizedBox(
                               height: dynamicHeight(0.3),
                             )
                         ],
                       )
-                    else if (USERS[_i].GetRole.GetMissionText !=
-                            translate(context).noduty &&
+                    else if (USERS[_i].GetRole.GetTeam == "Derin Devlet" &&
+                        USERS[_i].GetRole.GetMissionText !=
+                            "No Mission" &&
                         USERS[_i].GetRole.GetName != "Aslan Akbey" &&
-                        USERS[_i].GetRole.getRemainmissioncount != 0)
+                        USERS[_i].GetRole.getRemainmissioncount != 0 && !USERS[_i].GetMuted)
                       UserShowing(
                           dynamicHeight(0.6), USERS, true, true, USERS[_i])
+                    else if (USERS[_i].GetRole.GetTeam == "Derin Devlet" &&
+                        USERS[_i].GetRole.GetMissionText !=
+                            "No Mission" &&
+                        USERS[_i].GetRole.GetName != "Aslan Akbey" &&
+                        USERS[_i].GetMuted)
+                      Text("Susturuldun", style: TextStyle(
+                                color: ColorConstant.instance.Catskill_White,
+                                fontSize: 34))
                     else
                       SizedBox(
                         height: dynamicHeight(0.6),

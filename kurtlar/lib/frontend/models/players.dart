@@ -7,21 +7,31 @@ class Players {
   int _point;
   String _userId;
   String _playerImage;
+  String _invitecode;
   Role _role; //Hangi rollde olduğu
   int _vote = 0;
   String _Tempteam = "None";
-  Players(this._Name);
+  int passednight = 1;
+  int unmutednight = -1;
+
+  Players(this._Name, this._userId, this._playerImage, this._coin, this._point,
+      this._invitecode);
+
   bool muted = false;
   bool isSaving = false;
 //Defaul value = FAlse
   bool _isJail = false;
   bool _isDead = false;
   bool _hitWithBullet = false;
-  bool _didyougetInfos = false; //Dogu görevi için
+  bool _didyougetInfos = false;
+
+  int get getUnMutedNight => unmutednight;
+  int get GetPassedNight => passednight;
+  String get GetCode => _invitecode; //Dogu görevi için
   String get GetuserID => _userId;
   int get getCoin => _coin;
   int get getPoint => _point;
-  String get GetImageUrl  => _playerImage;
+  String get GetImageUrl => _playerImage;
   bool get GetDidYougetInfos => _didyougetInfos;
   String get GetName => _Name;
   Role get GetRole => _role; //rolün ismi dönmez obje döner
@@ -31,8 +41,8 @@ class Players {
   bool get GetSaving => isSaving;
   bool get GetHitBullet => _hitWithBullet;
   bool get GetMuted => muted;
-  void setDidYouGetInfos() {
-    _didyougetInfos = true;
+  void setDidYouGetInfos(bool value) {
+    _didyougetInfos = false;
   }
 
   void setSaving(bool value) {
@@ -49,6 +59,12 @@ class Players {
 
   void setDead() {
     _isDead = true;
+  }
+  void setUnMutedNight(int value){
+    unmutednight = value;
+  }
+  void incrementPassedNight(){
+    passednight++;
   }
 
   void setMuted(bool muted) {

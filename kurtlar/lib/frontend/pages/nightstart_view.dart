@@ -20,10 +20,10 @@ class _nightstartPageState extends State<nightstartPage> {
 
   @override
   void initState() {
-    if (MafiasUser.length >= GovermentUser.length) {
+    if (MafiasUsers.length >= GovermentUsers.length) {
       isGameOver = true;
       isMafiaWin = true;
-    } else if (MafiasUser.length == 0) isGameOver = true;
+    } else if (MafiasUsers.length == 0) isGameOver = true;
 
     super.initState();
   }
@@ -53,47 +53,11 @@ class _nightstartPageState extends State<nightstartPage> {
                       if (!snapshot.hasData) {
                         return LinearProgressIndicator();
                       }
-                      return gameOver(isMafiaWin);
+                      return gameOver(isMafiaWin, context);
                     }) //Bu kısımda oyunu bitir çıkacak ve para dağıtılacak.
                     ),
           )
         ]);
-  }
-
-  Column gameOver(bool isMafiaWin) {
-    return Column(
-      children: [
-        Expanded(flex: 1, child: SizedBox()),
-        if (isMafiaWin)
-          Expanded(
-            flex: 10,
-            child: Container(
-                child: Center(
-                    child: Text(translate(context).mafiawin,
-                        style: TextStyle(
-                            color: ColorConstant.instance.white,
-                            fontSize: 40)))),
-          )
-        else
-          Expanded(
-            flex: 10,
-            child: Container(
-                child: Center(
-                    child: Text(translate(context).govwin,
-                        style: TextStyle(
-                            color: ColorConstant.instance.white,
-                            fontSize: 40)))),
-          ),
-        Expanded(flex: 1, child: SizedBox(height: 50)),
-        Expanded(
-            flex: 1,
-            child: BottomButtonContainerContiune(
-                where: Home(),
-                ContainerColor: Colors.transparent,
-                color: ColorConstant.instance.red,
-                buttonText: translate(context).backhomepage))
-      ],
-    );
   }
 
   SafeArea NightStartBody(BuildContext context) {

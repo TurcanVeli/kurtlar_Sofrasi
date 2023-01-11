@@ -58,7 +58,7 @@ class LazZiya extends Role {
 
   @override
   // TODO: implement getRemainmissioncount
-  int get getRemainmissioncount => throw UnimplementedError();
+  int get getRemainmissioncount => remainingMission;
 
   @override
   // TODO: implement imagePath
