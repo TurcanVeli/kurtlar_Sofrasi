@@ -12,11 +12,11 @@ import 'package:kurtlar/frontend/components/alert_dialog.dart';
 import '../models/players.dart';
 import '../models/users.dart';
 
-/* We are going to use invite code in order to call person in this page */ 
+/* We are going to use invite code in order to call person in this page */
 /* Firstly, we are going to check invite code in database. 
  * If there is a invite code that we search in database, 
  * we are going the fetch the information of the person who have this invite code   
- * Finally, this information will be displayed in this page */ 
+ * Finally, this information will be displayed in this page */
 
 class PlayerPage extends StatefulWidget {
   const PlayerPage({Key key}) : super(key: key);
@@ -26,11 +26,13 @@ class PlayerPage extends StatefulWidget {
 }
 
 class _PlayerPageState extends State<PlayerPage> with CacheID {
+  /* FiresetoreService and FirebaseStore was initialized in here */
   firestoreService _store = firestoreService();
   Map<String, dynamic> fetchedUser;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   var inviteCode = TextEditingController();
 
+  /* We are going to add the user to list in order to show in body page */
   bool addUsertoList(Map<String, dynamic> User) {
     Players user = Players(User["userName"], User["id"], User["image"],
         User["coin"], User["point"], User["invitecode"]);
@@ -43,26 +45,37 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
     return true;
   }
 
+  /* This function delete the user from the list */
   void deleteUserFromList(Players user) {
     USERS.remove(user);
   }
 
+  /* This function is going to find User by using ınvite code 
+  * This function is going to check there is person who matches this code */
   Map<String, dynamic> findUserByUsingInviteCode(List data, String code) {
     for (int i = 0; i < data.length; i++) {
-     
       if (data[i]['invitecode'] == code) {
         return data[i];
       }
     }
-      return null;
+    return null;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Oyuncu Ekle'),
-        leading: IconButton(icon: Icon(Icons.arrow_circle_left_sharp)),
+        backgroundColor: Colors.black,
+        title: Text(
+          'Oyuncu Ekle',
+          style: TextStyle(fontSize: 20),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_circle_left_sharp, size: 30),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: FutureBuilder(
         future: _store.getAllData(),
@@ -72,19 +85,24 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
 
             return SingleChildScrollView(
               child: Column(children: [
-                TextField(
-                  controller: inviteCode,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Enter Your Code',
+                Padding(
+                  padding: EdgeInsets.all(20),
+                  child: TextField(
+                    controller: inviteCode,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter Your Code',
+                    ),
                   ),
                 ),
                 ElevatedButton(
-                  child: Text('ADD'),
+                  style: ElevatedButton.styleFrom(
+                      primary: ColorConstant.instance.red),
+                  child: Text('ADD PLAYER'),
                   onPressed: () {
                     fetchedUser =
                         findUserByUsingInviteCode(data, inviteCode.text);
-                      inviteCode.clear();
+                    inviteCode.clear();
                     if (fetchedUser == null) {
                       showDialog(
                           context: context,
@@ -105,50 +123,87 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
                     setState(() {});
                   },
                 ),
+                SizedBox(height: 10),
                 ListView.builder(
                   shrinkWrap: true,
                   itemCount: USERS.length,
                   itemBuilder: (context, index) {
                     return Card(
+                        margin: EdgeInsets.all(10),
+                        elevation: 4,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CircleAvatar(
-                          radius: 35,
-                          backgroundImage:
-                              NetworkImage(USERS[index].GetImageUrl),
-                        ),
-                       
-                        Text(USERS[index].GetName),
-                      
-                        Column(
                           children: [
-                            Text(
-                              "Coin",
-                              style:
-                                  TextStyle(color: ColorConstant.instance.red),
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  shape: BoxShape.circle,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        blurRadius: 10,
+                                        color: Colors.black,
+                                        spreadRadius: 1 / 2)
+                                  ],
+                                ),
+                                child: CircleAvatar(
+                                  radius: 35,
+                                  backgroundImage:
+                                      NetworkImage(USERS[index].GetImageUrl),
+                                ),
+                              ),
                             ),
-                            Text(USERS[index].getCoin.toString())
-                          ],
-                        ),
-                      
-                        Column(
-                          children: [
                             Text(
-                              "Point",
-                              style:
-                                  TextStyle(color: ColorConstant.instance.red),
+                              USERS[index].GetName,
+                              style: TextStyle(fontWeight: FontWeight.w500),
                             ),
-                            Text(USERS[index].getPoint.toString()),
-                            
+                            Column(
+                              children: [
+                                Text(
+                                  "Coin",
+                                  style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                      decorationThickness: 2,
+                                      color: ColorConstant.instance.red,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(USERS[index].getCoin.toString())
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  "Point",
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      decorationThickness: 2,
+                                      color: ColorConstant.instance.red,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text(USERS[index].getPoint.toString()),
+                              ],
+                            ),
+                            IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    deleteUserFromList(USERS[index]);
+                                  });
+                                },
+                                icon: Icon(
+                                  Icons.cancel,
+                                  size: 25,
+                                ))
                           ],
-                        ),
-                        SizedBox(width: 5,),
-                      ],
-                    ));
+                        ));
                   },
                 ),
+
+                /* This is the contiune button */
+                SizedBox(height: 500),
                 ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: ColorConstant.instance.red),
                     onPressed: (() {
                       if (USERS.length < 3) {
                         showDialog(
