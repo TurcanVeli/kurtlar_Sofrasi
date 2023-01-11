@@ -21,7 +21,10 @@ class _profileState extends State<profile> with CacheID {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final ImageService _image = ImageService();
   var newusername = TextEditingController();
-  firestoreService _auth = firestoreService();
+  firestoreService _store = firestoreService();
+
+
+
   Future FetchUser() async {
     var userId = await GetID();
     var ref = _firestore.collection("Users").doc(userId);
@@ -221,7 +224,7 @@ class _profileState extends State<profile> with CacheID {
                                     ),
                                     onPressed: () async {
                                       if (newusername.text.length != 0) {
-                                        _auth.SetUserName(
+                                        _store.SetUserName(
                                             await GetID(), newusername.text);
                                         setState(() {});
                                       }
