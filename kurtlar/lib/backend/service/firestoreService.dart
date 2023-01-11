@@ -22,7 +22,7 @@ class firestoreService {
   }
 
   Future<bool> IncementUserCoin(String UserID, int currentpoint) async {
-    Map<String, dynamic> updatedField = {"point": currentpoint + 50};
+    Map<String, dynamic> updatedField = {"point": currentpoint + 30};
     var ref =
         await _firestore.collection('Users').doc(UserID).update(updatedField);
     return true;
