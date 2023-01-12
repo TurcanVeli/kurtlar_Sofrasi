@@ -119,9 +119,10 @@ class _profileState extends State<profile> with CacheID {
               Container(
                 margin: EdgeInsets.all(5),
                 width: 200,
-                height: 30,
+                height: 40,
                 child: Text(
                   "${translate(context).gamecode} : ${data['invitecode']}",
+
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 20,
