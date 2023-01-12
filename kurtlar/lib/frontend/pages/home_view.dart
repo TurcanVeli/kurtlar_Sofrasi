@@ -14,26 +14,31 @@ import '../base/color_constants.dart';
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
-
 }
 
-class _HomeState extends State<Home> with CacheID{
-
+class _HomeState extends State<Home> with CacheID {
   @override
   void initState() {
-    USERS.clear();
-    GovermentUsers.clear();
-    MafiasUsers.clear();
-    addedRoles.clear();
+    USERS = [];
+    GovermentUsers = [];
+    MafiasUsers = [];
+    for (int i = 0; i < addedRoles.length; i++) {
+      addedRoles[i].decrase();
+    }
+
     super.initState();
   }
+
   // Oyun kurallarını gosteren buton
   void ShowAlertDialog(BuildContext context) {
     Widget okBtn = TextButton(
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Text(translate(context).ok,style: TextStyle(color: ColorConstant.instance.red),));
+        child: Text(
+          translate(context).ok,
+          style: TextStyle(color: ColorConstant.instance.red),
+        ));
 
     AlertDialog alert = AlertDialog(
       title: Text("Kurtlar Sofrası"),
@@ -150,7 +155,8 @@ class _HomeState extends State<Home> with CacheID{
                 child: Text(
                   translate(context).howtoplay,
                   style: TextStyle(
-                      color: ColorConstant.instance.white, fontWeight: FontWeight.bold),
+                      color: ColorConstant.instance.white,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),

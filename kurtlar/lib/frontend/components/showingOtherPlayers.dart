@@ -39,9 +39,9 @@ class _UserShowingState extends State<UserShowing> {
           physics: NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 100,
-                childAspectRatio: 4 / 6,
+                childAspectRatio: 5 / 6,
                 crossAxisSpacing: 34,
-                mainAxisSpacing: 34),
+                mainAxisSpacing: 0),
             itemCount: widget.Users.length,
             itemBuilder: (BuildContext ctx, index) {
               return GestureDetector(

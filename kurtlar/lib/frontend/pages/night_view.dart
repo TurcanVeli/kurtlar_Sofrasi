@@ -147,7 +147,7 @@ class _NightState extends BaseState<Night> {
                         buttonText: translate(context).ok,
                         where: USERS[_i].GetRole.GetName == "Memur" ||
                                 USERS[_i].GetRole.GetName == "Mafya Adamı"
-                            ? _i < USERS.length - 1
+                            ? _i < USERS.length -1
                                 ? Night(_i)
                                 : NightreportPage()
                             : missionreportPage(_i),

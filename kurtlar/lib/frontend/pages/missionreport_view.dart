@@ -79,12 +79,9 @@ class _missionreportPageState extends BaseState<missionreportPage> {
                     fontSize: 30, color: ColorConstant.instance.white)),
       );
 
-  Container notcompleted() => Container(
-        height: dynamicHeight(0.1),
-        child: Text(MissionText,
-            style:
-                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
-      );
+  Text notcompleted() => Text(MissionText,
+      style:
+          TextStyle(fontSize: 30, color: ColorConstant.instance.white));
 
   Container completed() {
     return Container(
@@ -105,12 +102,9 @@ class _missionreportPageState extends BaseState<missionreportPage> {
     );
   }
 
-  Container PolatText() => Container(
-        height: dynamicHeight(0.1),
-        child: Text("POLAT => ${PolatUser.GetName}",textAlign: TextAlign.center,
-            style:
-                TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
-      );
+  Text PolatText() => Text("POLAT => ${PolatUser.GetName}",textAlign: TextAlign.center,
+      style:
+          TextStyle(fontSize: 30, color: ColorConstant.instance.white));
 
   @override
   Widget build(BuildContext context) {
@@ -127,46 +121,51 @@ class _missionreportPageState extends BaseState<missionreportPage> {
       Scaffold(
           backgroundColor:
               ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
-          body: Column(
-            children: [
-              SizedBox(
-                height: dynamicHeight(0.4),
-              ),
-              Row(
-                children: <Widget>[
+          body: Container(
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
                   SizedBox(
-                    width: dynamicHeight(0.9),
+                    height: dynamicHeight(0.4),
                   ),
-                  MissionText != "Bugünlük iş yok"
-                      ? ChosenUserAvatar()
-                      : SizedBox(
-                          height: dynamicHeight(0.3),
-                        ),
+                  Column(
+                    children: <Widget>[
+                      SizedBox(
+                        width: dynamicHeight(0.09),
+                      ),
+                      MissionText != "Bugünlük iş yok"
+                          ? ChosenUserAvatar()
+                          : SizedBox(
+                              height: dynamicHeight(0.3),
+                            ),
+                      SizedBox(
+                        width: dynamicHeight(0.01),
+                      ),
+                      user.GetRole.GetName == "Aslan Akbey"
+                          ? PolatText()
+                          : user.GetRole.GetName == "Doğu Bey" &&
+                                  MissionText == "Bugünlük iş yok"
+                              ? Dogureport()
+                              : MissionText != "Bugünlük iş yok"
+                                  ? completed()
+                                  : notcompleted()
+                    ],
+                  ),
                   SizedBox(
-                    width: dynamicHeight(0.01),
+                    height: 40,
                   ),
-                  user.GetRole.GetName == "Aslan Akbey"
-                      ? PolatText()
-                      : user.GetRole.GetName == "Doğu Bey" &&
-                              MissionText == "Bugünlük iş yok"
-                          ? Dogureport()
-                          : MissionText != "Bugünlük iş yok"
-                              ? completed()
-                              : notcompleted()
+                  BottomButtonContainerContiune(
+                      context: context,
+                      height: 50,
+                      buttonText: translate(context).ok,
+                      where: widget.index < USERS.length - 1
+                          ? Night(widget.index)
+                          : NightreportPage(),
+                      ContainerColor: ColorConstant.instance.transparent)
                 ],
               ),
-              SizedBox(
-                height: 40,
-              ),
-              BottomButtonContainerContiune(
-                  context: context,
-                  height: 50,
-                  buttonText: translate(context).ok,
-                  where: widget.index < USERS.length - 1
-                      ? Night(widget.index)
-                      : NightreportPage(),
-                  ContainerColor: ColorConstant.instance.transparent)
-            ],
+            ),
           ))
     ]);
   }

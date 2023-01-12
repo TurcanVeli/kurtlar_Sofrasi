@@ -34,12 +34,17 @@ class _DayLightreportState extends BaseState<DayLightreport> {
       USERS[i].SetVote(0);
     }
     if (jailed != null) {
+      if (!jailed.GetSaving){
       jailed.setDead();
       USERS.remove(jailed);
       //Burada ve nightreportta ölenin hangi takımda oluğ olmadığı kontrol edilmeli ve ona göre listelerden çıkartılmalı
       GovermentUsers.remove(jailed);
       MafiasUsers.remove(jailed);
       iJail = true;
+
+      }else{
+        jailed.setSaving(false);
+      }
     }
 
     super.initState();

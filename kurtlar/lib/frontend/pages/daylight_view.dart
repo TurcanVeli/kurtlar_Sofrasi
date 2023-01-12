@@ -105,7 +105,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                             context: context,
                             height: dynamicHeight(0.07),
                             buttonText: translate(context).ok,
-                            where: widget.index < USERS.length - 1
+                            where: widget.index < USERS.length -1
                                 ? DaylightPage(widget.index)
                                 : DayLightreport(),
                             ContainerColor: ColorConstant.instance.transparent)

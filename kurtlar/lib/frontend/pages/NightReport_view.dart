@@ -93,7 +93,7 @@ class _NightreportPageState extends State<NightreportPage> {
                 height: 55,
               ),
               Text(
-                "${translate(context).night} ${translate(context).report}",
+                "${translate(context).report}",
                 style: TextStyle(
                     fontSize: 30, color: ColorConstant.instance.white),
               ),
