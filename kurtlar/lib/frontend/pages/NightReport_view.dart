@@ -86,7 +86,7 @@ class _NightreportPageState extends State<NightreportPage> {
       ),
       Scaffold(
           backgroundColor:
-              Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+            ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
           body: Column(
             children: [
               SizedBox(
@@ -156,12 +156,16 @@ class _NightreportPageState extends State<NightreportPage> {
                           .copyWith(color: ColorConstant.instance.white),
                     ),
                   ),
+                ),
+
                   BottomButtonContainerContiune(
                       context: context,
                       height: 50,
                       buttonText: translate(context).contiune,
                       ContainerColor: ColorConstant.instance.transparent,
-                      where: DayStartPage()),
+                      color: ColorConstant.instance.red,
+                      
+                      where: DayStartPage(),),
                 ],
               ))
         ]);

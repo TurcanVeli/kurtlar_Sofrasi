@@ -28,11 +28,11 @@ class _SettingPageUIState extends State<SettingPageUI>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
         title: Text(translate(context).settings,
             style: TextStyle(
               fontSize: 22,
-              color: Colors.white,
+              color: ColorConstant.instance.white,
               fontWeight: FontWeight.bold,
             )),
         leading: IconButton(
@@ -41,7 +41,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.white,
+            color: ColorConstant.instance.white,
           ),
         ),
       ),
@@ -54,7 +54,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
                 Icon(
                   Icons.language,
                   size: 30.0,
-                  color: Color.fromARGB(255, 189, 13, 42),
+                  color: ColorConstant.instance.Venetian_Red,
                 ),
                 Container(
                     margin: EdgeInsets.fromLTRB(2, 10, 10, 10),
@@ -67,12 +67,12 @@ class _SettingPageUIState extends State<SettingPageUI>{
                 Icon(
                   Icons.output,
                   size: 30.0,
-                  color: Color.fromARGB(255, 189, 13, 42),
+                  color: ColorConstant.instance.Venetian_Red,
                 ),
                 Container(
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.fromLTRB(25, 10, 10, 10),
-                  child: TextButton(  child: Text(translate(context).signout) ,style: TextButton.styleFrom( primary: Colors.black
+                  child: TextButton(  child: Text(translate(context).signout) ,style: TextButton.styleFrom( primary: ColorConstant.instance.black
                     ,textStyle:  TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   ), onPressed: (() {
                     _auth.signOut();
@@ -295,8 +295,8 @@ class _SettingPageUIState extends State<SettingPageUI>{
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black)),
-            Icon(Icons.arrow_forward_ios, color: Colors.black)
+                    color: ColorConstant.instance.black)),
+            Icon(Icons.arrow_forward_ios, color: ColorConstant.instance.black)
           ],
         ),
       ),
@@ -313,7 +313,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
         BoxShadow(
           color:
 
-          Colors.grey,
+          ColorConstant.instance.grey,
           offset: Offset(0.0, 1.0), //(x,y)
           blurRadius: 6.0,
         ),
