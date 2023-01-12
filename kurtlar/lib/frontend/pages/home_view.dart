@@ -12,6 +12,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
+
 }
 
 class _HomeState extends State<Home> with CacheID{
@@ -56,17 +57,6 @@ class _HomeState extends State<Home> with CacheID{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: (() {
-            SetID(null);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LoginPage()));
-          }),
-          icon: Icon(
-            Icons.exit_to_app,
-            color: Colors.white,
-          ),
-        ),
         actions: [
           IconButton(
             icon: Icon(

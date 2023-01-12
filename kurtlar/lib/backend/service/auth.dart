@@ -10,8 +10,6 @@ class AuthService with CacheID {
 
   /* This is signIn function of firebase */
   Future<User> signIn(String email, String password) async {
-    print(email);
-    print(password);
     var user = await _auth.signInWithEmailAndPassword(
         email: email, password: password);
     return user.user;

@@ -3,8 +3,10 @@ import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/service/auth.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import '../../main.dart';
+import 'login_view.dart';
 
 /* This page will be drawn after the setting button was pressed */
 class SettingPageUI extends StatefulWidget {
@@ -13,8 +15,9 @@ class SettingPageUI extends StatefulWidget {
   State<SettingPageUI> createState() => _SettingPageUIState();
 }
 
-class _SettingPageUIState extends State<SettingPageUI> {
+class _SettingPageUIState extends State<SettingPageUI>{
   Locale defaultLocale;
+  AuthService _auth = AuthService();
   @override
   void initState() {
     
@@ -51,36 +54,34 @@ class _SettingPageUIState extends State<SettingPageUI> {
                 Icon(
                   Icons.language,
                   size: 30.0,
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 189, 13, 42),
                 ),
                 Container(
-                    margin: EdgeInsets.fromLTRB(30, 10, 10, 10),
+                    margin: EdgeInsets.fromLTRB(2, 10, 10, 10),
                     child: buildAccountOption(
-                        context, translate(context).changeLanguage)),
+                        context, translate(context).changeLanguage,),),
               ],
             ),
             Row(
               children: [
                 Icon(
-                  Icons.rate_review_outlined,
+                  Icons.output,
                   size: 30.0,
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 189, 13, 42),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
-                  margin: EdgeInsets.fromLTRB(52, 10, 10, 10),
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      primary: Colors.black,
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      translate(context).point,
-                      style: TextStyle(fontSize: 20),
-                    ),
+                  margin: EdgeInsets.fromLTRB(25, 10, 10, 10),
+                  child: TextButton(  child: Text('SIGN OUT') ,style: TextButton.styleFrom( primary: Colors.black
+                    ,textStyle:  TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  ), onPressed: (() {
+                    _auth.signOut();
+                    Navigator.of(context)
+                        .pushReplacement(MaterialPageRoute(builder: (context) => LoginPage()));
+                  }),
+
                   ),
-                ),
-              ],
+                )],
             ),
             Row(
               children: [
@@ -101,14 +102,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
         showDialog(
             context: context,
             builder: (BuildContext context) {
-              TextButton(
-                  style: TextButton.styleFrom(
-                    primary: Colors.blue,
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'TextButton',
-                  ));
+
               return AlertDialog(
                 title: Text(title),
                 content: Column(
@@ -317,7 +311,9 @@ class _SettingPageUIState extends State<SettingPageUI> {
           : ColorConstant.instance.white,
       boxShadow: [
         BoxShadow(
-          color: Colors.grey,
+          color:
+
+          Colors.grey,
           offset: Offset(0.0, 1.0), //(x,y)
           blurRadius: 6.0,
         ),
