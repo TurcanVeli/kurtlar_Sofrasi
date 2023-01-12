@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> with CacheID {
   @override
   void initState() {
     GetID().then((ID) => id = ID);
+    
     super.initState();
   }
   Locale _locale;
@@ -62,6 +63,6 @@ class _MyAppState extends State<MyApp> with CacheID {
         supportedLocales: AppLocalizations.supportedLocales,
         /* We are going to check the if some account sign in the app 
          * If someone enter, ıt returns home page or login page */ 
-        home: id != '' ? Home() : LoginPage());
+        home: id != '' && id != null  ? Home() : LoginPage());
   }
 }
