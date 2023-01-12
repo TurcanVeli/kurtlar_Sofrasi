@@ -146,7 +146,7 @@ class _NightreportPageState extends State<NightreportPage> {
                 )
               else
                 Container(
-                  height: 500,
+                  height: 300,
                   child: Center(
                     child: Text(
                       translate(context).nodead,

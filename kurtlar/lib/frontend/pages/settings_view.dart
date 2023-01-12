@@ -72,7 +72,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
                 Container(
                   alignment: Alignment.topLeft,
                   margin: EdgeInsets.fromLTRB(25, 10, 10, 10),
-                  child: TextButton(  child: Text('SIGN OUT') ,style: TextButton.styleFrom( primary: Colors.black
+                  child: TextButton(  child: Text(translate(context).signout) ,style: TextButton.styleFrom( primary: Colors.black
                     ,textStyle:  TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   ), onPressed: (() {
                     _auth.signOut();

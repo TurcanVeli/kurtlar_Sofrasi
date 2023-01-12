@@ -92,8 +92,7 @@ class _createState extends State<create> {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => nightstartPage()));
                   },
                   child: Text(translate(context).ready),

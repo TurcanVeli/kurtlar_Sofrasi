@@ -98,7 +98,7 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       primary: ColorConstant.instance.red),
-                  child: Text('ADD PLAYER'),
+                  child: Text(translate(context).addpPLayer),
                   onPressed: () {
                     fetchedUser =
                         findUserByUsingInviteCode(data, inviteCode.text);

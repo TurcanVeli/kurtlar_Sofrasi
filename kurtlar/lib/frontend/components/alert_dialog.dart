@@ -9,7 +9,11 @@ import '../../backend/lang/language_constant.dart';
 
 Widget dialog(BuildContext context, String header, String Body) {
   return AlertDialog(
-    title: Text(header),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30.0),
+    ),
+    clipBehavior: Clip.antiAlias,    title: Text(header, textAlign: TextAlign.center),
+
     content: Text(Body),
     actions: <Widget>[
       TextButton(
