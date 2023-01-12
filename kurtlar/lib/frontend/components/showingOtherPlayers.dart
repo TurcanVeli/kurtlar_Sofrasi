@@ -36,6 +36,7 @@ class _UserShowingState extends State<UserShowing> {
     return Container(
         height: widget.height,
         child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 100,
                 childAspectRatio: 4 / 6,

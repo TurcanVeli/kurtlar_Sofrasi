@@ -107,7 +107,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
 
   Container PolatText() => Container(
         height: dynamicHeight(0.1),
-        child: Text("POLAT => ${PolatUser.GetName}",
+        child: Text("POLAT => ${PolatUser.GetName}",textAlign: TextAlign.center,
             style:
                 TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
       );
@@ -135,7 +135,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
               Row(
                 children: <Widget>[
                   SizedBox(
-                    width: dynamicHeight(0.12),
+                    width: dynamicHeight(0.9),
                   ),
                   MissionText != "Bugünlük iş yok"
                       ? ChosenUserAvatar()

@@ -167,7 +167,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
                                   width: 5,
                                 ),
                                 Flag.fromCode(
-                                  FlagsCode.TR,
+                                  FlagsCode.US,
                                   height: 15,
                                   width: 15,
                                 )
@@ -281,7 +281,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text(translate(context).ok))
+                      child: Text(translate(context).ok, style: TextStyle(color: ColorConstant.instance.red),))
                 ],
               );
             });

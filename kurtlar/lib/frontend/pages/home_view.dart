@@ -24,6 +24,7 @@ class _HomeState extends State<Home> with CacheID{
     USERS.clear();
     GovermentUsers.clear();
     MafiasUsers.clear();
+    addedRoles.clear();
     super.initState();
   }
   // Oyun kurallarını gosteren buton
@@ -32,7 +33,7 @@ class _HomeState extends State<Home> with CacheID{
         onPressed: () {
           Navigator.pop(context);
         },
-        child: Text(translate(context).ok));
+        child: Text(translate(context).ok,style: TextStyle(color: ColorConstant.instance.red),));
 
     AlertDialog alert = AlertDialog(
       title: Text("Kurtlar Sofrası"),
