@@ -45,7 +45,7 @@ class _profileState extends State<profile> with CacheID {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
         appBar: AppBar(
             leading: GestureDetector(
               onTap: () {
@@ -58,7 +58,7 @@ class _profileState extends State<profile> with CacheID {
                 Icons.arrow_back,
               ),
             ),
-            backgroundColor: Colors.black,
+            backgroundColor: ColorConstant.instance.black,
             title: Text(translate(context).profile),
             centerTitle: true),
         /* We are controlling the data in database if there is a person */
@@ -104,13 +104,13 @@ class _profileState extends State<profile> with CacheID {
                     CircleAvatar(
                       backgroundImage: NetworkImage(data['image']),
 
-                      backgroundColor: Colors.transparent,
+                      backgroundColor: ColorConstant.instance.transparent,
                       radius: 50,
                       //Text
                     ),
                     Text("+",
                         style: TextStyle(
-                            color: Color.fromARGB(255, 189, 13, 42),
+                            color: ColorConstant.instance.red,
                             fontSize: 30)),
                   ],
                 ),
@@ -125,7 +125,7 @@ class _profileState extends State<profile> with CacheID {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
+                      color: ColorConstant.instance.white,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -138,7 +138,7 @@ class _profileState extends State<profile> with CacheID {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: ColorConstant.instance.white,
                         fontWeight: FontWeight.bold)),
               ),
               Container(
@@ -149,7 +149,7 @@ class _profileState extends State<profile> with CacheID {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: ColorConstant.instance.white,
                         fontWeight: FontWeight.bold)),
               ),
               Container(
@@ -160,7 +160,7 @@ class _profileState extends State<profile> with CacheID {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 20,
-                        color: Colors.white,
+                        color: ColorConstant.instance.white,
                         fontWeight: FontWeight.bold)),
               ),
               SizedBox(height: 30),
@@ -179,7 +179,7 @@ class _profileState extends State<profile> with CacheID {
                             top: Radius.circular(25),
                           ),
                         ),
-                        backgroundColor: Colors.white,
+                        backgroundColor: ColorConstant.instance.white,
                         context: context,
                         builder: (context) {
                           return Wrap(
@@ -250,7 +250,7 @@ class _profileState extends State<profile> with CacheID {
                     "Change Username",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: Colors.redAccent,
+                      color: ColorConstant.instance.red,
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),

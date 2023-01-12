@@ -85,7 +85,7 @@ class _NightreportPageState extends State<NightreportPage> {
           ),
           Scaffold(
               backgroundColor:
-                  Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+                  ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
               body: Column(
                 children: [
                   SizedBox(
@@ -146,7 +146,7 @@ class _NightreportPageState extends State<NightreportPage> {
                       context: context,
                       height: 50,
                       buttonText: translate(context).contiune,
-                      ContainerColor: Colors.transparent,
+                      ContainerColor: ColorConstant.instance.transparent,
                       where: DayStartPage()),
                 ],
               ))

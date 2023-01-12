@@ -51,7 +51,7 @@ class _DayLightreportState extends BaseState<DayLightreport> {
       // <-- SCAFFOLD WITH TRANSPARENT BG
       body: iJail
           ? Container(
-              color: Colors.transparent,
+              color: ColorConstant.instance.transparent,
               child: Center(
                 child: Column(
                   children: [
@@ -78,7 +78,7 @@ class _DayLightreportState extends BaseState<DayLightreport> {
                         context: context,
                         buttonText: translate(context).contiune,
                         color: ColorConstant.instance.red,
-                        ContainerColor: Colors.transparent,
+                        ContainerColor: ColorConstant.instance.transparent,
                         where: nightstartPage()),
                   ],
                 ),
@@ -121,7 +121,7 @@ class _DayLightreportState extends BaseState<DayLightreport> {
                     height: dynamicHeight(0.08),
                     buttonText: translate(context).contiune,
                     color: ColorConstant.instance.red,
-                    ContainerColor: Colors.transparent,
+                    ContainerColor: ColorConstant.instance.transparent,
                     where: nightstartPage()),
               ],
             ),

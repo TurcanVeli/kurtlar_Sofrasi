@@ -62,7 +62,7 @@ class _NightState extends BaseState<Night> {
           ),
           Scaffold(
             backgroundColor:
-                Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+                ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
             body: ready != false
                 ? ListView(children: [
                     SizedBox(
@@ -151,7 +151,7 @@ class _NightState extends BaseState<Night> {
                                 ? Night(_i)
                                 : NightreportPage()
                             : missionreportPage(_i),
-                        ContainerColor: Colors.transparent)
+                        ContainerColor: ColorConstant.instance.transparent)
                   ])
                 : ReadyComponent(
                     context,

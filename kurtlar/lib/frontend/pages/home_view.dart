@@ -9,6 +9,8 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/settings_view.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../base/color_constants.dart';
+
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
@@ -64,14 +66,14 @@ class _HomeState extends State<Home> with CacheID{
           }),
           icon: Icon(
             Icons.exit_to_app,
-            color: Colors.white,
+            color: ColorConstant.instance.white,
           ),
         ),
         actions: [
           IconButton(
             icon: Icon(
               Icons.settings,
-              color: Colors.white,
+              color: ColorConstant.instance.white,
             ),
             onPressed: () {
               Navigator.of(context).push(
@@ -79,9 +81,9 @@ class _HomeState extends State<Home> with CacheID{
             },
           )
         ],
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
       ),
-      backgroundColor: Colors.black,
+      backgroundColor: ColorConstant.instance.black,
       body: SafeArea(
           child: Center(
         child: Column(
@@ -103,7 +105,7 @@ class _HomeState extends State<Home> with CacheID{
               child: Text(
                 "KURTLAR SOFRASI",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: ColorConstant.instance.white,
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 2),
@@ -116,7 +118,7 @@ class _HomeState extends State<Home> with CacheID{
               child: Text(
                 "Kurtlukta Düşeni Yemek Kanundur",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorConstant.instance.white,
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -146,7 +148,7 @@ class _HomeState extends State<Home> with CacheID{
               alignment: Alignment.bottomCenter,
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 189, 13, 42),
+                color: ColorConstant.instance.Venetian_Red,
                 borderRadius: BorderRadius.circular(20),
               ),
               padding: EdgeInsets.all(0),
@@ -157,7 +159,7 @@ class _HomeState extends State<Home> with CacheID{
                 child: Text(
                   translate(context).howtoplay,
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      color: ColorConstant.instance.white, fontWeight: FontWeight.bold),
                 ),
               ),
             ),

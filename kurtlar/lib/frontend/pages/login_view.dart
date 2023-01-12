@@ -8,6 +8,7 @@ import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import '../base/color_constants.dart';
 import 'home_view.dart';
 
 /* This is the first page of our application */
@@ -33,7 +34,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
         body: LoginPage(context));
   }
 
@@ -50,16 +51,16 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
 
         TextField(
           controller: mail,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: ColorConstant.instance.white),
           decoration: InputDecoration(
             prefixIcon: Icon(
               Icons.mail,
-              color: Colors.white,
+              color: ColorConstant.instance.white,
             ),
             hintText: "Mail",
-            hintStyle: TextStyle(color: Colors.white),
+            hintStyle: TextStyle(color: ColorConstant.instance.white),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 2.0),
+              borderSide: BorderSide(color: ColorConstant.instance.white, width: 2.0),
             ),
           ),
         ),
@@ -68,16 +69,16 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
         TextField(
           controller: password,
           obscureText: true,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: ColorConstant.instance.white),
           decoration: InputDecoration(
               prefixIcon: Icon(
                 Icons.lock_person_outlined,
-                color: Colors.white,
+                color: ColorConstant.instance.white,
               ),
               hintText: translate(context).password,
-              hintStyle: TextStyle(color: Colors.white),
+              hintStyle: TextStyle(color: ColorConstant.instance.white),
               enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white, width: 2.0))),
+                  borderSide: BorderSide(color: ColorConstant.instance.white, width: 2.0))),
         ),
         const SizedBox(height: 25),
 
@@ -102,14 +103,14 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
             height: 40,
             width: 375,
             decoration: BoxDecoration(
-                color: Color.fromARGB(255, 189, 13, 42),
+                color: ColorConstant.instance.Venetian_Red,
                 borderRadius: BorderRadius.circular(20)),
             child: Center(
                 child: Text(
               'LOGIN',
               style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: ColorConstant.instance.white,
                   fontSize: 25),
             )),
           ),
@@ -119,7 +120,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
 
         Text(
           '-------------- ${translate(context).or} --------------',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(color: ColorConstant.instance.white, fontSize: 20),
         ),
         const SizedBox(height: 15),
         

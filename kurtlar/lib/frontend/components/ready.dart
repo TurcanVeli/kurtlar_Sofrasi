@@ -24,7 +24,7 @@ Center ReadyComponent(
             height: dynamicHeight(0.26),
             child: CircleAvatar(
               radius: 100,
-              backgroundColor: ispressed ? Colors.red : Colors.white,
+              backgroundColor: ispressed ? ColorConstant.instance.red : ColorConstant.instance.white,
               child: CircleAvatar(
                 maxRadius: 95,
                 minRadius: 70,
@@ -43,7 +43,7 @@ Center ReadyComponent(
               padding: EdgeInsets.only(bottom: 90),
               child: Text(
                 user.GetName,
-                style: TextStyle(color: isNight ? Colors.white : Colors.black),
+                style: TextStyle(color: isNight ? ColorConstant.instance.white : ColorConstant.instance.black),
               ),
             ))),
 
@@ -55,7 +55,7 @@ Center ReadyComponent(
               padding: EdgeInsets.only(bottom: 90),
               child: Text(Body,
                   style:
-                      TextStyle(color: isNight ? ColorConstant.instance.white : Colors.black)),
+                      TextStyle(color: isNight ? ColorConstant.instance.white : ColorConstant.instance.black)),
             ))),
         SizedBox(
           height: dynamicHeight(0.07),

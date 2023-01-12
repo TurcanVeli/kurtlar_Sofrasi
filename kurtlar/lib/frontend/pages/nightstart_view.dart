@@ -44,7 +44,7 @@ class _nightstartPageState extends State<nightstartPage> {
           ),
           Scaffold(
             backgroundColor:
-                Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+                ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
             body: !isGameOver
                 ? NightStartBody(context)
                 : FutureBuilder(
@@ -73,7 +73,7 @@ class _nightstartPageState extends State<nightstartPage> {
               alignment: Alignment.center,
               child: Text(
                 translate(context).nightStart,
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(fontSize: 24, color: ColorConstant.instance.white),
               ),
             ),
             SizedBox(

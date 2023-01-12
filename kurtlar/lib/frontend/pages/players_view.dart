@@ -65,13 +65,13 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
         title: Text(
           'Oyuncu Ekle',
           style: TextStyle(fontSize: 20),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_circle_left_sharp, size: 30),
+          icon: Icon(Icons.arrow_back, size: 30),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -138,12 +138,12 @@ class _PlayerPageState extends State<PlayerPage> with CacheID {
                               padding: EdgeInsets.all(10),
                               child: Container(
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: ColorConstant.instance.white,
                                   shape: BoxShape.circle,
                                   boxShadow: [
                                     BoxShadow(
                                         blurRadius: 10,
-                                        color: Colors.black,
+                                        color: ColorConstant.instance.black,
                                         spreadRadius: 1 / 2)
                                   ],
                                 ),

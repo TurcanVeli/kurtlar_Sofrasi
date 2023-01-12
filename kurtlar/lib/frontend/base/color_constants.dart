@@ -11,4 +11,6 @@ class ColorConstant {
   final white = Color.fromARGB(255, 255, 255, 255);
   final Catskill_White = Color.fromARGB(255, 230, 229, 229);
   final Venetian_Red = Color.fromARGB(255, 189, 13, 42);
+  final transparent = Color.fromARGB(0, 0, 0, 0);
+  final grey = Color.fromARGB(255, 158, 158, 158);
 }

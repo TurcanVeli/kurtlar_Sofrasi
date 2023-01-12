@@ -60,7 +60,7 @@ class _DayStartPageState extends State<DayStartPage> {
         ),
         Scaffold(
           backgroundColor:
-              Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+              ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
           body: !isGameOver
               ? DiscussContainer(context)
               : FutureBuilder(future: updateUsers(isMafiaWin),builder:((context, snapshot) {
@@ -76,7 +76,7 @@ class _DayStartPageState extends State<DayStartPage> {
 
   Container DiscussContainer(BuildContext context) {
     return Container(
-      color: Colors.transparent,
+      color: ColorConstant.instance.transparent,
       child: Center(
         child: Column(
           children: [
@@ -100,7 +100,7 @@ class _DayStartPageState extends State<DayStartPage> {
                 context: context,
                 buttonText: translate(context).enddiscuss,
                 color: ColorConstant.instance.red,
-                ContainerColor: Colors.transparent,
+                ContainerColor: ColorConstant.instance.transparent,
                 where: DaylightPage(-1)),
           ],
         ),

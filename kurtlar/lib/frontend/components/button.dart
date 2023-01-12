@@ -41,14 +41,14 @@ class _ButtonState extends State<Button> {
         height: widget.Height,
         width: widget.Width,
         decoration: BoxDecoration(
-            color: Color.fromARGB(255, 189, 13, 42),
+            color: ColorConstant.instance.Venetian_Red,
             borderRadius: BorderRadius.circular(20)),
         child: Center(
             child: Text(
           widget.buttonText,
           style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: ColorConstant.instance.white,
               fontSize: widget.fontSize),
         )),
       ),

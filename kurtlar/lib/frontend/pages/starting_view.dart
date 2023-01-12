@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/pages/create_view.dart';
 
+import '../base/color_constants.dart';
 import '../components/button.dart';
 
 /* This is the page before enter the game */ 
@@ -10,16 +11,16 @@ class starting extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorConstant.instance.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorConstant.instance.white,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: ColorConstant.instance.black,
           ),
         ),
       ),
@@ -67,8 +68,8 @@ class starting extends StatelessWidget {
                   },
                   child: Text(translate(context).contiune),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    primary: Colors.black,
+                    backgroundColor: ColorConstant.instance.red,
+                    primary: ColorConstant.instance.black,
                   ),
                 ),
               ),

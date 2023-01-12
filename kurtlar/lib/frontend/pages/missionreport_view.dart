@@ -127,7 +127,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
       ),
       Scaffold(
           backgroundColor:
-              Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+              ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
           body: Column(
             children: [
               SizedBox(
@@ -163,7 +163,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
                   where: widget.index < USERS.length - 1
                       ? Night(widget.index)
                       : NightreportPage(),
-                  ContainerColor: Colors.transparent)
+                  ContainerColor: ColorConstant.instance.transparent)
             ],
           ))
     ]);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../backend/lang/language_constant.dart';
+import '../base/color_constants.dart';
 
 
 
@@ -18,7 +19,7 @@ Widget dialog(BuildContext context, String header, String Body) {
           },
           child: Text(
             translate(context).ok,
-            style: TextStyle(color: Colors.red, fontSize: 17),
+            style: TextStyle(color: ColorConstant.instance.red, fontSize: 17),
           ))
     ],
   );

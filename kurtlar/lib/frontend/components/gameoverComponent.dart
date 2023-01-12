@@ -63,7 +63,7 @@ Future<bool> updateUsers(bool isMafiaWin) async {
             child: BottomButtonContainerContiune(
               context: context,
                 where: Home(),
-                ContainerColor: Colors.transparent,
+                ContainerColor: ColorConstant.instance.transparent,
                 color: ColorConstant.instance.red,
                 buttonText: translate(context).backhomepage))
       ],

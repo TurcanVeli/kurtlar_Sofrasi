@@ -4,6 +4,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
+import '../base/color_constants.dart';
 import '../models/users.dart';
 
 class create extends StatefulWidget {
@@ -42,14 +43,14 @@ class _createState extends State<create> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: ColorConstant.instance.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: ColorConstant.instance.white,
         leading: IconButton(
           onPressed: () {},
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: ColorConstant.instance.black,
           ),
         ),
       ),
@@ -98,8 +99,8 @@ class _createState extends State<create> {
                   },
                   child: Text(translate(context).ready),
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                    primary: Colors.black,
+                    backgroundColor: ColorConstant.instance.red,
+                    primary: ColorConstant.instance.black,
                   ),
                 ),
               ),

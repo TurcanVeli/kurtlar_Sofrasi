@@ -65,7 +65,7 @@ class _UserShowingState extends State<UserShowing> {
                         radius: 45,
                         backgroundColor: selectedUser == index
                             ? ColorConstant.instance.red
-                            : Colors.transparent,
+                            : ColorConstant.instance.transparent,
                         child: CircleAvatar(
                           radius: 40,
                           backgroundImage:
@@ -92,8 +92,8 @@ class _UserShowingState extends State<UserShowing> {
                         Text("",
                             style: TextStyle(
                                 color: widget.isNight
-                                    ? Colors.white
-                                    : Colors.black)),
+                                    ? ColorConstant.instance.white
+                                    : ColorConstant.instance.black)),
                     ],
                   ),
                 ),

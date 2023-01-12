@@ -143,7 +143,7 @@ class _rolesPageState extends BaseState<rolesPage> {
           ),
           BottomButtonContainerContiune(
             context: context,
-            color: addedmafiacount == 0? Colors.grey: null ,
+            color: addedmafiacount == 0? ColorConstant.instance.grey: null ,
             height: dynamicHeight(0.08),
             //Translate edilecek
             buttonText: addedmafiacount == 0? "En az 1 mafya ekleyin": translate(context).contiune,

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,8 @@ import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/home_view.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/main.dart';
+
+import '../base/color_constants.dart';
 
 
 /* This is the page to create your account for the game */
@@ -57,7 +60,7 @@ class _RegisterState extends State<Register> {
             Icons.arrow_back,
           ),
         ),
-        backgroundColor: Colors.black,
+        backgroundColor: ColorConstant.instance.black,
         title: Text(translate(context).signup),
         centerTitle: true,
       ),
@@ -67,45 +70,45 @@ class _RegisterState extends State<Register> {
           children: [
             TextField(
               controller: mail,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: ColorConstant.instance.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.mail,
-                    color: Colors.black,
+                    color: ColorConstant.instance.black,
                   ),
                   hintText: 'Mail',
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: ColorConstant.instance.black),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 2.0))),
+                      borderSide: BorderSide(color: ColorConstant.instance.black, width: 2.0))),
             ),
             const SizedBox(height: 50),
             TextField(
               controller: username,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: ColorConstant.instance.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.accessibility_new,
-                    color: Colors.black,
+                    color: ColorConstant.instance.black,
                   ),
                   hintText: translate(context).username,
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: ColorConstant.instance.black),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 2.0))),
+                      borderSide: BorderSide(color: ColorConstant.instance.black, width: 2.0))),
             ),
             const SizedBox(height: 50),
             TextField(
               controller: password,
               obscureText: true,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: ColorConstant.instance.black),
               decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.lock_person_outlined,
-                    color: Colors.black,
+                    color: ColorConstant.instance.black,
                   ),
                   hintText: translate(context).password,
-                  hintStyle: TextStyle(color: Colors.black),
+                  hintStyle: TextStyle(color: ColorConstant.instance.black),
                   enabledBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black, width: 2.0))),
+                      borderSide: BorderSide(color: ColorConstant.instance.black, width: 2.0))),
             ),
             const SizedBox(height: 40),
            
@@ -122,7 +125,7 @@ class _RegisterState extends State<Register> {
                     });
                   });
                 }),
-                child: Text(translate(context).save))
+                child: Text(translate(context).save,style: TextStyle(color: ColorConstant.instance.red,fontSize: 20),))
           ],
         ),
       ),

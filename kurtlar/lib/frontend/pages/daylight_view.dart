@@ -55,7 +55,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
           ),
           Scaffold(
               backgroundColor:
-                  Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+                  ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
               body: ready
                   ? ReadyComponent(
                       context,
@@ -108,7 +108,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                             where: widget.index < USERS.length - 1
                                 ? DaylightPage(widget.index)
                                 : DayLightreport(),
-                            ContainerColor: Colors.transparent)
+                            ContainerColor: ColorConstant.instance.transparent)
                       ],
                     ))
         ]);
