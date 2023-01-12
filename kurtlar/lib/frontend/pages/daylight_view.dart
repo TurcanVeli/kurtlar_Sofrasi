@@ -99,7 +99,7 @@ class _DaylightPageState extends BaseState<DaylightPage> {
                         SizedBox(
                           height: dynamicHeight(0.1),
                         ),
-                        UserShowing(dynamicHeight(0.6), USERS, false, false,
+                        UserShowing(dynamicHeight(0.3), USERS, false, false,
                             USERS[widget.index]),
                         BottomButtonContainerContiune(
                             context: context,

@@ -38,7 +38,7 @@ class LazZiya extends Role {
     if (remainingMission == 1 && chosenUser != null) {
       remainingMission--;
       chosenUser.SetTempTeam("Mafya");
-      return "İftira atıldı";
+      return "Blamed";
     }
     return "Bugünlük iş yok";
   }

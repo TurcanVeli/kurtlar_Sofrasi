@@ -135,7 +135,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
               Row(
                 children: <Widget>[
                   SizedBox(
-                    width: dynamicHeight(0.01),
+                    width: dynamicHeight(0.12),
                   ),
                   MissionText != "Bugünlük iş yok"
                       ? ChosenUserAvatar()

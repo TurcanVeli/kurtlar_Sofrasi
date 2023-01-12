@@ -42,7 +42,7 @@ class Karahanli extends Role {
   String DoMission() {
     if (remainingMission > 0 && chosenUser != null) {
       remainingMission--;
-      return "Susturuldu";
+      return "Muted";
     }
     return "Bugünlük iş yok";
   }

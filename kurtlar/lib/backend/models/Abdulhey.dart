@@ -38,7 +38,7 @@ class Abdulhey extends Role {
     if (remainingMission == 1 && this.chosenUser != null) {
       remainingMission--;
       chosenUser.setHitBullet();
-      return "Vuruldu";
+      return "Shoot";
     }
     return "Bugünlük iş yok";
   }

@@ -28,7 +28,7 @@ class nizamettin extends Role {
       remainingMission--;
       //Kurtar
       chosenUser.setSaving(true);
-      return "Kurtarıldı";
+      return "Saved";
     }
     return "Bugünlük iş yok";
   }

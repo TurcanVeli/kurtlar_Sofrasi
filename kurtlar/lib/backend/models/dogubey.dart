@@ -38,7 +38,7 @@ class DoguBey extends Role {
   String DoMission() {
     if(remainingMission ==1 && chosenUser != null){
       remainingMission--;
-      return "istihbarat sağlandı";
+      return "Intelligence Provided";
     }
     return "Bugünlük iş yok";
   }
