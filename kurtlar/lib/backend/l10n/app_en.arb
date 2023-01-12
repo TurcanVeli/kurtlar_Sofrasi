@@ -113,5 +113,9 @@
     "abdushot": "He was shot by a long-haired man.",
     "mafiashot": "Killed by the mafia",
     "entercode": "Please enter the player's code",
-    "noduty": "No Mission"
+    "noduty": "No Mission",
+    "de": "DEUTSCHE",
+    "es": "ESPANOL",
+    "it":"ITALIAN",
+    "nojob": "No job for today"
 }

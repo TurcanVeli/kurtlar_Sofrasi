@@ -6,6 +6,9 @@ const String LAGUAGE_CODE = 'languageCode';
 
 const String ENGLISH = "en";
 const String TURKISH = "tr";
+const String ITALIAN  = "it";
+const String GERMANY = "de";
+const String ESPANOL = "es"; 
 
 /* The pre-selected language is saved with this code */
 Future<Locale> setLocale(String languageCode) async {
@@ -27,6 +30,12 @@ Locale _locale(String languageCode) {
       return Locale(ENGLISH, "US");
     case TURKISH:
       return Locale(TURKISH, "TUR");
+    case ESPANOL:
+      return Locale(ESPANOL,  "ES");
+    case GERMANY:
+      return Locale(GERMANY, "DE");
+    case ITALIAN:
+      return Locale(ITALIAN, "IT");
 
     default:
       return Locale(TURKISH, "TUR");

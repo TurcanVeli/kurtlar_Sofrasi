@@ -18,13 +18,13 @@
     "rule_3": "En la lógica de la noche, los mafiosos utilizan su voto para elegir a quién matar de manera sigilosa. Solo los mafiosos pueden votar en esta votación. Durante la noche, los miembros del estado profundo pueden utilizar sus habilidades.",
     "rule_4": "Cuando termina la noche, los jugadores reciben un informe en el que se muestra quién murió o fue eliminado, y los jugadores comienzan a discutir. El juego continúa de esta manera.",
     "rule_5": "En el primer día, no se realiza una gran votación, por lo que el juego pasa directamente a la noche y continúa.",
-    "player": "JUGADORES"
+    "player": "JUGADORES",
     "clickAdd": "Haga clic para agregar un nuevo jugador",
     "enterid": "Ingresa el Id",
     "addpPLayer": "AGREGAR JUGADOR",
     "select": "SELECCIONAR PERSONAJE",
     "polatExpo": "Polat es un agente especialmente entrenado por el estado y tiene la habilidad de vigilar",
-    "polatAbility": "Vigilante: Polat selecciona una persona en la noche y si esa persona es de la mafia, ve el texto "es de la mafia", si no es de la mafia ve el texto "no es de la mafia".
+    "polatAbility": "Vigilante: Polat selecciona una persona en la noche y si esa persona es de la mafia, ve el texto es de la mafia, si no es de la mafia ve el texto no es de la mafia",
     "polatChoose": "Eres Polat Alemdar, estás a cargo del estado, usarás tu habilidad para descubrir quién es de la mafia y ayudarás al estado. Cuidado de no ser detectado.",
     "polatUseabilitypage": "DESCUBRIR EN QUE EQUIPO ESTA EL JUGADOR",
     "polatAbilityuseage_1": "ESTA PERSONA NO ES DE LA MAFIA",
@@ -110,9 +110,14 @@
     "suspects": "Sospechosos",
     "bullet": "murio por un balazo en la cabeza",
     "alive": "sigue vivo",
-   "backhomepage": "Volver a la página principal",
-   "abdushot": "Fue asesinado por un hombre con cabello largo",
-   "mafiashot": "Fue asesinado por la mafia",
-   "entercode": "Por favor ingrese el código del jugador",
-   "noduty": "No tienes ninguna tarea"
+    "backhomepage": "Volver a la página principal",
+    "abdushot": "Fue asesinado por un hombre con cabello largo",
+    "mafiashot": "Fue asesinado por la mafia",
+    "entercode": "Por favor ingrese el código del jugador",
+    "noduty": "No tienes ninguna tarea",
+    "maifamen": "Mafia",
+    "de": "DEUTSCHE",
+    "es": "ESPANOL",
+    "it":"ITALIAN",
+    "nojob": "No hay trabajos por hoy"
 }
