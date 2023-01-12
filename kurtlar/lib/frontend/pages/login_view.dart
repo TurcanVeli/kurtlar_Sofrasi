@@ -4,6 +4,7 @@ import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/service/auth.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
+import 'package:kurtlar/frontend/components/alert_dialog.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
 import 'package:kurtlar/frontend/pages/register_view.dart';
 import 'package:kurtlar/frontend/components/button.dart';
@@ -19,7 +20,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends BaseState<LoginPage> with CacheID {
-  
   var mail = TextEditingController();
   var password = TextEditingController();
   @override
@@ -60,7 +60,8 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
             hintText: "Mail",
             hintStyle: TextStyle(color: ColorConstant.instance.white),
             enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: ColorConstant.instance.white, width: 2.0),
+              borderSide:
+                  BorderSide(color: ColorConstant.instance.white, width: 2.0),
             ),
           ),
         ),
@@ -78,7 +79,8 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
               hintText: translate(context).password,
               hintStyle: TextStyle(color: ColorConstant.instance.white),
               enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstant.instance.white, width: 2.0))),
+                  borderSide: BorderSide(
+                      color: ColorConstant.instance.white, width: 2.0))),
         ),
         const SizedBox(height: 25),
 
@@ -87,10 +89,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
         GestureDetector(
           onTap: (() async {
             _authService.signIn(mail.text, password.text).then((value) {
-              if (value != null) {
-                print(value.uid);
-                SetID(value.uid ?? '');
-              }
+              SetID(value.uid ?? '');
               return Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -123,7 +122,7 @@ class _LoginPageState extends BaseState<LoginPage> with CacheID {
           style: TextStyle(color: ColorConstant.instance.white, fontSize: 20),
         ),
         const SizedBox(height: 15),
-        
+
         /* This is the button send you to register page */
         Button(
           buttonText: translate(context).signup,

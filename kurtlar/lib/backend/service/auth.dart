@@ -17,7 +17,7 @@ class AuthService with CacheID {
 
   /* This is the sıngOut function of firebase */
   signOut() async {
-    SetID(null);
+    SetID('');
     return await _auth.signOut();
   }
 

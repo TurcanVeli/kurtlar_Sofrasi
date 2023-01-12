@@ -33,6 +33,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with CacheID {
+  String id;
+  @override
+  void initState() {
+    GetID().then((ID) => id = ID);
+    super.initState();
+  }
   Locale _locale;
   setLocale(Locale locale) {
     setState(() {
@@ -56,6 +62,6 @@ class _MyAppState extends State<MyApp> with CacheID {
         supportedLocales: AppLocalizations.supportedLocales,
         /* We are going to check the if some account sign in the app 
          * If someone enter, ıt returns home page or login page */ 
-        home: GetID() != null ? Home() : LoginPage());
+        home: id != '' ? Home() : LoginPage());
   }
 }
