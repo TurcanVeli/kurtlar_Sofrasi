@@ -104,7 +104,7 @@ class _SettingPageUIState extends State<SettingPageUI>{
             builder: (BuildContext context) {
 
               return AlertDialog(
-                title: Text(title),
+                title: Text(title,textAlign: TextAlign.center,),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
