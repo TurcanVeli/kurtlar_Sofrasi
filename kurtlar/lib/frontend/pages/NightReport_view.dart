@@ -29,7 +29,8 @@ class _NightreportPageState extends State<NightreportPage> {
       if (USERS[i].GetName == "Doğu Bey") {
         dogu = USERS[i];
       }
-      if(USERS[i].GetMuted && USERS[i].GetPassedNight == USERS[i].getUnMutedNight){
+      if (USERS[i].GetMuted &&
+          USERS[i].GetPassedNight == USERS[i].getUnMutedNight) {
         USERS[i].setUnMutedNight(-1);
         USERS[i].setMuted(false);
       }
@@ -44,9 +45,11 @@ class _NightreportPageState extends State<NightreportPage> {
       }
       if (USERS[i].GetRole.GetName == "Karahanli" &&
           USERS[i].GetRole.chosenUser != null) {
-    
         USERS[i].GetRole.chosenUser.setMuted(true);
-        USERS[i].GetRole.chosenUser.setUnMutedNight(USERS[i].GetPassedNight+1);
+        USERS[i]
+            .GetRole
+            .chosenUser
+            .setUnMutedNight(USERS[i].GetPassedNight + 1);
       }
 
       USERS[i].SetVote(0);
@@ -71,85 +74,97 @@ class _NightreportPageState extends State<NightreportPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        // <-- STACK AS THE SCAFFOLD PARENT
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                    "assets/images/night.jpg"), // <-- BACKGROUND IMAGE
-                fit: BoxFit.cover,
-              ),
-            ),
+    return Stack(children: [
+      Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image:
+                AssetImage("assets/images/night.jpg"), // <-- BACKGROUND IMAGE
+            fit: BoxFit.cover,
           ),
-          Scaffold(
-              backgroundColor:
-                  Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
-              body: Column(
-                children: [
-                  SizedBox(
-                    height: 55,
+        ),
+      ),
+      Scaffold(
+          backgroundColor:
+              Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+          body: Column(
+            children: [
+              SizedBox(
+                height: 55,
+              ),
+              Text(
+                "${translate(context).night} ${translate(context).report}",
+                style: TextStyle(
+                    fontSize: 30, color: ColorConstant.instance.white),
+              ),
+              SizedBox(
+                height: 150,
+              ),
+              if (DeadUsers.length == 0)
+                Container(
+                  height: 500,
+                  child: ListView.builder(
+                    itemCount: DeadUsers.length,
+                    itemBuilder: ((context, index) {
+                      return Container(
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Column(
+                              children: [
+                                Text(DeadUsers[index].GetName,
+                                    style: TextStyle(
+                                        color: ColorConstant.instance.white,
+                                        fontSize: 15)),
+                                CircleAvatar(
+                                  radius: 40,
+                                  backgroundImage: NetworkImage(
+                                      DeadUsers[index].GetImageUrl),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Text(
+                              DeadUsers[index].GetHitBullet
+                                  ? translate(context).abdushot
+                                  : translate(context).mafiashot,
+                              style: TextStyle(
+                                  color: ColorConstant.instance.white),
+                            )
+                          ],
+                        ),
+                      );
+                    }),
                   ),
-                  Text(
-                    "${translate(context).night} ${translate(context).report}",
-                    style: TextStyle(
-                        fontSize: 30, color: ColorConstant.instance.white),
-                  ),
-                  SizedBox(
-                    height: 150,
-                  ),
-                  Container(
-                    height: 500,
-                    child: ListView.builder(
-                      itemCount: DeadUsers.length,
-                      itemBuilder: ((context, index) {
-                        return Container(
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Column(
-                                children: [
-                                  Text(DeadUsers[index].GetName,
-                                      style: TextStyle(
-                                          color: ColorConstant.instance.white,
-                                          fontSize: 15)),
-                                  CircleAvatar(
-                                    radius: 40,
-                                    backgroundImage: NetworkImage(
-                                        DeadUsers[index].GetImageUrl),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(
-                                DeadUsers[index].GetHitBullet
-                                    ? translate(context).abdushot
-                                    : translate(context).mafiashot,
-                                style: TextStyle(
-                                    color: ColorConstant.instance.white),
-                              )
-                            ],
-                          ),
-                        );
-                      }),
+                )
+              else
+                Container(
+                  height: 500,
+                  child: Center(
+                    child: Text(
+                      translate(context).nodead,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline3
+                          .copyWith(color: ColorConstant.instance.white),
                     ),
                   ),
-                  BottomButtonContainerContiune(
-                      context: context,
-                      height: 50,
-                      buttonText: translate(context).contiune,
-                      ContainerColor: Colors.transparent,
-                      where: DayStartPage()),
-                ],
-              ))
-        ]);
+                ),
+              BottomButtonContainerContiune(
+                  context: context,
+                  height: 50,
+                  buttonText: translate(context).contiune,
+                  ContainerColor: Colors.transparent,
+                  where: DayStartPage()),
+            ],
+          ))
+    ]);
   }
 }

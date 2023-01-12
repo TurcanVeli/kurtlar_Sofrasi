@@ -117,5 +117,6 @@
     "de": "DEUTSCHE",
     "es": "ESPANOL",
     "it":"ITALIAN",
-    "nojob": "No job for today"
+    "nojob": "No job for today",
+    "nodead": "No one died tonight"
 }

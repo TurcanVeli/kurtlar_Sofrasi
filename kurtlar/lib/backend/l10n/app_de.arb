@@ -120,5 +120,6 @@
     "de": "DEUTSCHE",
     "es": "ESPANOL",
     "it": "ITALIAN",
-    "nojob": "Keine Jobs für heute"
+    "nojob": "Keine Jobs für heute",
+    "nodead": "Niemand ist heute Nacht gestorben"
 }

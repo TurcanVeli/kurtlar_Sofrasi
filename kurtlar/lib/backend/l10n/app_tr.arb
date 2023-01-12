@@ -117,5 +117,6 @@
     "de": "DEUTSCHE",
     "es": "ESPANOL",
     "it": "ITALIAN",
-    "nojob": "Bugünlük İş yok"
+    "nojob": "Bugünlük İş yok",
+    "nodead": "Bu gece kimse ölmedi"
 }
