@@ -2,8 +2,10 @@ import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class LazZiya extends Role {
-  final String _MissionText = "Birini Suçla";
-  final String _RoleDefinition = "Sen Mafyanın laz ziyasısın";
+  static LazZiya instance = LazZiya.init();
+  LazZiya.init(); 
+  final String _MissionText = "CHOOSE THE PERSON TO BLAME";
+  final String _RoleDefinition = "You wrote the book of mafia affairs and you have the ability to Accusation.";
   String _Name = "Laz Ziya";
   final String _team = "Mafya";
   final String _imagepath = "assets/images/laziya.png";

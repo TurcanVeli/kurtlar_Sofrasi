@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
-import 'package:kurtlar/frontend/models/users.dart';
+import 'package:kurtlar/frontend/models/usersAndroles.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';

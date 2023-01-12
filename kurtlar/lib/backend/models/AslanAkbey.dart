@@ -6,10 +6,12 @@ import 'package:kurtlar/frontend/models/players.dart';
 import 'package:flutter/material.dart';
 
 class AslanAkbey extends Role {
+  static AslanAkbey instance = AslanAkbey.init();
+  AslanAkbey.init();
   final String _MissionText =
-      "You have taken important positions in your state and now you have raised a very important person and you have the ability to keep secrets";
+      "No Secret";
   final String _RoleDefinition =
-      "Derin devletin başındaki adamlardan birisisin";
+      "You have taken important positions in your state and now you have raised a very important person and you have the ability to keep secrets";
 
   String _Name = "Aslan Akbey";
   final String _team = "Derin Devlet";

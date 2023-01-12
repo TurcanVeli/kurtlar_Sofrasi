@@ -2,8 +2,10 @@ import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class Abdulhey extends Role {
-  final String _MissionText = "You have just one shot";
-  final String _RoleDefinition = "Derin devletin tetikçisisin";
+   static Abdulhey instance = Abdulhey._init();
+   Abdulhey._init();
+  final String _MissionText = "CHOOSE THE PERSON YOU WANT TO USE THE BULLET";
+  final String _RoleDefinition = "You are the hitman of the state and you have only one bullet..";
 
   String _Name = "Abdulhey";
   final String _team = "Derin Devlet";

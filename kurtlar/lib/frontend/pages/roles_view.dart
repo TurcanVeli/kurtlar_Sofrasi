@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/backend/models/officer.dart';
 import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/pages/starting_view.dart';
 import '../../backend/models/BaseRole.dart';
 import '../base/color_constants.dart';
 import '../base/widget_base.dart';
-import '../models/roles.dart';
+
 import 'package:vector_math/vector_math.dart' as math;
 
-import '../models/users.dart';
-
+import '../models/usersAndroles.dart';
 
 /* People are going to choose which roles are going to include in the game */
 
@@ -19,49 +19,45 @@ class rolesPage extends StatefulWidget {
 }
 
 class _rolesPageState extends BaseState<rolesPage> {
-  
- /* We are going to use count of player with USER service file */
-  int UsersCount      = USERS.length;
-  int addedRoleCount  = 0;
- /* count of mafia can not be 0. All game have to contain at least 1 mafia player. */
+  /* We are going to use count of player with USER service file */
+  int UsersCount = USERS.length;
+  int addedRoleCount = 0;
+  /* count of mafia can not be 0. All game have to contain at least 1 mafia player. */
   int addedmafiacount = 0;
-
-  
 
   @override
   void initState() {
-    
-    Off.SetCount(UsersCount);
-    for (int i = 0; i<UsersCount; i++){
-      addedRoles.add(Off);
+    officer.instance.SetCount(UsersCount);
+    for (int i = 0; i < UsersCount; i++) {
+      addedRoles.add(officer.instance);
     }
     super.initState();
   }
 
-  void roleCountIncrement(Role role){
+  void roleCountIncrement(Role role) {
     setState(() {
-      if(Off.Getcount > 0){
+      if (officer.instance.Getcount > 0) {
         role.increment();
-        Off.count--;
-        addedRoles.remove(Off);
-        if (role.GetTeam == "Mafya"){
+        officer.instance.count--;
+        addedRoles.remove(officer.instance);
+        if (role.GetTeam == "Mafya") {
           addedmafiacount++;
         }
         addedRoles.add(role);
         addedRoleCount++;
-        }
+      }
     });
   }
 
-  void roleCountDecrement(Role role){
+  void roleCountDecrement(Role role) {
     setState(() {
       role.decrase();
-      Off.count++;
-      addedRoles.add(Off);
-       if (role.GetTeam == "Mafya"){
-          addedmafiacount--;
-        }
-        addedRoles.remove(role);
+      officer.instance.count++;
+      addedRoles.add(officer.instance);
+      if (role.GetTeam == "Mafya") {
+        addedmafiacount--;
+      }
+      addedRoles.remove(role);
       addedRoleCount--;
     });
   }
@@ -143,11 +139,15 @@ class _rolesPageState extends BaseState<rolesPage> {
           ),
           BottomButtonContainerContiune(
             context: context,
-            color: addedmafiacount == 0? Colors.grey: null ,
+            color: addedmafiacount == 0 ? Colors.grey : null,
             height: dynamicHeight(0.08),
             //Translate edilecek
-            buttonText: addedmafiacount == 0? "En az 1 mafya ekleyin": translate(context).contiune,
-            where:addedmafiacount == 0? null :starting(),//Where ve function null olursa hiç bir şey çalışmaz bu buttonda
+            buttonText: addedmafiacount == 0
+                ? "En az 1 mafya ekleyin"
+                : translate(context).contiune,
+            where: addedmafiacount == 0
+                ? null
+                : starting(), //Where ve function null olursa hiç bir şey çalışmaz bu buttonda
           ),
         ],
       ),
@@ -214,7 +214,7 @@ class _rolesPageState extends BaseState<rolesPage> {
   Column RoleContainerInsideColumn(Role role) {
     return Column(
       children: [
-        Expanded(flex:4,child: Image.asset(role.imagePath)),
+        Expanded(flex: 4, child: Image.asset(role.imagePath)),
         Expanded(
             flex: 3,
             child: InkWell(
@@ -244,7 +244,9 @@ class _rolesPageState extends BaseState<rolesPage> {
                 roleCountDecrement(role);
               });
             },
-            child: role.GetName=="Memur" || role.Getcount == 0? SizedBox():OperationContainer(" - ")),
+            child: role.GetName == "Memur" || role.Getcount == 0
+                ? SizedBox()
+                : OperationContainer(" - ")),
         RoleCountText(role),
         InkWell(
             onTap: () {
@@ -253,7 +255,10 @@ class _rolesPageState extends BaseState<rolesPage> {
               });
             },
             //ToDo Textler düzelecek
-            child: role.GetName=="Memur" || role.Getcount == 1 && role.GetName != "Mafya Adamı"? SizedBox():OperationContainer(" + ")),
+            child: role.GetName == "Memur" ||
+                    role.Getcount == 1 && role.GetName != "Mafya Adamı"
+                ? SizedBox()
+                : OperationContainer(" + ")),
       ],
     );
   }
@@ -275,7 +280,10 @@ class _rolesPageState extends BaseState<rolesPage> {
     );
   }
 
-  Text RoleNameText(Role role) => Text(role.GetName,style: TextStyle(fontWeight: FontWeight.bold),);
+  Text RoleNameText(Role role) => Text(
+        role.GetName,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      );
 }
 
 Widget _dialog(BuildContext context, String header, String Body) {

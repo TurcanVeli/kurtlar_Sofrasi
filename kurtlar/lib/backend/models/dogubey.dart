@@ -2,9 +2,11 @@ import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class DoguBey extends Role {
-  final String _MissionText = "İstihbarat Sağla";
+  static DoguBey instance = DoguBey.init();
+  DoguBey.init();
+  final String _MissionText = "WHO WILL YOU CHOOSE TO GET INTELLIGENCE?";
   final String _RoleDefinition =
-      "Doğu bey sezgileri güçlü olan bir derin devlet üyesidir";
+      "You are in the upper echelon of government and you have intelligence ability.";
 
   String _Name = "Doğu Bey";
   final String _team = "Derin Devlet";
