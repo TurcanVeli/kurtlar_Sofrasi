@@ -3,8 +3,10 @@ import 'package:kurtlar/frontend/models/players.dart';
 import 'BaseRole.dart';
 
 class mafiamen extends Role {
+  static mafiamen instance = mafiamen.init();
+  mafiamen.init();
   final String _MissionText = "No Mission";
-  final String _RoleDefinition = "Basit bir mafya adamısın";
+  final String _RoleDefinition = "You somehow fell into the mafia, you either rise or die. You don't have a talent.";
   String _Name = "Mafya Adamı";
   final String _team = "Mafya";
   final String _imagepath = "assets/images/deafultAvatar.png";

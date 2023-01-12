@@ -10,7 +10,7 @@ import 'package:kurtlar/frontend/pages/roles_view.dart';
 import 'package:kurtlar/frontend/components/alert_dialog.dart';
 
 import '../models/players.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 /* We are going to use invite code in order to call person in this page */
 /* Firstly, we are going to check invite code in database. 

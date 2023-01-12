@@ -7,7 +7,7 @@ import 'package:kurtlar/frontend/pages/daylight_view.dart';
 
 import '../components/button.dart';
 import '../models/players.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 class NightreportPage extends StatefulWidget {
   @override

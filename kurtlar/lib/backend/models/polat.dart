@@ -5,9 +5,9 @@ class Polat extends Role {
   static Polat instance = Polat._init();
   Polat._init();
 
-  final String _MissionText = "Birinin rolünü açığa çıkart";
+  final String _MissionText = "CHOOSE TO SHOW ROLE OF PLAYER";
   final String _RoleDefinition =
-      "Sen polat alemdarsın ve derin devlete bağlısına zamanı geldiğinde mafyaların kim olduğunu bulmak için yeteneklerini kullanacaksın ve devletine yarıdm edeceksin yakalanmamaya dikkat et";
+      "You're a government-trained man and you have the ability to Lookout";
 
   String _Name = "Polat";
   final String _team = "Derin Devlet";
