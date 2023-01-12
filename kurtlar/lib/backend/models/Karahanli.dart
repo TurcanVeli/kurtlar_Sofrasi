@@ -2,8 +2,12 @@ import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class Karahanli extends Role {
-  final String _MissionText = "Birinin rolünü sustur";
-  final String _RoleDefinition = "Mafyanın başındaki adamsın";
+  static Karahanli instance = Karahanli.init();
+  Karahanli.init();
+  final String _MissionText =
+      "CHOOSE THE PERSON TO MUTE";
+  final String _RoleDefinition =
+      "You are the head of the mafia and you have the ability to silence.";
 
   String _Name = "Karahanli";
   final String _team = "Mafya";

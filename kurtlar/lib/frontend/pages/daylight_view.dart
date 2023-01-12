@@ -8,7 +8,7 @@ import '../base/color_constants.dart';
 import '../components/button.dart';
 import '../components/ready.dart';
 import '../components/showingOtherPlayers.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 class DaylightPage extends StatefulWidget {
   int index;

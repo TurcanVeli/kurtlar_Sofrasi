@@ -4,8 +4,7 @@ import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
-import '../base/color_constants.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 class create extends StatefulWidget {
   @override
@@ -93,8 +92,7 @@ class _createState extends State<create> {
                 height: 40,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) => nightstartPage()));
                   },
                   child: Text(translate(context).ready),

@@ -6,7 +6,7 @@ import 'package:kurtlar/frontend/pages/night_view.dart';
 import 'package:kurtlar/frontend/pages/nightreport_view.dart';
 import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 //TODO Dogunun görevi sorunlu ve gece kimse ölnediğinde gece kimse ölmedi yazacak.
 class missionreportPage extends StatefulWidget {

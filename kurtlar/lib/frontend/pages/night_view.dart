@@ -8,7 +8,7 @@ import 'package:kurtlar/frontend/pages/nightreport_view.dart';
 import '../../backend/lang/language_constant.dart';
 import '../components/button.dart';
 import '../components/ready.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 
 //Gece oylama kısmdında hazır mısın ve gündüz hazırmısın sayfası bu olacak.
 

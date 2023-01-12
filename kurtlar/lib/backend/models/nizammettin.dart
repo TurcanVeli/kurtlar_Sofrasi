@@ -2,8 +2,10 @@ import 'package:kurtlar/backend/models/BaseRole.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
 class nizamettin extends Role {
-  final String _MissionText = "Sabahki duruşmada birini koru";
-  final String _RoleDefinition = "Sen Mafyanın avukatısın";
+  static nizamettin instance = nizamettin.init();
+  nizamettin.init();
+  final String _MissionText = "Lawyer";
+  final String _RoleDefinition = "You're the mafia's lawyer and that's your job.";
   String _Name = "Nizamettin";
   final String _team = "Mafya";
   final String _imagepath = "assets/images/nizamettin.png";

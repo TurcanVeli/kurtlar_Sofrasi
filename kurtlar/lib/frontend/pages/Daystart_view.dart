@@ -5,7 +5,7 @@ import 'package:kurtlar/frontend/base/color_constants.dart';
 
 import '../components/button.dart';
 import '../components/gameoverComponent.dart';
-import '../models/users.dart';
+import '../models/usersAndroles.dart';
 import 'daylight_view.dart';
 
 //Oyunun BitmeKoşulu Burada Kontrol Edilecek.

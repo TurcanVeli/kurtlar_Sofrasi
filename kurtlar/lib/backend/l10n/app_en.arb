@@ -4,6 +4,7 @@
     "login": "LOG IN",
     "or": "OR",
     "signup": "SIGN UP",
+    "signout": "SIGN OUT",
     "newgame": "NEW GAME",
     "profile": "PLAYER PROFILE",
     "howtoplay": "HOW TO PLAY ?",
@@ -26,7 +27,7 @@
     "polatExpo": "You're a government-trained man and you have the ability to Lookout",
     "polatAbility": "Lookout: Polat chooses any person at night and if that person is the mafia, he sees the text mafia, if not, he sees the text not the mafia.",
     "polatChoose": "You, Polat Alemdar, are connected to the deep state to find out who the mafias are when the time comes.You will use your talent and help your state.be careful not to get caught.",
-    "polatUseabilitypage": "CHOOSE WHO CAN BECOME THE MAFIA",
+    "polatUseabilitypage": "CHOOSE TO SHOW ROLE OF PLAYER",
     "polatAbilityuseage_1": "THIS PERSON IS NOT FROM THE MAFIA",
     "polatAbilityusage_2": "THIS PERSON IS FROM THE MAFIA",
     "doguExpo": "You are in the upper echelon of government and you have intelligence ability.",
@@ -54,7 +55,7 @@
     "mafiamenChoose": "You are at the lowest level of the mafia, you can see the other members of the mafia, when the time comes, choose who will die.",
     "mafiamenAbilitypage": "CHOOSE THE PERSON YOU WANT TO KILL",
     "karahanliExpo": "You are the head of the mafia and you have the ability to silence.",
-    "karahanliAbility": "Silencing: Karakhanlı is the head of the mafia and has a strong authority, with this ability, an option appears on his screen while voting for who will be hanged during the day, and the person chosen by the Karakhanid does not use his night ability, the Karakhanid can use this ability 3 times in total.",
+    "karahanliAbility": "Silencing: Karakhanlı is the head of the mafia and has a strong authority, with this ability, an option appears on his screen while voting for who will be hanged during the day, and the person chosen by the Karakhanid does not use his night ability, the Karakhanid can use this ability 1 times in total.",
     "karahanliChoose": "You, the head of the mafia, the Karakhanid, are so powerful that you can prevent others from using their abilities. you can see other mafia members",
     "karahanliUseabilitypage": "CHOOSE THE PERSON TO MUTE",
     "cakirExpo": "You are trying to be the biggest in Istanbul and you have the majority of votes.",
@@ -117,5 +118,6 @@
     "de": "DEUTSCHE",
     "es": "ESPANOL",
     "it":"ITALIAN",
-    "nojob": "No job for today"
+    "nojob": "No job for today",
+    "nodead": "No one died tonight"
 }

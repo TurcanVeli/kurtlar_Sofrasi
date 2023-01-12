@@ -55,7 +55,7 @@ Center ReadyComponent(
               padding: EdgeInsets.only(bottom: 90),
               child: Text(Body,
                   style:
-                      TextStyle(color: isNight ? ColorConstant.instance.white : ColorConstant.instance.black)),
+                      TextStyle(color: isNight ? ColorConstant.instance.white : Colors.black,fontSize: 20)),
             ))),
         SizedBox(
           height: dynamicHeight(0.07),

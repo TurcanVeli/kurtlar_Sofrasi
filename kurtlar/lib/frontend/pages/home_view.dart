@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/cache/cache_id.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/components/button.dart';
-import 'package:kurtlar/frontend/models/users.dart';
+import 'package:kurtlar/frontend/models/usersAndroles.dart';
 import 'package:kurtlar/frontend/pages/login_view.dart';
 import 'package:kurtlar/frontend/pages/players_view.dart';
 import 'package:kurtlar/frontend/pages/profile_view.dart';
@@ -14,6 +14,7 @@ import '../base/color_constants.dart';
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
+
 }
 
 class _HomeState extends State<Home> with CacheID{
@@ -58,17 +59,6 @@ class _HomeState extends State<Home> with CacheID{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: (() {
-            SetID(null);
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => LoginPage()));
-          }),
-          icon: Icon(
-            Icons.exit_to_app,
-            color: ColorConstant.instance.white,
-          ),
-        ),
         actions: [
           IconButton(
             icon: Icon(

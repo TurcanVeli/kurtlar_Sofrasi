@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/base/widget_base.dart';
+import 'package:kurtlar/frontend/components/button.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 import 'package:kurtlar/frontend/pages/nightstart_view.dart';
 
-import '../base/color_constants.dart';
-import '../components/button.dart';
-import '../models/users.dart';
+
+import '../models/usersAndroles.dart';
 
 //Gündüz oylamaları silinecek. Mafyanın görevleri işleyecek. Özellikle nizamettin
 class DayLightreport extends StatefulWidget {
