@@ -22,7 +22,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
   String MissionText;
   Players user;
   List<Players> mixedInformation = [];
-  
+
   @override
   void initState() {
     user = USERS[widget.index];
@@ -41,12 +41,12 @@ class _missionreportPageState extends BaseState<missionreportPage> {
 
     super.initState();
   }
+
   @override
   void dispose() {
-    if(user.GetRole.GetName == "Doğu Bey")user.setDidYouGetInfos(true);
+    if (user.GetRole.GetName == "Doğu Bey") user.setDidYouGetInfos(true);
     super.dispose();
   }
-  
 
   CircleAvatar ChosenUserAvatar() {
     return CircleAvatar(
@@ -63,7 +63,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
         child: !user.GetDidYougetInfos
             ? user.GetRole.chosenUser.Getisdead
                 ? user.GetRole.chosenUser.GetHitBullet
-                    ? Text("Abdulley Vurmuş",
+                    ? Text(translate(context).abdushot,
                         style: TextStyle(
                             fontSize: 30, color: ColorConstant.instance.white))
                     : Text(
@@ -72,10 +72,10 @@ class _missionreportPageState extends BaseState<missionreportPage> {
                             fontSize: 20,
                             color: ColorConstant.instance
                                 .white)) //İki kişi gelcek ve biri kesin mafya olcak
-                : Text("Hedefin hala yaşıyor",
+                : Text(translate(context).alive,
                     style: TextStyle(
                         fontSize: 30, color: ColorConstant.instance.white))
-            : Text("Bugünlük İş yok",
+            : Text(translate(context).nojob,
                 style: TextStyle(
                     fontSize: 30, color: ColorConstant.instance.white)),
       );

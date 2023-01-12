@@ -83,8 +83,8 @@ class _DayLightreportState extends State<DayLightreport> {
                                   fontSize: 15)),
                           CircleAvatar(
                             radius: 40,
-                            child:
-                                Image.asset("assets/images/deafultAvatar.png"),
+                            backgroundImage: NetworkImage(jailed.GetImageUrl),
+                                
                           ),
                           SizedBox(
                             height: 60,

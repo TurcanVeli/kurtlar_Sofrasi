@@ -1,10 +1,12 @@
 // settings
+import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:kurtlar/backend/lang/language_constant.dart';
+import 'package:kurtlar/frontend/base/color_constants.dart';
 import '../../main.dart';
 
-/* This page will be drawn after the setting button was pressed */ 
+/* This page will be drawn after the setting button was pressed */
 class SettingPageUI extends StatefulWidget {
   const SettingPageUI({Key key}) : super(key: key);
   @override
@@ -12,6 +14,13 @@ class SettingPageUI extends StatefulWidget {
 }
 
 class _SettingPageUIState extends State<SettingPageUI> {
+  Locale defaultLocale;
+  @override
+  void initState() {
+    
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,6 +97,7 @@ class _SettingPageUIState extends State<SettingPageUI> {
   GestureDetector buildAccountOption(BuildContext context, String title) {
     return GestureDetector(
       onTap: () {
+        getLocale().then((locale) => defaultLocale = locale);
         showDialog(
             context: context,
             builder: (BuildContext context) {
@@ -104,41 +114,172 @@ class _SettingPageUIState extends State<SettingPageUI> {
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                   /* This button is going to make  the language from english to turkish */
-                    ElevatedButton(
-                      onPressed: () async {
-                        Locale _locale = await setLocale("tr");
-                        MyApp.setLocale(context, _locale);
-                        Navigator.of(context).pop();
-                      },
-                      child: Text(translate(context).tr),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.red,
-                          shape: StadiumBorder(),
-                          side: BorderSide(color: Colors.black, width: 2),
-                          padding: EdgeInsets.all(10.0),
-                          minimumSize: Size(90, 50)),
+                    /* This button is going to make  the language from english to turkish */
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        onTap: () async {
+                          
+                          Locale _locale = await setLocale("tr");
+                          MyApp.setLocale(context, _locale);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                            decoration: LanguageContainerDecaration("tr_TUR"),
+                            
+                            width: double.infinity,
+                            height: 20,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(translate(context).tr),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Flag.fromCode(
+                                  FlagsCode.TR,
+                                  height: 15,
+                                  width: 15,
+                                )
+                              ],
+                            )),
+                      ),
                     ),
-                    SizedBox(
-                      height: 10,
+                    Expanded(
+                      child: SizedBox(),
                     ),
                     /* This button is going to make the language from turkish to english */
-                    ElevatedButton(
-                      onPressed: () async {
-                        Locale _locale = await setLocale("en");
-                        MyApp.setLocale(context, _locale);
-                        Navigator.of(context).pop();
-                      },
-                      child: Text(
-                        translate(context).eng,
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        onTap: () async {
+                          Locale _locale = await setLocale("en");
+                          MyApp.setLocale(context, _locale);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                            decoration: LanguageContainerDecaration("en_US"),
+                            width: double.infinity,
+                            height: 20,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(translate(context).eng),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Flag.fromCode(
+                                  FlagsCode.TR,
+                                  height: 15,
+                                  width: 15,
+                                )
+                              ],
+                            )),
                       ),
-                      style: ElevatedButton.styleFrom(
-                          primary: Colors.red,
-                          shape: StadiumBorder(),
-                          side: BorderSide(color: Colors.black, width: 2),
-                          padding: EdgeInsets.fromLTRB(11, 13, 11, 13),
-                          minimumSize: Size(50, 50)),
-                    )
+                    ),
+                    Expanded(
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        onTap: () async {
+                          Locale _locale = await setLocale("es");
+                          MyApp.setLocale(context, _locale);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                            decoration: LanguageContainerDecaration("es_ES"),
+                            width: double.infinity,
+                            height: 20,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(translate(context).es),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Flag.fromCode(
+                                  FlagsCode.ES,
+                                  height: 15,
+                                  width: 15,
+                                )
+                              ],
+                            )),
+                      ),
+                    ),
+                    Expanded(
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        onTap: () async {
+                          Locale _locale = await setLocale("de");
+                          MyApp.setLocale(context, _locale);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                            decoration: LanguageContainerDecaration("de_DE"),
+                            width: double.infinity,
+                            height: 20,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(translate(context).de),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Flag.fromCode(
+                                  FlagsCode.DE,
+                                  height: 15,
+                                  width: 15,
+                                )
+                              ],
+                            )),
+                      ),
+                    ),
+                    Expanded(
+                      child: SizedBox(),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: InkWell(
+                        onTap: () async {
+                          Locale _locale = await setLocale("it");
+                          MyApp.setLocale(context, _locale);
+                          Navigator.of(context).pop();
+                        },
+                        child: Container(
+                            decoration: LanguageContainerDecaration("it_IT"),
+                            width: double.infinity,
+                            height: 20,
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(translate(context).it),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Flag.fromCode(
+                                  FlagsCode.IT,
+                                  height: 15,
+                                  width: 15,
+                                )
+                              ],
+                            )),
+                      ),
+                    ),
                   ],
                 ),
                 actions: [
@@ -165,6 +306,22 @@ class _SettingPageUIState extends State<SettingPageUI> {
           ],
         ),
       ),
+    );
+  }
+
+  BoxDecoration LanguageContainerDecaration(String LanguageCode) {
+    return BoxDecoration(
+      borderRadius: BorderRadius.circular(5.0),
+      color: defaultLocale.toString() == LanguageCode
+          ? ColorConstant.instance.red
+          : ColorConstant.instance.white,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          offset: Offset(0.0, 1.0), //(x,y)
+          blurRadius: 6.0,
+        ),
+      ],
     );
   }
 }

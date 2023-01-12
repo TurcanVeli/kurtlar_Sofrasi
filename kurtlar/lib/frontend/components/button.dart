@@ -78,9 +78,7 @@ Container BottomButtonContainerContiune(
       child: ElevatedButton(
           onPressed: (() {
             if (where != null) {
-              Navigator.of(context).pop();
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => where));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => where));
             } else {
               if (function != null) {
          
