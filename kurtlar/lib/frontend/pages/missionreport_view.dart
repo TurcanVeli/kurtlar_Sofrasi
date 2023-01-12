@@ -44,7 +44,6 @@ class _missionreportPageState extends BaseState<missionreportPage> {
 
   @override
   void dispose() {
-    if (user.GetRole.GetName == "Doğu Bey") user.setDidYouGetInfos(true);
     super.dispose();
   }
 
@@ -60,7 +59,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
   Container Dogureport() => Container(
         height: dynamicHeight(0.1),
         width: dynamicWidth(0.8),
-        child: !user.GetDidYougetInfos
+        child: user.GetDidYougetInfos
             ? user.GetRole.chosenUser.Getisdead
                 ? user.GetRole.chosenUser.GetHitBullet
                     ? Text(translate(context).abdushot,
@@ -92,7 +91,7 @@ class _missionreportPageState extends BaseState<missionreportPage> {
       height: dynamicHeight(0.1),
       child: Column(
         children: [
-          Text("${USERS[widget.index].GetRole.chosenUser.GetName}",
+          Text("${USERS[widget.index].GetRole.chosenUser.GetName}", textAlign: TextAlign.center,
               style:
                   TextStyle(fontSize: 30, color: ColorConstant.instance.white)),
           SizedBox(
@@ -135,6 +134,9 @@ class _missionreportPageState extends BaseState<missionreportPage> {
               ),
               Row(
                 children: <Widget>[
+                  SizedBox(
+                    width: dynamicHeight(0.01),
+                  ),
                   MissionText != "Bugünlük iş yok"
                       ? ChosenUserAvatar()
                       : SizedBox(

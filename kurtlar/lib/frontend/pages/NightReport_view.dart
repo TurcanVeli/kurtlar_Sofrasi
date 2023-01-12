@@ -156,14 +156,15 @@ class _NightreportPageState extends State<NightreportPage> {
                           .copyWith(color: ColorConstant.instance.white),
                     ),
                   ),
-                  BottomButtonContainerContiune(
-                      context: context,
-                      height: 50,
-                      buttonText: translate(context).contiune,
-                      ContainerColor: ColorConstant.instance.transparent,
-                      where: DayStartPage()),
-                ],
-              ))
-        ]);
+                ),
+              BottomButtonContainerContiune(
+                  context: context,
+                  height: 50,
+                  buttonText: translate(context).contiune,
+                  ContainerColor: ColorConstant.instance.transparent,
+                  where: DayStartPage()),
+            ],
+          ))
+    ]);
   }
 }
