@@ -2,6 +2,7 @@
     "username": "Kullanıcı adı",
     "password": "Şifre",
     "login": "GİRİŞ YAP",
+    "signout": "ÇIKIŞ YAP",
     "or": "VEYA",
     "signup": "KAYIT OL",
     "newgame": "YENİ OYUN",

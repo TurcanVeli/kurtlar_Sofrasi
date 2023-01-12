@@ -4,6 +4,7 @@
     "login": "INICIAR SESIÓN",
     "or": "O",
     "signup": "REGÍSTRATE",
+    "signout": "DESCONECTAR",
     "newgame": "NUEVO JUEGO",
     "profile": "PERFIL DEL JUGADOR",
     "howtoplay": "CÓMO JUGAR?",
@@ -118,7 +119,7 @@
     "maifamen": "Mafia",
     "de": "DEUTSCHE",
     "es": "ESPANOL",
-    "it":"ITALIAN",
+    "it": "ITALIAN",
     "nojob": "No hay trabajos por hoy",
     "nodead": "Nadie murió esta noche"
 }
