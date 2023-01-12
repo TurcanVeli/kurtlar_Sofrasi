@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kurtlar/backend/lang/language_constant.dart';
 import 'package:kurtlar/frontend/base/color_constants.dart';
 import 'package:kurtlar/frontend/models/players.dart';
 
@@ -54,7 +55,7 @@ Center ReadyComponent(
               padding: EdgeInsets.only(bottom: 90),
               child: Text(Body,
                   style:
-                      TextStyle(color: isNight ? Colors.white : Colors.black)),
+                      TextStyle(color: isNight ? ColorConstant.instance.white : Colors.black)),
             ))),
         SizedBox(
           height: dynamicHeight(0.07),
@@ -62,10 +63,10 @@ Center ReadyComponent(
         if (ispressed)
           Container(
             height: dynamicHeight(0.07),
-            color: Colors.red,
+            color: ColorConstant.instance.red,
             child: ElevatedButton(
               onPressed: go,
-              child: Text("Hazır"),
+              child: Text(translate(context).ready),
               style: ButtonStyle(
                 backgroundColor:
                     MaterialStateProperty.all(ColorConstant.instance.red),
