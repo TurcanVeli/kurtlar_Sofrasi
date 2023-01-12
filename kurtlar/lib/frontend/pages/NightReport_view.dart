@@ -86,7 +86,7 @@ class _NightreportPageState extends State<NightreportPage> {
       ),
       Scaffold(
           backgroundColor:
-              Colors.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
+            ColorConstant.instance.transparent, // <-- SCAFFOLD WITH TRANSPARENT BG
           body: Column(
             children: [
               SizedBox(
