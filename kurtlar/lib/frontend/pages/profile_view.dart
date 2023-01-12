@@ -133,8 +133,8 @@ class _profileState extends State<profile> with CacheID {
 
               Container(
                 margin: EdgeInsets.all(5),
-                width: 200,
-                height: 30,
+                width: double.infinity,
+                height: 35,
                 child: Text("Username: " + data['userName'],
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -144,7 +144,7 @@ class _profileState extends State<profile> with CacheID {
               ),
               Container(
                 margin: EdgeInsets.all(5),
-                width: 200,
+                width: double.infinity,
                 height: 30,
                 child: Text("Money: " + data['coin'].toString(),
                     textAlign: TextAlign.center,
@@ -155,7 +155,7 @@ class _profileState extends State<profile> with CacheID {
               ),
               Container(
                 margin: EdgeInsets.all(5),
-                width: 200,
+                width: double.infinity,
                 height: 30,
                 child: Text("Point: " + data['point'].toString(),
                     textAlign: TextAlign.center,
@@ -165,9 +165,8 @@ class _profileState extends State<profile> with CacheID {
                         fontWeight: FontWeight.bold)),
               ),
               SizedBox(height: 30),
-
               Container(
-                width: 200,
+               width: double.infinity,
                 height: 50,
                 alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.all(10),
